@@ -2,6 +2,10 @@
 <html lang="ja">
 <head>
 <title>HTML5の知識 | Web Wiki</title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="../css/common.css">
 </head>
@@ -9,10 +13,10 @@
 <main>
 
 <div class="str-inner">
-<h1>HTML5の知識</h1>
+<h1 class="hdg-lv1-a">HTML5の知識</h1>
 
 <section>
-<h2>DOCTYPE宣言</h2>
+<h2 class="hdg-lv2-a">DOCTYPE宣言</h2>
 
 <ul>
 <li>HTML5には実際DOCTYPE宣言は不要だが、<strong>ブラウザの表示モードを「標準モード」にする目的で指定</strong>することになっている</li>
@@ -20,11 +24,10 @@
 </ul>
 
 <aside>
-<div class="box-a">
-<h1>補足説明</h1>
+<h1 class="hdg-lv1-a">補足説明</h1>
 <p>HTML5であってもHTML4.01やXHTML1.0などのDOCTYPE宣言がそのまま使用できる。</p>
 
-<h2>HTML5で使用が許可されているDOCTYPE宣言</h2>
+<h2 class="hdg-lv2-a">HTML5で使用が許可されているDOCTYPE宣言</h2>
 <pre>
 <code>
 &lt;!DOCTYPE html&gt;
@@ -37,22 +40,24 @@
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"&gt;
 </code>
 </pre>
-<!-- /.box-a --></div>
 </aside>
 </section>
 
 <section>
-<h2>要素とカテゴリー</h2>
+<h2 class="hdg-lv2-a">要素とカテゴリー</h2>
 <p>HTML5よりも前のHTML/XHTMLでは、要素は大きく<em>インライン要素</em>と<em>ブロック要素</em>の2種類に分類されていましたが、このインラインかブロックレベルかという要素の大きな分類は廃止され、要素は7種類のカテゴリーに定義されています。</p>
 
 <p>以前はブロックレベル要素以外の要素をbody直下に配置することは基本的にできませんでした。しかし、HTML5ではブロックレベルかどうかという分類はなくなり、<em>従来のインライン要素に該当する要素でも、body直下に配置できる</em>ようになっている。</p>
 
-<h3>HTML5の要素のカテゴリー</h3>
-<dl>
+<h3 class="hdg-lv3-a">HTML5の要素のカテゴリー</h3>
+<dl class="list-dl-a">
 <dt>メタデータコンテンツ</dt>
 <dd>
-<p>HTMLページの情報や挙動を定義するHTML要素</p>
-<ul>
+<p class="txt-dl-lead">HTMLページの情報や挙動を定義するHTML要素</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>base</em>相対パスの基準とするURL</li>
 <li><em>link</em>HTML文書とファイルを関連づける</li>
 <li><em>meta</em>メタデータ</li>
@@ -62,11 +67,17 @@
 <li><em>title</em>HTML文書のタイトル</li>
 <li><em>template</em>内容をスクリプトで生成する部分</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
 </dd>
 <dt>フローコンテンツ</dt>
 <dd>
-<p><em>body要素の中なら基本的にどこにでも配置できる要素</em>。「特定の要素内の特定の位置にしか配置できない」というような制限がなく自由な場所に配置できる</p>
-<ul>
+<p class="txt-dl-lead"><em>body要素の中なら基本的にどこにでも配置できる要素</em>。「特定の要素内の特定の位置にしか配置できない」というような制限がなく自由な場所に配置できる</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>a</em></li>
 <li><em>abbr</em>略語</li>
 <li><em>address</em>問い合わせ先</li>
@@ -144,28 +155,43 @@
 <li><em>wbr</em></li>
 <li>テキスト</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 <dt>見出しコンテンツ</dt>
 <dd>
-<p>コンテンツの<em>見出しを表す</em>HTML要素</p>
-<ul>
+<p class="txt-dl-lead">コンテンツの<em>見出しを表す</em>HTML要素</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a">
 <li><em>h1～h6</em>セクションの見出し（1階層目～6階層目）</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 <dt>セクショニングコンテンツ</dt>
 <dd>
-<p>章・節・項のように<em>アウトライン（階層構造）を形成する</em>要素</p>
-<ul>
+<p class="txt-dl-lead">章・節・項のように<em>アウトライン（階層構造）を形成する</em>要素</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>article</em>完結している記事のセクション</li>
 <li><em>aside</em>本題から外れた内容のセクション</li>
 <li><em>nav</em>主要なナビゲーション</li>
 <li><em>section</em>一般的なセクション</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 <dt>フレージングコンテンツ</dt>
 <dd>
-<p>ドキュメントの<em>テキスト範囲を示す</em>要素が分類されます。従来のインライン要素に近い概念のカテゴリーです。</p>
-<ul>
+<p class="txt-dl-lead">ドキュメントの<em>テキスト範囲を示す</em>要素が分類されます。従来のインライン要素に近い概念のカテゴリーです。</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a list-col">
 <li><em>a</em></li>
 <li><em>abbr</em></li>
 <li><em>area</em><em><span>※</span></em>map要素に含まれている場合のみ該当</li>
@@ -220,11 +246,16 @@
 <li><em>wbr</em></li>
 <li>テキスト</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 <dt>インタラクティブコンテンツ</dt>
 <dd>
-<p>ユーザーが何かしらの<em>操作（クリックなど）をすることができる</em>要素</p>
-<ul>
+<p class="txt-dl-lead">ユーザーが何かしらの<em>操作（クリックなど）をすることができる</em>要素</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>a</em>ハイパーリンク<em>href属性が指定されている場合のみ該当</em></li>
 <li><em>audio</em>音声の再生<em>audio要素とvideo要素は、controls属性が指定されている場合のみ該当</em></li>
 <li><em>button</em>ボタン</li>
@@ -239,13 +270,18 @@
 <li><em>textarea</em>複数行のテキスト入力欄</li>
 <li><em>video</em>動画の再生</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 
 <p><span>※</span>要素の種類に関わらず、tabindex属性が指定されるとインタラクティブコンテンツに該当</p>
 </dd>
 <dt>組み込みコンテンツ</dt>
 <dd>
-<p><em>外部のリソースや、HTML以外の言語で生成されたコンテンツを埋め込む</em>要素</p>
-<ul>
+<p class="txt-dl-lead"><em>外部のリソースや、HTML以外の言語で生成されたコンテンツを埋め込む</em>要素</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>audio</em>音声の再生</li>
 <li><em>canvas</em>スクリプトによるビットマップ動画のグラフィック</li>
 <li><em>embed</em>プラグインによる外部データの組み込み</li>
@@ -255,20 +291,25 @@
 <li><em>picture</em>複数の候補画像を含む要素</li>
 <li><em>video</em>動画の再生</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 </dl>
 
-<h3>コンテンツ･モデル</h3>
+<h3 class="hdg-lv3-a">コンテンツ･モデル</h3>
 <p>内容としていれられるコンテンツが各要素ごとに詳細に決められていること。たとえば、「div要素にはフロー･コンテンツを入れることができる」など。<br>
 HTML5では文書を作成する際には、このコンテンツ･モデルを意識してマークアップする必要がある。</p>
 
-<h3>トランスペアレント</h3>
+<h3 class="hdg-lv3-a">トランスペアレント</h3>
 <p>親要素のコンテンツ･モデルがそのまま自分のコンテンツ･モデルとなる要素のことをトランスペアレントという。</p>
 
-<dl>
+<dl class="list-dl-a">
 <dt>トランスペアレントの要素</dt>
 <dd>
-<ul>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>a</em>ハイパーリンク</li>
 <li><em>audio</em>音声の再生</li>
 <li><em>canvas</em>スクリプトによるビットマップの動的なグラフィック</li>
@@ -279,18 +320,23 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <li><em>object</em>さまざまな形式の外部データの組込み</li>
 <li><em>video</em>動画の再生</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 </dl>
 </section>
 
 <section>
-<h2>タグの省略</h2>
+<h2 class="hdg-lv2-a">タグの省略</h2>
 <p>HTML5の要素の中には、終了タグを省略できるものと、開始タグと終了タグの両方を省略できるものがある。<br>
 ただし、タグが省略可能な要素においても、実際にタグが省略できるかどうかは条件（要素やコメントの前後の配置関係など）によって異なる。</p>
-<dl>
+<dl class="list-dl-a">
 <dt>開始タグが省略可能な要素</dt>
 <dd>
-<ul>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>li</em>リストの項目</li>
 <li><em>dt</em>dl要素内の「用語」部分</li>
 <li><em>dd</em>dl要素内の「説明文」部分</li>
@@ -307,28 +353,38 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <li><em>td</em>表のセル（データ）</li>
 <li><em>th</em>表のセル（見出し）</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 
 <dt>開始タグと終了タグの両方を省略可能な要素</dt>
 <dd>
-<ul>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>html</em>HTML文書全体を含む要素（ルート要素）</li>
 <li><em>head</em>HTMLの文書のメタデータを入れる要素</li>
 <li><em>body</em>HTML文書のコンテンツ全体を入れる要素</li>
 <li><em>colgroup</em>表の縦列のグループ</li>
 <li><em>tbody</em>表の本体部分の横列のグループ</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 </dl>
 </section>
 
 <section>
-<h2>空要素</h2>
+<h2 class="hdg-lv2-a">空要素</h2>
 <p>テキストを持つことができないものを指す。</p>
-<dl>
+<dl class="list-dl-a">
 <dt>空要素一覧</dt>
 <dd>
-<ul>
+<div class="js-accordion accordion-wrap">
+<p class="title">一覧を見る</p>
+<div class="contents">
+<ul class="list-normal-a col-2">
 <li><em>area</em>イメージマップの領域を定義</li>
 <li><em>base</em>相対パスの基準とするURL</li>
 <li><em>br</em>改行</li>
@@ -344,6 +400,8 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <li><em>track</em>字幕などのテキスト・トラック</li>
 <li><em>wbr</em>英単語などの途中で行を折り返してもよい位置</li>
 </ul>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 </dd>
 </dl>
 
@@ -357,7 +415,7 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </section>
 
 <section>
-<h2>名前文字参照</h2>
+<h2 class="hdg-lv2-a">名前文字参照</h2>
 <p>HTMLのマークアップ（タグなど）と特殊記号を区別するためや、キーボードでは直接入力できない記号を入力すために文字参照という書式を使用する。</p>
 <p><span>※</span>HTML4までは「文字実体参照」と呼ばれていたが名称が変わった。</p>
 
@@ -407,7 +465,7 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </section>
 
 <section>
-<h2>グローバル属性</h2>
+<h2 class="hdg-lv2-a">グローバル属性</h2>
 <p><em>すべての要素に共通して指定できる属性</em>のことを指す。</p>
 
 <table>
@@ -511,13 +569,13 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tbody>
 </table>
 
-<h3>class属性</h3>
+<h3 class="hdg-lv3-a">class属性</h3>
 <p>それを指定した要素が属する種類・分類を示すための属性。名前は空白文字で区切って複数指定可</p>
 
-<h3>id属性</h3>
+<h3 class="hdg-lv3-a">id属性</h3>
 <p>それを指定した要素に固有の名前をつけるための属性。ページ内の他のid属性に同じ値を指定することはできない。値の中に空白文字を含むことはできない。</p>
 
-<h3>lang属性</h3>
+<h3 class="hdg-lv3-a">lang属性</h3>
 <p>言語の種類を示す属性。値には、BCP47という仕様で定義されている言語タグを使用する。</p>
 <table>
 <thead>
@@ -550,24 +608,24 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tbody>
 </table>
 
-<h3>title属性</h3>
+<h3 class="hdg-lv3-a">title属性</h3>
 <p>その要素に関連する補助的な案内や助言的な情報を提供するための属性。一般的なパソコン環境のブラウザでは、ツールチップで表示される。</p>
 
-<h3>dir属性</h3>
+<h3 class="hdg-lv3-a">dir属性</h3>
 <p>要素内のテキストを表記する方向を示す属性。「ltr」は「left-to-right（左から右へ）」の略で、「rtl」は「right-to-left（右から左へ）」の略です。</p>
 
-<h3>tabindex属性</h3>
+<h3 class="hdg-lv3-a">tabindex属性</h3>
 <p>フォーカスの可・不可を制御し、フォーカスを可能にした場合には「Tab」キーによる移動の順序も設定可能な属性。値には整数が指定でき、0以上を指定するとフォーカスされるようになり、負の値を指定するとフォーカスされなくなる。「Tab」キーによる移動の順序を設定するには、1以上の整数を指定します。（ソースコード上の順番に関係なく、値の小さいものから大きいものへと移動するようになります）。値に0を指定すると、ソースコード上に登場する自然な順序のままフォーカスされるようになる。</p>
 <p>どの要素であっても<em>この属性が指定されるとインタラクティブコンテンツ</em>になります。</p>
 
-<h3>dropzone属性</h3>
+<h3 class="hdg-lv3-a">dropzone属性</h3>
 <p>この要素にドロップされたデータがどうなるかを示す属性。値には「copy（コピーされる）」「move（移動する）」「link（リンクが作成される）」のいずれか1つずつが指定できます。<br>
 さらに空白で区切って「受け入れ可能な文字列またはファイルの種類」を指定することもできる。その場合は、文字列なら「string:MIMEタイプ（例：string:text/plain）」、ファイルなら「file:MIMEタイプ（例：file:image/jpeg）」の書式で指定します。</p>
 
-<h3>カスタムデータ（data-*）属性</h3>
+<h3 class="hdg-lv3-a">カスタムデータ（data-*）属性</h3>
 <p>使用するのに適当な属性や要素がない場合に、任意の要素に独自の属性を追加できるように用意されたもの。値は自由に設定でき、1つの要素にいくつでも指定できる。属性は必ず「data-」という文字列で開始し、そのあとに少なくとも1文字以上を続けなければなりません。また、属性名の中にアルファベットの大文字を含むことはできません。</p>
 
-<h3>WAI-ARIA関連の属性</h3>
+<h3 class="hdg-lv3-a">WAI-ARIA関連の属性</h3>
 <p>HTML5では、WAI-ARIA（Accessible Rich Internet Applications 1.0）という別の仕様で定義されているrole属性およびaria-*属性を任意の要素に対して指定することができます。</p>
 
 <dl>
@@ -579,60 +637,100 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </dl>
 
 <aside>
-<h1>用語解説</h1>
-<div class="box-a">
-<h2>WAI-ARIA</h2>
+<h1 class="hdg-lv1-a">用語解説</h1>
+
+<h2 class="hdg-lv2-a">WAI-ARIA</h2>
 <ul>
 <li>2014年にW3C勧告として公開された、動的コンテンツや複雑なユーザーインターフェースを持つサイト（Webアプリケーション）をアクセシブルにするための仕様である「Accessible Rich Internet Applications 1.0」の略称。</li>
 <li>「WAI」はWeb Accessibility Initiativeの略で、Webアクセシビリティの向上を目的としたガイドラインや仕様を策定するW3C内の組織を示し、「ARIA」はAccessible Rich Internet Applicationsの略です。</li>
 <li></li>
 </ul>
-<!-- /.box-a --></div>
 
-<div class="box-a">
-<h2>W3C</h2>
+<h2 class="hdg-lv2-a">W3C</h2>
 <ul>
 <li>W3C（World Wide Web Consortium）は、Web関連技術の標準化と推進を目的とした国際的な非営利団体で、HTML・XHTML・XML・CSS・DOM・WAI-ARIAなどの仕様を策定している。</li>
 <li></li>
 <li></li>
 </ul>
-<!-- /.box-a --></div>
 
-<div class="box-a">
-<h2>Webアクセシビリティ</h2>
+<h2 class="hdg-lv2-a">Webアクセシビリティ</h2>
 <ul>
 <li>「心身に機能的な制限があってもWeb上の情報にアクセスでき、理解可能な状態で欠落のない情報が得られ、操作も可能であること」を指す。</li>
 <li>Webアクセシビリティが確保された状態のことを「アクセシブル」と表現する。</li>
 </ul>
-<!-- /.box-a --></div>
+
 </aside>
 </section>
 
 <section>
-<h2>全体構造とメタ情報</h2>
+<h2 class="hdg-lv2-a">全体構造とメタ情報</h2>
 
-<h3>html要素</h3>
+<h3 class="hdg-lv3-a">html要素</h3>
 <p>HTML文書のルート（DOMツリーの頂点／要素全体の先祖）となる要素です。<br>
 html要素には、グローバル属性であるlang属性を指定してその文書で使用されている言語の種類を示すことが推奨されている。</p>
 
-<h3>head要素</h3>
+<h3 class="hdg-lv3-a">head要素</h3>
 <p>HTML文書のメタデータコンテンツを入れるための要素です。<br>
 通常のHTML文書の場合、head要素内には<strong>title要素を1つ入れる</strong>必要があります。base要素は任意ですが、1つまでしかいれられません。</p>
 
-<h3>body要素</h3>
+<h3 class="hdg-lv3-a">body要素</h3>
 <p>HTML文書のコンテンツを入れるための要素です。</p>
 
-<h3>title要素</h3>
+<h3 class="hdg-lv3-a">title要素</h3>
 <p>HTML文書のタイトルまたは名前であることを示す要素です。1つのHTML要素につき1つしか配置できません。</p>
 
-<h3>meta要素</h3>
-<p>他のメタデータコンテンツ</p>
+<h3 class="hdg-lv3-a">meta要素</h3>
+<p>HTML文書自身に関する情報を指定できる空要素。</p>
 
+<table>
+<caption>指定できる属性</caption>
+<thead>
+<tr>
+<th>属性名</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>charset</td>
+<td>文字コード<br>
+UTF-8、Shift_JIS、EUC-JPなど</td>
+<td><code>&lt;meta charset="utf-8"&gt;</code></td>
+</tr>
+<tr>
+<td>name</td>
+<td>メタデータの名前<br>
+「description」文書の説明、「keywords」キーワード、「author」文書の作者など</td>
+<td><code>&lt;meta name="description" content="説明"&gt;</code></td>
+</tr>
+<tr>
+<td>http-equiv</td>
+<td>プラグマディレクティブ（プラグマ指示子）。HTML文書の状態や挙動を指示する命令のこと。<br>
+「X-UA-Compatible」IEの互換表示設定の指示、「refresh」リダイレクト・再読み込みの指定など</td>
+<td><pre>
+<code>
+&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;
+<!-- 10秒後にpage2.htmlに移動 -->
+&lt;meta http-equiv="refresh" content="10; url=page2.html"&gt;
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<td>content</td>
+<td colspan="2">メタ情報の値。テキストを入力できる。</td>
+</tr>
+</tbody>
+</table>
 
 </section>
 
 
 <!-- /.str-inner --></div>
 </main>
+
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/run.js"></script>
 </body>
 </html>

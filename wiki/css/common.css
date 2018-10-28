@@ -424,17 +424,13 @@ input, select, textarea, button {
   font-size: inherit;
 }
 
-section {
-  margin: 5.714em 0 0; /*80px*/
-}
-
 h2 {
   margin: 50px 0 0;
 }
 h3, h4 {
   margin: 30px 0 0;
 }
-h5, h6 {
+h5, h6, aside h1, aside h2, aside h3, aside h4 {
   margin: 20px 0 0;
 }
 p {
@@ -446,6 +442,9 @@ p + p {
 ul {
   list-style: none;
 }
+ul, ol, dl {
+  margin: 20px 0 0;
+}
 img {
   display: inline-block;
   vertical-align: bottom;
@@ -454,6 +453,9 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+pre, code {
+  overflow-x: scroll;
 }
 
 /*-------------------------------
@@ -468,49 +470,192 @@ button {
   margin-top: 0;
 }
 
+aside {
+  max-width: 90%;
+  margin: 30px auto 0;
+  padding: 30px;
+  background-color#ccc;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+aside > *:first-child {
+  margin-top: 0;
+}
+
 /*-------------------------------
   h1
 --------------------------------*/
 .hdg-lv1-a {
   font-size: 40px;
-  letter-spacing: 2px;
-  color: #fff;
+  padding: 20px 10px 16px;
+  text-align: center;
+  position: relative;
+}
+.hdg-lv1-a::before,
+.hdg-lv1-a::after {
+  content: "";
   position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.hdg-lv1-a::before {
+  top: 0;
+  border-top: 3px solid #00a85a;
+}
+.hdg-lv1-a::after {
+  bottom: 0;
+  border-bottom: 3px solid #00a85a;
+}
+
+/*捕捉*/
+aside .hdg-lv1-a {
+  font-size: 20px;
+  text-align: left;
+  padding: 0 0 0 1.2em;
+}
+aside .hdg-lv1-a::after {
   top: 50%;
-  left: 50%;
-  z-index: 2;
-  transform: translateY(-50%) translateX(-50%)
+  margin-top: -8px;
+  width: 10px;
+  height: 10px;
+  border: solid 4px #ffd100;
+  border-radius:100%;
+  background-color: transparent;
+}
+aside .hdg-lv1-a::before {
+  position: static;
 }
 
 /*-------------------------------
   h2
 --------------------------------*/
 .hdg-lv2-a {
-  padding: 5px 10px 0px 60px;
+  padding: .3em 1em .2em;
   color: #fff;
-  background-color: #211f30;
+  background-color: #00a85a;
+  border-radius: 10px;
   font-size: 28px;
   position: relative;
 }
 .hdg-lv2-a::before {
   position: absolute;
-  z-index: 1;
-  top: 7px;
-  left: 8px;
+  z-index: 0;
+  top: 14px;
+  left: 12px;
   content: "";
-  width: 40px;
-  height: 40px;
-  background: url(../images/icn_zombie_04.svg) no-repeat;
-  background-size: 40px;
+  width: 5px;
+  height: 30px;
+  background-color: #fff;
+}
+
+/*捕捉*/
+aside .hdg-lv2-a {
+  position: static;
+  font-size: 18px;
+  color: #333;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0 0 .2em;
+  border-bottom: 2px solid #ffd100;
 }
 
 /*-------------------------------
   h3
 --------------------------------*/
 .hdg-lv3-a {
-  padding: 8px 10px;
-  border-left: 10px solid #211f30;
-  line-height: 1.2;
+  padding: .3em 1em .2em;
+  font-size: 22px;
+  border-bottom: 2px solid #00a85a;
+  position: relative;
+}
+.hdg-lv3-a::before {
+  position: absolute;
+  z-index: 0;
+  top: 10px;
+  left: 8px;
+  content: "";
+  width: 5px;
+  height: 24px;
+  background-color: #00a85a;
+}
+
+
+/*-------------------------------
+  List（順番に意味がない）
+--------------------------------*/
+.list-normal-a > li {
+  padding-left: 1em;
+  position: relative;
+}
+.list-normal-a > li::before {
+  position: absolute;
+  left: 0;
+  margin-top: 5px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #333;
+  border-radius: 50%;
+}
+.list-normal-a > li + li {
+  margin-top: 5px;
+}
+
+.list-normal-a > li > em::after {
+  content: "・・・"
+}
+
+/*-------------------------------
+  List（横並び）
+--------------------------------*/
+.list-col {
+  margin: 0;
+}
+.list-col::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.list-col > li {
+  float: left;
+  margin: 0 1em 5px 0;
+}
+.list-col > li + li {
+  margin-top: 0;
+}
+.list-col > li:last-child {
+  margin-right: 0;
+}
+
+/*-------------------------------
+  List（定義）
+--------------------------------*/
+.list-dl-a > dt {
+  margin-top: 2em;
+  font-size: 18px;
+  font-weight: bold;
+}
+.list-dl-a > dt:first-letter {
+  font-size: 1.5em;
+  color: #00a85a;
+}
+.list-dl-a > dt:first-child {
+  margin-top: 0;
+}
+.list-dl-a > dd {
+  margin-top: 1em;
+}
+.list-dl-a > dd .txt-dl-lead {
+  font-size: 16px;
+}
+.txt-dl-lead + .list-normal-a {
+  margin-top: 5px;
+}
+.list-dl-a > dt > *:first-child,
+.list-dl-a > dd > *:first-child {
+  margin-top: 0;
 }
 
 /*-------------------------------
@@ -592,6 +737,45 @@ button {
 }
 
 /*-------------------------------
+  Columun
+--------------------------------*/
+.col-2,
+.col-3 {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 0;
+}
+.col-2 .part,
+.col-2 li,
+.col-3 .part,
+.col-3 li {
+  margin: 0 10px 0 0;
+}
+.col-2 .part:nth-child(2n),
+.col-2 li:nth-child(2n),
+.col-3 .part:nth-child(3n),
+.col-3 li:nth-child(3n) {
+  margin-right: 0;
+}
+.col-2 .part:nth-child(n + 3),
+.col-2 li:nth-child(n + 3),
+.col-3 .part:nth-child(n + 4),
+.col-3 li:nth-child(n + 4) {
+  margin-top: 10px;
+}
+
+.col-2 .part,
+.col-2 li {
+  width: calc((100% - 10px) / 2);
+}
+
+.col-3 .part,
+.col-3 li {
+  width: calc((100% - 10px * 2) / 3);
+}
+
+/*-------------------------------
   メガメニュー／ハンバーガーメニュー
 --------------------------------*/
 /*メガメニュー（PC）*/
@@ -604,52 +788,51 @@ button {
 /*-------------------------------
   アコーディオン
 --------------------------------*/
-.area-accordion {
-  margin: 30px 0 0;
-}
-.list-accordion > li {
+.accordion-wrap {
+  margin: 20px 0 0;
   cursor: pointer;
 }
-
-.list-accordion > li + li {
-  margin: 10px 0 0;
-}
-.list-accordion .accordion-wrap .title {
+.accordion-wrap .title {
   padding: 10px 10px 8px;
-  background-color: #a50000;
-  color: #fff;
+  color: #4c4c4c;
+  border: 2px solid #00a85a;
+  background-color: #00a85a45;
   font-size: 18px;
   font-weight: bold;
   transition: all .3s ease;
   position: relative;
 }
-.list-accordion .accordion-wrap .title::before,
-.list-accordion .accordion-wrap .title::after {
+.accordion-wrap .title::before,
+.accordion-wrap .title::after {
   position: absolute;
   content: "";
   top: 50%;
   right: 10px;
   width: 20px;
   height: 2px;
-  background-color: #fff;
+  background-color: #00a85a;
 }
-.list-accordion .accordion-wrap .title::after {
+.accordion-wrap .title::after {
   transform: rotate(90deg);
 }
-.list-accordion .accordion-wrap.is-open .title::after {
+ .accordion-wrap.is-open .title::after {
   transform: rotate(0);
 }
-.list-accordion .accordion-wrap .title:hover {
+.accordion-wrap .title:hover {
   opacity: .8;
 }
-.list-accordion .accordion-wrap .contents {
+.accordion-wrap .contents {
   display: none;
-  border: 2px solid #a50000;
+  border: 2px solid #00a85a;
+  border-top: none;
   padding: 20px;
 }
-.list-accordion .accordion-wrap.is-open .contents {
+ .accordion-wrap.is-open .contents {
   display: block;
 }
+ .accordion-wrap .contents > *:first-child {
+  margin-top: 0;
+_}
 
 /*-------------------------------
   タブ

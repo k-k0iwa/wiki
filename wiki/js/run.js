@@ -2,9 +2,9 @@ $(function() {
 	'use strict';
 
 	//アコーディオン
-	var $toggleItem = $('.js-accordion').find('.accordion-wrap');
+	var $toggleItem = $('.js-accordion.accordion-wrap');
 	var $target;
-	
+
 	$toggleItem.click(function() {
 		$target = $(this).find('.contents');
 		$target.slideToggle();
@@ -17,7 +17,7 @@ $(function() {
 
 		return false;
 	});
-	
+
 	//モーダルウィンドウ
 	var $modal = $('.area-modal-contents-wrap');
 	var $modalInner = $modal.find('.area-modal-contents-inner');
@@ -173,41 +173,6 @@ $(function() {
 		return false;
 	});
 
-	//Ajax JSON
-	var $result = $('#json-result');
-	var $testTarget = $('#json-test');
-	var jsonLen;
-	var personLen;
-
-	$.ajax({
-		type: 'GET',
-		url: 'js/test.json',
-		dataType: 'json'
-	})
-	.then(
-		function(json) {
-			$result.text('データ取得成功！！！').css('font-size', '26px');
-
-			jsonLen = json.length;
-
-			for(var i = 0; i < jsonLen; i++) {
-				$testTarget.append('<p class="txt-division">' + json[i].division + '</p>');
-
-				personLen = json[i].person.length;
-
-				for(var k = 0; k < personLen; k++) {
-					$testTarget.append('<p class="txt-person">' + json[i].person[k].name + ':' + json[i].person[k].age + '歳' + '</p>');
-				}
-			}
-		},
-		function() {
-			$result.text('データ取得失敗！！！ローカルで閲覧している場合、Firefoxでご確認ください。').css({
-				'color' : 'red',
-				'font-size' : '26px'
-			});
-		}
-	);
-
 	//アクセス日を表示させる
 	var timeNow = new Date();
 	var $weekdays = ['日', '月', '火', '水', '木', '金', '土'];
@@ -235,7 +200,7 @@ $(window).on('load resize', function () {
 				$(this).find('.nav-inner-menu').addClass('is-active');
 			},
 			function() {
-				$(this).find('.nav-inner-menu').removeClass('is-active');	
+				$(this).find('.nav-inner-menu').removeClass('is-active');
 			}
 		);
 	} else {
