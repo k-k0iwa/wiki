@@ -455,7 +455,7 @@ button {
   cursor: pointer;
 }
 pre, code {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 /*-------------------------------
@@ -463,7 +463,7 @@ pre, code {
 --------------------------------*/
 .str-inner {
   max-width: 1040px;
-  margin: 40px auto 0;
+  margin: 40px auto;
   padding: 0 20px;
 }
 .str-inner > *:first-child {
@@ -474,7 +474,7 @@ aside {
   max-width: 90%;
   margin: 30px auto 0;
   padding: 30px;
-  background-color#ccc;
+  background-color: #cccccc30;
   border: 2px solid #ddd;
   border-radius: 5px;
 }
@@ -580,6 +580,21 @@ aside .hdg-lv2-a {
   background-color: #00a85a;
 }
 
+/*-------------------------------
+  注釈
+--------------------------------*/
+/*単体*/ 
+.txt-note {
+  color: #f00;
+  font-size: 13px;
+  padding-left: 1.2em;
+  position: relative;
+}
+.txt-note > .ast {
+  position: absolute;
+  left: 0;
+  display: inline-block;
+}
 
 /*-------------------------------
   List（順番に意味がない）
@@ -627,6 +642,32 @@ aside .hdg-lv2-a {
 }
 .list-col > li:last-child {
   margin-right: 0;
+}
+
+/*ページ内リンク*/
+.list-col._anc > li {
+  margin-right: 0;
+}
+.list-col._anc > li > a {
+  position: relative;
+  margin-left: 2.5em;
+}
+.list-col._anc > li > a::before,
+.list-col._anc > li > a::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 10px;
+  margin-top: 5px;
+  background-color: #969696;
+}
+.list-col._anc > li > a::before {
+  transform: rotate(-45deg);
+  left: -1.4em;
+}
+.list-col._anc > li > a::after {
+  transform: rotate(45deg);
+  left: -1em;
 }
 
 /*-------------------------------
@@ -715,7 +756,37 @@ aside .hdg-lv2-a {
 }
 
 /*-------------------------------
-  ボタン
+  table
+--------------------------------*/
+.tbl-a {
+  width: 100%;
+  margin: 30px 0 0;
+  border: 1px solid #696969;
+  border-collapse: collapse;
+}
+.tbl-a caption {
+  text-align: left;
+  font-weight: bold;
+  font-size: 18px;
+}
+.tbl-a th,
+.tbl-a td {
+  border: 1px solid #696969;
+  padding: .5em .5em .3em;
+}
+.tbl-a thead th,
+.tbl-a thead td {
+  background-color: #00a85a;
+  color: #fff;
+}
+.tbl-a tbody th {
+  color: #4c4c4c;
+  background-color: #00a85a45;
+}
+
+
+/*-------------------------------
+  button
 --------------------------------*/
 .btn-a {
   display: inline-block;
@@ -815,7 +886,7 @@ aside .hdg-lv2-a {
 .accordion-wrap .title::after {
   transform: rotate(90deg);
 }
- .accordion-wrap.is-open .title::after {
+.accordion-wrap.is-open .title::after {
   transform: rotate(0);
 }
 .accordion-wrap .title:hover {
@@ -827,12 +898,12 @@ aside .hdg-lv2-a {
   border-top: none;
   padding: 20px;
 }
- .accordion-wrap.is-open .contents {
+.accordion-wrap.is-open .contents {
   display: block;
 }
- .accordion-wrap .contents > *:first-child {
+.accordion-wrap .contents > *:first-child {
   margin-top: 0;
-_}
+}
 
 /*-------------------------------
   タブ
@@ -945,4 +1016,68 @@ footer {
   text-align: center;
   padding: 8px;
   line-height: 1;
+}
+
+/*-------------------------------
+  Adjust
+--------------------------------*/
+.w-5 {
+  width: 5%;
+}
+.w-10 {
+  width: 10%;
+}
+.w-15 {
+  width: 15%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-25 {
+  width: 25%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-35 {
+  width: 35%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-45 {
+  width: 45%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-55 {
+  width: 55%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-65 {
+  width: 65%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-75 {
+  width: 75%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-85 {
+  width: 85%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-95 {
+  width: 95%;
+}
+.w-100 {
+  width: 100%;
 }
