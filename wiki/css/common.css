@@ -581,6 +581,15 @@ aside .hdg-lv2-a {
 }
 
 /*-------------------------------
+  h4
+--------------------------------*/
+.hdg-lv4-a {
+  font-size: 18px;
+  padding: .3em .5em;
+  border-left: double #00a85a;
+}
+
+/*-------------------------------
   注釈
 --------------------------------*/
 /*単体*/ 
@@ -618,8 +627,32 @@ aside .hdg-lv2-a {
   margin-top: 5px;
 }
 
-.list-normal-a > li > em::after {
+.list-normal-a > li > .continue::after {
   content: "・・・"
+}
+
+/*-------------------------------
+  List（順番に意味がある）
+--------------------------------*/
+.list-num-a {
+  counter-reset: num;
+}
+.list-num-a > li {
+  text-indent: .4em;
+}
+.list-num-a > li::before {
+  counter-increment: num;
+  content: counter(num);
+  color: #fff;
+  background-color: #00a85a;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: .5em;
+}
+.list-num-a > li + li {
+  margin-top: 10px;
 }
 
 /*-------------------------------
@@ -700,6 +733,34 @@ aside .hdg-lv2-a {
 }
 
 /*-------------------------------
+  Box
+--------------------------------*/
+.box-a {
+  margin: 20px 0 0;
+  border: 2px solid #00a85a;
+  border-radius: 5px;
+  padding: 1em 1em .8em;
+}
+.box-a .txt-title {
+  margin: 0;
+  padding: 0 0 0 1em;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+}
+.box-a .txt-title::before {
+  position: absolute;
+  left: 0;
+  margin-top: 6px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #00a85a;
+  border-radius: 50%;
+}
+
+/*-------------------------------
   Image layout
 --------------------------------*/
 /*1枚*/
@@ -769,6 +830,9 @@ aside .hdg-lv2-a {
   font-weight: bold;
   font-size: 18px;
 }
+.tbl-a caption em {
+  color: #fc4a1a;
+}
 .tbl-a th,
 .tbl-a td {
   border: 1px solid #696969;
@@ -782,6 +846,10 @@ aside .hdg-lv2-a {
 .tbl-a tbody th {
   color: #4c4c4c;
   background-color: #00a85a45;
+}
+.tbl-a tbody th .note {
+  font-size: 13px;
+  font-weight: normal;
 }
 
 
@@ -821,7 +889,7 @@ aside .hdg-lv2-a {
 .col-2 li,
 .col-3 .part,
 .col-3 li {
-  margin: 0 10px 0 0;
+  margin: 0 20px 0 0;
 }
 .col-2 .part:nth-child(2n),
 .col-2 li:nth-child(2n),
@@ -833,17 +901,17 @@ aside .hdg-lv2-a {
 .col-2 li:nth-child(n + 3),
 .col-3 .part:nth-child(n + 4),
 .col-3 li:nth-child(n + 4) {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .col-2 .part,
 .col-2 li {
-  width: calc((100% - 10px) / 2);
+  width: calc((100% - 20px) / 2);
 }
 
 .col-3 .part,
 .col-3 li {
-  width: calc((100% - 10px * 2) / 3);
+  width: calc((100% - 20px * 2) / 3);
 }
 
 /*-------------------------------

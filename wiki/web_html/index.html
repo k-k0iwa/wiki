@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="../css/common.css">
+<link rel="icon" href="../favicon.ico">
 </head>
 <body>
 <main>
@@ -25,7 +26,12 @@
 <li><a class="scroll" href="#anc-overall-str">全体構造とメタ情報</a></li>
 <li><a class="scroll" href="#anc-section">セクションと基本構造</a></li>
 <li><a class="scroll" href="#anc-txt">テキスト関連の要素</a></li>
+<li><a class="scroll" href="#anc-list">リスト関連の要素</a></li>
+<li><a class="scroll" href="#anc-ruby">ルビ</a></li>
+<li><a class="scroll" href="#anc-imgVidAud">画像・動画・音声</a></li>
+<li><a class="scroll" href="#anc-tbl">テーブル</a></li>
 <li><a class="scroll" href="#anc-">dummy</a></li>
+<li><a class="scroll" href="#anc-other">その他の要素</a></li>
 <li><a class="scroll" href="#anc-">dummy</a></li>
 </ul>
 
@@ -72,20 +78,20 @@
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>base</em>相対パスの基準とするURL</li>
-<li><em>link</em>HTML文書とファイルを関連づける</li>
-<li><em>meta</em>メタデータ</li>
-<li><em>noscript</em>スクリプトが動作しない環境向けの内容</li>
-<li><em>script</em>スクリプト</li>
-<li><em>style</em>スタイルシート</li>
-<li><em>title</em>HTML文書のタイトル</li>
-<li><em>template</em>内容をスクリプトで生成する部分</li>
+<li><em class="continue">base</em>相対パスの基準とするURL</li>
+<li><em class="continue">link</em>HTML文書とファイルを関連づける</li>
+<li><em class="continue">meta</em>メタデータ</li>
+<li><em class="continue">noscript</em>スクリプトが動作しない環境向けの内容</li>
+<li><em class="continue">script</em>スクリプト</li>
+<li><em class="continue">style</em>スタイルシート</li>
+<li><em class="continue">title</em>HTML文書のタイトル</li>
+<li><em class="continue">template</em>内容をスクリプトで生成する部分</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
 
 </dd>
-<dt>フローコンテンツ</dt>
+<dt id="anc-flowCont">フローコンテンツ</dt>
 <dd>
 <p class="txt-dl-lead"><em>body要素の中なら基本的にどこにでも配置できる要素</em>。「特定の要素内の特定の位置にしか配置できない」というような制限がなく自由な場所に配置できる</p>
 <div class="js-accordion accordion-wrap">
@@ -93,76 +99,76 @@
 <div class="contents">
 <ul class="list-normal-a col-2">
 <li><em>a</em></li>
-<li><em>abbr</em>略語</li>
-<li><em>address</em>問い合わせ先</li>
+<li><em class="continue">abbr</em>略語</li>
+<li><em class="continue">address</em>問い合わせ先</li>
 <li><em>area</em></li>
 <li><em>article</em></li>
 <li><em>aside</em></li>
 <li><em>audio</em></li>
-<li><em>b</em>目立たせたいキーワードや製品名など</li>
-<li><em>bdi</em>文字表記の方向の影響を周囲に与えない範囲</li>
-<li><em>bdo</em>文字表記の方向</li>
-<li><em>blockquote</em>引用されたコンテンツ（ブロックレベル）</li>
+<li><em class="continue">b</em>目立たせたいキーワードや製品名など</li>
+<li><em class="continue">bdi</em>文字表記の方向の影響を周囲に与えない範囲</li>
+<li><em class="continue">bdo</em>文字表記の方向</li>
+<li><em class="continue">blockquote</em>引用されたコンテンツ（ブロックレベル）</li>
 <li><em>br</em></li>
 <li><em>button</em></li>
 <li><em>canvas</em></li>
-<li><em>cite</em>出展（タイトル・作者名・URL）</li>
-<li><em>code</em>ソースコードの一部</li>
-<li><em>data</em>機械読み取りが可能な属性値付きのコンテンツ</li>
-<li><em>datalist</em>input要素の選択肢となるoption要素を含む要素</li>
+<li><em class="continue">cite</em>出展（タイトル・作者名・URL）</li>
+<li><em class="continue">code</em>ソースコードの一部</li>
+<li><em class="continue">data</em>機械読み取りが可能な属性値付きのコンテンツ</li>
+<li><em class="continue">datalist</em>input要素の選択肢となるoption要素を含む要素</li>
 <li><em>del</em></li>
 <li><em>datails</em></li>
-<li><em>dfn</em>定義の対象となっている用語</li>
-<li><em>div</em>汎用ブロックレベル要素</li>
-<li><em>dl</em>用語と説明文が対になったリスト</li>
-<li><em>em</em>強調されている部分</li>
+<li><em class="continue">dfn</em>定義の対象となっている用語</li>
+<li><em class="continue">div</em>汎用ブロックレベル要素</li>
+<li><em class="continue">dl</em>用語と説明文が対になったリスト</li>
+<li><em class="continue">em</em>強調されている部分</li>
 <li><em>embed</em></li>
-<li><em>fieldset</em>フォーム部品のグループ</li>
-<li><em>figure</em>図版</li>
-<li><em>footer</em>セクションのフッター</li>
-<li><em>form</em>フォーム</li>
+<li><em class="continue">fieldset</em>フォーム部品のグループ</li>
+<li><em class="continue">figure</em>図版</li>
+<li><em class="continue">footer</em>セクションのフッター</li>
+<li><em class="continue">form</em>フォーム</li>
 <li><em>h1～h6</em></li>
-<li><em>header</em>セクションのヘッダー</li>
-<li><em>hr</em>段落レベルでの主題の変わり目</li>
-<li><em>i</em>普通のテキストとは異なる部分</li>
+<li><em class="continue">header</em>セクションのヘッダー</li>
+<li><em class="continue">hr</em>段落レベルでの主題の変わり目</li>
+<li><em class="continue">i</em>普通のテキストとは異なる部分</li>
 <li><em>iframe</em></li>
 <li><em>img</em></li>
 <li><em>input</em></li>
 <li><em>ins</em></li>
-<li><em>kbd</em>ユーザが入力するデータ</li>
+<li><em class="continue">kbd</em>ユーザが入力するデータ</li>
 <li><em>keygen</em></li>
 <li><em>label</em></li>
-<li><em>main</em>メイン・コンテンツ</li>
-<li><em>map</em>イメージマップの定義</li>
-<li><em>mark</em>参照目的で目立たせている部分</li>
-<li><em>menu</em>コンテキストメニュー</li>
-<li><em>meter</em>メーター（特定の範囲内での位置を表す）</li>
+<li><em class="continue">main</em>メイン・コンテンツ</li>
+<li><em class="continue">map</em>イメージマップの定義</li>
+<li><em class="continue">mark</em>参照目的で目立たせている部分</li>
+<li><em class="continue">menu</em>コンテキストメニュー</li>
+<li><em class="continue">meter</em>メーター（特定の範囲内での位置を表す）</li>
 <li><em>nav</em></li>
 <li><em>noscript</em></li>
 <li><em>object</em></li>
 <li><em>ol</em></li>
-<li><em>output</em>計算結果を出力させるためのフォーム部品</li>
+<li><em class="continue">output</em>計算結果を出力させるためのフォーム部品</li>
 <li><em>p</em></li>
 <li><em>picture</em></li>
-<li><em>pre</em>整形済みテキスト</li>
-<li><em>progress</em>プログレスバー（処理の進み具合を示す）</li>
-<li><em>q</em>引用されたコンテンツ</li>
-<li><em>ruby</em>ルビ関連要素全体を含む要素</li>
-<li><em>s</em>正しい情報ではなくなった部分や関係なくなった部分</li>
-<li><em>samp</em>コンピュータの出力サンプル</li>
+<li><em class="continue">pre</em>整形済みテキスト</li>
+<li><em class="continue">progress</em>プログレスバー（処理の進み具合を示す）</li>
+<li><em class="continue">q</em>引用されたコンテンツ</li>
+<li><em class="continue">ruby</em>ルビ関連要素全体を含む要素</li>
+<li><em class="continue">s</em>正しい情報ではなくなった部分や関係なくなった部分</li>
+<li><em class="continue">samp</em>コンピュータの出力サンプル</li>
 <li><em>script</em></li>
 <li><em>section</em></li>
 <li><em>select</em></li>
-<li><em>small</em>補足情報的な注記</li>
-<li><em>span</em>汎用インライン要素</li>
-<li><em>strong</em>重要な部分</li>
-<li><em>sub</em>下付き文字</li>
-<li><em>sup</em>上付き文字</li>
+<li><em class="continue">small</em>補足情報的な注記</li>
+<li><em class="continue">span</em>汎用インライン要素</li>
+<li><em class="continue">strong</em>重要な部分</li>
+<li><em class="continue">sub</em>下付き文字</li>
+<li><em class="continue">sup</em>上付き文字</li>
 <li><em>table</em></li>
 <li><em>template</em></li>
 <li><em>textarea</em></li>
-<li><em>time</em>機械読み取りが可能な日付・時間</li>
-<li><em>u</em>中国語の固有名詞やスペルミスの箇所など</li>
+<li><em class="continue">time</em>機械読み取りが可能な日付・時間</li>
+<li><em class="continue">u</em>中国語の固有名詞やスペルミスの箇所など</li>
 <li><em>ul</em></li>
 <li><em>var</em></li>
 <li><em>video</em></li>
@@ -179,7 +185,7 @@
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a">
-<li><em>h1～h6</em>セクションの見出し（1階層目～6階層目）</li>
+<li><em class="continue">h1～h6</em>セクションの見出し（1階層目～6階層目）</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -191,10 +197,10 @@
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>article</em>完結している記事のセクション</li>
-<li><em>aside</em>本題から外れた内容のセクション</li>
-<li><em>nav</em>主要なナビゲーション</li>
-<li><em>section</em>一般的なセクション</li>
+<li><em class="continue">article</em>完結している記事のセクション</li>
+<li><em class="continue">aside</em>本題から外れた内容のセクション</li>
+<li><em class="continue">nav</em>主要なナビゲーション</li>
+<li><em class="continue">section</em>一般的なセクション</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -208,7 +214,7 @@
 <ul class="list-normal-a list-col">
 <li><em>a</em></li>
 <li><em>abbr</em></li>
-<li><em>area</em><em><span>※</span></em>map要素に含まれている場合のみ該当</li>
+<li><em class="continue">area</em><em><span>※</span></em>map要素に含まれている場合のみ該当</li>
 <li><em>audio</em></li>
 <li><em>b</em></li>
 <li><em>bdi</em></li>
@@ -270,19 +276,19 @@
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>a</em>ハイパーリンク<em>href属性が指定されている場合のみ該当</em></li>
-<li><em>audio</em>音声の再生<em>audio要素とvideo要素は、controls属性が指定されている場合のみ該当</em></li>
-<li><em>button</em>ボタン</li>
-<li><em>details</em>ディスクロジャーウィジット（詳細折りたたみ要素）</li>
-<li><em>embed</em>プラグインによる外部データの組込み</li>
-<li><em>iframe</em>インライン・フレーム</li>
-<li><em>img</em>画像<em>usemap属性が指定されている場合のみ該当</em></li>
-<li><em>input</em>フォームの様々な基本部品になる要素<em>type属性の値が「hidden」以外の場合のみ該当</em></li>
-<li><em>keygen</em>公開鍵・秘密鍵のペアを生成するフォーム部品</li>
-<li><em>label</em>フォーム部品に関連づけられたラベル</li>
-<li><em>select</em>選択肢の中から選ぶ形式のフォーム部品</li>
-<li><em>textarea</em>複数行のテキスト入力欄</li>
-<li><em>video</em>動画の再生</li>
+<li><em class="continue">a</em>ハイパーリンク<em>href属性が指定されている場合のみ該当</em></li>
+<li><em class="continue">audio</em>音声の再生<em>audio要素とvideo要素は、controls属性が指定されている場合のみ該当</em></li>
+<li><em class="continue">button</em>ボタン</li>
+<li><em class="continue">details</em>ディスクロジャーウィジット（詳細折りたたみ要素）</li>
+<li><em class="continue">embed</em>プラグインによる外部データの組込み</li>
+<li><em class="continue">iframe</em>インライン・フレーム</li>
+<li><em class="continue">img</em>画像<em>usemap属性が指定されている場合のみ該当</em></li>
+<li><em class="continue">input</em>フォームの様々な基本部品になる要素<em>type属性の値が「hidden」以外の場合のみ該当</em></li>
+<li><em class="continue">keygen</em>公開鍵・秘密鍵のペアを生成するフォーム部品</li>
+<li><em class="continue">label</em>フォーム部品に関連づけられたラベル</li>
+<li><em class="continue">select</em>選択肢の中から選ぶ形式のフォーム部品</li>
+<li><em class="continue">textarea</em>複数行のテキスト入力欄</li>
+<li><em class="continue">video</em>動画の再生</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -296,14 +302,14 @@
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>audio</em>音声の再生</li>
-<li><em>canvas</em>スクリプトによるビットマップ動画のグラフィック</li>
-<li><em>embed</em>プラグインによる外部データの組み込み</li>
-<li><em>iframe</em>インライン・フレーム</li>
-<li><em>img</em>画像</li>
-<li><em>object</em>さまざまな形式の外部データの組み込み</li>
-<li><em>picture</em>複数の候補画像を含む要素</li>
-<li><em>video</em>動画の再生</li>
+<li><em class="continue">audio</em>音声の再生</li>
+<li><em class="continue">canvas</em>スクリプトによるビットマップ動画のグラフィック</li>
+<li><em class="continue">embed</em>プラグインによる外部データの組み込み</li>
+<li><em class="continue">iframe</em>インライン・フレーム</li>
+<li><em class="continue">img</em>画像</li>
+<li><em class="continue">object</em>さまざまな形式の外部データの組み込み</li>
+<li><em class="continue">picture</em>複数の候補画像を含む要素</li>
+<li><em class="continue">video</em>動画の再生</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -324,15 +330,15 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>a</em>ハイパーリンク</li>
-<li><em>audio</em>音声の再生</li>
-<li><em>canvas</em>スクリプトによるビットマップの動的なグラフィック</li>
-<li><em>del</em>あとから削除された部分</li>
-<li><em>ins</em>あとから挿入された部分</li>
-<li><em>map</em>イメージマップの定義</li>
-<li><em>noscript</em>スクリプトが動作しない環境向けの内容（body要素内で使用する場合）</li>
-<li><em>object</em>さまざまな形式の外部データの組込み</li>
-<li><em>video</em>動画の再生</li>
+<li><em class="continue">a</em>ハイパーリンク</li>
+<li><em class="continue">audio</em>音声の再生</li>
+<li><em class="continue">canvas</em>スクリプトによるビットマップの動的なグラフィック</li>
+<li><em class="continue">del</em>あとから削除された部分</li>
+<li><em class="continue">ins</em>あとから挿入された部分</li>
+<li><em class="continue">map</em>イメージマップの定義</li>
+<li><em class="continue">noscript</em>スクリプトが動作しない環境向けの内容（body要素内で使用する場合）</li>
+<li><em class="continue">object</em>さまざまな形式の外部データの組込み</li>
+<li><em class="continue">video</em>動画の再生</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -351,21 +357,21 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>li</em>リストの項目</li>
-<li><em>dt</em>dl要素内の「用語」部分</li>
-<li><em>dd</em>dl要素内の「説明文」部分</li>
-<li><em>p</em>段落</li>
-<li><em>rb</em>ルビをふる対象のテキスト（漢字部分）</li>
-<li><em>rt</em>ルビとして表示させるテキスト</li>
-<li><em>rtc</em>rc要素のグループ</li>
-<li><em>rp</em>ルビに未対応の環境で使用するカッコ</li>
-<li><em>optgroup</em>option要素のグループ</li>
-<li><em>option</em>select要素またはdatalist要素の選択肢</li>
-<li><em>thead</em>表のヘッダー横列のグループ</li>
-<li><em>tfoot</em>表のフッター横列のグループ</li>
-<li><em>tr</em>表の横一列</li>
-<li><em>td</em>表のセル（データ）</li>
-<li><em>th</em>表のセル（見出し）</li>
+<li><em class="continue">li</em>リストの項目</li>
+<li><em class="continue">dt</em>dl要素内の「用語」部分</li>
+<li><em class="continue">dd</em>dl要素内の「説明文」部分</li>
+<li><em class="continue">p</em>段落</li>
+<li><em class="continue">rb</em>ルビをふる対象のテキスト（漢字部分）</li>
+<li><em class="continue">rt</em>ルビとして表示させるテキスト</li>
+<li><em class="continue">rtc</em>rc要素のグループ</li>
+<li><em class="continue">rp</em>ルビに未対応の環境で使用するカッコ</li>
+<li><em class="continue">optgroup</em>option要素のグループ</li>
+<li><em class="continue">option</em>select要素またはdatalist要素の選択肢</li>
+<li><em class="continue">thead</em>表のヘッダー横列のグループ</li>
+<li><em class="continue">tfoot</em>表のフッター横列のグループ</li>
+<li><em class="continue">tr</em>表の横一列</li>
+<li><em class="continue">td</em>表のセル（データ）</li>
+<li><em class="continue">th</em>表のセル（見出し）</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -377,11 +383,11 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>html</em>HTML文書全体を含む要素（ルート要素）</li>
-<li><em>head</em>HTMLの文書のメタデータを入れる要素</li>
-<li><em>body</em>HTML文書のコンテンツ全体を入れる要素</li>
-<li><em>colgroup</em>表の縦列のグループ</li>
-<li><em>tbody</em>表の本体部分の横列のグループ</li>
+<li><em class="continue">html</em>HTML文書全体を含む要素（ルート要素）</li>
+<li><em class="continue">head</em>HTMLの文書のメタデータを入れる要素</li>
+<li><em class="continue">body</em>HTML文書のコンテンツ全体を入れる要素</li>
+<li><em class="continue">colgroup</em>表の縦列のグループ</li>
+<li><em class="continue">tbody</em>表の本体部分の横列のグループ</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -399,20 +405,20 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <p class="title">一覧を見る</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>area</em>イメージマップの領域を定義</li>
-<li><em>base</em>相対パスの基準とするURL</li>
-<li><em>br</em>改行</li>
-<li><em>col</em>表の縦列</li>
-<li><em>embed</em>プラグインによる外部データの取り込み</li>
-<li><em>hr</em>段落レベルでの主題の変わり目</li>
-<li><em>img</em>画像</li>
-<li><em>input</em>フォームの様々な基本部品になる要素</li>
-<li><em>link</em>HTML文書とファイルを関連づける</li>
-<li><em>meta</em>メタデータ</li>
-<li><em>param</em>object要素で使うプラグインのパラメータ</li>
-<li><em>source</em>画像・動画・音声の候補データ</li>
-<li><em>track</em>字幕などのテキスト・トラック</li>
-<li><em>wbr</em>英単語などの途中で行を折り返してもよい位置</li>
+<li><em class="continue">area</em>イメージマップの領域を定義</li>
+<li><em class="continue">base</em>相対パスの基準とするURL</li>
+<li><em class="continue">br</em>改行</li>
+<li><em class="continue">col</em>表の縦列</li>
+<li><em class="continue">embed</em>プラグインによる外部データの取り込み</li>
+<li><em class="continue">hr</em>段落レベルでの主題の変わり目</li>
+<li><em class="continue">img</em>画像</li>
+<li><em class="continue">input</em>フォームの様々な基本部品になる要素</li>
+<li><em class="continue">link</em>HTML文書とファイルを関連づける</li>
+<li><em class="continue">meta</em>メタデータ</li>
+<li><em class="continue">param</em>object要素で使うプラグインのパラメータ</li>
+<li><em class="continue">source</em>画像・動画・音声の候補データ</li>
+<li><em class="continue">track</em>字幕などのテキスト・トラック</li>
+<li><em class="continue">wbr</em>英単語などの途中で行を折り返してもよい位置</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -594,12 +600,16 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tbody>
 </table>
 
+<div class="col-2">
+<div class="part">
 <h3 class="hdg-lv3-a">class属性</h3>
 <p>それを指定した要素が属する種類・分類を示すための属性。名前は空白文字で区切って複数指定可</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">id属性</h3>
 <p>それを指定した要素に固有の名前をつけるための属性。ページ内の他のid属性に同じ値を指定することはできない。値の中に空白文字を含むことはできない。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">lang属性</h3>
 <p>言語の種類を示す属性。値には、BCP47という仕様で定義されている言語タグを使用する。</p>
 <table class="tbl-a">
@@ -636,23 +646,30 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tr>
 </tbody>
 </table>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">title属性</h3>
 <p>その要素に関連する補助的な案内や助言的な情報を提供するための属性。一般的なパソコン環境のブラウザでは、ツールチップで表示される。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">dir属性</h3>
 <p>要素内のテキストを表記する方向を示す属性。「ltr」は「left-to-right（左から右へ）」の略で、「rtl」は「right-to-left（右から左へ）」の略です。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">tabindex属性</h3>
 <p>フォーカスの可・不可を制御し、フォーカスを可能にした場合には「Tab」キーによる移動の順序も設定可能な属性。値には整数が指定でき、0以上を指定するとフォーカスされるようになり、負の値を指定するとフォーカスされなくなる。「Tab」キーによる移動の順序を設定するには、1以上の整数を指定します。（ソースコード上の順番に関係なく、値の小さいものから大きいものへと移動するようになります）。値に0を指定すると、ソースコード上に登場する自然な順序のままフォーカスされるようになる。</p>
 <p>どの要素であっても<em>この属性が指定されるとインタラクティブコンテンツ</em>になります。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">dropzone属性</h3>
 <p>この要素にドロップされたデータがどうなるかを示す属性。値には「copy（コピーされる）」「move（移動する）」「link（リンクが作成される）」のいずれか1つずつが指定できます。<br>
 さらに空白で区切って「受け入れ可能な文字列またはファイルの種類」を指定することもできる。その場合は、文字列なら「string:MIMEタイプ（例：string:text/plain）」、ファイルなら「file:MIMEタイプ（例：file:image/jpeg）」の書式で指定します。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">カスタムデータ（data-*）属性</h3>
 <p>使用するのに適当な属性や要素がない場合に、任意の要素に独自の属性を追加できるように用意されたもの。値は自由に設定でき、1つの要素にいくつでも指定できる。属性は必ず「data-」という文字列で開始し、そのあとに少なくとも1文字以上を続けなければなりません。また、属性名の中にアルファベットの大文字を含むことはできません。</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
 
 <h3 class="hdg-lv3-a">WAI-ARIA関連の属性</h3>
 <p>HTML5では、WAI-ARIA（Accessible Rich Internet Applications 1.0）という別の仕様で定義されているrole属性およびaria-*属性を任意の要素に対して指定することができます。</p>
@@ -694,19 +711,26 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <section id="anc-overall-str">
 <h2 class="hdg-lv2-a">全体構造とメタ情報</h2>
 
+<div class="col-2">
+<div class="part">
 <h3 class="hdg-lv3-a">html要素</h3>
 <p>HTML文書のルート（DOMツリーの頂点／要素全体の先祖）となる要素です。<br>
 html要素には、グローバル属性であるlang属性を指定してその文書で使用されている言語の種類を示すことが推奨されている。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">head要素</h3>
 <p>HTML文書のメタデータコンテンツを入れるための要素です。<br>
 通常のHTML文書の場合、head要素内には<strong>title要素を1つ入れる</strong>必要があります。base要素は任意ですが、1つまでしかいれられません。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">body要素</h3>
 <p>HTML文書のコンテンツを入れるための要素です。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">title要素</h3>
 <p>HTML文書のタイトルまたは名前であることを示す要素です。1つのHTML要素につき1つしか配置できません。</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
 
 <h3 class="hdg-lv3-a">meta要素</h3>
 <p>HTML文書自身に関する情報を指定できる空要素。</p>
@@ -911,9 +935,36 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 これらのうち、「見出しのないセクショニングコンテンツ」はそのまま見出しのないセクショニングコンテンツとなりますが、「セクショニングコンテンツのない見出し」について<em>内部的にはセクションが存在するものとして認識される</em>点に注意してください。<br>
 つまり、見出しがあるだけでそこにはセクションが存在することになるということです。このような実際のタグを伴わないセクションは<em>暗黙のセクション</em>と呼ばれる。</p>
 
+<div class="col-2">
+<div class="part">
 <h3 class="hdg-lv3-a">article要素</h3>
 <p>新聞や雑誌の記事など<strong>それだけで全部の／それだけで完結している</strong>セクションをあらわす場合に使用します。ブログの記事や学術論文などにも使用できます。</p>
-
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">aside要素</h3>
+<p>その内容がそれを含んでいるセクションの内容とは関係が薄く、別扱いにした方がよさそうなセクションをマークアップする場合に使用します。<br>
+たとえば、広告・補足記事・プル・クォート（本文の一部を抜粋して目立つように掲載し、読者の興味を引かせる部分）、nav要素のグループ、その他のメインコンテンツとは分けたほうがよさそうな各種コンテンツも使用できます。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">nav要素</h3>
+<p>そのページにおけるナビゲーションのリンクを含むセクションをあらわす場合に使用します。主要なナビゲーションだけに使用し、必要でなければフッター領域にあるリンクなどには基本的に使用しないでください。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">header要素</h3>
+<p>自分自身を含むもっとも近いセクションまたはセクショニング・ルートのヘッダーであることを示す要素です。<br>
+一般的に、header要素の内容としては見出し・ナビゲーション、ロゴ、検索フォーム・目次などを含みます。通常は見出しを含みますが必須ではありません。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">footer要素</h3>
+<p>自分自身を含むもっとも近いセクションまたはセクショニング・ルートのフッターであることを示す要素です。<br>
+footer要素の内容としては、著作権情報・お問い合わせ先（address要素）・関連文書へのリンク（「前ページ」、「次ページ」など）・記事の執筆者名などを含みます。ただし、執筆者名に関してはheader要素に入れても問題ありません。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">main要素</h3>
+<p>その範囲がページ全体におけるメインコンテンツであることを示す要素です。<br>
+そのページに特有のコンテンツのみを入れ、サイト内の複数のページで共通しているナビゲーションやロゴ、検索フォーム、著作権情報などのコンテンツは含めないようにしてください。</p>
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">section要素</h3>
 <p>一般的なセクションを表す要素です。HTML5でセクションをあらわす要素は全部で4つありますが、他の3つのセクション要素は特定の用途向けであり、それらに該当しない普通のセクションをマークアップする場合に使用します。</p>
 
@@ -922,30 +973,14 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <h2 class="hdg-lv2-a">article要素とsection要素の使い分け</h2>
 <p>ひとつのまとまったコンテンツの<strong>全体を含んでいるならarticle要素</strong>、<strong>全体の一部であればsection要素</strong>を使用します。</p>
 </aside>
-
-<h3 class="hdg-lv3-a">aside要素</h3>
-<p>その内容がそれを含んでいるセクションの内容とは関係が薄く、別扱いにした方がよさそうなセクションをマークアップする場合に使用します。<br>
-たとえば、広告・補足記事・プル・クォート（本文の一部を抜粋して目立つように掲載し、読者の興味を引かせる部分）、nav要素のグループ、その他のメインコンテンツとは分けたほうがよさそうな各種コンテンツも使用できます。</p>
-
-<h3 class="hdg-lv3-a">nav要素</h3>
-<p>そのページにおけるナビゲーションのリンクを含むセクションをあらわす場合に使用します。主要なナビゲーションだけに使用し、必要でなければフッター領域にあるリンクなどには基本的に使用しないでください。</p>
-
-<h3 class="hdg-lv3-a">header要素</h3>
-<p>自分自身を含むもっとも近いセクションまたはセクショニング・ルートのヘッダーであることを示す要素です。<br>
-一般的に、header要素の内容としては見出し・ナビゲーション、ロゴ、検索フォーム・目次などを含みます。通常は見出しを含みますが必須ではありません。</p>
-
-<h3 class="hdg-lv3-a">footer要素</h3>
-<p>自分自身を含むもっとも近いセクションまたはセクショニング・ルートのフッターであることを示す要素です。<br>
-footer要素の内容としては、著作権情報・お問い合わせ先（address要素）・関連文書へのリンク（「前ページ」、「次ページ」など）・記事の執筆者名などを含みます。ただし、執筆者名に関してはheader要素に入れても問題ありません。</p>
-
-<h3 class="hdg-lv3-a">main要素</h3>
-<p>その範囲がページ全体におけるメインコンテンツであることを示す要素です。<br>
-そのページに特有のコンテンツのみを入れ、サイト内の複数のページで共通しているナビゲーションやロゴ、検索フォーム、著作権情報などのコンテンツは含めないようにしてください。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">address要素</h3>
 <p>自分自身を含むもっとも近いarticle要素またはbody要素の内容に関する問い合わせ先を示す要素です。articleに含まれていない場合は、body要素（ページ全体）に関する問い合わせ先を示していることになります。</p>
 
 <p class="txt-note"><span class="ast">※</span>address要素の内容として入れられるのは、問い合わせ先の情報だけです。著作権情報や更新日のような問い合わせ先以外の情報は入れられませんので注意してください。また、住所であってもそれがarticle要素またはbody要素の内容に関する問い合わせ先ではない場合には使用できません。問い合わせ先ではない普通の住所には、p要素を使用します。</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
 
 <h3 class="hdg-lv3-a">セクショニング・ルート</h3>
 <p>その範囲が外部とは別の独立したセクションをもつ「セクションのルート要素」となり、内容として含んでいる見出しやセクショニングコンテンツが外部のアウトラインに一切影響を与えなくなる要素をセクショニング・ルートという。</p>
@@ -954,12 +989,12 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 <p class="title">セクショニング・ルートに分類される要素</p>
 <div class="contents">
 <ul class="list-normal-a col-2">
-<li><em>body</em>HTML文書のコンテンツ全体を入れる要素</li>
-<li><em>blockquote</em>引用されたコンテンツ（ブロックレベル）</li>
-<li><em>fieldset</em>フォーム部品のグループ</li>
-<li><em>figure</em>図版</li>
-<li><em>td</em>表のセル（データ用）</li>
-<li><em>details</em>ディスクロジャーウィジット（詳細折りたたみ要素）</li>
+<li><em class="continue">body</em>HTML文書のコンテンツ全体を入れる要素</li>
+<li><em class="continue">blockquote</em>引用されたコンテンツ（ブロックレベル）</li>
+<li><em class="continue">fieldset</em>フォーム部品のグループ</li>
+<li><em class="continue">figure</em>図版</li>
+<li><em class="continue">td</em>表のセル（データ用）</li>
+<li><em class="continue">details</em>ディスクロジャーウィジット（詳細折りたたみ要素）</li>
 </ul>
 <!-- /.contents --></div>
 <!-- /.js-accordion --></div>
@@ -1026,79 +1061,1165 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 </tbody>
 </table>
 
+<div class="col-2">
+<div class="part">
 <h3 class="hdg-lv3-a">em要素</h3>
 <p>強調を示す要素。emを入れ子にすることで、強調の度合いを強くすることができます。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">strong要素</h3>
 <p>「重要」「重大」「緊急」「深刻」のいずれかであることを示す要素。strongを入れ子にすることで、意味の度合いを強くすることができます。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">blockquote要素</h3>
 <p>引用してきた文章であることを示すブロックレベル要素。（インライン要素の場合はq要素を使用する。）</p>
 <p>必要に応じて、要素内にfooter要素やcite要素を配置して引用文に関する情報（題名や作者名、参照先へのリンクなど）を加えることが可能です。<br>
 引用した文章がWeb上のものであれば、cite属性の値として引用元のURLを指定することができます。</p>
 
 <p class="txt-note"><span class="ast">※</span>引用文はオリジナルの文章と完全に一致している必要はありません。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">q要素</h3>
 <p>引用してきた文章であることを示すインライン要素。（ブロックレベル要素の場合はblockquote要素を使用する。）q要素は<em>インライン要素として引用文を示す</em>ときに使用します。</p>
 <p>引用した文章がWeb上のものであれば、cite属性の値として引用元のURLを指定することができます。</p>
 
 <p class="txt-note"><span class="ast">※</span>q要素にはブラウザが引用符をつけて表示することになっていますので、この要素を使用する場合は引用文の前後に引用符はつけないでください。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">cite要素</h3>
 <p>創作物の出典・出所をあらわすための要素。要素内容には、作品の「タイトル」「作者名」「参照先のURL」「参照先を示す略語」のいずれかを含めなければいけません。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">mark要素</h3>
-<p>元々はそうなっていないテキストの一部を、参照してもらいやすいように目立たせた部分であることを示す。</p>
+<p>元々はそうなっていないテキストの一部を、参照してもらいやすいように<strong>目立たせた部分</strong>であることを示す。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">small要素</h3>
+<p>印刷物であれば小さな文字で欄外に記載されている注記のような情報をあらわすための要素。<br>
+<strong>Copyright・免責事項・警告・法的規制・帰属</strong>などをあらわす部分で使用されます。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">dfn要素</h3>
+<p><em>定義の対象となっている用語</em>であることを示す。たとえば、「Aは○○である。」というような内容の文章の「A」をマークアップする際に使用します。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">b要素</h3>
+<p>その範囲のテキストに特別な意味合いを持たせることなく、<em>実用的な目的で目立つようにさせる</em>ための要素。<br>
+<strong>製品名、キーワード</strong>、記事の<strong>リード文</strong>などで使用されます。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">i要素</h3>
+<p>その範囲のテキストが違う性質のものに切り替わっていることをあらわすための要素。<br>
+たとえば、<em>言語が異なっている部分</em>や小説において<em>頭の中で考えていること</em>がわかるようにしたい場合、<em>学名、専門用語</em>などで使用されます。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">s要素</h3>
+<p>すでに<em>正しい情報ではなくなった部分、関係のない情報となってしまった部分</em>をあらわすための要素。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">u要素</h3>
+<p>伝わりにくいテキストや、スペルミスのあるテキストであることを示す。<br>
+限定的で一般的なページで使用されることはほとんどない要素。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">bdo要素</h3>
+<p>bdo要素（バイディレクショナルオーバーライド）は、要素内のテキストを左から右へと表示するか、右から左へと表示するのかをdir属性を使って指定する要素。<br>
+<strong>dir属性（ディレクショナリティ）は必須</strong></p>
+<p>dir属性の値は「ltr」または「rtl」のいずれかを指定できる。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">bdi要素</h3>
+<p>bdi要素（バイディレクショナル）は、周囲のテキストとは書字方向が異なるテキストを表します。特定の範囲のテキストだけを意図的に分離・独立させる要素。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">pre要素</h3>
+<p>その要素内容であるテキストが整形済みであることを示す。整形とは、半角スペースやタブ、改行を使って表示を整えてあるという意味です。<em>ソースコード、アスキーアート、メールの内容を掲載</em>する際に使用されます。</p>
+<p>ソースコードをマークアップする際は、code要素をpre要素の中に入れて使用します。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">code要素</h3>
+<p>その部分がコンピュータで使用されるソースコードであることを示します。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">samp要素</h3>
+<p>その部分がコンピュータのシステムやプログラムによる出力結果のサンプルであることを示す要素です。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">var要素</h3>
+<p>その部分が変数であることを示す要素です。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">sup要素</h3>
+<p>上付き文字であることを示す要素。</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">sub要素</h3>
+<p>下付き文字であることを示す要素</p>
+<!-- /.part --></div>
+<div class="part">
+<h3 class="hdg-lv3-a">wbr要素</h3>
+<p>通常、英単語やURLなどは長くても途中で折り返すことはありません。wbr要素は、文字列の途中にそのタグを挿入することで英単語やURLの途中でも<em>行を折り返すことができるようにする要素</em>です。</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<h3 class="hdg-lv3-a">data要素</h3>
+<p>通常の要素内容に加えて、要素内容を機械可読形式にしたデータも同時に提供するための要素。<br>
+<strong>機械可読形式のデータは、必須属性であるvalue属性の値として指定します。</strong></p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;p&gt;大藤園より&lt;data value="JAN:45566775257756"&gt;こ～い合格茶&lt;/data&gt;が発売された。&lt;/p&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">time要素</h3>
+<p>data要素を日時での使用に特化させた要素。（機械読み取りが可能な日時データを提供する要素）<br>
+datatime属性に機械読み取りが可能な形式で入力する。この属性は必須ではありません。</p>
+
+<table id="anc-datetime" class="tbl-a">
+<caption>機械読み取りが可能な日時の書式</caption>
+<colgroup>
+<col class="w-35">
+<col class="w-15">
+<col class="w-35">
+<col class="w-15">
+</colgroup>
+<thead>
+<tr>
+<td>書式</td>
+<td>意味</td>
+<td>書式</td>
+<td>意味</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018-10-30</td>
+<td>年月日</td>
+<td>2018-10</td>
+<td>年月</td>
+</tr>
+<tr>
+<td>08-31</td>
+<td>月日</td>
+<td>2018</td>
+<td>年</td>
+</tr>
+<tr>
+<td>2018-W47</td>
+<td>年週</td>
+<td>02:50</td>
+<td>時分</td>
+</tr>
+<tr>
+<td>02:50:00<br>02:50:00.525</td>
+<td>時分秒</td>
+<td>2018-10-30T02:50<br>2018-10-30 02:50</td>
+<td>年月日時分</td>
+</tr>
+<tr>
+<td>2018-10-30T02:50:00<br>
+2018-10-30T02:50:00.525<br>
+2018-10-30 02:50:00<br>
+2018-10-30 02:50:00.525</td>
+<td>年月日時分秒</td>
+<td>Z<br>+0900<br>+09:00</td>
+<td>タイムゾーン</td>
+</tr>
+<tr>
+<td>2018-10-30T02:50Z<br>
+2018-10-30T02:50:00+0900 など</td>
+<td>グローバルな日時</td>
+<td>2h 18m 3s<br>PT2H18M3S</td>
+<td>時間分秒</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">abbr要素</h3>
+<p>略語であることを示す。省略していない状態の言葉を示すにはtitle属性を使用します。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;p&gt;合格したら&lt;abbr title="結婚活動"&gt;婚活&lt;/abbr&gt;するぞ！&lt;/p&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<p>すべての略語をabbr属性でマークアップする必要はなく、略していない言葉もわかるようにしておいた方がよさそうな部分や、CSSで表示指定をおこないたい場合など、必要に応じて使用すれば十分です。</p>
+
+<h3 class="hdg-lv3-a">kbd要素</h3>
+<p>その部分がユーザーが入力する内容であることを示す要素。通常はキーボードからの入力を想定していますが、それ以外からの入力に対しても使用可能です。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;p&gt;次に、&lt;kbd&gt;F3&lt;/kbd&gt;キーを押してください。&lt;/p&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">ins要素</h3>
+<p>文書に追加した部分を示す。</p>
+
+<table class="tbl-a">
+<caption>ins要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>cite</th>
+<td>追加に関する説明のあるページへのリンク</td>
+<td>URL</td>
+</tr>
+<tr>
+<th>datetime</th>
+<td>追加した日時</td>
+<td>2018-10-30など日時をあらわす文字列</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">del要素</h3>
+<p>文書から削除した部分を示す</p>
+
+<table class="tbl-a">
+<caption>del要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>cite</th>
+<td>追加に関する説明のあるページへのリンク</td>
+<td>URL</td>
+</tr>
+<tr>
+<th>datetime</th>
+<td>追加した日時</td>
+<td>YYYY-MM-DD形式の年月日または<a href="#anc-datetime" class="scroll">time要素のdatetime属性に指定可能なタイムゾーン付きの日時</a>と同じです。</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+
+<section id="anc-list">
+<h2 class="hdg-lv2-a">リスト関連の要素</h2>
+
+<h3 class="hdg-lv3-a">ul要素</h3>
+<p>箇条書きのような項目を持つリストをあらわすための要素。<em>項目の順序が重要ではなく、順序を入れ替えても実質的な意味が変わらないようなリスト</em>に対して使用します。</p>
+
+<p>HTML5のul要素は、内容が空（li要素が0個）でもOKになっている。<br>
+また、li要素の他にscript要素とtemplate要素も入れられることになっている。</p>
+
+<h3 class="hdg-lv3-a">ol要素</h3>
+<p>連番の付けられた項目を持つリストをあらわすための要素です。<em>項目の順序を入れ替えると意味が変わってしまうようなリスト</em>に対して使用します。</p>
+
+<table class="tbl-a">
+<caption>ol要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>type</th>
+<td>行頭の数字の種類</td>
+<td>type="1"、type="a"、type="A"、type="i"、type="Ⅰ"</td>
+</tr>
+<tr>
+<th>start</th>
+<td>連番の開始番号</td>
+<td>整数</td>
+</tr>
+<tr>
+<th>reversed</th>
+<td>リストの番号を逆順にする</td>
+<td>reversedまたはreversed="reversed"</td>
+</tr>
+</tbody>
+</table>
+
+<p>HTML5のul要素は、内容が空（li要素が0個）でもOKになっている。<br>
+また、li要素の他にscript要素とtemplate要素も入れられることになっている。</p>
+
+<h3 class="hdg-lv3-a">li要素</h3>
+<p>ul要素、ol要素によるリストの各項目となる要素。</p>
+
+<table class="tbl-a">
+<caption>li要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>value</th>
+<td>リスト内の項目の先頭に表示させる番号</td>
+<td>整数</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">dl要素</h3>
+<p>その内容となる各項目が「用語」と「説明」のペアになっている形式のリスト。<br>
+基本的な要素内容としては、1以上のdt要素とそれに続く1つ以上のdd要素のグループを必要なだけ入れることができます。</p>
+
+<p>HTML5のdl要素は、内容が空でもOKになっている。<br>
+また、必要に応じてscript要素とtemplate要素も入れられることになっている。</p>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<p>HTML5ではdl要素を「用語の定義」に使用する際には、<strong>dt要素の要素内容をさらにdfn要素でマークアップする必要がある</strong>。</p>
+</aside>
+
+<h3 class="hdg-lv3-a">dt要素</h3>
+<p>dl要素の内容となる「用語」を示す。</p>
+
+<p>要素内容には<a href="#anc-flowCont" class="scroll">フローコンテンツ</a>がいれられるが次の要素は例外となっているので注意が必要</p>
+
+<div class="box-a">
+<ul class="list-normal-a list-col">
+<li>h1～h6要素</li>
+<li>section要素</li>
+<li>article要素</li>
+<li>aside要素</li>
+<li>nav要素</li>
+<li>header要素</li>
+<li>footer要素</li>
+</ul>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">dd要素</h3>
+<p>dl要素の内容となる「説明」を示す。</p>
+
+</section>
+
+<section id="anc-ruby">
+<h2 class="hdg-lv2-a">ルビ</h2>
+
+<h3 class="hdg-lv3-a">ruby要素</h3>
+<p>ruby要素とその関連要素を使用することで漢字にふりがなをふることができます。</p>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<h2 class="hdg-lv2-a">ruby要素の内容として入れられる要素に関するルール</h2>
+
+<ul class="list-normal-a">
+<li>漢字のテキストまたはrb要素を1つ以上入れる。</li>
+<li>rt要素またはrtc要素を1つ以上入れる。</li>
+</ul>
+</aside>
+
+<h3 class="hdg-lv3-a">rt要素</h3>
+<p>「rt」は「ruby text」の略でルビとして表示させるテキストを示す。要素の直後に他のruby関連要素が続くか、直後が親要素の終了タグである場合は、終了タグを省略することができます。</p>
+
+<h3 class="hdg-lv3-a">rb要素</h3>
+<p>「rb」の「b」は「base text」の意味で、その内容がルビをふる対象のテキストであることを示す。漢字部分には必ずこの要素をつける必要はない。しかし、漢字の部分を複数のrb要素に分割してそれらを個別にrt要素と対応づける場合にはrb要素が必須になります。</p>
+
+<h3 class="hdg-lv3-a">rp要素</h3>
+<p>「rp」の「p」は「parentheses（パーレン＝丸かっこ）」のことで<em>ルビに未対応のブラウザでルビが普通テキストで表示される際に、それらを（）で囲って表示させる</em>ために使用します。</p>
+
+<p class="txt-note"><span class="ast">※</span>ruby要素とその関連要素に対応しているブラウザでは、rp要素の内容は表示されません。</p>
+
+<h3 class="hdg-lv3-a">rtc要素</h3>
+<p>「rtc」は「ruby text container（rt要素の入れもの）」の略で、rt要素をグループ化する場合に使用します。</p>
+
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;p&gt;
+&lt;ruby&gt;
+&lt;rb&gt;漢字&lt;/rb&gt;
+&lt;rt&gt;かんじ&lt;/rt&gt;
+&lt;rtc&gt;&lt;rt&gt;kanji&lt;/rt&gt;&lt;/rtc&gt;
+&lt;/ruby&gt;
+&lt;/p&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<p><ruby>
+<rb>漢字</rb>
+<rt>かんじ</rt>
+<rtc><rt>kanji</rt></rtc>
+</ruby></p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<p class="txt-note"><span class="ast">※</span>ブラウザによって表示が異なります。</p>
+
+<!-- /.box-a --></div>
+
+</section>
+
+<section id="anc-imgVidAud">
+<h2 class="hdg-lv2-a">画像・動画・音声</h2>
+
+<h3 class="hdg-lv3-a">img要素</h3>
+<p>表示させたい画像とそれが利用できない場合、代わりに使用するテキストを指定する要素。src属性は必須、alt属性の値は必須ではないが一般的なサイトにおいて基本的に省略できないものである。</p>
+
+<table class="tbl-a">
+<caption>img要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>src</th>
+<td>データのアドレス（画像ファイルのパス）</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>alt</th>
+<td>代替テキスト</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>srcset</th>
+<td>候補画像</td>
+<td>URLと記述子</td>
+</tr>
+<tr>
+<th>sizes</th>
+<td>条件と画像の表示幅</td>
+<td>メディアクエリと表示幅</td>
+</tr>
+<tr>
+<th>width</th>
+<td>幅</td>
+<td>整数（負の値は指定不可）</td>
+</tr>
+<tr>
+<th>height</th>
+<td>高さ</td>
+<td>整数（負の値は指定不可）</td>
+</tr>
+<tr>
+<th>crossorigin</th>
+<td>元文書とは異なるオリジンからデータを取得する際の認証に関する設定</td>
+<td>crossorigin="anonymous"またはcrossorigin="use-credentials"</td>
+</tr>
+<tr>
+<th>usemap</th>
+<td>使用するイメージマップの名前</td>
+<td>「#○○」</td>
+</tr>
+<tr>
+<th>ismap</th>
+<td>画像がサーバーサイドのイメージマップであることを示す</td>
+<td>ismapまたはismap="ismap"</td>
+</tr>
+</tbody>
+</table>
+
+<h4 class="hdg-lv4-a">srcset属性</h4>
+<p>ブラウザのスクリーン要件（幅、高さ、ピクセル密度）に応じて、異なる画像を読み込むことができる。これにより、複数用意された画像の中から状況に応じて最適なものだけをロードして表示させることができる。</p>
+
+<p>たとえば次のように指定すると、ピクセル密度が2倍（2x）のデバイスには「logo200.png」の画像、3倍（3x）のデバイスには「logo300.png」を表示させることができます。ピクセル密度が1倍のデバイスやsrcset属性に未対応の環境では、これまで通りsrc属性で指定した画像が表示されます。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;img src="logo.png srcset="logo200.png 2x, logo300.png 3x" alt="株式会社○○"&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<p>srcset属性に指定可能な記述子には、<strong>ピクセル密度記述子（1.5x、2xなど）</strong>と<strong>幅記述子（400w、800wなど）</strong>の2種類があります。</p>
+
+<p class="txt-note"><span class="ast">※</span>1つのsrcset属性内でピクセル密度記述子と幅記述子を混ぜて使うことはできません。</p>
+
+<h3 class="hdg-lv3-a">picture要素</h3>
+<p>候補画像を示すsource要素とimg要素をとりまとめるための要素です。source要素を任意の数だけ入れ、最後にimg要素を1つ配置することでpicture要素とsource要素に未対応のブラウザでもimg要素の画像だけは表示できる仕組みになっています。これらの要素に対応した環境では、示された条件に最初に合致した画像だけがロードされ表示されます。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;picture&gt;
+&lt;source src="large.png" media="(min-width: 50em)"&gt;
+&lt;source src="medium.png" media="(min-width: 30em)"&gt;
+&lt;img src="small.png" alt=""&gt;
+&lt;/picture&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">source要素</h3>
+<p>picture要素、video要素、audio要素の内部において、サイズやファイル形式などの異なる代替データを指定するための要素。</p>
+
+<table class="tbl-a">
+<caption><em>picture要素内</em>のsource要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>media</th>
+<td>画像の使用条件</td>
+<td>メディアクエリ「(min-width: 500px)」</td>
+</tr>
+<tr>
+<th>srcset</th>
+<td>候補画像</td>
+<td>URLと記述子「srcset="a.jpg, b.jpg 2x, c.jpg 3x"」</td>
+</tr>
+<tr>
+<th>sizes</th>
+<td>使用条件と画像の表示幅</td>
+<td>メディアクエリと表示幅「sizes="(max-width: 500px) 100vw, 500px"」</td>
+</tr>
+<tr>
+<th>type</th>
+<td>組み込む画像の種類</td>
+<td>MIMEタイプ</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption><em>video要素とaudio要素内</em>のsource要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>src</th>
+<td>データのアドレス（ファイルパス）</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>type</th>
+<td>組み込むデータの種類</td>
+<td>MIMEタイプ</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">video要素</h3>
+<p>動画を再生させるための要素</p>
+
+<p>video要素とaudio要素は両方とも動画と音声の再生が可能で、両要素の主な違いは、「動画や字幕といった視覚的なコンテンツの再生領域はvideo要素にしかない」という点だけです。</p>
+
+<table class="tbl-a">
+<caption>video要素とaudio要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>src</th>
+<td>データのアドレス（ファイルパス）</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>controls</th>
+<td>再生・停止ボタンなどを含むコントローラーを表示させる</td>
+<td>controls（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>autoplay</th>
+<td>ページが読み込まれたら自動的に再生を開始する</td>
+<td>autoplay（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>loop</th>
+<td>再生を繰り返す</td>
+<td>loop（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>muted</th>
+<td>デフォルトで音量が0の状態にする</td>
+<td>muted（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>preload</th>
+<td>音声・動画データのプリロードに関する指示</td>
+<td>preload="none"、preload="metadata"、preload="auto"</td>
+</tr>
+<tr>
+<th>crossorigin</th>
+<td>元文書とは異なるオリジンからデータを取得する際の認証に関する設定</td>
+<td>crossorigin="anonymous"、crossorigin="use-credentials"</td>
+</tr>
+<tr>
+<th>poster<br><span class="note">※video要素のみ</span></th>
+<td>動画が再生可能となるまでの間に表示させる画像のアドレス</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>width<br><span class="note">※video要素のみ</span></th>
+<td>幅</td>
+<td>整数（負の値は不可）</td>
+</tr>
+<tr>
+<th>height<br><span class="note">※video要素のみ</span></th>
+<td>高さ</td>
+<td>整数（負の値は不可）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;video src="trip.mp4" controls width="640" height="360"&gt;
+&lt;p&gt;&lt;a href="trip.mp4"&gt;動画ファイルをダウンロード&lt;/a&gt;&lt;/p&gt;
+&lt;/video&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">audio要素</h3>
+<p>音声を再生させるための要素</p>
+<p>基本的な機能としては、video要素から視覚的なコンテンツの再生領域を取り除いたもので、使い方もほとんど同じです。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;audio src="song.mp3" controls&gt;
+&lt;p&gt;&lt;a href="song.mp3"&gt;音声ファイルをダウンロード&lt;/a&gt;&lt;/p&gt;
+&lt;/audio&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">track要素</h3>
+<p>video要素やaudio要素で使用される<em>外部テキスト・リソース（字幕のデータなど）</em>を指定する場合に使用する空要素。</p>
+
+<table class="tbl-a">
+<caption>track要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>src</th>
+<td>データのアドレス（ファイルパス）</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>srclang</th>
+<td>テキスト・トラックの言語の種類</td>
+<td>ja、enなど</td>
+</tr>
+<tr>
+<th>kind</th>
+<td>テキスト・トラックの種類</td>
+<td>kind="subtitles"、kind="captions"、kind="descriptions"、kind="chapters"、kind="metadata"</td>
+</tr>
+<tr>
+<th>label</th>
+<td>トラックの選択時にユーザに提示するラベル</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>default</th>
+<td>その環境に適したトラックが他にない場合にデフォルトとして有効にするトラック</td>
+<td>default（属性名だけで指定可）</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption>kind属性に指定可能なキーワードについて</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>キーワード</th>
+<th>意味</th>
+<th>利用方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>subtitles</th>
+<td>音は聞こえるが理解できない場合向けの字幕（洋画の日本語字幕など）</td>
+<td>映像に重ねて表示</td>
+</tr>
+<tr>
+<th>captions</th>
+<td>音が明瞭には聞こえない場合向けの字幕</td>
+<td>映像に重ねて表示</td>
+</tr>
+<tr>
+<th>descriptions</th>
+<td>映像が明瞭には見えない場合向けの解説</td>
+<td>合成音声で読み上げる</td>
+</tr>
+<tr>
+<th>chapters</th>
+<td>映像のチャプタータイトル</td>
+<td>操作により一覧を表示</td>
+</tr>
+<tr>
+<th>metadata</th>
+<td>スクリプトから利用することを想定したメタデータ</td>
+<td>表示されない</td>
+</tr>
+</tbody>
+</table>
+
+<p class="txt-note"><span class="ast">※</span>track要素はsource要素よりも後、その他の要素よりも前に配置する必要があります。</p>
+
+<h3 class="hdg-lv3-a">embed要素</h3>
+<p><em>外部アプリケーションやインタラクティブなコンテンツなどを、プラグインを使って組み込む</em>際に使用する空要素。</p>
+
+<table class="tbl-a">
+<caption>embed要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>src</th>
+<td>組み込む外部コンテンツのアドレス（ファイルパス）</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>type</th>
+<td>組み込むデータの種類</td>
+<td>MIMEタイプ</td>
+</tr>
+<tr>
+<th>width</th>
+<td>幅</td>
+<td>整数（負の値は不可）</td>
+</tr>
+<tr>
+<th>height</th>
+<td>高さ</td>
+<td>整数（負の値は不可）</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;embed src="game.swf" type="application/x-shockwave-flash" width="500" height="500"&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">map要素</h3>
+<p>イメージマップを定義するための要素。name属性でイメージマップに名前を付け、その名前をimg要素のusemap属性に「msemap="○○"」で指定することで関連づけることができる。</p>
+
+<h3 class="hdg-lv3-a">area要素</h3>
+<p>イメージマップでリンクにする領域を定義する空要素。href属性でリンク先を指定し、href属性を使用した場合はalt属性が必須になる。</p>
+
+<dl class="list-dl-a">
+<dt>shape属性</dt>
+<dd>反応する領域の形状を指定する。「rect」は四角、「circle」は円、「poly」は多角形、「defalut」は画像全体となります。shape属性を省略した場合は、「rect」を指定したことになります。</dd>
+<dt>coords属性</dt>
+<dd>shape属性で指定した形状の各座標を指定する。整数、カンマ区切りで指定。</dd>
+</dl>
+
+<h3 class="hdg-lv3-a">object要素</h3>
+<p>さまざまな形式の外部データを組み込むための要素。画像や別のHTML文書、プラグインを使用するデータなども組み込むことができます。</p>
+
+<table class="tbl-a">
+<caption>object要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>data</th>
+<td>組み込むデータのアドレス</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>type</th>
+<td>組み込むデータの種類</td>
+<td>MIMEタイプ</td>
+</tr>
+<tr>
+<th>typemustmatch</th>
+<td>data属性で指定されているリソースのMIMEタイプがtype属性の値に適合する場合にのみリソースを使用する</td>
+<td>typemustmatch（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>name</th>
+<td>ブラウジングコンテキスト（フレーム）の名前</td>
+<td>ブラウジングコンテキスト名またはキーワード</td>
+</tr>
+<tr>
+<th>form</th>
+<td>フォーム部品を特定のform要素と関連づける</td>
+<td>id属性の値</td>
+</tr>
+<tr>
+<th>width</th>
+<td>幅</td>
+<td>整数（負の値は不可）</td>
+</tr>
+<tr>
+<th>height</th>
+<td>高さ</td>
+<td>整数（負の値は不可）</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">param要素</h3>
+<p>object要素によって呼び出されるプラグインのパラメータを設定するための空要素。name属性とvalue属性を指定することができる。</p>
+
+</section>
+
+<section id="anc-tbl">
+<h2 class="hdg-lv2-a">テーブル</h2>
+
+<h3 class="hdg-lv3-a">table要素</h3>
+<p>表形式のデータをあらわすための要素。次の順で要素を配置します。（1つ以上のscript要素またはtemplate要素を混ぜて入れることも可能です）<br>
+<em>table要素をレイアウトのために使用していないことを明示する目的</em>でborder属性を指定できる。（border=""またはborder="1"）</p>
+
+<p class="txt-note"><span class="ast">※</span>HTML5のborder属性の値は「1」か「空文字」以外は指定できなくなっている。</p>
+
+<ol class="list-num-a">
+<li>caption要素</li>
+<li>colgroup要素</li>
+<li>thead要素</li>
+<li>tbody要素またはtr要素</li>
+<li>tfoot要素</li>
+</ol>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<h2 class="hdg-lv2-a">table要素をレイアウト目的で使用する場合</h2>
+<p><strong>role="presentation"</strong>属性を指定しなければならない！</p>
+</aside>
+
+<h3 class="hdg-lv3-a">tr要素</h3>
+<p>表の横一列（table row）分のセルをとりまとめる要素。</p>
+
+<h3 class="hdg-lv3-a">th要素</h3>
+<p>見出し用のセル（table header cell）をあらわす要素</p>
+
+<table class="tbl-a">
+<caption>th要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>colspan</th>
+<td>1つのセルとしてまとめるカラム数</td>
+<td>1以上の整数</td>
+</tr>
+<tr>
+<th>rowspan</th>
+<td>1つのセルとしてまとめる行数</td>
+<td>0以上の整数</td>
+</tr>
+<tr>
+<th>headers</th>
+<td>この属性を指定したセルの見出しとなっているヘッダーセル</td>
+<td>見出しとなっているヘッダーセルのid属性の値</td>
+</tr>
+<tr>
+<th>scope</th>
+<td>ヘッダーセルの見出しの対象となっているセルの範囲</td>
+<td>scope="row"、scope="col"、scope="rowgroup"、scope="colgroup"</td>
+</tr>
+<tr>
+<th>abbr</th>
+<td>代替ラベル（簡略化した見出し）</td>
+<td>テキスト</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">td要素</h3>
+<p>データ用のセル（table data cell）をあらわす要素。</p>
+
+<table class="tbl-a">
+<caption>td要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>colspan</th>
+<td>1つのセルとしてまとめるカラム数</td>
+<td>1以上の整数</td>
+</tr>
+<tr>
+<th>rowspan</th>
+<td>1つのセルとしてまとめる行数</td>
+<td>0以上の整数</td>
+</tr>
+<tr>
+<th>headers</th>
+<td>この属性を指定したセルの見出しとなっているヘッダーセル</td>
+<td>見出しとなっているヘッダーセルのid属性の値</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">thead要素</h3>
+<p>見出しとなっているtr要素をグループ化する要素で表のヘッダー部分をあらわす。</p>
+
+<h3 class="hdg-lv3-a">tbody要素</h3>
+<p>表の本体部分をあらわす要素。</p>
+
+<h3 class="hdg-lv3-a">tfoot要素</h3>
+<p>表のフッター部分をあらわす要素</p>
+
+<h3 class="hdg-lv3-a">caption要素</h3>
+<p>table要素のキャプションとなる要素</p>
+
+<h3 class="hdg-lv3-a">colgroup要素</h3>
+<p>1列分以上の縦列をグループ化する要素<br>
+colgroup要素にspan属性を指定している場合は、colgroup要素の要素内容は空にします。span属性を指定していない場合は、col要素かtemplate要素を入れます。</p>
+
+<h3 class="hdg-lv3-a">col要素</h3>
+<p>span属性のないcolgroup要素内に配置して、1列分以上の縦列を表す空要素。</p>
+
+</section>
+
+<section id="anc-other">
+<h2 class="hdg-lv2-a">その他の要素</h2>
+
+<h3 class="hdg-lv3-a">figure要素</h3>
+<p>メインコンテンツの本文から参照される図版のようなコンテンツであることを示す要素。具体的な要素内容としては、図表・写真・イラスト・ソースコードの一部のような、<em>それ自身がまとまったひとつの完結した内容となっているフローコンテンツ</em>を入れます。</p>
+
+<h3 class="hdg-lv3-a">figcaption要素</h3>
+<p>figure要素で示す図版のキャプションや説明文部分をマークアップするための専用要素。figure要素内であればどこにでも配置可能。</p>
+
+<h3 class="hdg-lv3-a">details要素</h3>
+<p>詳細情報を表示させる領域の開く・閉じるを切り替えられるディスクロジャーウィジェットになる要素。要素内容の先頭にsummary要素を入れておくと、開く・閉じるの状態に関わらず常に表示される見出しとなります。</p>
+
+<p>この要素にopen属性を指定すると、最初から開かれている状態で表示されます。ユーザが開く・閉じるを切り替えると、ブラウザが自動的にこの属性の追加と削除を行ないます。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre>
+<code>
+&lt;details open&gt;
+&lt;summary&gt;見出し&lt;/summary&gt;
+&lt;p&gt;詳細情報&lt;/p&gt;
+&lt;p&gt;詳細情報&lt;/p&gt;
+&lt;/details&gt;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">summary要素</h3>
+<p>ディスクロジャーウィジェットにおいて、開く・閉じるの状態に関わらず常に表示されている見出し（キャプション）となる要素。要素内容にはフレージングコンテンツまたはh1～h6要素のうちの1つを入れることができます。</p>
+
+<p class="txt-note"><span class="ast">※</span>details要素内の先頭にしか配置できない点に注意してください。</p>
+
+<h3 class="hdg-lv3-a">iframe要素</h3>
+<p>HTML文書の中で別の文書を表示させる領域（ブラウジングコンテキスト）となる要素です。</p>
+
+<table class="tbl-a">
+<caption>iframe要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<th></th>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 <h3 class="hdg-lv3-a">要素</h3>
+<p></p>
 
 <h3 class="hdg-lv3-a">要素</h3>
+<p></p>
 
 <h3 class="hdg-lv3-a">要素</h3>
+<p></p>
 
 <h3 class="hdg-lv3-a">要素</h3>
+<p></p>
 
 <h3 class="hdg-lv3-a">要素</h3>
+<p></p>
 
 <h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
-<h3 class="hdg-lv3-a">要素</h3>
-
+<p></p>
 
 </section>
 
