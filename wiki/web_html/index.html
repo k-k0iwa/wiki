@@ -7,10 +7,48 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="icon" href="../favicon.ico">
 </head>
 <body>
+<header>
+<div class="str-inner">
+<p class="site-title">Web Wiki</p>
+<!-- /.str-inner --></div>
+
+<nav id="js-nav" class="nav is-close">
+<ul class="list-nav">
+<li>
+<a href="#ac" class="scroll">WEB</a>
+<div class="nav-inner-menu">
+<ul class="list-nav-inner">
+<li><a href="dummy">下層</a></li>
+<li><a href="dummy">下層</a></li>
+<li><a href="dummy">下層</a></li>
+<li><a href="dummy">下層</a></li>
+</ul>
+<!-- nav-inner-menu --></div>
+</li>
+<li>
+<a href="#mo" class="scroll">HTML</a>
+</li>
+<li>
+<a href="#sl" class="scroll">CSS</a>
+</li>
+<li>
+<a href="#tab" class="scroll">JS/jQuery</a>
+</li>
+<li>
+<a href="#ajax" class="scroll">TOOL</a>
+</li>
+</ul>
+
+<p class="js-btn-close btn-close"><button class="btn-inner" type="button"><span>OPEN</span></button></p>
+</nav>
+
+</header>
+
 <main>
 
 <div class="str-inner">
@@ -30,9 +68,8 @@
 <li><a class="scroll" href="#anc-ruby">ルビ</a></li>
 <li><a class="scroll" href="#anc-imgVidAud">画像・動画・音声</a></li>
 <li><a class="scroll" href="#anc-tbl">テーブル</a></li>
-<li><a class="scroll" href="#anc-">dummy</a></li>
+<li><a class="scroll" href="#anc-form">フォーム</a></li>
 <li><a class="scroll" href="#anc-other">その他の要素</a></li>
-<li><a class="scroll" href="#anc-">dummy</a></li>
 </ul>
 
 <section id="anc-doctype">
@@ -40,7 +77,7 @@
 
 <ul>
 <li>HTML5には実際DOCTYPE宣言は不要だが、<strong>ブラウザの表示モードを「標準モード」にする目的で指定</strong>することになっている</li>
-<li>基本となるDOCTYPE宣言は<code>&lt;!DOCTYPE html&gt;</code>です。DOCTYPE宣言は<strong>大文字で書いても小文字で書いても良い</strong></li>
+<li>基本となるDOCTYPE宣言は<code class="prettyprint">&lt;!DOCTYPE html&gt;</code>です。DOCTYPE宣言は<strong>大文字で書いても小文字で書いても良い</strong></li>
 </ul>
 
 <aside>
@@ -49,7 +86,7 @@
 
 <h2 class="hdg-lv2-a">HTML5で使用が許可されているDOCTYPE宣言</h2>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;!DOCTYPE html&gt;
 &lt;!DOCTYPE html SYSTEM "about:legacy-compact"&gt;
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN"&gt;
@@ -427,7 +464,7 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 
 <p>HTML5では空要素にスラッシュを入れることもできる。たとえばbr要素であれば、次のどちらの書き方をしても問題ない。</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;br&gt;
 &lt;br /&gt;
 </code>
@@ -458,33 +495,33 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <tbody>
 <tr>
 <th>&lt;（小なり）</th>
-<td><code>&amp;lt;</code></td>
+<td><pre><code class="prettyprint">&amp;lt;</code></pre></td>
 <th>&gt;（大なり）</th>
-<td><code>&amp;gt;</code></td>
+<td><pre><code class="prettyprint">&amp;gt;</code></pre></td>
 </tr>
 <tr>
 <th>&amp;（アンパサンド）</th>
-<td><code>&amp;amp;</code></td>
+<td><pre><code class="prettyprint">&amp;amp;</code></pre></td>
 <th>&copy;（コピーライト）</th>
-<td><code>&amp;copy;</code></td>
+<td><pre><code class="prettyprint">&amp;copy;</code></pre></td>
 </tr>
 <tr>
 <th>&reg;（登録商標）</th>
-<td><code>&amp;reg;</code></td>
+<td><pre><code class="prettyprint">&amp;reg;</code></pre></td>
 <th>&trade;（商標）</th>
-<td><code>&amp;trade;</code></td>
+<td><pre><code class="prettyprint">&amp;trade;</code></pre></td>
 </tr>
 <tr>
 <th>&quot;（ダブルクォーテーション）</th>
-<td><code>&amp;quot;</code></td>
+<td><pre><code class="prettyprint">&amp;quot;</code></pre></td>
 <th>&apos;（シングルクォーテーション）</th>
-<td><code>&amp;apos;</code></td>
+<td><pre><code class="prettyprint">&amp;apos;</code></pre></td>
 </tr>
 <tr>
 <th>&yen;（円）</th>
-<td><code>&amp;yen;</code></td>
+<td><pre><code class="prettyprint">&amp;yen;</code></pre></td>
 <th>&nbsp;（ノーブレークスペース）</th>
-<td><code>&amp;nbsp;</code></td>
+<td><pre><code class="prettyprint">&amp;nbsp;</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -512,48 +549,48 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <tr>
 <th>class</th>
 <td>テキスト（空白文字で区切って複数の名前を指定可）</td>
-<td><code>&lt;div class="hoge"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;div class="hoge"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>id</th>
 <td>テキスト（空白文字を含むことはできず、必ず1文字以上必要）</td>
-<td><code>&lt;div id="only-hoge"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;div id="only-hoge"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>lang</th>
 <td>言語タグ（ja、enなど）</td>
-<td><code>&lt;html lang="ja"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;html lang="ja"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>title</th>
 <td>テキスト</td>
-<td><code>&lt;p title="p要素の補助情報"&gt;p要素の内容&lt;/p&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;p title="p要素の補助情報"&gt;p要素の内容&lt;/p&gt;</code></pre></td>
 </tr>
 <tr>
 <th>style</th>
 <td>CSSの宣言</td>
-<td><code>&lt;p style="color:#fff;"&gt;スタイルを指定する&lt;/p&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;p style="color:#fff;"&gt;スタイルを指定する&lt;/p&gt;</code></pre></td>
 </tr>
 <tr>
 <th>dir</th>
 <td>ltr、rtl、auto</td>
-<td><code>&lt;p dir="ltr"&gt;文字の方向を指定します&lt;/p&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;p dir="ltr"&gt;文字の方向を指定します&lt;/p&gt;</code></pre></td>
 </tr>
 <tr>
 <th>tabindex</th>
 <td>整数</td>
-<td><code>&lt;p tabindex="0"&gt;本来フォーカスの当たらない要素でも「Tab」キーによるフォーカスができるようになる&lt;/p&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;p tabindex="0"&gt;本来フォーカスの当たらない要素でも「Tab」キーによるフォーカスができるようになる&lt;/p&gt;</code></pre></td>
 </tr>
 <tr>
 <th>accesskey</th>
 <td>印刷可能な文字を1つ</td>
-<td><code>&lt;a href="index.html" accesskey="U"&gt;リンクテキスト（U）&lt;/a&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;a href="index.html" accesskey="U"&gt;リンクテキスト（U）&lt;/a&gt;</code></pre></td>
 </tr>
 <tr>
 <th>hidden</th>
 <td>「属性名="値"」または属性名のみで指定可</td>
 <td><pre>
-<code>&lt;fieldset id="user" hidden&gt;
+<code class="prettyprint">&lt;fieldset id="user" hidden&gt;
 &lt;legend&gt;ユーザ情報&lt;/legend&gt;
 &lt;p&gt;お名前：&lt;input type="text" name="name"&gt;&lt;/p&gt;
 &lt;p&gt;メール：&lt;input type="email" name="email"&gt;&lt;/p&gt;
@@ -564,23 +601,23 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <tr>
 <th>translate</th>
 <td>translate="yes"またはtranslate="no"</td>
-<td><code>&lt;p translate="no"&gt;翻訳対象にするか指定する&lt;/p&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;p translate="no"&gt;翻訳対象にするか指定する&lt;/p&gt;</code></pre></td>
 </tr>
 <tr>
 <th>spellcheck</th>
 <td>spellcheck="true"またはspellcheck="false"</td>
-<td><code>&lt;textarea spellcheck="true"&gt;要素内容のスペルチェックや文法チェックの有無を指定します。&lt;/textarea&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;textarea spellcheck="true"&gt;要素内容のスペルチェックや文法チェックの有無を指定します。&lt;/textarea&gt;</code></pre></td>
 </tr>
 <tr>
 <th>contenteditable</th>
 <td>contenteditable="true"またはcontenteditable="false"</td>
-<td><code>&lt;p contenteditable="true"&gt;この文章はブラウザ上で編集できます&lt;/p&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;p contenteditable="true"&gt;この文章はブラウザ上で編集できます&lt;/p&gt;</code></pre></td>
 </tr>
 <tr>
 <th>contextmenu</th>
 <td>menu要素のid属性の値</td>
 <td><pre>
-<code>&lt;p contextmenu="hoge"&gt;この要素が使用するコンテキストメニュー&lt;/p&gt;
+<code class="prettyprint">&lt;p contextmenu="hoge"&gt;この要素が使用するコンテキストメニュー&lt;/p&gt;
 &lt;menu type="context" id="hoge"&gt;
 ･･･
 &lt;menu&gt;
@@ -590,12 +627,12 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <tr>
 <th>draggable</th>
 <td>draggable="true"またはdraggable="false"</td>
-<td><code>&lt;img src="sample.gif" alt="" draggable="false" title="ドラッグ不可"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;img src="sample.gif" alt="" draggable="false" title="ドラッグ不可"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>dropzone</th>
 <td>copy、move、linkのいずれか1つ。「string:～」、「file:～」は複数指定可能。</td>
-<td><code>&lt;div dropzone="copy file:image/gif file:image/jpeg file:image/png" title="ドロップ領域"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;div dropzone="copy file:image/gif file:image/jpeg file:image/png" title="ドロップ領域"&gt;</code></pre></td>
 </tr>
 </tbody>
 </table>
@@ -754,20 +791,20 @@ html要素には、グローバル属性であるlang属性を指定してその
 <th>charset</th>
 <td>文字コード<br>
 UTF-8、Shift_JIS、EUC-JPなど</td>
-<td><code>&lt;meta charset="utf-8"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;meta charset="utf-8"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>name</th>
 <td>メタデータの名前<br>
 「description」文書の説明、「keywords」キーワード、「author」文書の作者など</td>
-<td><code>&lt;meta name="description" content="説明"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;meta name="description" content="説明"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>http-equiv</th>
 <td>プラグマディレクティブ（プラグマ指示子）。HTML文書の状態や挙動を指示する命令のこと。<br>
 「X-UA-Compatible」IEの互換表示設定の指示、「refresh」リダイレクト・再読み込みの指定など</td>
 <td><pre>
-<code>
+<code class="prettyprint">
 &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;
 <!-- 10秒後にpage2.htmlに移動 -->
 &lt;meta http-equiv="refresh" content="10; url=page2.html"&gt;
@@ -806,19 +843,19 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <th>href</th>
 <td>関連を示す文書やファイルのアドレス</td>
 <td>URL（空文字は付加）</td>
-<td><code>&lt;link href="main.css"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;link href="main.css"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>rel</th>
 <td>元文書との関係</td>
 <td><a class="scroll" href="#anc-relKey">キーワード</a>（空白文字区切り）</td>
-<td><code>&lt;link href="main.css" rel="stylesheet"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;link href="main.css" rel="stylesheet"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>media</th>
 <td>リンク先のリソースが適用されるメディアを指定</td>
 <td>メディアクエリ</td>
-<td><code>&lt;link href="mobile.css" rel="stylesheet" media="screen and (max-width: 600px)"&gt;</code></td>
+<td><pre><code class="prettyprint">&lt;link href="mobile.css" rel="stylesheet" media="screen and (max-width: 600px)"&gt;</code></pre></td>
 </tr>
 <tr>
 <th>hreflang</th>
@@ -826,8 +863,7 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <td>言語コード（ja、enなど）</td>
 <td>
 <pre>
-<code>
-&lt;link rel="alternate" hreflang="ja" href="http://hoge.com/"&gt;
+<code class="prettyprint">&lt;link rel="alternate" hreflang="ja" href="http://hoge.com/"&gt;
 &lt;link rel="alternate" hreflang="en" href="http://hoge.com/en.html"&gt;
 </code>
 </pre>
@@ -837,10 +873,9 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <th>type</th>
 <td>リンク先コンテンツの種類</td>
 <td>MIMEタイプ（text/html、text/cssなど）</td>
-<td>
-<code>
-&lt;link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"&gt;
-</code>
+<td><pre>
+<code class="prettyprint">&lt;link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"&gt;
+</code></pre>
 </td>
 </tr>
 <tr>
@@ -1169,7 +1204,7 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;p&gt;大藤園より&lt;data value="JAN:45566775257756"&gt;こ～い合格茶&lt;/data&gt;が発売された。&lt;/p&gt;
 </code>
 </pre>
@@ -1245,7 +1280,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;p&gt;合格したら&lt;abbr title="結婚活動"&gt;婚活&lt;/abbr&gt;するぞ！&lt;/p&gt;
 </code>
 </pre>
@@ -1259,7 +1294,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;p&gt;次に、&lt;kbd&gt;F3&lt;/kbd&gt;キーを押してください。&lt;/p&gt;
 </code>
 </pre>
@@ -1473,7 +1508,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="part">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;p&gt;
 &lt;ruby&gt;
 &lt;rb&gt;漢字&lt;/rb&gt;
@@ -1577,7 +1612,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;img src="logo.png srcset="logo200.png 2x, logo300.png 3x" alt="株式会社○○"&gt;
 </code>
 </pre>
@@ -1593,7 +1628,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;picture&gt;
 &lt;source src="large.png" media="(min-width: 50em)"&gt;
 &lt;source src="medium.png" media="(min-width: 30em)"&gt;
@@ -1748,7 +1783,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;video src="trip.mp4" controls width="640" height="360"&gt;
 &lt;p&gt;&lt;a href="trip.mp4"&gt;動画ファイルをダウンロード&lt;/a&gt;&lt;/p&gt;
 &lt;/video&gt;
@@ -1763,7 +1798,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;audio src="song.mp3" controls&gt;
 &lt;p&gt;&lt;a href="song.mp3"&gt;音声ファイルをダウンロード&lt;/a&gt;&lt;/p&gt;
 &lt;/audio&gt;
@@ -1906,7 +1941,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;embed src="game.swf" type="application/x-shockwave-flash" width="500" height="500"&gt;
 </code>
 </pre>
@@ -2094,24 +2129,672 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tbody>
 </table>
 
+<div class="col-2">
+<div class="part">
 <h3 class="hdg-lv3-a">thead要素</h3>
 <p>見出しとなっているtr要素をグループ化する要素で表のヘッダー部分をあらわす。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">tbody要素</h3>
 <p>表の本体部分をあらわす要素。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">tfoot要素</h3>
 <p>表のフッター部分をあらわす要素</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">caption要素</h3>
 <p>table要素のキャプションとなる要素</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">colgroup要素</h3>
 <p>1列分以上の縦列をグループ化する要素<br>
 colgroup要素にspan属性を指定している場合は、colgroup要素の要素内容は空にします。span属性を指定していない場合は、col要素かtemplate要素を入れます。</p>
-
+<!-- /.part --></div>
+<div class="part">
 <h3 class="hdg-lv3-a">col要素</h3>
 <p>span属性のないcolgroup要素内に配置して、1列分以上の縦列を表す空要素。</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+</section>
+
+<section id="anc-form">
+<h2 class="hdg-lv2-a">フォーム</h2>
+
+<h3 class="hdg-lv3-a">form要素</h3>
+<p>フォーム関連の要素をとりまとめ、ユーザが入力・選択したデータをサーバーに送信するための要素。</p>
+
+<table class="tbl-a">
+<caption>form要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>action</th>
+<td>フォームの送信先のURL</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>accept-charaset</th>
+<td>フォーム送信時の文字コード</td>
+<td>文字コード（空白文字区切り）</td>
+</tr>
+<tr>
+<th>autocomplete</th>
+<td>オートコンプリート機能のデフォルト値</td>
+<td>autocomplete="on"、autocomplete="off"</td>
+</tr>
+<tr>
+<th>enctype</th>
+<td>フォームデータを送信する際のデータ形式をMIMEタイプで指定</td>
+<td>enctype="application/x-www-form-urlencoded"、enctype="multipart/form-data"、enctype="text/plain"</td>
+</tr>
+<tr>
+<th>method</th>
+<td>フォームのデータを送信する際のHTTPメソッドを指定</td>
+<td>method="GET"、method="POST"</td>
+</tr>
+<tr>
+<th>name</th>
+<td>フォームの名前</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>novalidate</th>
+<td>入力内容のチェックを行なわない</td>
+<td>novalidate（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>target</th>
+<td>フォームの送信結果を表示させるブラウジングコンテキスト（ウィンドウやタブなど）を指定</td>
+<td>ブラウジングコンテキスト名、キーワード</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">input要素</h3>
+<p>type属性で指定したキーワードによって様々な種類の入力・選択用部品となる要素。</p>
+
+<h3 class="hdg-lv3-a">textarea要素</h3>
+<p>複数行のテキスト入力フィールドとなる要素。要素内容として入れたテキストは、入力フィールドにあらかじめ入力された状態で表示されます。</p>
+
+<table class="tbl-a">
+<caption>textarea要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>cols</th>
+<td>1行に入力可能な文字数</td>
+<td>1以上の整数（デフォルトは20）</td>
+</tr>
+<tr>
+<th>rows</th>
+<td>入力欄の行数</td>
+<td>1以上の整数（デフォルトは2）</td>
+</tr>
+<tr>
+<th>autocomplete</th>
+<td>要素のオートコンプリート機能のオン／オフまたは自動入力すべき値を示すキーワードなど</td>
+<td>autocomplete="on"、autocomplete="off"</td>
+</tr>
+<tr>
+<th>autofocus</th>
+<td>ページが読み込まれたら自動的にこの要素にフォーカスする</td>
+<td>autofocus（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>dirname</th>
+<td>文字表記の方向を示す値を送信するフィールドの名前</td>
+<td>テキスト（空文字は不可）</td>
+</tr>
+<tr>
+<th>disabled</th>
+<td>無効にする</td>
+<td>disabled（属性名だけで指定可</td>
+</tr>
+<tr>
+<th>form</th>
+<td><strong>フォーム部品を特定のform要素と関連づける</strong></td>
+<td>id属性の値</td>
+</tr>
+<tr>
+<th>maxlength</th>
+<td>最大文字数</td>
+<td>整数（負の値は指定不可）</td>
+</tr>
+<tr>
+<th>minlength</th>
+<td>最小文字数</td>
+<td>整数（負の値は指定不可）</td>
+</tr>
+<tr>
+<th>name</th>
+<td>フォーム部品の名前</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>placeholder</th>
+<td>入力すべき値がわかるように入力欄に表示される入力例や簡単な説明</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>readonly</th>
+<td>値の編集や変更ができないようにする</td>
+<td>readonly（属性名だけで指定可</td>
+</tr>
+<tr>
+<th>required</th>
+<td>入力・選択されていることが必須であることを示す</td>
+<td>required（属性名だけで指定可</td>
+</tr>
+<tr>
+<th>wrap</th>
+<td>フォームデータを送信する際、入力されたテキストの行の折り返し部分に改行コードを加えるかどうか</td>
+<td>wrap="soft"、wrap="hard"</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">button要素</h3>
+<p>要素内容がそのままラベルとして表示されるボタンになる要素。</p>
+
+<table class="tbl-a">
+<caption>button要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>type</th>
+<td>ボタンの種類</td>
+<td>type="submit"（送信ボタン）、type="reset"（リセットボタン）、type="menu"（メニューを表示させるボタン）、type="button"（そのままでは何もしないボタン）<br>デフォルト値は「submit」</td>
+</tr>
+<tr>
+<th>menu</th>
+<td>表示させるメニュー</td>
+<td>menu要素のid属性の値</td>
+</tr>
+<tr>
+<th>autofocus</th>
+<td>ページが読み込まれたら自動的にこの要素にフォーカスする</td>
+<td>autofocus（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>disabled</th>
+<td>フォームの部品を無効にする</td>
+<td>disabled（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>form</th>
+<td>フォーム部品を特定のform要素と関連づける</td>
+<td>id属性の値</td>
+</tr>
+</tr>
+<tr>
+<th>formaction</th>
+<td>フォームの送信先のURL</td>
+<td>URL（空文字は不可）</td>
+</tr>
+<tr>
+<th>formenctype</th>
+<td>フォームのデータを送信する際のデータ形式をMIMEタイプで指定</td>
+<td>formenctype="application/x-www-form-urlencoded"、formenctype="multipart/form-data"、formenctype="text/plain"</td>
+</tr>
+<tr>
+<th>formmethod</th>
+<td>フォームのデータを送信する際のHTTPメソッドを指定</td>
+<td>formmethod="GET"、formmethod="POST"</td>
+</tr>
+<tr>
+<th>formnovalidate</th>
+<td>入力内容のチェックを行なわない</td>
+<td>formnovalidate（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>formtarget</th>
+<td>送信結果を表示させるブラウジングコンテキスト（ウィンドウやタブ）を指定</td>
+<td>ブラウジングコンテキスト名、キーワード</td>
+</tr>
+<tr>
+<th>name</th>
+<td>フォーム部品の名前</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>value</th>
+<td>フォームのデータを送信する際に使用される値</td>
+<td>テキスト</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">select要素</h3>
+<p>選択肢の中から選ぶ形式のフォーム部品になる要素。</p>
+
+<table class="tbl-a">
+<caption>select要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>multiple</th>
+<td>複数の入力・選択を許可する</td>
+<td>multiple（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>size</th>
+<td>表示させる項目数</td>
+<td>整数（負の値は指定不可）</td>
+</tr>
+<tr>
+<th>autocomplete</th>
+<td>要素のオートコンプリート機能のオン／オフまたは自動入力すべき値を示すキーワードなど</td>
+<td>autocomplete="on"、autocomplete="off"</td>
+</tr>
+<tr>
+<th>autofocus</th>
+<td>ページが読み込まれたら自動的にこの要素にフォーカスする</td>
+<td>autofocus（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>disabled</th>
+<td>フォームの部品を無効にする</td>
+<td>disabled（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>form</th>
+<td>フォーム部品を特定のform要素と関連づける</td>
+<td>id属性の値</td>
+</tr>
+<tr>
+<th>name</th>
+<td>フォーム部品の名前</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>required</th>
+<td>入力・選択されていることが必須であることを示す</td>
+<td>required（属性名だけで指定可）</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">option要素</h3>
+<p>select要素またはdatalist要素の選択肢となる要素。label属性が指定されているとその値が選択肢となりますが、label属性が指定されていない場合は要素内容が選択肢になります。また、value属性が指定されているとその値がサーバに送信されますが、value属性が指定されていない場合は要素内容が送信されます。</p>
+
+<table class="tbl-a">
+<caption>option要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>selected</th>
+<td>デフォルトで選択済みの状態になっていることを示す</td>
+<td>selected（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>label</th>
+<td>要素内容よりも優先して表示される選択肢</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>value</th>
+<td>要素内容よりも優先してサーバに送信される値</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>disabled</th>
+<td>フォームの部品を無効にする</td>
+<td>disabled（属性名だけで指定可）</td>
+</tr>
+</tbody>
+</table>
+
+<p class="txt-note"><span class="ast">※</span>option要素にlabel属性とvalue属性の両方を指定する場合は、要素内容を空にしてください。</p>
+
+<h3 class="hdg-lv3-a">optgroup要素</h3>
+<p>select要素内のoption要素をグループ化して、そこにグループの名前（ラベル）をつける要素。グループの名前はlabel属性で指定します。<strong>label属性は必須項目です。</strong>また、disabled属性も任意で指定することができます。</p>
+
+<h3 class="hdg-lv3-a">meter要素</h3>
+<p>メーター（ゲージ）として使える要素です。<strong>特定の範囲内での位置を示す</strong>場合に使用します。<br>
+要素内容には未対応ブラウザ向けに、メーターの状態をテキストで表現したものを入れます。対応ブラウザでこの要素内容は表示されません。</p>
+
+<table class="tbl-a">
+<caption>meter要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>value</th>
+<td>要素の現在地</td>
+<td>浮動小数点数</td>
+</tr>
+<tr>
+<th>min</th>
+<td>範囲全体の下限</td>
+<td>浮動小数点数</td>
+</tr>
+<tr>
+<th>max</th>
+<td>範囲全体の上限</td>
+<td>浮動小数点数</td>
+</tr>
+<tr>
+<th>low</th>
+<td>範囲を「低」「中」「高」の3つに分割した場合の「低」の上限</td>
+<td>浮動小数点数</td>
+</tr>
+<tr>
+<th>high</th>
+<td>範囲を「低」「中」「高」の3つに分割した場合の「高」の上限</td>
+<td>浮動小数点数</td>
+</tr>
+<tr>
+<th>optimum</th>
+<td>範囲内での最適地</td>
+<td>浮動小数点数</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre>
+<code class="prettyprint">
+&lt;p&gt;ディスク容量：
+&lt;meter min="0" max="3000000" value="2300000"&gt;
+容量：3,000,000バイト
+使用領域：2,300,000バイト
+&lt;/meter&gt;
+&lt;/p&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<p>ディスク容量：
+<meter min="0" max="3000000" value="2300000">
+容量：3,000,000バイト
+使用領域：2,300,000バイト
+</meter>
+</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">progress要素</h3>
+<p>タスク（コンピュータが行なっている作業）の進み具合をあらわすための専門要素。<br>
+要素内容には未対応ブラウザ向けに、現在の状態をテキストで表現したものを入れます。対応ブラウザでは要素内容は表示されません。要素内容や属性値を逐次更新するにはスクリプトを利用します。</p>
+
+<p>要素に指定できる属性はvalue属性（現在の進み具合を示す）とmax属性（タスクの全体量）があり、どちらも指定可能な値は浮動小数点数です。</p>
+
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre>
+<code class="prettyprint">
+&lt;p&gt;処理の進行状況：
+&lt;progress max="100" value="25"&gt;
+25%
+&lt;/progress&gt;
+&lt;/p&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<p>処理の進行状況：
+<progress max="100" value="25">
+25%
+</progress>
+</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">datalist要素</h3>
+<p><em>input要素にサジェスト機能を追加する要素</em>。datalist要素の中のoption要素が選択肢になります。<br>
+input要素とdatalist要素を関連づけるには、<em>datalist要素のid属性</em>の値を<em>input要素のlist属性</em>に指定します。</p>
+
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例①</p>
+<p>datalist要素の中にそのままoption要素を入れて選択肢にする</p>
+<pre>
+<code class="prettyprint">
+&lt;p&gt;
+&lt;label&gt;取得したい資格：
+&lt;input type="text" name="hoge" list="certifications"&gt;
+&lt;datalist id="certifications"&gt;
+&lt;option value="SEO検定1級"&gt;&lt;/option&gt;
+&lt;option value="SEO検定2級"&gt;&lt;/option&gt;
+&lt;/datalist&gt;
+&lt;/label&gt;
+&lt;/p&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示</p>
+<p>
+<label>取得したい資格：
+<input type="text" name="hoge" list="certifications">
+<datalist id="certifications">
+<option value="SEO検定1級"></option>
+<option value="SEO検定2級"></option>
+</datalist>
+</label>
+</p>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">使用例②</p>
+<p>datalist要素に未対応のブラウザ用に、要素内容としてselect要素を入れ、その中のoption要素を選択肢として使用させる。<br>
+この場合、テキストやlabel要素なども一緒に入れることができます。こうすることでdatalist要素に未対応のブラウザでは要素内容がそのまま表示されず、option要素だけが入力候補として使用されます。</p>
+<pre>
+<code class="prettyprint">
+&lt;p&gt;
+&lt;label&gt;取得したい資格：
+&lt;input type="text" name="hoge2" list="certifications2"&gt;
+&lt;/label&gt;
+&lt;datalist id="certifications2"&gt;
+&lt;br&gt;
+&lt;label&gt;※上の入力欄に入力するか、次のメニューから選択してください：
+&lt;br&gt;
+&lt;select name="hoge2"&gt;
+&lt;option value=""&gt;（未選択）&lt;/option&gt;
+&lt;option value="SEO検定1級"&gt;&lt;/option&gt;
+&lt;option value="SEO検定2級"&gt;&lt;/option&gt;
+&lt;/select&gt;
+&lt;/label&gt;
+&lt;/datalist&gt;
+&lt;/p&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示</p>
+<p>
+<label>取得したい資格：
+<input type="text" name="hoge2" list="certifications2">
+</label>
+<datalist id="certifications2">
+<br>
+<label>※上の入力欄に入力するか、次のメニューから選択してください：
+<br>
+<select name="hoge2">
+<option value="">（未選択）</option>
+<option value="SEO検定1級"></option>
+<option value="SEO検定2級"></option>
+</select>
+</label>
+</datalist>
+</p>
+</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">output要素</h3>
+<p><em>計算結果</em>やユーザ操作による結果を示す要素。</p>
+
+<table class="tbl-a">
+<caption>output要素に指定できる属性</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-40">
+<col class="w-45">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>for</th>
+<td>計算元となったフォーム部品を示す</td>
+<td>計算の元となった要素のid属性やname属性の値（空白文字区切り）</td>
+</tr>
+<tr>
+<th>name</th>
+<td>フォーム部品の名前</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>form</th>
+<td>フォーム部品を特定のform要素と関連づける</td>
+<td>id属性の値</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre>
+<code class="prettyprint">
+&lt;form onsubmit="return false" oninput="sum.value=hoge.valueAsNumber+huga.valueAsNumber"&gt;
+&lt;input name="hoge" type="number"&gt; +
+&lt;input name="huga" type="number"&gt; =
+&lt;output for="hoge huga" name="sum"&gt;&lt;/output&gt;
+&lt;/form&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<form onsubmit="return false" oninput="sum.value=hoge.valueAsNumber+huga.valueAsNumber">
+<input name="hoge" type="number"> +
+<input name="huga" type="number"> =
+<output for="hoge huga" name="sum"></output>
+</form>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">label要素</h3>
+<p>その要素内容であるラベルとフォーム部品を関連づけるための要素。関連づけたラベルは、部品と一体化してユーザの操作に反応するようになります。<br>
+label要素にはフォーム部品とラベルを関連づけるfor属性を指定することができます。</p>
+
+<h4 class="hdg-lv4-a">ラベルと関連づけることのできるフォーム部品</h4>
+<ul class="list-normal-a list-col">
+<li>input要素（"type=hidden"以外）要素</li>
+<li>textarea要素</li>
+<li>button要素</li>
+<li>select要素</li>
+<li>keygen要素</li>
+<li>meter要素</li>
+<li>progress要素</li>
+<li>output要素</li>
+</ul>
+
+<h4 class="hdg-lv4-a">要素とラベルと関連づける方法</h4>
+<ul class="list-normal-a">
+<li>要素をlabelとともにlabel要素の中に入れる</li>
+<li>要素にid属性を指定して、その値をlabel要素のfor属性にそのまま指定する</li>
+</ul>
+
+<h3 class="hdg-lv3-a">fieldset要素</h3>
+<p>フォーム関連の要素をグループ化するための専用要素。要素内容の先頭にlegend要素を入れると、その要素内容がグループの名前として表示されます。<br>
+disabled属性、name属性、form属性を指定できます。</p>
+
+<h3 class="hdg-lv3-a">legend要素</h3>
+<p>fieldset要素によってグループ化されたフォーム関連要素の<em>グループ名（キャプション）を表示察せる</em>ための要素。この要素を使用する場合は、必ず<strong>fieldset要素の内容の先頭に入れる必要があります</strong>。</p>
 
 </section>
 
@@ -2132,7 +2815,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 <div class="box-a">
 <p class="txt-title">使用例</p>
 <pre>
-<code>
+<code class="prettyprint">
 &lt;details open&gt;
 &lt;summary&gt;見出し&lt;/summary&gt;
 &lt;p&gt;詳細情報&lt;/p&gt;
@@ -2166,68 +2849,77 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </thead>
 <tbody>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>src</th>
+<td>表示させる文書のアドレス（ファイルパス）</td>
+<td>URL（空文字は不可）</td>
 </tr>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>srcdoc</th>
+<td>インラインフレーム内に表示させるHTML文書のデータ</td>
+<td>HTML文書のソースコード全体</td>
 </tr>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>name</th>
+<td>ブラウジングコンテキスト（フレーム）の名前</td>
+<td>ブラウジングコンテキスト名またはキーワード</td>
 </tr>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>allowfullscreen</th>
+<td>フルスクリーン表示を許可</td>
+<td>allowfullscreen（属性名だけで指定可）</td>
 </tr>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>sandbox</th>
+<td>この属性を指定したことによるセキュリティ上の制限のうち、解除する項目をキーワードで指定</td>
+<td>allow-forms、allow-pointer-lock、allow-popups、allow-same-origin、allow-scripts、allow-top-navigation</td>
 </tr>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>width</th>
+<td>幅</td>
+<td>整数（負の値は指定不可）※ピクセル数指定のみ</td>
 </tr>
 <tr>
-<th></th>
-<td></td>
-<td></td>
+<th>height</th>
+<td>高さ</td>
+<td>整数（負の値は指定不可）※ピクセル数指定のみ</td>
 </tr>
 </tbody>
 </table>
 
-<h3 class="hdg-lv3-a">要素</h3>
-<p></p>
+<p class="txt-note"><span class="ast">※</span>src属性とsrcdoc属性の両方を同時に指定することもできるがその場合、srcdoc属性の方が優先され、srcdoc属性に未対応のブラウザなどではsrc属性の文書が使用されます。</p>
 
-<h3 class="hdg-lv3-a">要素</h3>
-<p></p>
+<h3 class="hdg-lv3-a">hr要素</h3>
+<p>段落レベルで主題が変わるところ（区切り・変わり目）を示す要素。たとえば、話題が変わるところや、物語の中で場面が変わるところなどで使用します。<br>
+HTML5ではどう表示させるか規定されているわけではなく、特に線として表示させる仕様になっているわけではない点に注意してください。<br>
+セクションはそれ自体が主題の区切りを示すため、セクションとセクションの間にhr要素を入れる必要はありません。hr要素はセクション内部の「段落レベル」での区切りを示すために使用します。</p>
 
-<h3 class="hdg-lv3-a">要素</h3>
-<p></p>
+<h3 class="hdg-lv3-a">script要素</h3>
+<p>HTML文書内にスクリプトまたはデータブロックを組み込むための要素。<br>
+<em>type属性を省略した場合のデフォルト値は「text/javascript」</em>です。それ以外のものを組み込む場合は、type属性は必須となります。</p>
 
-<h3 class="hdg-lv3-a">要素</h3>
-<p></p>
+<h3 class="hdg-lv3-a">noscript要素</h3>
+<p>スクリプトが無効の場合に利用されるコンテンツを要素内容として持つ要素。したがって、スクリプトが有効の状態では、この要素は使用されません。</p>
 
-<h3 class="hdg-lv3-a">要素</h3>
-<p></p>
+<h3 class="hdg-lv3-a">template要素</h3>
+<p>その範囲がスクリプトによって生成（複製・挿入）される部品であることを示す要素。</p>
+<p>一般的なフローコンテンツとメタデータコンテンツが自動生成できるほか、次に示す要素の要素内容となる範囲全体をタグで囲って自動生成させることができます。</p>
 
-<h3 class="hdg-lv3-a">要素</h3>
-<p></p>
+<h3 class="hdg-lv3-a">canvas要素</h3>
+<p>スクリプトによって描画するビットマップの動的なグラフィックとなる要素。要素内容は描画できない環境向けの内容となります。canvas要素にはwidth属性とheight属性を指定できます。</p>
 
 </section>
 
+<p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
 
 <!-- /.str-inner --></div>
 </main>
 
+<footer>
+<p class="txt-footer"><small>copyright &copy; 2018 WEB WIKI. All rights reserved.</small></p>
+</footer>
+
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/run.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy" defer></script>
 </body>
 </html>
