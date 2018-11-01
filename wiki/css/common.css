@@ -382,6 +382,10 @@ b, em, strong {
 }
 em {
   font-style: normal;
+  color: #00a85a;
+}
+dfn {
+  font-style: normal;
 }
 button {
   border: none;
@@ -430,6 +434,14 @@ h2 {
 h3, h4 {
   margin: 30px 0 0;
 }
+@media screen and (max-width: 599px) {
+  h2 {
+    margin: 30px 0 0;
+  }
+  h3, h4 {
+    margin: 20px 0 0;
+  }
+}
 h5, h6, aside h1, aside h2, aside h3, aside h4 {
   margin: 20px 0 0;
 }
@@ -460,13 +472,13 @@ button {
 pre, code {
   overflow-x: auto;
 }
-pre {
+.pre-skin {
   background-color: #0f0f0f;
   margin: 10px 0 0;
   padding: 0 20px 20px;
   border-radius: 5px;
 }
-td pre {
+td .pre-skin {
   margin: 0;
   padding: 10px;
 }
@@ -493,6 +505,11 @@ strong {
   max-width: 1120px;
   margin: 60px auto;
   padding: 0 20px;
+}
+@media screen and (max-width: 599px) {
+  .str-inner {
+    margin: 20px auto;
+  }
 }
 .str-inner > *:first-child {
   margin-top: 0;
@@ -764,6 +781,31 @@ aside .hdg-lv2-a {
 }
 
 /*-------------------------------
+  Link
+--------------------------------*/
+.txt-link > a {
+  position: relative;
+  margin-left: 1em;
+}
+.txt-link > a::before,
+.txt-link > a::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 10px;
+  left: -10px;
+  background-color: #00a85a;
+}
+.txt-link > a::before {
+  transform: rotate(45deg);
+  top: 8px;
+}
+.txt-link > a::after {
+  transform: rotate(-45deg);
+  top: 2px;
+}
+
+/*-------------------------------
   Box
 --------------------------------*/
 .box-a {
@@ -855,6 +897,7 @@ aside .hdg-lv2-a {
 --------------------------------*/
 .tbl-a {
   width: 100%;
+  table-layout: fixed;
   margin: 30px 0 0;
   border: 1px solid #696969;
   border-collapse: collapse;
@@ -948,6 +991,16 @@ aside .hdg-lv2-a {
   width: calc((100% - 20px * 2) / 3);
 }
 
+@media screen and (max-width: 599px) {
+  .col-2 .part,
+  .col-2 li,
+  .col-3 .part,
+  .col-3 li {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
 /*-------------------------------
   メガメニュー／ハンバーガーメニュー
 --------------------------------*/
@@ -1028,15 +1081,16 @@ nav {
 .list-nav-inner > li > a:focus {
   opacity: .7;
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 600px) {
   .nav .btn-close {
     display: none;
   }
 }
 
 /*ハンバーガーメニュー（SP）*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 599px) {
   .nav {
+    margin-top: 0;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -1238,8 +1292,9 @@ nav {
   トップへ戻る
 --------------------------------*/
 .page-top {
+  margin: 0;
   position: fixed;
-  bottom: 28px;
+  bottom: 50px;
   right: 20px;
   z-index: 1000;
 }
