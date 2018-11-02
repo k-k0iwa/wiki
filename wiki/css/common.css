@@ -482,6 +482,9 @@ td .pre-skin {
   margin: 0;
   padding: 10px;
 }
+td > p:first-child {
+  margin-top: 0;
+}
 strong {
   color: #f00;
 }

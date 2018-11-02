@@ -62,7 +62,8 @@
 <p>レスポンシブデザインでは基本的に画面の横幅を基準にCSSを切り替えます。切替地点のことをブレイクポイントといいます。<br>
 このブレイクポイントを何pxにするか、というのは時代によって主流の端末が変化するため明確な値はありません。想定されるターゲットによって決めたり、一般的に多く使われている数値に設定することが多いです。</p>
 
-<p>従来では768pxを基準にPC表示とスマホ表示を切り替えるのが一般的でした。これは、iPadの縦向きの表示解像度が768pxというところに起因しています。ですが、特定の製品を基準にブレイクポイントを設定していること疑問が生まれます。</p>
+<p>従来では768pxを基準にPC表示とスマホ表示を切り替えるのが一般的でした。これは、iPadの縦向きの表示解像度が768pxというところに起因しています。ですが特定の製品を基準にブレイクポイントを設定すると日々進化するデバイスに対応できなくなる日が来るでしょう。ですので特定の端末に依存しないブレイクポイントの参考に以下の表を参照してください。</p>
+
 
 <table class="tbl-a">
 <caption>ブレイクポイントの参考</caption>
@@ -120,6 +121,16 @@
 
 <p>HTTPでの通信は<em>リクエストメッセージ（URLパラメータなど）</em>を送信して<em>レスポンスメッセージ（ステータス、HTMLなど）</em>を受信するというシンプルなものになっています。</p>
 
+<aside>
+<h1 class="hdg-lv1-a">用語解説</h1>
+
+<h2 class="hdg-lv2-a">URL (Uniform Resource Locator)</h2>
+<p>インターネット上のリソース（ファイルなど）の位置を示す文字列です。</p>
+
+<h2 class="hdg-lv2-a">URI (Uniform Resource Identifier)</h2>
+<p>インターネットに限らないより大きな概念でのリソースの位置を示す文字列です。URLはURIの1つの形式です。</p>
+</aside>
+
 <h3 class="hdg-lv3-a">HTTPSプロトコル</h3>
 <p>セキュリティを確保した通信路上でHTTP通信をすることをHTTPSと呼びます。セキュリティの確保にはデータを暗号化して送受信するプロトコルである<em>TLSプロトコル</em>または<em>SSLプロトコル</em>を使用します。</p>
 
@@ -145,8 +156,9 @@
 <!-- /.box-a --></div>
 
 <h3 class="hdg-lv3-a">HTTPのリクエストメッセージ</h3>
-<p>リクエストメッセージとして指定可能なメソッドは次の表の8種類です。このうち最も利用されるメソッドは<em>GET</em>と<em>POST</em>です。</p>
-
+<p>リクエストメッセージとして指定可能なメソッドは次の表の8種類です。<br>
+HTTPリクエストの中の「メソッド」は、指定したURIに対して、クライアントからサーバに要求するアクションです。</p>
+<p>最も利用されるメソッドは<em>GET</em>と<em>POST</em>です。GETで送信時にIDやパスワードなどのパラメータを指定した場合、それらはURLに追加され表示されてしまいます。そのため情報が漏えいするリスクが高まります。POSTで送信時は、パラメータはメッセージボディに書かれるためURLには追加されません。重要なデータはPOSTで送信します。</p>
 
 <table class="tbl-a">
 <colgroup>
@@ -162,35 +174,23 @@
 <tbody>
 <tr>
 <th><strong>GET</strong></th>
-<td>リクエストURIで識別されるリソースを取得</td>
+<td>サーバにページの取得を要求する</td>
 </tr>
 <tr>
 <th>HEAD</th>
-<td>GETと同等だがヘッダのみを取得</td>
+<td>サーバにヘッダのみの取得を要求する</td>
 </tr>
 <tr>
 <th><strong>POST</strong></th>
-<td>リクエストURIで識別されるリソースの子リソースの作成、リソースへのデータの追加などを要求</td>
+<td>サーバにデータを送信する</td>
 </tr>
 <tr>
 <th>PUT</th>
-<td>リクエストURIに対してメッセージボディに含まれる情報を保存することを要求</td>
-</tr>
-<tr>
-<th>OPTIONS</th>
-<td>リクエストURIがサポートしているメソッドを取得</td>
+<td>指定したファイルの保存を要求する</td>
 </tr>
 <tr>
 <th>DELETE</th>
-<td>リクエストURIで識別されるリソースの削除を要求</td>
-</tr>
-<tr>
-<th>TRACE</th>
-<td>自分宛にリクエストメッセージを返却するループバック試験に使用</td>
-</tr>
-<tr>
-<th>CONNECT</th>
-<td>プロキシ動作のトンネル接続への変更のために使用</td>
+<td>指定したファイルの削除を要求する</td>
 </tr>
 </tbody>
 </table>
@@ -202,34 +202,52 @@
 <table class="tbl-a">
 <colgroup>
 <col class="w-20">
-<col class="w-80">
+<col class="w-15">
+<col class="w-65">
 </colgroup>
 <thead>
 <tr>
+<th>分類</th>
 <th>ステータスコード</th>
-<th>概要</th>
+<th>説明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<th>1xx</th>
-<td>Informational（情報提供のコード）</td>
+<td>2xx<br>成功</td>
+<td>200</td>
+<td>OK／リクエストが成功した</td>
 </tr>
 <tr>
-<th>2xx</th>
-<td>Success（成功したことを表すコード）<br>（例）200 OK</td>
+<td rowspan="2">3xx<br>リダイレクト</td>
+<td>301</td>
+<td>Moved Permanently／リソースが恒久的に移動した</td>
 </tr>
 <tr>
-<th>3xx</th>
-<td>Redirection（転送に関するコード）<br>（例）301 Moved Permanently、307 Temporary Redirect</td>
+<td>307</td>
+<td>Temporary Redirect／リソースが一時的に移動した</td>
 </tr>
 <tr>
-<th>4xx</th>
-<td>Client Error（クライアントエラーに関するコード）<br>（例）400 Bad Request、404 Not Found</td>
+<td rowspan="3">4xx<br>クライアントエラー</td>
+<td>400</td>
+<td>Bad Request／不正なリクエストである</td>
 </tr>
 <tr>
-<th>5xx</th>
-<td>Server Error（サーバエラーに関するコード）<br>（例）500 Internal Server Error、503 Service Unavailable</td>
+<td>403</td>
+<td>Forbidden／アクセスが禁止されている</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found／リソースが見つからない</td>
+</tr>
+<tr>
+<td rowspan="2">5xx<br>サーバエラー</td>
+<td>500</td>
+<td>Internal Server Error／サーバ内部エラー</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable／サービスが一時的に利用付加である</td>
 </tr>
 </tbody>
 </table>
@@ -246,7 +264,7 @@
 <thead>
 <tr>
 <th>ヘッダ名</th>
-<th>種類</th>
+<th>ヘッダの種類</th>
 <th>概要</th>
 </tr>
 </thead>
@@ -254,71 +272,57 @@
 <tr>
 <th>Accept</th>
 <td>Request-header</td>
-<td>受け入れ可能なメディア型を指定</td>
+<td>受け入れ可能なメディアタイプ</td>
 </tr>
 <tr>
 <th>Authorization</th>
 <td>Request-header</td>
-<td>HTTP認証の認証情報</td>
+<td>認証情報（ユーザ名とパスワード）</td>
 </tr>
 <tr>
 <th>Cache-Control</th>
 <td>General-header</td>
-<td>キャッシュの振る舞いを指示</td>
+<td>キャッシュを制御する指示情報</td>
 </tr>
 <tr>
 <th>Content-Language</th>
 <td>Entity-header</td>
-<td>エンティティの自然言語を表す</td>
-</tr>
-<tr>
-<th>Content-Length</th>
-<td>Entity-header</td>
-<td>メッセージボディの大きさ</td>
+<td>コンテンツの言語コード</td>
 </tr>
 <tr>
 <th>Content-type</th>
 <td>Entity-header</td>
-<td>メッセージボディのメディア型</td>
+<td>コンテンツのMIMEタイプ、エンコーディング</td>
 </tr>
 <tr>
 <th>Cookie</th>
-<td>Request-header（RFC定義外）</td>
-<td>ブラウザに保存されたクッキーの値</td>
+<td>Request-header</td>
+<td>ブラウザに保存されたクッキーの内容</td>
 </tr>
 <tr>
 <th>Expires</th>
 <td>Entity-header</td>
-<td>レスポンスの有効期間</td>
-</tr>
-<tr>
-<th>If-Modified-Since</th>
-<td>Request-header</td>
-<td>指定時刻以降に更新されているかを確認。条件付きGETとともに使用</td>
-</tr>
-<tr>
-<th>Last-Modified</th>
-<td>Entity-header</td>
-<td>リソースの最終更新時刻</td>
+<td>コンテンツの有効期間</td>
 </tr>
 <tr>
 <th>Referer</th>
 <td>Request-header</td>
-<td>リンクされている元のリソースのURI</td>
+<td>リンク元のリソースのURI（どこからそのページに来たのか）</td>
 </tr>
 <tr>
 <th>Set-Cookie</th>
-<td>Request-header（RFC定義外）</td>
-<td>Webサーバが生成したクッキーの値</td>
+<td>Response-header</td>
+<td>Webサーバが生成したクッキーの内容</td>
 </tr>
 <tr>
 <th>User-Agent</th>
 <td>Request-header</td>
-<td>ユーザーエージェントの名前
-</td>
+<td>クライアントの識別情報	</td>
 </tr>
 </tbody>
 </table>
+
+<p>ヘッダの種類であるRequest-headerはリクエストに追加できるヘッダで、Response-headerはレスポンスに追加できるヘッダです。General-headerはリクエスト/レスポンスの両方に追加できるヘッダで、Entity-headerはメッセージボディについての情報を記載するヘッダです。</p>
 
 <h3 class="hdg-lv3-a">HTTPでの認証</h3>
 <p>特定のファイルへのアクセス制限をするために認証をすることが可能です。</p>
@@ -338,7 +342,7 @@
 <tbody>
 <tr>
 <th>Basic認証</th>
-<td>ユーザ名とパスワードをコロン「：」で接続し、Base64でエンコードして送信することで認証を実施。<strong>盗聴や改ざんが簡単にできてしまう。</strong></td>
+<td>ユーザ名とパスワードをコロン「：」で接続し、Base64でエンコードして送信することで認証を実施。暗号化されていない平文なので、<strong>盗聴や改ざんが簡単にできてしまう。</strong></td>
 </tr>
 <tr>
 <th>Digest認証</th>
@@ -348,7 +352,8 @@
 </table>
 
 <h3 class="hdg-lv3-a">HTTP cookie</h3>
-<p>HTTPはシステムの現在の状態を保存しない（ステートレス）プロトコルです。Webブラウザにクッキーと呼ばれる状態管理情報を保存すること、HTTPでの状態管理を実現します。</p>
+<p>HTTPはシステムの現在の状態を保存しない（ステートレス）プロトコルです。Webブラウザにクッキーと呼ばれる状態管理情報を保存すること、HTTPでの状態管理を実現します。<br>
+Cookieには4096バイトのASCII文字列を保存できます(ブラウザによってはより大きな容量を保存できます)。Cookieが保存されるディレクトリやファイルは、OSやブラウザのバージョンによって異なります。</p>
 
 <p>クッキーの代表的な用途としては次が挙げられます。</p>
 
@@ -359,6 +364,10 @@
 </ul>
 
 <p>クッキーは、JavaScriptなどのクライアント側スクリプトで操作することができます。またWebブラウザから、クッキーの送受信に関する設定や内容確認および消去することも可能です。</p>
+
+<h3 class="hdg-lv3-a">HTTP/HTTPSのポート番号</h3>
+<p>ポート番号とは、TCP/IPにおける通信の窓口となる番号です。「0-1023」は<em>ウェルノウンポート番号</em>と呼ばれ、特定のサービスのために予約されています。HTTPのウェルノウンポート番号は<em>80番</em>、HTTPSのウェルノウンポート番号は<em>443番</em>です。</p>
+<p class="txt-note"><span class="ast">※</span>ウェルノウンポートを使用してる場合、URLからポート番号を省略できます。</p>
 
 </section>
 
@@ -438,12 +447,78 @@
 <p>64種類の文字とパディング用の=記号により、マルチバイト文字やバイナリデータを扱うためのエンコード方式です。エンコードによりファイルサイズが元データの約1.3倍となるため、<em>大きなファイルの転送には不向きです</em>。</p>
 
 
+<h3 class="hdg-lv3-a">SOAP(Simple Object Access Protocol)</h3>
+<p>異なるコンピュータ上で動作するWebサービス(プログラム)間でメッセージを交換し、連携するための通信プロトコルです。やり取りされるメッセージはXML形式で、主にHTTPを使用して通信が行われます。</p>
 
 
 
 
 
 
+
+
+
+<h3 class="hdg-lv3-a">MVCアーキテクチャ</h3>
+<p>ソフトウェアのデザインパターン(いろいろなプログラムで再利用できる設計パターン)です。
+ソフトウェアの内部処理とユーザーに対しての入出力処理を分離するために、ソフトウェアを以下の3つの要素に分けて設計します。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>要素</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Model</th>
+<td>データを管理し、主要な処理を行なう</td>
+</tr>
+<tr>
+<th>View</th>
+<td>ユーザへの窓口で、受付・表示を行なう</td>
+</tr>
+<tr>
+<th>Controller</th>
+<td>
+<p>ModelとViewを制御する</p>
+<ul class="list-normal-a">
+<li>Viewからの入力 → Contrillew → Modelが処理</li>
+<li>Modelからの処理結果 → Controller → Viewが表示</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">Webサイトに対する主な攻撃手法</h3>
+<h4 class="hdg-lv4-a">クロスサイト・リクエスト・フォージェリ(CSRF: Cross Site Request Forgeries)</h4>
+<p>攻撃用サイトにアクセスしたユーザーの環境から攻撃者が用意したHTTPリクエストを送信させることによって、不正な操作を実行します。</p>
+<p>対策は、サーバ側で<strong>外部サイトからのリクエストを受け付けないように</strong>、HTTPリクエストのRefererヘッダを参照したり、内部からのリクエストであることを照合できる仕組みを作ることです。</p>
+
+<h4 class="hdg-lv4-a">SQLインジェクション(SQL Injection)</h4>
+<p>SQLを実行するWebアプリケーションにおいて、アプリケーションが想定していないSQLを注入(inject)してデータベースを不正に操作します。</p>
+<p>対策は、<strong>ユーザーの入力値を適切にエスケープ処理</strong>(特別な意味を持つ文字列を一定のルールに従って別の文字列に置き換える)することです。また、あらかじめ実行したいSQLをコンパイルした(コンピュータが実行可能な形式にした)<strong>プリペアードステートメントを使用します</strong>。</p>
+
+<h4 class="hdg-lv4-a">クロスサイト・スクリプティング(XSS: Cross Site Scripting)</h4>
+<p>掲示板など、ユーザーからの入力値を元に動的にWebページを表示するサイトに悪意のあるスクリプトを埋め込み、ユーザーの環境で実行させます。こうすることで、偽サイトに誘導して個人情報を搾取するフィッシングや、そのユーザーのふりをする「なりすまし」などを行います。</p>
+<p>対策は、悪意のあるスクリプトが表示、実行されないように<strong>出力値を適切にエスケープ処理する</strong>ことです。</p>
+
+<h4 class="hdg-lv4-a">クロスサイト・リクエスト・フォージェリ(CSRF: Cross Site Request Forgeries)</h4>
+<p>攻撃用サイトにアクセスしたユーザーの環境から攻撃者が用意したHTTPリクエストを送信させることによって、不正な操作を実行します。</p>
+<p>対策は、サーバ側で<strong>外部サイトからのリクエストを受け付けない</strong>ように、HTTPリクエストのRefererヘッダを参照したり、<strong>内部からのリクエストであることを照合できる仕組みを作る</strong>ことです。</p>
+
+<h4 class="hdg-lv4-a">ディレクトリ・トラバーサル(Directory Traversal)</h4>
+<p>ファイルにアクセスする操作時に「../」や「..¥」(親ディレクトリへの相対パスを示す文字列)を含め、ユーザーがアクセスできないはずのファイルにアクセスします。</p>
+<p>対策は、<strong>ファイルのアクセス権を設定する</strong>ことや、<strong>絶対パスに変換する</strong>ことです。</p>
+
+<h4 class="hdg-lv4-a">HTTPヘッダ・インジェクション</h4>
+<p>動的にHTTPヘッダを生成するサイトにおいて、任意のヘッダ行を挿入して不正な操作を行います。</p>
+<p>対策は、<strong>改行として認識される特殊文字をエスケープ処理</strong>したり、<strong>改行が含まれていたら入力エラーとする</strong>ことです。</p>
 
 </section>
 
