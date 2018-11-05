@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>Webの知識 | Web Wiki</title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Luckiest+Guy">
+<link rel="stylesheet" href="/wiki/css/common.css">
+<link rel="icon" href="/wiki/favicon.ico">
+</head>
+
+<body>
+
+<!-- ================ ▼ Header Navigation ▼ ================ -->
+<!--#include virtual="/wiki/ssi/header.html"-->
+<!-- ================ ▲ Header Navigation ▲ ================ -->
+
+
+<!-- ================ ▼ Main ▼ ================ -->
+<main>
+
+<div class="str-inner">
+<h1 class="hdg-lv1-a">Webの知識</h1>
+
+<ul class="list-col _anc">
+<li><a class="scroll" href="#anc-brake">ブレイクポイント</a></li>
+<li><a class="scroll" href="#anc-protocol">HTTP・HTTPSプロトコル</a></li>
+<li><a class="scroll" href="#anc-technical">Web関連技術の概要</a></li>
+<li><a class="scroll" href="#anc-api">API</a></li>
+</ul>
+
+<section id="anc-brake">
+<h2 class="hdg-lv2-a">ブレイクポイント</h2>
+<p>レスポンシブデザインでは基本的に画面の横幅を基準にCSSを切り替えます。切替地点のことをブレイクポイントといいます。<br>
+このブレイクポイントを何pxにするか、というのは時代によって主流の端末が変化するため明確な値はありません。想定されるターゲットによって決めたり、一般的に多く使われている数値に設定することが多いです。</p>
+
+<p>従来では768pxを基準にPC表示とスマホ表示を切り替えるのが一般的でした。これは、iPadの縦向きの表示解像度が768pxというところに起因しています。ですが特定の製品を基準にブレイクポイントを設定すると日々進化するデバイスに対応できなくなる日が来るでしょう。ですので特定の端末に依存しないブレイクポイントの参考に以下の表を参照してください。</p>
+
+
+<table class="tbl-a">
+<caption>ブレイクポイントの参考</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-20">
+<col class="w-60">
+</colgroup>
+<thead>
+<tr>
+<th>デバイス</th>
+<th>ブレイクポイント</th>
+<th>範囲</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>スマホ・縦</th>
+<td></td>
+<td>320px～479px</td>
+</tr>
+<tr>
+<th>スマホ・横</th>
+<td>480px</td>
+<td>480px～599px</td>
+</tr>
+<tr>
+<th>タブレット</th>
+<td>600px</td>
+<td>600px～959px</td>
+</tr>
+<tr>
+<th>PC・小画面</th>
+<td>960px</td>
+<td>960px～1279px</td>
+</tr>
+<tr>
+<th>PC・大画面</th>
+<td>1280px</td>
+<td>1280px～</td>
+</tr>
+</tbody>
+</table>
+
+<p>以下のサイトで国内のパソコン、タブレット、スマホのブラウザシェアやデバイスシェアなど様々な統計を確認することができます。Web上の様々なシェア分析に特化したサービスです。</p>
+<p class="txt-link"><a href="http://gs.statcounter.com/browser-market-share/all/japan" target="_blank">StatCounter Global Stats</a></p>
+
+</section>
+
+<section id="anc-protocol">
+<h2 class="hdg-lv2-a">HTTP・HTTPSプロトコル</h2>
+
+<h3 class="hdg-lv3-a">HTTPプロトコル</h3>
+<p>HTMLや画像などの表示を提供するサーバ（Webサーバ）とWebブラウザに代表されるクライアント間でHTML文書などのテキストメッセージを受け渡すためのプロトコルです。</p>
+
+<p>HTTPでの通信は<em>リクエストメッセージ（URLパラメータなど）</em>を送信して<em>レスポンスメッセージ（ステータス、HTMLなど）</em>を受信するというシンプルなものになっています。</p>
+
+<aside>
+<h1 class="hdg-lv1-a">用語解説</h1>
+
+<h2 class="hdg-lv2-a">URL (Uniform Resource Locator)</h2>
+<p>インターネット上のリソース（ファイルなど）の位置を示す文字列です。</p>
+
+<h2 class="hdg-lv2-a">URI (Uniform Resource Identifier)</h2>
+<p>インターネットに限らないより大きな概念でのリソースの位置を示す文字列です。URLはURIの1つの形式です。</p>
+</aside>
+
+<h3 class="hdg-lv3-a">HTTPSプロトコル</h3>
+<p>セキュリティを確保した通信路上でHTTP通信をすることをHTTPSと呼びます。セキュリティの確保にはデータを暗号化して送受信するプロトコルである<em>TLSプロトコル</em>または<em>SSLプロトコル</em>を使用します。</p>
+
+<p>HTTPS通信ではまずSSL/TLSセッションを確立し、その後に前述のHTTPセッションを行ないます。</p>
+
+<h3 class="hdg-lv3-a">HTTPのメッセージ構造</h3>
+<p>メッセージは、開始行、0行以上のヘッダフィールド、CRLFの改行、メッセージボディからなります。さらに、開始行とヘッダーフィールドにおける各ヘッダの最後には、区切りのためにCRLF改行が入ります。</p>
+
+<div class="box-a">
+<pre>
+<b>開始行（リクエストライン／ステータスライン）</b>
+
+<b>ヘッダフィールド（0行以上）</b>
+  General-header（要求と応答いずれにも使えるヘッダ）
+  Request-header（要求の際に追加できるヘッダ）
+  Response-header（応答の際にサーバが追加できるヘッダ）
+  Entity-header（メッセージボディについての情報を定義するヘッダ）
+
+<b>改行（CRLF）</b>
+
+<b>メッセージボディ</b>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">HTTPのリクエストメッセージ</h3>
+<p>リクエストメッセージとして指定可能なメソッドは次の表の8種類です。<br>
+HTTPリクエストの中の「メソッド」は、指定したURIに対して、クライアントからサーバに要求するアクションです。</p>
+<p>最も利用されるメソッドは<em>GET</em>と<em>POST</em>です。GETで送信時にIDやパスワードなどのパラメータを指定した場合、それらはURLに追加され表示されてしまいます。そのため情報が漏えいするリスクが高まります。POSTで送信時は、パラメータはメッセージボディに書かれるためURLには追加されません。重要なデータはPOSTで送信します。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>メソッド名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th><strong>GET</strong></th>
+<td>サーバにページの取得を要求する</td>
+</tr>
+<tr>
+<th>HEAD</th>
+<td>サーバにヘッダのみの取得を要求する</td>
+</tr>
+<tr>
+<th><strong>POST</strong></th>
+<td>サーバにデータを送信する</td>
+</tr>
+<tr>
+<th>PUT</th>
+<td>指定したファイルの保存を要求する</td>
+</tr>
+<tr>
+<th>DELETE</th>
+<td>指定したファイルの削除を要求する</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">HTTPのレスポンスメッセージ</h3>
+<p>メッセージ構造はHTTPのメッセージ構造と同じです。<br>
+開始行にはレスポンスの状態を3桁の数字で表すステータスコードが含まれます。ステータスコードは次の表のように分類されます。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-15">
+<col class="w-65">
+</colgroup>
+<thead>
+<tr>
+<th>分類</th>
+<th>ステータスコード</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2xx<br>成功</td>
+<td>200</td>
+<td>OK／リクエストが成功した</td>
+</tr>
+<tr>
+<td rowspan="2">3xx<br>リダイレクト</td>
+<td>301</td>
+<td>Moved Permanently／リソースが恒久的に移動した</td>
+</tr>
+<tr>
+<td>307</td>
+<td>Temporary Redirect／リソースが一時的に移動した</td>
+</tr>
+<tr>
+<td rowspan="3">4xx<br>クライアントエラー</td>
+<td>400</td>
+<td>Bad Request／不正なリクエストである</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden／アクセスが禁止されている</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found／リソースが見つからない</td>
+</tr>
+<tr>
+<td rowspan="2">5xx<br>サーバエラー</td>
+<td>500</td>
+<td>Internal Server Error／サーバ内部エラー</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable／サービスが一時的に利用付加である</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">HTTPのヘッダフィールド</h3>
+<p>ヘッダフィールドにはメッセージの外部情報（メタ情報）を扱うためのHTTPヘッダが含まれます。代表的なHTTPヘッダは次の通りです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-30">
+<col class="w-50">
+</colgroup>
+<thead>
+<tr>
+<th>ヘッダ名</th>
+<th>ヘッダの種類</th>
+<th>概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Accept</th>
+<td>Request-header</td>
+<td>受け入れ可能なメディアタイプ</td>
+</tr>
+<tr>
+<th>Authorization</th>
+<td>Request-header</td>
+<td>認証情報（ユーザ名とパスワード）</td>
+</tr>
+<tr>
+<th>Cache-Control</th>
+<td>General-header</td>
+<td>キャッシュを制御する指示情報</td>
+</tr>
+<tr>
+<th>Content-Language</th>
+<td>Entity-header</td>
+<td>コンテンツの言語コード</td>
+</tr>
+<tr>
+<th>Content-type</th>
+<td>Entity-header</td>
+<td>コンテンツのMIMEタイプ、エンコーディング</td>
+</tr>
+<tr>
+<th>Cookie</th>
+<td>Request-header</td>
+<td>ブラウザに保存されたクッキーの内容</td>
+</tr>
+<tr>
+<th>Expires</th>
+<td>Entity-header</td>
+<td>コンテンツの有効期間</td>
+</tr>
+<tr>
+<th>Referer</th>
+<td>Request-header</td>
+<td>リンク元のリソースのURI（どこからそのページに来たのか）</td>
+</tr>
+<tr>
+<th>Set-Cookie</th>
+<td>Response-header</td>
+<td>Webサーバが生成したクッキーの内容</td>
+</tr>
+<tr>
+<th>User-Agent</th>
+<td>Request-header</td>
+<td>クライアントの識別情報	</td>
+</tr>
+</tbody>
+</table>
+
+<p>ヘッダの種類であるRequest-headerはリクエストに追加できるヘッダで、Response-headerはレスポンスに追加できるヘッダです。General-headerはリクエスト/レスポンスの両方に追加できるヘッダで、Entity-headerはメッセージボディについての情報を記載するヘッダです。</p>
+
+<h3 class="hdg-lv3-a">HTTPでの認証</h3>
+<p>特定のファイルへのアクセス制限をするために認証をすることが可能です。</p>
+
+<table class="tbl-a">
+<caption>主な認証方法</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>認証名</th>
+<th>概要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Basic認証</th>
+<td>ユーザ名とパスワードをコロン「：」で接続し、Base64でエンコードして送信することで認証を実施。暗号化されていない平文なので、<strong>盗聴や改ざんが簡単にできてしまう。</strong></td>
+</tr>
+<tr>
+<th>Digest認証</th>
+<td>盗聴や改ざんを防ぐため、ユーザ名とパスワードをMD5でハッシュ化して送信し、認証を実施。</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">HTTP cookie</h3>
+<p>HTTPはシステムの現在の状態を保存しない（ステートレス）プロトコルです。Webブラウザにクッキーと呼ばれる状態管理情報を保存すること、HTTPでの状態管理を実現します。<br>
+Cookieには4096バイトのASCII文字列を保存できます(ブラウザによってはより大きな容量を保存できます)。Cookieが保存されるディレクトリやファイルは、OSやブラウザのバージョンによって異なります。</p>
+
+<p>クッキーの代表的な用途としては次が挙げられます。</p>
+
+<ul class="list-normal-a">
+<li>Webサイト上のサービスにおけるログイン状態の記録</li>
+<li>ECサイト上でのカード情報の管理</li>
+<li>広告配信業者によるアクセス履歴の記録</li>
+</ul>
+
+<p>クッキーは、JavaScriptなどのクライアント側スクリプトで操作することができます。またWebブラウザから、クッキーの送受信に関する設定や内容確認および消去することも可能です。</p>
+
+<h3 class="hdg-lv3-a">HTTP/HTTPSのポート番号</h3>
+<p>ポート番号とは、TCP/IPにおける通信の窓口となる番号です。「0-1023」は<em>ウェルノウンポート番号</em>と呼ばれ、特定のサービスのために予約されています。HTTPのウェルノウンポート番号は<em>80番</em>、HTTPSのウェルノウンポート番号は<em>443番</em>です。</p>
+<p class="txt-note"><span class="ast">※</span>ウェルノウンポートを使用してる場合、URLからポート番号を省略できます。</p>
+
+</section>
+
+<section id="anc-technical">
+<h2 class="hdg-lv2-a">Web関連技術の概要</h2>
+
+<h3 class="hdg-lv3-a">文書の構造</h3>
+<h4 class="hdg-lv4-a">XHTML</h4>
+<p>HTMLをXMLの文法で定義し直したものがXHTMLです。HTMLとの主な相違点は次の通りです。</p>
+
+<ul class="list-normal-a">
+<li>文章の先頭にXML宣言文が必要（推奨）</li>
+<li>文字の大文字／小文字が厳密に区別される（要素名、属性名は小文字で定義されているため、小文字での記述が必須）</li>
+<li>要素は必ず開始タグ、終了タグでくくられていなければならない。</li>
+</ul>
+
+<p>HTML5においてもXHTMLの記述を用いることができます。</p>
+
+<h4 class="hdg-lv4-a">マイクロデータ</h4>
+<p>マイクロデータとは<em>文書の意味や属性を伝える構文</em>の1つです。</p>
+
+<p>HTMLはページの「構造」を表すのに対してマイクロデータはページの「属性」を表します。マイクロデータを使用することにより、検索エンジンなどのプログラムにWebページの文書を持つ、情報やデータなどの「属性」や「意味」を伝えることができるようになります。マイクロデータでは次の3つの属性を利用します。</p>
+
+<dl class="list-dl-a">
+<dt><dfn>itemscope</dfn></dt>
+<dd>意味付けのブロック開始の宣言</dd>
+<dt><dfn>itemtype</dfn></dt>
+<dd>データの種別（URL）</dd>
+<dt><dfn>itemprop</dfn></dt>
+<dd>データのプロパティ名</dd>
+</dl>
+
+<h4 class="hdg-lv4-a">RDFa</h4>
+<p>RDFaとはResource Description Framework in Attributesの略で、<em>RDFによるメタデータをXHTMLで書かれた構造化文書に埋め込むための仕様</em>です。XML文書全般でも利用が可能です。RDFaはW3Cが勧告しており、次のドキュメントがあります。</p>
+
+<dl class="list-dl-a">
+<dt><dfn>RDFa 1.1 Primer</dfn></dt>
+<dd>RDFaのチュートリアルドキュメントの仕様</dd>
+<dt><dfn>RDFa Core 1.1</dfn></dt>
+<dd>RDFaの仕様</dd>
+<dt><dfn>XHTML+RDFa 1.1</dfn></dt>
+<dd>XHTML文書でRDFaを利用する際の仕様</dd>
+<dt><dfn>HTML5+RDFa 1.1</dfn></dt>
+<dd>HTML5文書でRDFaを利用する際の仕様</dd>
+<dt><dfn>RDFa Lite 1.1</dfn></dt>
+<dd>必要最小限なRDFaの仕様</dd>
+</dl>
+
+<h4 class="hdg-lv4-a">OGP(Open Graph Protocol)</h4>
+<p>あるWebページがどのような内容かという情報を、<em>プログラムから読める形でWebページに付加するための仕様</em>です。<br>仕様の詳細は下記リンクより確認できます。</p>
+
+<p class="txt-link"><a href="http://ogp.me/" target="_blank">The Open Graph protocol</a></p>
+
+
+<h3 class="hdg-lv3-a">データの操作</h3>
+<h4 class="hdg-lv4-a">JavaScript</h4>
+<p>JavaScriptとはプロトタイプスペースのオブジェクト指向プログラミング言語です。</p>
+<p>HTMLからJavaScriptを利用するには、script要素の内容としてHTML文書内に直接記述するか、script要素のsrc属性で外部スクリプトを指定し読み込む方法です。なお、HTML5ではtype属性は省略可能です。</p>
+
+<h4 class="hdg-lv4-a">DOM</h4>
+<p>DOMとはDocument Object Modelの略称で、HTML文書、XML文書の要素にプログラムからアクセスするためのAPIです。JavaScriptを用いてDOMを操作することにより、文書を取得・変更したり、要素の値を動的に変更することが可能となります。<em>DOMはツリー構造で表すことができます。</em></p>
+
+<h4 class="hdg-lv4-a">Ajax</h4>
+<p>Ajaxとは<em>Asynchronous JavaScript + XML</em>の略で、Webブラウザ内で<strong>XML HttpRequest</strong>を利用して<strong>非同期通信</strong>を行い、通信結果をJavsScriptやCSSで<strong>動的</strong>にWebページに反映します。</p>
+
+<p>Ajaxで転送されるデータには<strong>JSON</strong>がよく用いられます。JSONには、サーバから取得したデータをそのままJavaScriptのオブジェクトに展開できるなどの利点があります。</p>
+
+
+<h3 class="hdg-lv3-a">通信</h3>
+<h4 class="hdg-lv4-a">セッション</h4>
+<p>ネットワーク通信で<em>ログイン（接続）からログオフ（切断）するまでの一連の通信</em>のことを指します。セッションを実現するための仕組みとして、クッキーやURL rewritingがあります。</p>
+
+<h4 class="hdg-lv4-a">データURI</h4>
+<p>画像のデータ等をBase64でエンコードし、HTMLやCSSに直接埋め込んだ際のURIをデータURIと呼びます。Base64化するのでオリジナルのデータサイズよりサイズが大きくなりますが、HTMLに埋め込まれるため、サーバへのリクエスト回数を減らすことができます。</p>
+
+<h4 class="hdg-lv4-a">Base64</h4>
+<p>64種類の文字とパディング用の=記号により、マルチバイト文字やバイナリデータを扱うためのエンコード方式です。エンコードによりファイルサイズが元データの約1.3倍となるため、<em>大きなファイルの転送には不向きです</em>。</p>
+
+
+<h3 class="hdg-lv3-a">Webサイトに対する主な攻撃手法</h3>
+<h4 class="hdg-lv4-a">クロスサイト・リクエスト・フォージェリ(CSRF: Cross Site Request Forgeries)</h4>
+<p>攻撃用サイトにアクセスしたユーザーの環境から<em>攻撃者が用意したHTTPリクエストを送信させる</em>ことによって、不正な操作を実行します。</p>
+<p>対策は、サーバ側で<strong>外部サイトからのリクエストを受け付けないように</strong>、HTTPリクエストのRefererヘッダを参照したり、内部からのリクエストであることを照合できる仕組みを作ることです。</p>
+
+<h4 class="hdg-lv4-a">SQLインジェクション(SQL Injection)</h4>
+<p>SQLを実行するWebアプリケーションにおいて、アプリケーションが想定していないSQLを注入(inject)してデータベースを不正に操作します。情報の改ざん、消去、情報漏洩が発生する恐れがあります。</p>
+<p>対策は、<strong>ユーザーの入力値を適切にエスケープ処理</strong>(特別な意味を持つ文字列を一定のルールに従って別の文字列に置き換える)することです。また、あらかじめ実行したいSQLをコンパイルした(コンピュータが実行可能な形式にした)<strong>プリペアードステートメントを使用します</strong>。</p>
+
+<h4 class="hdg-lv4-a">クロスサイト・スクリプティング(XSS: Cross Site Scripting)</h4>
+<p>掲示板など、ユーザーからの入力値を元に動的にWebページを表示するサイトに<em>悪意のあるスクリプトを埋め込み</em>、ユーザーの環境で実行させます。こうすることで、偽サイトに誘導して個人情報を搾取するフィッシングや、そのユーザーのふりをする「なりすまし」などを行います。</p>
+<p>対策は、悪意のあるスクリプトが表示、実行されないように<strong>出力値を適切にエスケープ処理する</strong>ことです。</p>
+
+<h4 class="hdg-lv4-a">クロスサイト・リクエスト・フォージェリ(CSRF: Cross Site Request Forgeries)</h4>
+<p>攻撃用サイトにアクセスしたユーザーの環境から攻撃者が用意したHTTPリクエストを送信させることによって、不正な操作を実行します。</p>
+<p>対策は、サーバ側で<strong>外部サイトからのリクエストを受け付けない</strong>ように、HTTPリクエストのRefererヘッダを参照したり、<strong>内部からのリクエストであることを照合できる仕組みを作る</strong>ことです。</p>
+
+<h4 class="hdg-lv4-a">ディレクトリ・トラバーサル(Directory Traversal)</h4>
+<p>ファイルにアクセスする操作時に「../」や「..¥」(親ディレクトリへの相対パスを示す文字列)を含め、ユーザーがアクセスできないはずのファイルにアクセスします。</p>
+<p>対策は、<strong>ファイルのアクセス権を設定する</strong>ことや、<strong>絶対パスに変換する</strong>ことです。</p>
+
+<h4 class="hdg-lv4-a">HTTPヘッダ・インジェクション</h4>
+<p>動的にHTTPヘッダを生成するサイトにおいて、任意のヘッダ行を挿入して不正な操作を行います。</p>
+<p>対策は、<strong>改行として認識される特殊文字をエスケープ処理</strong>したり、<strong>改行が含まれていたら入力エラーとする</strong>ことです。</p>
+
+
+<h3 class="hdg-lv3-a">ネットワーク上の脅威対策</h3>
+
+<h4 class="hdg-lv4-a">統合脅威管理 (Unified Threat Management: UTM)</h4>
+<p>ネットワークを複数の脅威から統合的に保護する手法、もしくは製品をさします。ファイアウォール、VPN機能、アンチウイルス、不正侵入防御、コンテンツフィルタリングなどを1つの製品で処理できます。</p>
+
+<h4 class="hdg-lv4-a">Webサイト改ざん検知の手法</h4>
+<p>IPAでは検知の方法として次を推奨しています。</p>
+
+<ul class="list-normal-a">
+<li>オリジナルのHTMLファイルとサーバのHTMLファイルとを比較</li>
+<li>HTMLソースをセキュリティソフトでスキャン</li>
+<li>FTPアクセスログを確認</li>
+</ul>
+
+<h4 class="hdg-lv4-a">侵入検知システム (Intrusion Detection System: IDS)</h4>
+<p>ネットワークからの不正アクセスを検知するシステムです。ネットワークの通信内容を検査するネットワーク型IDSと、サーバに異常がないかを監視するホスト型IDSがあります。</p>
+
+
+<h3 class="hdg-lv3-a">Webサイトやアプリケーションの制作</h3>
+
+<h4 class="hdg-lv4-a">MVCアーキテクチャ</h4>
+<p>ソフトウェアのデザインパターン(いろいろなプログラムで再利用できる設計パターン)です。
+ソフトウェアの内部処理とユーザーに対しての入出力処理を分離するために、ソフトウェアを以下の3つの要素に分けて設計します。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>要素</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Model</th>
+<td>データを管理し、主要な処理を行なう</td>
+</tr>
+<tr>
+<th>View</th>
+<td>ユーザへの窓口で、受付・表示を行なう</td>
+</tr>
+<tr>
+<th>Controller</th>
+<td>
+<p>ModelとViewを制御する</p>
+<ul class="list-normal-a">
+<li>Viewからの入力 → Contrillew → Modelが処理</li>
+<li>Modelからの処理結果 → Controller → Viewが表示</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h4 class="hdg-lv4-a">CMS</h4>
+<p>コンテンツマネジメントシステムのことで、コンテンツ（テキストや画像）を一元的に管理し、Webページの作成や更新が可能なソフトウェアを指します。代表的なCMSとして、BlogやWikiソフトウェアがあります。</p>
+
+
+<h3 class="hdg-lv3-a">画像について</h3>
+<h4 class="hdg-lv4-a">画像ファイルフォーマット</h4>
+<dl class="list-dl-a">
+<dt>BMP</dt>
+<dd>フルカラーに対応したWindowsの標準ビットマップ画像。一般的に圧縮されないことが多く、ファイルサイズは大きくなりすぎるため、Webサイトでの使用は不適切です。</dd>
+<dt>GIF</dt>
+<dd>256色までに対応した可逆圧縮の画像フォーマット。画質の劣化がないため、単純なイラストなどに向いています。透過GIF、アニメーションGIFも存在します。</dd>
+<dt>PNG</dt>
+<dd>フルカラーに対応した可逆圧縮の画像フォーマット。GIFの代替として登場し、透過色を用いることはできますが、アニメーション機能はありません。</dd>
+<dt>JPEG</dt>
+<dd>フルカラーに対応した非可逆圧縮の画像フォーマット。ファイルサイズは小さくなるが、画質は元より劣化します。写真に向いてます。</dd>
+<dt>SVG</dt>
+<dd>XMLで記述するベクターデータの画像フォーマット。拡大・縮小しても画像が劣化しません。図形やアイコン、文字などに適しています。また、JavaScriptによる制御も行うことができます。</dd>
+</dl>
+
+<h4 class="hdg-lv4-a">インターレース</h4>
+<p>画像の表示形式の一部です。データ受信途中に荒い解像度の画像を表示し、徐々に高解像度の画像を表示します。画像サイズに対して回線が低速な場合でも、早くから画像の全体像をつかめる利点があります。<br>
+インターレースはGIF、PNGで使えます。JPEGにはインターレースに似た「プログレッシブJPEG」を設定することができます。</p>
+
+
+<h3 class="hdg-lv3-a">Webサイトの集客・収益</h3>
+<h4 class="hdg-lv4-a">SEO (Search Engine Optimization)</h4>
+<p>検索エンジン最適化のこと。検索エンジン最適化とは、<em>検索エンジンの上位に自らのWebサイトが表示されるようにする適切な工夫</em>をいいます。</p>
+
+<h4 class="hdg-lv4-a">検索ロボット</h4>
+<p>検索エンジンのデータベースを作成するために、全世界のWebページをダウンロードするプログラムです。<em>検索ロボットにとってわかりやすい記述</em>をすることで、ある程度SEOが可能になります。</p>
+<p>一方、検索エンジンにヒットさせたくない場合は次の対策をすると効果的です。</p>
+
+<ul class="list-normal-a">
+<li>
+<p>特定のメタ要素を記述</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+&lt;meta name="robots" content="noindex,nofollow"&gt;
+</code>
+</pre>
+</li>
+<li>robots.txtの記述</li>
+<li>.htaccessの設定</li>
+<li>Basic認証の利用</li>
+</ul>
+
+<h4 class="hdg-lv4-a">Web広告</h4>
+<p>代表的なWeb広告3種</p>
+
+<dl class="list-dl-a">
+<dt>ペイパークリック広告（Pay Per Click広告、略称PPC広告）</dt>
+<dd>広告の掲載だけでは費用が発生せず、広告の<em>クリック数に応じて課金される</em>システムの広告</dd>
+<dt>アドワーズ広告</dt>
+<dd><em>検索エンジンの検索結果に連動して表示されるPPC広告</em>のこと</dd>
+<dt>アフィリエイト広告</dt>
+<dd><em>成果報酬型のインターネット広告</em>。広告のクリック数や売り上げ数などの何らかの成果に応じて広告料が課金されるシステム</dd>
+</dl>
+
+<h4 class="hdg-lv4-a">コンバージョンレート</h4>
+<p>Webサイトへのアクセス数やユニークユーザー数のうち、<em>どの程度が収益（商品購入、会員登録数など）に結びついたか</em>を示す割合</p>
+
+<h4 class="hdg-lv4-a">ROI</h4>
+<p>投資利益率（Return On Investment）の略で、<em>投資した資本に対して得られる利益の割合</em>。</p>
+
+
+<h3 class="hdg-lv3-a">SOAP(Simple Object Access Protocol)</h3>
+<p>異なるコンピュータ上で動作するWebサービス(プログラム)間でメッセージを交換し、連携するための通信プロトコルです。やり取りされるメッセージはXML形式で、主にHTTPを使用して通信が行われます。</p>
+
+</section>
+
+<section id="anc-api">
+<h2 class="hdg-lv2-a">API</h2>
+
+
+<h3 class="hdg-lv3-a">マルチメディアグラフィックスAPI</h3>
+<h4 class="hdg-lv4-a">マルチメディア</h4>
+<p>audio要素とvideo要素により、簡単にマルチメディアコンテンツを埋め込むことが可能になりました。この埋め込んだマルチメディアコンテンツを<em>JavaScriptを使って制御</em>することができます。JavaScriptで以下の操作が実行可能になります。</p>
+
+<ul class="list-normal-a col-2">
+<li>コンテンツの再読み込み</li>
+<li>再生開始</li>
+<li>再生中断</li>
+<li>コンテンツが再生・早送り等可能な状態か</li>
+<li>ネットワークの状態</li>
+<li>エラー情報</li>
+<li>コンテンツの場所</li>
+<li>コンテンツの長さ</li>
+<li>音量</li>
+<li>トラック情報</li>
+</ul>
+
+<h4 class="hdg-lv4-a">ストリーミング</h4>
+<p>通信状況に合わせて、適切なビットレートの動画を選択し、スムーズなストリーミング再生を実現する技術を<em>Adaptive Streaming技術</em>と呼びます。代表的なAdaptive Streaming技術は以下の2つです。</p>
+
+<dl class="list-dl-a">
+<dt><dfn>HLS (HTTP Live Streaming)</dfn></dt>
+<dd>Apple社が開発した、動画をストリーミング配信するためのプロトコル。HTTPベースで通常のWebサーバから配信することが可能。HTTPSを使った暗号化や認証にも対応しています。</dd>
+<dt><dfn>MPEG-DASH</dfn></dt>
+<dd>米アドビ社や米マイクロソフト社などにより開発されました。HTTPプロトコルを利用しているため、通常のWebサーバから配信することが可能です。HTTPを利用したストリーミングの国際標準規格です。<br>
+JavaScriptのAPIもストリーミングに対応したものが用意されています。</dd>
+</dl>
+
+<dl class="list-dl-a">
+<dt><dfn>Media Source Extensions</dfn></dt>
+<dd>HLSやMPEG-DASHのように、HTTPでストリーミング配信されるコンテンツを再生するために作られたAPIです。これを利用すると、video要素とaudio要素を拡張してストリーミング再生することができます。<br>
+Adaptive Streaming技術にも対応しているので、再生途中で動画のビットレートを変更することも可能です。W3Cによって標準化されています。</dd>
+<dt><dfn>Encrypted Media Extensions</dfn></dt>
+<dd>暗号化された音楽や映像などのコンテンツを再生できるように、メディア要素のAPIを拡張する仕様です。</dd>
+</dl>
+
+<p>Media Source ExtensionsとEncrypted Media Extensionsを組み合わせることで、<em>DRM(Digital Rights Management：デジタル著作権)</em>で保護されたストリーミングコンテンツをWebブラウザ上で再生することができます。</p>
+
+<aside>
+<h1 class="hdg-lv1-a">用語解説</h1>
+
+<h2 class="hdg-lv2-a">DRM</h2>
+<p>音楽や映画、書籍など電子機器上のデジタルコンテンツの複製と利用を制限するための仕組みです。違法コピーや配信によってコンテンツの著作権が侵害されることを防ぎます。</p>
+</aside>
+
+<h4 class="hdg-lv4-a">canvas要素</h4>
+<p><strong>JavaScriptを使って画像を描画するための仕様</strong>です。Canvasは<em>ビットマップ形式</em>で描画します。そのため、拡大・縮小すると画像が粗くなります。また、描画した画像を変更するには、全体を書き直す必要があります。canvas要素を使えば以下のような描画操作が可能です。</p>
+
+<ul class="list-normal-a list-col">
+<li>線を書く</li>
+<li>円、四角を書く</li>
+<li>色を塗る</li>
+<li>テキストを書く</li>
+<li>画像ファイルを読み込む</li>
+<li>拡大・縮小・回転する</li>
+</ul>
+
+<h4 class="hdg-lv4-a">インラインSVG</h4>
+<p>SVGをHTMLに直接記述する<em>インラインSVG</em>はベクター形式のため、拡大・縮小・回転といった変形をしても画像が粗くならないという特徴があり<em>XML形式</em>で画像を作成します。以下のような要素があります。</p>
+
+<ul class="list-normal-a list-col">
+<li>円を作成する<b>circle</b></li>
+<li>楕円を作成する<b>ellipse</b></li>
+<li>線を作成する<b>line</b></li>
+<li>四角形を作成する<b>rect</b></li>
+<li>パスを定義する<b>path</b></li>
+</ul>
+
+<div class="box-a">
+
+<p>色やサイズといった情報は属性として記述します。</p>
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+&lt;svg width="320" height="160"&gt;
+&lt;circle cx="160" cy="80" r="75" stroke="black" fill="gray"&gt;
+&lt;/svg&gt;
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<svg width="320" height="160">
+<circle cx="160" cy="80" r="75" stroke="black" fill="gray">
+</svg>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+
+<h3 class="hdg-lv3-a">デバイスアクセスAPI</h3>
+<h4 class="hdg-lv4-a">Geolocation API</h4>
+<p><em>ユーザの位置情報</em>を扱うためのAPIです。たとえば地図で現在地を取得したり、その場所に行ったことを知らせる<em>チェックイン</em>のような機能で使われます。</p>
+
+<p>Geolocation APIでは、無線LAN、Wi-Fi、携帯電話基地局、GPS、IPアドレスといった複数のソースから位置情報を取得します。そのため、ユーザの環境によって取得できる情報の精度や取得時間に違いが出てきます。また、ユーザの許可がないと位置情報を取得することができません。位置情報を取得する際には、ブラウザは位置情報の利用を許可するかどうかをユーザに確認するダイアログを表示するようになっています。</p>
+
+<p>Geolocation APIで取得できる位置関係情報は以下の通りです。</p>
+<ul class="list-normal-a list-col">
+<li>緯度</li>
+<li>経度</li>
+<li>高度</li>
+<li>緯度・経度の精度</li>
+<li>高度の精度</li>
+<li>方角</li>
+<li>速度</li>
+</ul>
+
+<p>Geolocation APIは現在一般的なWebブラウザでもサポートされています。Geolocation APIを利用することでPCのような<strong>GPS情報を取得できない端末にも、位置情報を利用したコンテンツを提供することが可能</strong>です。</p>
+
+
+<h4 class="hdg-lv4-a">DeviceOrientation Event</h4>
+<p><em>デバイスの方角や傾きが変化したときに発生するイベント</em>です。イベントから、以下の情報を取得できるようになっています。</p>
+<ul class="list-normal-a list-col">
+<li>デバイスの頭が指す方向</li>
+<li>デバイスの上下方向の傾き</li>
+<li>デバイスの左右方向の傾き</li>
+</ul>
+
+<h4 class="hdg-lv4-a">Touch Events</h4>
+<p>タッチパネルなどの画面を触るなど、<em>画面を指で操作している間に、その状態が変化すると発生するイベント</em>です。マウス関連のイベントとは異なり、複数同時発生するタッチをサポートしています。スマホなどでアプリケーション固有のタッチ操作を利用したいときに使用します。イベントには以下があります。</p>
+<ul class="list-normal-a list-col">
+<li>画面をタッチ</li>
+<li>画面をタッチしたまま動かす</li>
+<li>画面から離す</li>
+<li>画面タッチへの割り込み</li>
+</ul>
+
+<h4 class="hdg-lv4-a">Pointer Events</h4>
+<p><em>マウス・ペン・タッチパネル</em>といった様々なデバイスを、ポインタという1つのデバイスに例えて入力操作を扱うためのイベントです。以下のイベントをサポートしています。</p>
+<ul class="list-normal-a col-2">
+<li>ポインタが対象の要素に乗る</li>
+<li>ポインタが対象の要素から離れる</li>
+<li>ポインタが動作状態になる（ボタンが押される）</li>
+<li>ポインタが非動作状態になる（ボタンが離される）</li>
+<li>ポインタの状態が変化する（ポインタが動く）</li>
+<li>ポインタ操作を中断させるイベントが発生</li>
+<li>ポインタのキャプチャ開始</li>
+<li>ポインタのキャプチャ終了</li>
+</ul>
+
+<h4 class="hdg-lv4-a">DOM3 Events (UI Events)</h4>
+<p>マウスやキーボードなどの入力操作を取り扱うためのイベントです。イベントには以下があります。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-30">
+<col class="w-35">
+<col class="w-35">
+</colgroup>
+<thead>
+<tr>
+<th>イベントの種類</th>
+<th>概要</th>
+<th>イベント例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>UIイベント</th>
+<td>UIやHTML文書の操作に関するイベント</td>
+<td>文書および関連リソースの読み込み完了</td>
+</tr>
+<tr>
+<th>フォーカスイベント</th>
+<td>フォーカスの状態変化に関連するイベント</td>
+<td>フォーカスを受け取る直前</td>
+</tr>
+<tr>
+<th>マウスイベント</th>
+<td>マウス操作に関連するイベント</td>
+<td>マウスのボタンクリック</td>
+</tr>
+<tr>
+<th>ホイールイベント</th>
+<td>マウス等ホイール装置の操作に関するイベント</td>
+<td>ホイールを回転</td>
+</tr>
+<tr>
+<th>入力イベント</th>
+<td>キーボード等の入力による文章更新に関するイベント</td>
+<td>文章が更新された直後</td>
+</tr>
+<tr>
+<th>キーボードイベント</th>
+<td>キーボードの操作に関するイベント</td>
+<td>キーボードを押す</td>
+</tr>
+<tr>
+<th>間接的テキスト入力イベント</th>
+<td>日本語入力時などに使用するIMEの操作に関するイベント</td>
+<td>IMEで入力開始</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">オフラインストレージAPI</h3>
+<h4 class="hdg-lv4-a">Web Storage</h4>
+<p>Webアクセスでのータを<em>ローカルのブラウザに保存する</em>APIです。<br>
+同様にブラウザに情報を保存するCookieが、4096バイト(4KB)の容量しか保存できないのに比較すると大容量のデータを扱うことができます。ブラウザに蓄積したデータを利用することで、アプリケーションのオフライン利用や通信料削減による<em>高速化</em>が期待できます。</p>
+
+<p>Web Storageに保存できるデータは文字列で、保存形式はキー(key)と値(value)のペアで保存する<em>Key-Value型</em>です。JavaScriptでデータの保存や削除などを行います。<br>
+Web Storageには「セッションストレージ(sessionStorage)」と「ローカルストレージ(localStorage)」の2種類があります。</p>
+
+<dl class="list-dl-a">
+<dt><dfn>セッションストレージ</dfn></dt>
+<dd>ウィンドウまたはタブが閉じられるとともにデータが消失します。</dd>
+<dt><dfn>ローカルストレージ</dfn></dt>
+<dd>ウィンドウやタブを閉じてもデータが消えず、次にページを参照した時にもそのデータを利用することができます。</dd>
+</dl>
+
+<h4 class="hdg-lv4-a">Indexed Database API</h4>
+<p>Web Storageと同様、<em>Key-Value型</em>でデータをローカルのブラウザに保存するAPIです。<br>
+<em>JavaScript</em>を使用して数十MB以上の大容量のデータを保存できます。<br>
+Web Storageと異なるのは、<b>インデックス(索引)を使用しての高速な検索や、トランザクション(分割できないまとまった一つの処理)でデータの整合性を保てる点などです。オフラインで大量のデータを扱えるブラウザのデータベースとして多くのブラウザに実装されています。</b></p>
+
+<h4 class="hdg-lv4-a">Application cache</h4>
+<p>マニフェストファイルという設定ファイルに指定したファイルを<em>ローカルのブラウザにキャッシュさせる</em>ことで<em>オフラインでのページ閲覧を可能にする</em>ものです。キャッシュの制御はAPIを通じて行ないます。</p>
+
+<p>アプリケーションキャッシュがダウンロード中であるなどの状態の確認や、キャッシュの明示的な更新などが可能です。また、イベントとしてキャッシュ済みなどのイベントも用意されています。</p>
+
+<h4 class="hdg-lv4-a">Web Workers</h4>
+<p>ブラウザでのスクリプト処理を<em>バックグラウンドで実行する</em>ためのもので、ユーザインターフェイスの処理などに影響を与えることなく、<em>大量の処理</em>を行なうことができます。</p>
+
+<p>Web WorkersではWorkerと呼ばれる独立したスレッドを生成し、並列でスクリプトを実行させます。JavaScriptは、そのWorkerとメッセージをやりとりすることで、開始と終了といった制御を行ないます。</p>
+
+<h4 class="hdg-lv4-a">Service Workers</h4>
+<p><strong>Webページとは別に</strong><em>バックグラウンドでスクリプトを実行できる</em>環境です。リソースをキャッシュしてオフラインでも利用可能にしたり、プッシュ通知やバックグラウンドでの同期など、Webページやユーザの操作を必要としない機能を提供することができます。</p>
+
+<p>Service Workersはあくまで実行環境なので、<em>Push APIやfetchなどと組み合わせて</em>利用します。</p>
+
+<h4 class="hdg-lv4-a">Push API</h4>
+<p>アプリケーションが<em>サーバからのプッシュ通知を受信できるようにします</em>。Service Workersと組み合わせることで、アプリケーションが動作しているかに関わらず受信できます。</p>
+
+<p>Push APIはあくまで<strong>プッシュ通知を受信するだけ</strong>なので、プッシュ通知の表示メッセージやメッセージ本体の受信（fetchを仕様）などは別途実施する必要があります。</p>
+
+<h4 class="hdg-lv4-a">fetch</h4>
+<p><em>指定したリソースを取得する</em>際に使用します。<strong>Service Workers上では、fetchを使う必要があります。</strong></p>
+
+<p>fetchは、Service Workers以外でもXHLHttpRequestの代わりに使うことができます。</p>
+
+<h3 class="hdg-lv3-a">通信系API</h3>
+<h4 class="hdg-lv4-a">XHLHttpRequest</h4>
+<p>XHLHttpRequestは<em>JavaScriptでのHTTP通信</em>を実現するAPIです。現在表示しているページから画面遷移を伴わずHTTP通信を行ない、各種データを取得することができます。<br>
+地図アプリケーションで用いられる<em>Ajax</em>では、このXHLHttpRequestを用いて画面遷移を伴わないページ更新を実現しています。</p>
+
+<h4 class="hdg-lv4-a">WebSocket API</h4>
+<p>JavaScriptでの<em>WebSocketプロトコル通信</em>を実現するAPIです。<br>
+<b>ブラウザとサーバどちらからもデータを送信可能な双方向通信を実現させるための仕様</b>です。</p>
+
+<p>WebSocketを用いることで、チャットのような<em>双方向通信が頻繁に発生するアプリケーション</em>を容易に作ることができます。</p>
+
+<h4 class="hdg-lv4-a">Server-Sent Events</h4>
+<p>Webサーバからクライアントにリアルタイムに<em>情報をプッシュできる</em>技術です。Server-Sent Eventsは、サーバからレスポンスを受け取っても通信を終了させず、接続を維持します。サーバはその接続を利用してメッセージを継続的に送信します。ただし、<strong>サーバからしかデータを送信することができません</strong>。<br>
+Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境でプッシュ通知を実現したいときに有効です。</p>
+
+<h4 class="hdg-lv4-a">WebRTC</h4>
+<p><em>ブラウザでリアルタイムコミュニケーション</em>を実現するための仕組みです。WebRTCを使うことで、ブラウザ間のビデオチャットやボイスチャット、会議システムなどが実現可能です。具体的には以下のようなことが実現できます。</p>
+<ul class="list-normal-a">
+<li>端末に接続されたカメラやマイクを利用して画像や音声を取り込む</li>
+<li>取り込んだカメラやマイクのデータをP2P通信で送受信する</li>
+<li>テキストやバイナリなどのデータをP2P通信で送受信する</li>
+</ul>
+
+
+<h3 class="hdg-lv3-a">オフラインWebアプリケーション</h3>
+<p>ネットワークに接続していないオフラインの状態でも利用できるWebアプリケーションのことです。HTMLやCSSなどWebアプリケーションの実行に必要なファイルをデバイス側にキャッシュ(保存)することで、オフラインでの利用を可能にします。</p>
+
+<h4 class="hdg-lv4-a">アプリケーションキャッシュ</h4>
+<p>アプリケーションキャッシュは、オフラインWebアプリケーションを実現するためにHTML5から追加された機能です。キャッシュするファイルなどを記述した<em>「キャッシュマニフェスト」</em>と呼ばれるファイルを読み取って、ローカル環境(ブラウザのキャッシュ領域)に必要なファイルを保存します。<br>
+キャッシュマニフェストは、<em>キャッシュするファイルやキャッシュしないファイルなどを記述したテキストファイル</em>です。ファイルの拡張子は、一般的には<em>「.appcache」</em>です。</p>
+
+<p>ローカルに一度キャッシュされたファイルは、サーバ側でファイルが更新されても新たにキャッシュされません。更新後のファイルを再度ローカルにキャッシュするには、<em>キャッシュマニフェストの更新が必要</em>です。キャッシュマニフェストのコメント行を変えるなどして、再キャッシュされるようにします。<br>
+キャッシュの更新後は、<em>ブラウザでリロード(再読み込み)する</em>ことで更新されたページを表示できます。</p>
+
+<table class="tbl-a">
+<caption>キャッシュマニフェストに記述できるセクション</caption>
+<colgroup>
+<col class="w-15">
+<col class="w-85">
+</colgroup>
+<thead>
+<tr>
+<th>セクション</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>CACHE</th>
+<td>キャッシュするファイルを記述する。省略可。</td>
+</tr>
+<tr>
+<th>NETWORK</th>
+<td>キャッシュせずに、必ずネットワークから取得するファイルを記述する。</td>
+</tr>
+<tr>
+<th>FALLBACK</th>
+<td>ファイルにアクセスできない場合の代替ファイルを指定する</td>
+</tr>
+<tr>
+<th>SETTINGS</th>
+<td>アプリケーションキャッシュの利用方法を指定する</td>
+</tr>
+</tbody>
+</table>
+
+<p>アプリケーションキャッシュを動作させるにはキャッシュマニフェストを作成し、Webサーバにアップロードします。<br>
+そして、<em>html要素</em>のmanifest属性でキャッシュマニフェストのファイル名を指定し、キャッシュマニフェストが存在することをブラウザに認識させます。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+&lt;html manifest="test.appcache"&gt;
+</code>
+</pre>
+
+
+</section>
+
+
+
+
+<p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
+
+<!-- /.str-inner --></div>
+</main>
+<!-- ================ ▲ Main ▲ ================ -->
+
+
+<!-- ================ ▼ Footer ▼ ================ -->
+<!--#include virtual="/wiki/ssi/footer.html"-->
+<!-- ================ ▲ Footer ▲ ================ -->
+
+<script src="/wiki/js/jquery-3.3.1.min.js"></script>
+<script src="/wiki/js/run.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy" defer></script>
+</body>
+</html>
