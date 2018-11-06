@@ -27,13 +27,795 @@
 <div class="str-inner">
 <h1 class="hdg-lv1-a">CSSの知識</h1>
 
+<ul class="list-col _anc">
+<li><a class="scroll" href="#anc-basic">基礎知識</a></li>
+<li><a class="scroll" href="#anc-selecta">セレクタ</a></li>
+<li><a class="scroll" href="#anc-bg">背景</a></li>
+<li><a class="scroll" href="#anc-text">テキスト</a></li>
+<li><a class="scroll" href="#anc-font">フォント</a></li>
+<li><a class="scroll" href="#anc-box">ボックス</a></li>
+<li><a class="scroll" href="#anc-maruchi">マルチカラムとフレキシブルボックス</a></li>
+<li><a class="scroll" href="#anc-anime">アニメーション</a></li>
+<li><a class="scroll" href="#anc-other">その他</a></li>
+</ul>
 
-<section id="anc-doctype">
-<h2 class="hdg-lv2-a">タイトル</h2>
+<section id="anc-basic">
+<h2 class="hdg-lv2-a">基礎知識</h2>
+
+<h3 class="hdg-lv3-a">link要素でHTMLに組み込む</h3>
+<p>link要素にmedia属性を指定すると、読み込んだ<em>外部スタイルシートを適用するメディアを限定</em>することができます。適用対象の機器の種類だけを限定したい場合には次のキーワードが指定できます。（カンマ区切りで複数指定できます。）</p>
+
+<table class="tbl-a">
+<caption>media属性に指定できるキーワード</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>キーワード</th>
+<th>適用対象となるメディア</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>all</th>
+<td>すべての機器（デフォルト値）</td>
+</tr>
+<tr>
+<th>screen</th>
+<td>PCやスマートデバイスなどの画面</td>
+</tr>
+<tr>
+<th>print</th>
+<td>プリンタ</td>
+</tr>
+<tr>
+<th>projection</th>
+<td>プロジェクタ</td>
+</tr>
+<tr>
+<th>tv</th>
+<td>テレビ</td>
+</tr>
+<tr>
+<th>handheld</th>
+<td>携帯用機器</td>
+</tr>
+<tr>
+<th>tty</th>
+<td>文字幅が固定の端末（テレタイプやターミナルなど）</td>
+</tr>
+<tr>
+<th>speech</th>
+<td>スピーチ・シンセイサイザー（音声読み上げソフト）</td>
+</tr>
+<tr>
+<th>braille</th>
+<td>点字ディスプレイ</td>
+</tr>
+<tr>
+<th>embossed</th>
+<td>点字プリンタ</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">@importでCSSに組み込む</h3>
+<p>@importの書式を指定することで、<em>CSSの中でさらに外部スタイルシートを読み込ませる</em>こともできます。</p>
+<p>もっとも簡単な方法は、次のように@importのあとにURLを文字列として指定する方法です。ダブルクォーテーションまたはシングルクォーテーションが必要です。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+@import "style.css";
+</code>
+</pre>
+
+<p>次のような関数形式で指定する方法もあります。書式は異なりますが、機能的にはまったく同じになります。なお、関数形式の場合はダブルクォーテーションやシングルクォーテーションは省略可能です。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+@import url(style.css);
+</code>
+</pre>
+
+<p>URLのあとに、link要素やstyle要素で指定可能なメディア型やメディアクエリを指定することもできます。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+@import "style.css" screen, print;
+</code>
+</pre>
+
+
+<h3 class="hdg-lv3-a">長さを表す単位</h3>
+<p>CSSで長さを表す単位には相対的な長さを表す単位と絶対的な長さを表す単位の2種類あります。パーセンテージ（%）については、仕様書では長さの単位とは別扱いになっているのでここには記載しません。</p>
+
+<table class="tbl-a">
+<caption><em>フォント</em>に対する<em>相対的</em>な長さを表す単位</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>単位</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>em</th>
+<td>要素のフォントサイズを1とする単位</td>
+</tr>
+<tr>
+<th>rem</th>
+<td>html要素のフォントサイズを1とする単位</td>
+</tr>
+<tr>
+<th>ex</th>
+<td>要素のフォントのx-height（小文字xとほぼ同じ大きさ）を1とする単位</td>
+</tr>
+<tr>
+<th>ch</th>
+<td>要素のフォントの0の幅を1とする単位（chはcharacterの略）</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption><em>ビューポート</em>に対する<em>パーセンテージ</em>で表す単位</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>単位</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>vw</th>
+<td>ビューポートの幅の1%を1とする単位</td>
+</tr>
+<tr>
+<th>vh</th>
+<td>ビューポートの高さの1%を1とする単位</td>
+</tr>
+<tr>
+<th>vmin</th>
+<td>ビューポートの幅と高さのうち、短いほうの1%を1とする単位</td>
+</tr>
+<tr>
+<th>vmax</th>
+<td>ビューポートの幅と高さのうち、長いほうの1%とする単位</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption><em>絶対的</em>な長さを表す単位</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>単位</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>px</th>
+<td>ピクセル（1/96インチを1とする単位）</td>
+</tr>
+<tr>
+<th>pt</th>
+<td>ポイント（1/72インチを1とする単位）</td>
+</tr>
+<tr>
+<th>pc</th>
+<td>パイカ（12ポイントを1とする単位）</td>
+</tr>
+<tr>
+<th>in</th>
+<td>インチ（2.54センチメートルを1とする単位）</td>
+</tr>
+<tr>
+<th>cm</th>
+<td>センチメートル</td>
+</tr>
+<tr>
+<th>mm</th>
+<td>ミリメートル</td>
+</tr>
+<tr>
+<th>q</th>
+<td>quarter-millimeters（1/4ミリメートルを1とする単位）</td>
+</tr>
+</tbody>
+</table>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<p>CSS3では、プロパティの値として長さや数値が指定できる場合には、それらの代わりに<strong>calc()関数</strong>による計算式を指定することもできます。()内に書く計算式には単位の付けられた数値と単位のない数値の両方が使用でき、演算子としては<b>+-*/</b>が使えます。<strong>（+と-の前後には必ず空白文字を入れる必要があります。）</strong></p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+font-size: calc(100vw / 35);
+margin: calc(1rem - 2px) calc(1rem - 1px);
+</code>
+</pre>
+</aside>
+</section>
+
+<section id="anc-selecta">
+<h2 class="hdg-lv2-a">セレクタ</h2>
+<p>セレクタを構成する基本的な最小単位のことを<em>シンプルセレクタ</em>といいます。たとえば、要素名だけで指定するセレクタもシンプルセレクタの1つです。シンプルセレクタは全部で6種類あり、それらは続けて記入して組み合わせることができます。</p>
+
+<p>ただし、<em>先頭には必ずタイプセレクタ（要素名）またはユニバーサルセレクタ（*）のどちらかを配置</em>するというルールがあります。それ以降にはそれら以外のシンプルセレクタを順不同で必要なだけ記述できます。その際、<em>ユニバーサルセレクタのあとに他のシンプルセレクタが続く場合に限り、ユニバーサルセレクタを省略することが可能</em>です。<br>
+たとえば、「.hoge」というセレクタは「*.hoge」のユニバーサルセレクタを省略した書き方です。</p>
+
+<p>組み合わせたシンプルセレクタは、<em>結合子と呼ばれる記号（> + ~）または空白文字で区切って、さらに必要なだけ組み合わせることが可能</em>です。</p>
+
+<h3 class="hdg-lv3-a">タイプセレクタ</h3>
+<p><em>要素名</em>をそのまま使って適用先を示すシンプルセレクタのことを指します。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+h1 {
+	color: black;
+}
+</code>
+</pre>
+
+<h3 class="hdg-lv3-a">ユニバーサルセレクタ</h3>
+<p>要素名の代わりに<em>*</em>を指定すると、すべての要素が適用対象となります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+* {
+	color: blue;
+}
+</code>
+</pre>
+
+<h3 class="hdg-lv3-a">クラスセレクタ</h3>
+<p><em>ピリオドに続けてHTMLのclass属性の値を指定</em>すると、そのclass属性の値を持つ要素が適用対象となります。<br>
+class属性の値は空白文字で区切って複数指定できますが、そのうちの1つと一致するだけで適用対象となります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+p.hoge {
+	color: white;
+}
+</code>
+</pre>
+
+<h3 class="hdg-lv3-a">IDセレクタ</h3>
+<p><em>#に続けてHTMLのid属性の値を指定</em>すると、そのid属性の値を持つ要素が適用対象となります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+p#hoge {
+	color: red;
+}
+</code>
+</pre>
+
+<h3 class="hdg-lv3-a">属性セレクタ</h3>
+<p><em>特定の属性が指定されている要素</em>、または<em>特定の属性に特定の値が指定されている要素</em>を適用対象として指定できる。CSS3では次の7種類の属性セレクタが使用できます。</p>
+
+<div class="tbl-scroll">
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-40">
+<col class="w-40">
+</colgroup>
+<thead>
+<tr>
+<th>属性セレクタ</th>
+<th>適用対象</th>
+<th>使用例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>[属性名]</th>
+<td>「属性名」の属性が指定されている要素</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+p[class] {
+	color: black;
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th>[属性名="属性値"]</th>
+<td>「属性名」の属性に「属性値」の値が指定されている要素（<em>値全体が一致</em>）</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+a[target="_blank"] {
+	color: black;
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th>[属性名<strong>~</strong>="属性値"]</th>
+<td>「属性名」の属性に「属性値」の値が指定されている要素（<em>値のどれかと一致</em>でもOK）</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+p[class="hoge"] {
+	color: black;
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th>[属性名<strong>|</strong>="属性値"]</th>
+<td>「属性名」の属性に「属性値」の値が指定されている要素（<em>値全体またはハイフン区切りの前半が一致</em>）</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+p[lang|="en"] {
+	color: red;
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th>[属性名<strong>^</strong>="属性値の始め"]</th>
+<td>「属性名」の属性の値が「属性値の始め」で始まる要素</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+a[href=^"#anc-"] {
+	color: black;
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th>[属性名<strong>$</strong>="属性値の終わり"]</th>
+<td>「属性名」の属性の値が「属性値の終わり」で終わる要素</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+a[href$="html"] {
+	color: black;
+}
+</code>
+</pre>
+</td>
+</tr>
+<tr>
+<th>[属性名<strong>*</strong>="属性値の一部"]</th>
+<td>「属性名」の属性の値が「属性値の一部」を含む要素</td>
+<td>
+<pre class="pre-skin">
+<code class="prettyprint">
+a[title*="確認"] {
+	color: red;
+}
+</code>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+
+
+<h3 class="hdg-lv3-a">その他の擬似クラス</h3>
+
+<table class="tbl-a">
+<caption>選択範囲</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>擬似クラス</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>E:nth-child(αn+β)</th>
+<td><b>n番目の子であるE要素</b>。αとβの値は整数でなければならない。αn+βの形ではなく、odd（=2n+1）やeven（=2n）でも可。</td>
+</tr>
+<tr>
+<th>E:nth-last-child(αn+β)</th>
+<td><b><em>後ろから数えて</em>n番目の子であるE要素</b>。αとβの値は整数でなければならない。αn+βの形ではなく、odd（=2n+1）やeven（=2n）でも可。</td>
+</tr>
+<tr>
+<th>E:nth-of-type(αn+β)</th>
+<td><b>E要素の中のn番目</b>（指定した要素と同じ要素のみ対象）</td>
+</tr>
+<tr>
+<th>E:nth-last-of-type(n)</th>
+<td><b>後ろから数えてn番目のE要素</b>（指定した要素と同じ要素のみ対象）</td>
+</tr>
+<tr>
+<th>E:first-child</th>
+<td>子要素の中で最初の要素</td>
+</tr>
+<tr>
+<th>E:last-child</th>
+<td>子要素の中で最後の要素</td>
+</tr>
+<tr>
+<th>E:first-of-type</th>
+<td>子要素の中で最初の要素（指定した要素と同じ要素のみ対象）</td>
+</tr>
+<tr>
+<th>E:last-of-type</th>
+<td>子要素の中で最後の要素（指定した要素と同じ要素のみ対象）</td>
+</tr>
+<tr>
+<th>E:only-child</th>
+<td>唯一の子要素であるときに適用</td>
+</tr>
+<tr>
+<th>E:only-of-type</th>
+<td>唯一の子要素であるときに適用（指定した要素と同じ要素のみ対象）</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption>フォーム関連</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>擬似クラス</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>E:focus</th>
+<td>フォーカス（選択）されたE要素</td>
+</tr>
+<tr>
+<th>E:checked</th>
+<td>ラジオボタンやチェックボックス、option要素が選択された状態の要素</td>
+</tr>
+<tr>
+<th>E:disabled</th>
+<td>無効である要素</td>
+</tr>
+<tr>
+<th>E:enabled</th>
+<td>有効である要素（disabledの状態ではない要素）</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption>その他</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>擬似クラス</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>:root</th>
+<td>文書のルート要素（html要素）</td>
+</tr>
+<tr>
+<th>E:empty</th>
+<td>テキストノードを含め子を持たないE要素</td>
+</tr>
+<tr>
+<th>E:target</th>
+<td>URLの最後が「#hoge」となっているリンクをクリックした時の対象となった要素</td>
+</tr>
+<tr>
+<th>E:lang(言語コード)</th>
+<td>言語コードの言語に設定されている要素</td>
+</tr>
+<tr>
+<th>E:not(シンプルセレクタ)</th>
+<td>「シンプルセレクタ」の対象外のすべての要素</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">擬似要素</h3>
+<p>タグで囲われている範囲全体をそのまま適用対象にするのではない特殊なセレクタを擬似要素という。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>擬似要素</th>
+<th>適用対象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>::first-line</th>
+<td>ブロックレベル要素の1行目</td>
+</tr>
+<tr>
+<th>::first-letter</th>
+<td>ブロックレベル要素の1文字目</td>
+</tr>
+<tr>
+<th>::before</th>
+<td>要素内容の先頭にコンテンツを追加</td>
+</tr>
+<tr>
+<th>::after</th>
+<td>要素内容の最後にコンテンツを追加
+</td>
+</tr>
+</tbody>
+</table>
+
+<p class="txt-note"><span class="ast">※</span>擬似要素は、結合子も含めたセレクタ全体の最後尾にひとつだけしか付けることができない。先頭のコロンは2つです。</p>
+
+
+<h3 class="hdg-lv3-a">結合子</h3>
+<p>組み合わせたシンプルセレクタ同士を区切って使用する結合子には、4種類あります。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>結合子</th>
+<th>適用対象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>セレクタA セレクタB</th>
+<td>Aの要素に<em>含まれている</em>Bの要素</td>
+</tr>
+<tr>
+<th>セレクタA > セレクタB</th>
+<td>Aの<em>直接の子要素</em>であるB</td>
+</tr>
+<tr>
+<th>セレクタA + セレクタB</th>
+<td>共通の親要素を持つ要素の中でAの<em>直後にあらわれる</em>B</td>
+</tr>
+<tr>
+<th>セレクタA ~ セレクタB</th>
+<td>共通の親要素を持つ要素の中でAのよりも<em>後にあらわれる</em>B</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">優先順位</h3>
+<p>CSS適用の優先順位を考える際の基本的な指定元としては「制作者」「ユーザー」「ユーザーエージェント」の3種類が挙げられます。この3つの優先順位は<em>!important</em>を追加することで変更可能です。</p>
+<p>!importantをつけた場合とつけない場合の優先順位をまとめると次のようになります。（上部が優先順位が高く、下部は低い）</p>
+<ul class="list-normal-a">
+<li>ユーザーエージェント !important付き</li>
+<li>ユーザー !important付き</li>
+<li>制作者 !important付き</li>
+<li>制作者</li>
+<li>ユーザー</li>
+<li>ユーザーエージェント</li>
+</ul>
+
+<h4 class="hdg-lv4-a">セレクタの詳細度による優先順位の計算</h4>
+<p>詳細度とは「詳細の度合い」を意味し、要素の種類だけで指定するようなセレクタの詳細度は低く、IDで1つの要素を限定的に指定するセレクタの詳細度は高くなります。</p>
+<p>詳細度の計算は3桁の数字で行ないます。セレクタの中に含まれるシンプルセレクタの種類ごとに個数を次のように各桁に入れます。この3桁の数値が大きいものほど詳細度が高いことになり、優先度も高くなります。</p>
+<ul class="list-normal-a">
+<li><b>1桁目</b><br>
+タイプセレクタの個数（要素名） ＋ 擬似要素の個数</li>
+<li><b>2桁目</b><br>クラスセレクタの個数 + 属性セレクタの個数 + 擬似クラスの個数</li>
+<li><b>3桁目</b><br>IDセレクタの個数</li>
+</ul>
+</section>
+
+
+<section id="anc-color">
+<h2 class="hdg-lv2-a">色</h2>
+
+<p>CSSで色を示す場合、16進数・キーワード・rgb()/rgba()・hsl()/hsla()などの方法があります。</p>
+
+<h3 class="hdg-lv3-a">16進数</h3>
+<p>RGBの各値を16進数で指定する書式です。一般的にRGBの各値を2桁ずつ、計6桁で表現します。RGBの各値を示す2桁ずつがそれぞれ同じ数字の繰り返しになっている場合に限り、重複する1桁ずつを省いて3桁で示すことができます。たとえば、#ff0000という値は#f00と書くことができます。</p>
+
+<h3 class="hdg-lv3-a">キーワード</h3>
+<p>CSSの色は英語の色の名前で指定することもできます。150近くのキーワードが定義されています。</p>
+
+<div class="tbl-scroll">
+<table class="tbl-a">
+<caption>基本的な色のキーワード</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-10">
+<col class="w-20">
+<col class="w-20">
+<col class="w-10">
+<col class="w-20">
+</colgroup>
+<thead>
+<tr>
+<th>キーワード</th>
+<th>色</th>
+<th>16進数での値</th>
+<th>キーワード</th>
+<th>色</th>
+<th>16進数での値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>white</th>
+<td style="background-color:white;"></td>
+<td>#fff</td>
+<th>black</th>
+<td style="background-color:black;"></td>
+<td>#000</td>
+</tr>
+<tr>
+<th>gray</th>
+<td style="background-color:gray;"></td>
+<td>#808080</td>
+<th>silver</th>
+<td style="background-color:silver;"></td>
+<td>#c0c0c0</td>
+</tr>
+<tr>
+<th>red</th>
+<td style="background-color:red;"></td>
+<td>#f00</td>
+<th>maroon</th>
+<td style="background-color:maroon;"></td>
+<td>#800000</td>
+</tr>
+<tr>
+<th>purple</th>
+<td style="background-color:purple;"></td>
+<td>#80080</td>
+<th>fuchsia</th>
+<td style="background-color:fuchsia;"></td>
+<td>#f0f</td>
+</tr>
+<tr>
+<th>green</th>
+<td style="background-color:green;"></td>
+<td>#008000</td>
+<th>lime</th>
+<td style="background-color:lime;"></td>
+<td>#0f0</td>
+</tr>
+<tr>
+<th>olive</th>
+<td style="background-color:olive;"></td>
+<td>#808000</td>
+<th>yellow</th>
+<td style="background-color:yellow;"></td>
+<td>#ff0</td>
+</tr>
+<tr>
+<th>blue</th>
+<td style="background-color:blue;"></td>
+<td>#00f</td>
+<th>aqua</th>
+<td style="background-color:aqua;"></td>
+<td>#0ff</td>
+</tr>
+<tr>
+<th>navy</th>
+<td style="background-color:navy;"></td>
+<td>#000080</td>
+<th>teal</th>
+<td style="background-color:teal;"></td>
+<td>#008080</td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+
+
+<h3 class="hdg-lv3-a">rgb() rgba()</h3>
+<p>rgb()という関数形式の書式を使用すると、RGBの値を<em>10進数のまま指定可能</em>です。<br>
+RGBの値に加えて不透明度をあらわすAlphaの値も指定できるようにしたのがrgba()という書式です。0.0だと完全に透明、1.0だと完全に不透明になります。</p>
+
+<h3 class="hdg-lv3-a">hsl() hsla()</h3>
+<p>直感的に色を指定したり変更できるようにするために作られたのがhsl()という書式です。hslは、hue（色相）・saturation（彩度）・lightness（明度）の頭文字をとったもので、その名のとおり色相と彩度と明度の順に色を指定します。<br>
+彩度と明度に関しては、0%～100%のパーセント値で指定しますが、色相に関しては色相環（カラーサークル）における角度を示す数値で指定します。</p>
+<p>さらに、hsl()の値に加えて不透明度をあらわすAlphaの値も指定できるようにしたのがhsla()という書式です。指定の仕方はrgba()同様です。</p>
+
+
+</section>
+
+<section id="anc-bg">
+<h2 class="hdg-lv2-a">背景</h2>
+<p></p>
+
+
+</section>
+
+
+<section id="anc-text">
+<h2 class="hdg-lv2-a">テキスト</h2>
+<p></p>
+
+
+</section>
+
+
+<section id="anc-font">
+<h2 class="hdg-lv2-a">フォント</h2>
+<p></p>
+
+
+</section>
+
+
+<section id="anc-box">
+<h2 class="hdg-lv2-a">ボックス</h2>
+<p></p>
+
+
+</section>
+
+
+<section id="anc-maruchi">
+<h2 class="hdg-lv2-a">マルチカラムとフレキシブルボックス</h2>
+<p></p>
 
 
 
 </section>
+
+
+<section id="anc-anime">
+<h2 class="hdg-lv2-a">アニメーション</h2>
+<p></p>
+
+
+
+</section>
+
+
+
+<section id="anc-other">
+<h2 class="hdg-lv2-a">その他</h2>
+<p></p>
+
+
+</section>
+
+
+
+
+
+
+
 
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>

@@ -449,6 +449,7 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <p>HTMLのマークアップ（タグなど）と特殊記号を区別するためや、キーボードでは直接入力できない記号を入力すために文字参照という書式を使用する。</p>
 <p class="txt-note"><span class="ast">※</span>HTML4までは「文字実体参照」と呼ばれていたが名称が変わった。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>主な名前文字参照</caption>
 <colgroup>
@@ -498,12 +499,14 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 </section>
 
 <section id="anc-grobal">
 <h2 class="hdg-lv2-a">グローバル属性</h2>
 <p><em>すべての要素に共通して指定できる属性</em>のことを指す。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>グローバル属性一覧</caption>
 <colgroup>
@@ -609,6 +612,7 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="col-2">
 <div class="part">
@@ -742,6 +746,7 @@ html要素には、グローバル属性であるlang属性を指定してその
 <h3 class="hdg-lv3-a">meta要素</h3>
 <p>HTML文書自身に関する情報を指定できる空要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>指定できる属性</caption>
 <colgroup>
@@ -788,10 +793,12 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">link要素</h3>
 <p>関連する別の文書やファイルなどを示すための空要素です。href属性とrel属性は必ず指定する必要があります。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>link要素に指定できる属性</caption>
 <colgroup>
@@ -859,7 +866,10 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <td colspan="2">crossorigin="anonymous" または crossorigin="use-credentials"</td>
 </tr>
 </tbody>
+</table>
+<!-- /.tbl-scroll --></div>
 
+<div class="tbl-scroll">
 <table class="tbl-a" id="anc-relKey">
 <caption>rel属性に指定できるキーワード</caption>
 <colgroup>
@@ -921,6 +931,7 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">base要素</h3>
 <p>HTML文書内で指定されている相対URLの基準にするURLを設定するための空要素です。必ずhead要素内で指定します。target要素を使用することでデフォルトの表示先（ブラウジングコンテキスト）を設定しておくこともできます。指定できる属性はhref属性とtarget属性のみ。</p>
@@ -1013,6 +1024,7 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 <p>a要素にhref属性を指定すると、リンク（ハイパーリンク）になります。href属性は必須ではありませんが、href属性を指定していない状態ではそれ以外の属性も指定できません。（グローバル属性は指定できます。）</p>
 <p>a要素のコンテンツモデルはトランスペアレントです。したがって、HTML5のa要素は旧分類でのブロックレベル要素も要素内容として含むことができます。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>a要素に指定できる属性</caption>
 <colgroup>
@@ -1065,6 +1077,7 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="col-2">
 <div class="part">
@@ -1184,6 +1197,7 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 <p>data要素を日時での使用に特化させた要素。（機械読み取りが可能な日時データを提供する要素）<br>
 datatime属性に機械読み取りが可能な形式で入力する。この属性は必須ではありません。</p>
 
+<div class="tbl-scroll">
 <table id="anc-datetime" class="tbl-a">
 <caption>機械読み取りが可能な日時の書式</caption>
 <colgroup>
@@ -1243,6 +1257,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">abbr要素</h3>
 <p>略語であることを示す。省略していない状態の言葉を示すにはtitle属性を使用します。</p>
@@ -1273,6 +1288,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">ins要素</h3>
 <p>文書に追加した部分を示す。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>ins要素に指定できる属性</caption>
 <colgroup>
@@ -1300,10 +1316,12 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">del要素</h3>
 <p>文書から削除した部分を示す</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>del要素に指定できる属性</caption>
 <colgroup>
@@ -1331,7 +1349,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
-
+<!-- /.tbl-scroll --></div>
 </section>
 
 <section id="anc-list">
@@ -1346,6 +1364,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">ol要素</h3>
 <p>連番の付けられた項目を持つリストをあらわすための要素です。<em>項目の順序を入れ替えると意味が変わってしまうようなリスト</em>に対して使用します。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>ol要素に指定できる属性</caption>
 <colgroup>
@@ -1378,6 +1397,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p>HTML5のul要素は、内容が空（li要素が0個）でもOKになっている。<br>
 また、li要素の他にscript要素とtemplate要素も入れられることになっている。</p>
@@ -1385,6 +1405,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">li要素</h3>
 <p>ul要素、ol要素によるリストの各項目となる要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>li要素に指定できる属性</caption>
 <colgroup>
@@ -1407,6 +1428,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">dl要素</h3>
 <p>その内容となる各項目が「用語」と「説明」のペアになっている形式のリスト。<br>
@@ -1511,6 +1533,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">img要素</h3>
 <p>表示させたい画像とそれが利用できない場合、代わりに使用するテキストを指定する要素。src属性は必須、alt属性の値は必須ではないが一般的なサイトにおいて基本的に省略できないものである。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>img要素に指定できる属性</caption>
 <colgroup>
@@ -1573,6 +1596,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h4 class="hdg-lv4-a">srcset属性</h4>
 <p>ブラウザのスクリーン要件（幅、高さ、ピクセル密度）に応じて、異なる画像を読み込むことができる。これにより、複数用意された画像の中から状況に応じて最適なものだけをロードして表示させることができる。</p>
@@ -1611,6 +1635,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">source要素</h3>
 <p>picture要素、video要素、audio要素の内部において、サイズやファイル形式などの異なる代替データを指定するための要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption><em>picture要素内</em>のsource要素に指定できる属性</caption>
 <colgroup>
@@ -1648,7 +1673,9 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption><em>video要素とaudio要素内</em>のsource要素に指定できる属性</caption>
 <colgroup>
@@ -1676,12 +1703,14 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">video要素</h3>
 <p>動画を再生させるための要素</p>
 
 <p>video要素とaudio要素は両方とも動画と音声の再生が可能で、両要素の主な違いは、「動画や字幕といった視覚的なコンテンツの再生領域はvideo要素にしかない」という点だけです。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>video要素とaudio要素に指定できる属性</caption>
 <colgroup>
@@ -1749,6 +1778,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="box-a">
 <p class="txt-title">使用例</p>
@@ -1779,6 +1809,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">track要素</h3>
 <p>video要素やaudio要素で使用される<em>外部テキスト・リソース（字幕のデータなど）</em>を指定する場合に使用する空要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>track要素に指定できる属性</caption>
 <colgroup>
@@ -1821,7 +1852,9 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>kind属性に指定可能なキーワードについて</caption>
 <colgroup>
@@ -1864,12 +1897,14 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p class="txt-note"><span class="ast">※</span>track要素はsource要素よりも後、その他の要素よりも前に配置する必要があります。</p>
 
 <h3 class="hdg-lv3-a">embed要素</h3>
 <p><em>外部アプリケーションやインタラクティブなコンテンツなどを、プラグインを使って組み込む</em>際に使用する空要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>embed要素に指定できる属性</caption>
 <colgroup>
@@ -1907,6 +1942,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="box-a">
 <p class="txt-title">使用例</p>
@@ -1933,6 +1969,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">object要素</h3>
 <p>さまざまな形式の外部データを組み込むための要素。画像や別のHTML文書、プラグインを使用するデータなども組み込むことができます。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>object要素に指定できる属性</caption>
 <colgroup>
@@ -1985,6 +2022,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">param要素</h3>
 <p>object要素によって呼び出されるプラグインのパラメータを設定するための空要素。name属性とvalue属性を指定することができる。</p>
@@ -2020,6 +2058,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h3 class="hdg-lv3-a">th要素</h3>
 <p>見出し用のセル（table header cell）をあらわす要素</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>th要素に指定できる属性</caption>
 <colgroup>
@@ -2062,10 +2101,12 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">td要素</h3>
 <p>データ用のセル（table data cell）をあらわす要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>td要素に指定できる属性</caption>
 <colgroup>
@@ -2098,6 +2139,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="col-2">
 <div class="part">
@@ -2134,6 +2176,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 <h3 class="hdg-lv3-a">form要素</h3>
 <p>フォーム関連の要素をとりまとめ、ユーザが入力・選択したデータをサーバーに送信するための要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>form要素に指定できる属性</caption>
 <colgroup>
@@ -2191,6 +2234,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">input要素</h3>
 <p>type属性で指定したキーワードによって様々な種類の入力・選択用部品となる要素。</p>
@@ -2198,6 +2242,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 <h3 class="hdg-lv3-a">textarea要素</h3>
 <p>複数行のテキスト入力フィールドとなる要素。要素内容として入れたテキストは、入力フィールドにあらかじめ入力された状態で表示されます。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>textarea要素に指定できる属性</caption>
 <colgroup>
@@ -2285,10 +2330,12 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">button要素</h3>
 <p>要素内容がそのままラベルとして表示されるボタンになる要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>button要素に指定できる属性</caption>
 <colgroup>
@@ -2367,10 +2414,12 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">select要素</h3>
 <p>選択肢の中から選ぶ形式のフォーム部品になる要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>select要素に指定できる属性</caption>
 <colgroup>
@@ -2428,10 +2477,12 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">option要素</h3>
 <p>select要素またはdatalist要素の選択肢となる要素。label属性が指定されているとその値が選択肢となりますが、label属性が指定されていない場合は要素内容が選択肢になります。また、value属性が指定されているとその値がサーバに送信されますが、value属性が指定されていない場合は要素内容が送信されます。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>option要素に指定できる属性</caption>
 <colgroup>
@@ -2469,6 +2520,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p class="txt-note"><span class="ast">※</span>option要素にlabel属性とvalue属性の両方を指定する場合は、要素内容を空にしてください。</p>
 
@@ -2479,6 +2531,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 <p>メーター（ゲージ）として使える要素です。<strong>特定の範囲内での位置を示す</strong>場合に使用します。<br>
 要素内容には未対応ブラウザ向けに、メーターの状態をテキストで表現したものを入れます。対応ブラウザでこの要素内容は表示されません。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>meter要素に指定できる属性</caption>
 <colgroup>
@@ -2526,6 +2579,7 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="box-a">
 
@@ -2677,6 +2731,7 @@ input要素とdatalist要素を関連づけるには、<em>datalist要素のid�
 <h3 class="hdg-lv3-a">output要素</h3>
 <p><em>計算結果</em>やユーザ操作による結果を示す要素。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>output要素に指定できる属性</caption>
 <colgroup>
@@ -2709,6 +2764,7 @@ input要素とdatalist要素を関連づけるには、<em>datalist要素のid�
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <div class="box-a">
 
@@ -2803,6 +2859,7 @@ disabled属性、name属性、form属性を指定できます。</p>
 <h3 class="hdg-lv3-a">iframe要素</h3>
 <p>HTML文書の中で別の文書を表示させる領域（ブラウジングコンテキスト）となる要素です。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>iframe要素に指定できる属性</caption>
 <colgroup>
@@ -2855,6 +2912,7 @@ disabled属性、name属性、form属性を指定できます。</p>
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p class="txt-note"><span class="ast">※</span>src属性とsrcdoc属性の両方を同時に指定することもできるがその場合、srcdoc属性の方が優先され、srcdoc属性に未対応のブラウザなどではsrc属性の文書が使用されます。</p>
 

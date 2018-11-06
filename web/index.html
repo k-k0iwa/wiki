@@ -41,7 +41,7 @@
 
 <p>従来では768pxを基準にPC表示とスマホ表示を切り替えるのが一般的でした。これは、iPadの縦向きの表示解像度が768pxというところに起因しています。ですが特定の製品を基準にブレイクポイントを設定すると日々進化するデバイスに対応できなくなる日が来るでしょう。ですので特定の端末に依存しないブレイクポイントの参考に以下の表を参照してください。</p>
 
-
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>ブレイクポイントの参考</caption>
 <colgroup>
@@ -84,6 +84,7 @@
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p>以下のサイトで国内のパソコン、タブレット、スマホのブラウザシェアやデバイスシェアなど様々な統計を確認することができます。Web上の様々なシェア分析に特化したサービスです。</p>
 <p class="txt-link"><a href="http://gs.statcounter.com/browser-market-share/all/japan" target="_blank">StatCounter Global Stats</a></p>
@@ -176,11 +177,12 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 <p>メッセージ構造はHTTPのメッセージ構造と同じです。<br>
 開始行にはレスポンスの状態を3桁の数字で表すステータスコードが含まれます。ステータスコードは次の表のように分類されます。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <colgroup>
 <col class="w-20">
-<col class="w-15">
-<col class="w-65">
+<col class="w-20">
+<col class="w-60">
 </colgroup>
 <thead>
 <tr>
@@ -228,10 +230,12 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">HTTPのヘッダフィールド</h3>
 <p>ヘッダフィールドにはメッセージの外部情報（メタ情報）を扱うためのHTTPヘッダが含まれます。代表的なHTTPヘッダは次の通りです。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <colgroup>
 <col class="w-20">
@@ -298,6 +302,7 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p>ヘッダの種類であるRequest-headerはリクエストに追加できるヘッダで、Response-headerはレスポンスに追加できるヘッダです。General-headerはリクエスト/レスポンスの両方に追加できるヘッダで、Entity-headerはメッセージボディについての情報を記載するヘッダです。</p>
 
@@ -658,16 +663,16 @@ Adaptive Streaming技術にも対応しているので、再生途中で動画�
 <p class="txt-title">使用例</p>
 <pre class="pre-skin">
 <code class="prettyprint">
-&lt;svg width="320" height="160"&gt;
-&lt;circle cx="160" cy="80" r="75" stroke="black" fill="gray"&gt;
+&lt;svg width="150" height="150" viewBox="0, 0, 150, 150"&gt;
+&lt;circle cx="50" cy="50" r="50" stroke="black" fill="gray"&gt;
 &lt;/svg&gt;
 </code>
 </pre>
 <!-- /.part --></div>
 <div class="part">
 <p class="txt-title">表示例</p>
-<svg width="320" height="160">
-<circle cx="160" cy="80" r="75" stroke="black" fill="gray">
+<svg width="150" height="150" viewBox="0, 0, 150, 150">
+<circle cx="50" cy="50" r="50" stroke="black" fill="gray">
 </svg>
 <!-- /.part --></div>
 <!-- /.col-2 --></div>
@@ -728,6 +733,7 @@ Adaptive Streaming技術にも対応しているので、再生途中で動画�
 <h4 class="hdg-lv4-a">DOM3 Events (UI Events)</h4>
 <p>マウスやキーボードなどの入力操作を取り扱うためのイベントです。イベントには以下があります。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <colgroup>
 <col class="w-30">
@@ -779,7 +785,7 @@ Adaptive Streaming技術にも対応しているので、再生途中で動画�
 </tr>
 </tbody>
 </table>
-
+<!-- /.tbl-scroll --></div>
 
 <h3 class="hdg-lv3-a">オフラインストレージAPI</h3>
 <h4 class="hdg-lv4-a">Web Storage</h4>
@@ -860,11 +866,12 @@ Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境で
 <p>ローカルに一度キャッシュされたファイルは、サーバ側でファイルが更新されても新たにキャッシュされません。更新後のファイルを再度ローカルにキャッシュするには、<em>キャッシュマニフェストの更新が必要</em>です。キャッシュマニフェストのコメント行を変えるなどして、再キャッシュされるようにします。<br>
 キャッシュの更新後は、<em>ブラウザでリロード(再読み込み)する</em>ことで更新されたページを表示できます。</p>
 
+<div class="tbl-scroll">
 <table class="tbl-a">
 <caption>キャッシュマニフェストに記述できるセクション</caption>
 <colgroup>
-<col class="w-15">
-<col class="w-85">
+<col class="w-20">
+<col class="w-80">
 </colgroup>
 <thead>
 <tr>
@@ -891,6 +898,7 @@ Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境で
 </tr>
 </tbody>
 </table>
+<!-- /.tbl-scroll --></div>
 
 <p>アプリケーションキャッシュを動作させるにはキャッシュマニフェストを作成し、Webサーバにアップロードします。<br>
 そして、<em>html要素</em>のmanifest属性でキャッシュマニフェストのファイル名を指定し、キャッシュマニフェストが存在することをブラウザに認識させます。</p>
