@@ -399,7 +399,7 @@ html {
 }
 
 body {
-  font-family:  Meiryo, sans-serif;
+  font-family: Meiryo, sans-serif;
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -444,6 +444,14 @@ h3, h4 {
 }
 h5, h6, aside h1, aside h2, aside h3, aside h4 {
   margin: 20px 0 0;
+}
+h1 em,
+h2 em,
+h3 em,
+h4 em,
+h5 em,
+h6 em {
+  color: #fc4a1a;
 }
 p {
   margin: 20px 0 0;

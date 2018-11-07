@@ -30,6 +30,7 @@
 <ul class="list-col _anc">
 <li><a class="scroll" href="#anc-basic">基礎知識</a></li>
 <li><a class="scroll" href="#anc-selecta">セレクタ</a></li>
+<li><a class="scroll" href="#anc-color">色</a></li>
 <li><a class="scroll" href="#anc-bg">背景</a></li>
 <li><a class="scroll" href="#anc-text">テキスト</a></li>
 <li><a class="scroll" href="#anc-font">フォント</a></li>
@@ -41,6 +42,11 @@
 
 <section id="anc-basic">
 <h2 class="hdg-lv2-a">基礎知識</h2>
+
+<p>CSS(Cascading Style Sheets)とは、Webページの装飾やレイアウトを記述するための言語です。HTML文書の構造とスタイルを分離させる目的で提唱されました。CSSを利用することによって、HTMLで作成された文書の構造を変えることなく、Webページのスタイルを変えることができます。</p>
+<p>Web関連技術の標準化を目的とした非営利団体である<em>W3C(World Wide Web Consortium)</em>が、HTMLやXML(Extensible Markup Language: 文書やデータの構造を記述するための言語)などの他、CSSの仕様も策定しています。<br>
+また、HTML5の策定においては、<b>Web関連技術の開発に興味を持つ人々のコミュニティである<em>WHATWG(Web Hypertext Application Technology Working Group)</em></b>がW3Cと協力しています。</p>
+
 
 <h3 class="hdg-lv3-a">link要素でHTMLに組み込む</h3>
 <p>link要素にmedia属性を指定すると、読み込んだ<em>外部スタイルシートを適用するメディアを限定</em>することができます。適用対象の機器の種類だけを限定したい場合には次のキーワードが指定できます。（カンマ区切りで複数指定できます。）</p>
@@ -754,32 +760,1338 @@ RGBの値に加えて不透明度をあらわすAlphaの値も指定できるよ
 
 <section id="anc-bg">
 <h2 class="hdg-lv2-a">背景</h2>
-<p></p>
 
+<h3 class="hdg-lv3-a">background-<em>color</em>プロパティ</h3>
+<p>ボックスの背景色を設定するプロパティです。背景色をボックスのどの領域に表示させるかは「background-clip」で指定します。このプロパティは、すべての要素に指定でき、初期値はtransparentで透明の状態となっています。</p>
+
+<h3 class="hdg-lv3-a">background-<em>image</em>プロパティ</h3>
+<p>背景に画像を表示させるプロパティです。値には、「none」または「url()」の書式で画像のURLを指定できます。初期値はnoneです。</p>
+<p>CSS3から<em>1つのボックスに複数の背景画像を表示させられる</em>ようになっています。URLはカンマで区切って必要なだけ記述します。<em>先に指定した画像ほど上（手前）に表示</em>されます。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+body {
+	background-image: url(hoge.jpg), url(huga.jpg);
+}
+</code>
+</pre>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+
+<h2 class="hdg-lv2-a">注意事項</h2>
+<p><strong>background-color以外のすべての背景関連プロパティでカンマ区切りの複数の値を使える</strong>ようになりました。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+body {
+	background-image: url(hoge.jpg), url(huga.jpg);
+	background-repeat: no-repeat, repeat-x;
+}
+</code>
+</pre>
+
+<p>background-imageプロパティで指定した値の数だけレイヤーが生成され、他の背景関連プロパティはそれに対応した数の値を指定できます。レイヤーの数より多く指定した値は無視され、少なく指定された場合は値全体を繰り返す形で適用されます。</p>
+
+
+<h2 class="hdg-lv2-a">グラデーションの指定</h2>
+<p>背景画像を指定する際、url()の部分にlinear-gradient()またはradial-gradient()という書式を使用することで、画像を使わずにグラデーションを表示させることができます。</p>
+</aside>
+
+
+<h3 class="hdg-lv3-a">background-<em>clip</em>プロパティ</h3>
+<p><em>背景ボックスのどの領域に表示させるのかを設定</em>するプロパティです。値の初期値はborder-boxです。値には次のキーワードを指定できます。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>border-box</th>
+<td>ボーダー領域を含む、そこから内側の部分だけに背景を表示させる</td>
+</tr>
+<tr>
+<th>padding-box</th>
+<td>パディング領域を含む、そこから内側の部分だけに背景を表示させる</td>
+</tr>
+<tr>
+<th>content-box</th>
+<td>要素内容を表示させる領域だけに背景を表示させる</td>
+</tr>
+</tbody>
+</table>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<p>html要素の背景の表示方法には特別なルールがあります。</p>
+
+<ul class="list-normal-a">
+<li>そのボックスの範囲ではなく、<em>ブラウザなどの表示領域全体</em>に対して適用される（background-clipプロパティを指定しても効果はない）</li>
+<li>背景画像の表示サイズや配置位置を指定した場合は、<em>html要素のボックスを基準に計算されます</em>ので注意が必要</li>
+<li>html要素に背景画像がなく、背景色がtransparentの場合、ブラウザは<em>body要素の背景を代わりに使用する</em>ことになっている</li>
+</ul>
+
+<p class="txt-note"><span class="ast">※</span>仕様書では、ページ全体の背景を指定する際は、html要素ではなくbody要素に指定することを推奨しています。</p>
+</aside>
+
+
+<h3 class="hdg-lv3-a">background-<em>repeat</em>プロパティ</h3>
+<p><em>背景画像を縦または横に繰り返して表示させるかを設定する</em>プロパティです。値の初期値はrepeatです。値に指定できるキーワードの数は1つまたは2つです。（2つの値は空白文字で区切って指定します）<br>
+値を2つ指定した場合は、<em>1つ目が横方向、2つ目が縦方向</em>に関する繰り返しの指定になります。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>repeat-x</th>
+<td><em>横方向</em>にのみ画像を<b>隙間なく</b>繰り返し表示させます。</td>
+</tr>
+<tr>
+<th>repeat-y</th>
+<td><em>縦方向</em>にのみ画像を<b>隙間なく</b>繰り返し表示させます。</td>
+</tr>
+<tr>
+<th>repeat</th>
+<td><b>隙間なく</b>画像を繰り返し表示させます。</td>
+</tr>
+<tr>
+<th>space</th>
+<td>背景画像の全体が表示される状態で可能なだけ繰り返して表示させます。<b>ピッタリと収まらない場合は、<em>画像と画像の間に隙間ができます</em>。</b></td>
+</tr>
+<tr>
+<th>round</th>
+<td>背景画像の全体が表示される状態で可能なだけ繰り返して表示させます。<b>ピッタリと収まらない場合は、<em>画像を拡大縮小して隙間をなくします</em>。</b></td>
+</tr>
+<tr>
+<th>no-repeat</th>
+<td>画像を<em>1つだけ</em>表示します。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">background-<em>size</em>プロパティ</h3>
+<p><em>背景画像の表示サイズを設定</em>するプロパティです。初期値はautoです。値に指定できるキーワードの数は1つまたは2つです。（2つの値は空白文字で区切って指定します）<br>
+値を2つ指定した場合は、<em>1つ目が幅、2つ目が高さ</em>の指定になります。値を1つだけ指定した場合は、幅が指定されたものとみなされ、高さはautoとなります。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>contain</th>
+<td><em>元の縦横比を保った</em>状態で、背景画像の全体が表示される最大サイズにします。</td>
+</tr>
+<tr>
+<th>cover</th>
+<td><em>元の縦横比を保った</em>状態で、背景画像1つで表示領域全体を隙間なく覆う最少サイズにします。</td>
+</tr>
+<tr>
+<th>単位つきの数値</th>
+<td>数値に単位を付けて指定します。</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td>背景の表示領域に対するパーセンテージで指定します。</td>
+</tr>
+<tr>
+<th>auto</th>
+<td>一方だけががautoの場合、もう一方のサイズに合わせて<em>元の縦横比を保った</em>長さになります。両方がautoの場合は元のサイズで表示します。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">background-<em>origin</em>プロパティ</h3>
+<p><em>背景画像の配置位置を指定する際の基準となる領域を設定</em>するプロパティです。初期値はpadding-boxです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>border-box</th>
+<td>ボーダー領域から内側を配置の基準領域とします。</td>
+</tr>
+<tr>
+<th>padding-box</th>
+<td>パディング領域から内側を配置の基準領域とします。</td>
+</tr>
+<tr>
+<th>content-box</th>
+<td>要素内容を表示させる領域を配置の基準領域とします。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">background-<em>position</em>プロパティ</h3>
+<p><em>背景画像を表示させる領域内での画像の配置位置を設定</em>するプロパティです。画像が繰り返し表示される場合には、まずその位置に画像が配置され、そこから繰り返されることになります。</p>
+
+<p>初期値は0% 0%です。値に指定できるキーワードの数は2つが基本形です。（2つの値は空白文字で区切って指定します）<br>
+値を2つ指定した場合は、<em>1つ目が横方向の位置、2つ目が縦方向の位置</em>の指定になります。値を1つだけ指定した場合は、2つ目の値にcenterが指定されたものとして処理されます。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>数値に単位をつけて指定します</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td>背景の表示領域に対するパーセンテージで指定します</td>
+</tr>
+<tr>
+<th>top</th>
+<td>縦方向の0%と同様</td>
+</tr>
+<tr>
+<th>bottom</th>
+<td>縦方向の100%と同様</td>
+</tr>
+<tr>
+<th>center</th>
+<td>縦方向の50%、横方向の50%と同様</td>
+</tr>
+<tr>
+<th>left</th>
+<td>横方向の0%と同様</td>
+</tr>
+<tr>
+<th>right</th>
+<td>横方向の100%と同様</td>
+</tr>
+</tbody>
+</table>
+
+<p>配置の原点は、background-originプロパティで指定されている配置の<b>基準領域の左上</b>となります。</p>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<p>CSS3では3つまたは4つの値が指定できるようになっています。この場合はキーワードによる2つの値が基本となり、それぞれのキーワードのあとに指定する数値またはパーセンテージは<em>キーワードの位置からのオフセット</em>となります。<br>
+たとえば以下のように指定すると、bottomの位置から上へ100px、rightの位置から左へ50pxの位置が指定されたことになります。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+body {
+	background-position: bottom 100px right 50px;
+}
+</code>
+</pre>
+
+<p>値が3つの場合は、指定していない数値は0となります。正の値を指定すると領域の内側へのオフセットとなりますが、負の値を指定すると外側へのオフセットとなります。</p>
+</aside>
+
+
+<h3 class="hdg-lv3-a">background-<em>attachment</em>プロパティ</h3>
+<p><em>背景画像を表示領域に固定して、ページ内容をスクロールしても動かないようにする</em>プロパティです。初期値の値はscrollです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>scroll</th>
+<td>背景画像を要素に対して固定します。（要素と一緒にスクロールします）</td>
+</tr>
+<tr>
+<th>fixed</th>
+<td>背景画像をビューポート（表示領域）に固定します。（スクロールしても動かなくなります）</td>
+</tr>
+<tr>
+<th>local</th>
+<td>背景画像を要素の内容に対して固定します。（要素内容がスクロール可能な場合、要素内容と一緒にスクロールします）</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">backgroundプロパティ</h3>
+<p><em>背景関連のプロパティの値をまとめて指定</em>できるプロパティです。一部の例外を除けば、<b>必要な値を空白文字で区切って順不同で指定できます</b>。</p>
+
+<p>「background-position」と「background-size」は、いずれも単位つきの数値とパーセンテージなので両方がそのまま指定すると区別がつきません。そのため、<strong>値が1つだけ指定されている場合、「background-position」の値だと解釈するルール</strong>になっています。<br>
+「background-size」の値を指定するには、<strong>まず「background-position」の値を書き、<strong>スラッシュで区切って</strong>「background-size」の値を書く</strong>と正しく認識されます。
+
+<p>また、「background-clip」と「background-origin」に指定できるキーワードは全く同じであるためこちらも区別がつきません。そのため、<strong>1つだけ指定されている場合は「background-clip」と「background-origin」<strong>両方に適用</strong></strong>され、<strong>値が2つ指定されている場合は1つ目の値が「background-origin」、2つ目の値が「background-clip」に適用</strong>されることになっています。</p></p>
+
+<aside>
+<h1 class="hdg-lv1-a">補足説明</h1>
+<p>backgroundプロパティの値もカンマで区切ることで、複数の背景画像のレイヤーを指定できます。その際、<em>background-colorプロパティは一番下のレイヤー（書式上はカンマで区切られた一番最後の値）にしか指定できません</em>。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+body {
+	background: url(hoge.jpg) no-repeat,
+			     url(huga.jpg) no-repeat #fff bottom right / 100% auto;
+}
+</code>
+</pre>
+</aside>
 
 </section>
 
 
 <section id="anc-text">
 <h2 class="hdg-lv2-a">テキスト</h2>
-<p></p>
 
+<h3 class="hdg-lv3-a">text-<em>shadow</em>プロパティ</h3>
+<p><em>テキストに影を表示させる</em>プロパティです。初期値はnoneです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>数値に単位をつけて指定します。数値は2～3個指定でき、用途は順番により異なります。影の位置とぼかす範囲が指定できます</td>
+</tr>
+<tr>
+<th>色</th>
+<td>影の色が指定できます</td>
+</tr>
+<tr>
+<th>none</th>
+<td>影を表示させません</td>
+</tr>
+</tbody>
+</table>
+
+<p>単位つき数値は、何番目に指定されたかによって何を示す値となるかが決定します。</p>
+<ul class="list-normal-a">
+<li>1番目の数値は、影をテキストからどれだけ<em>右</em>にずらして表示させるかを示します。（負の値を指定すると影は<em>左</em>にずれます）</li>
+<li>2番目の数値は、影をテキストからどれだけ<em>下</em>にずらして表示させるかを示します。（負の値を指定すると影は<em>上</em>にずれます）</li>
+<li>3番目の数値は、影を<em>ぼかす範囲</em>を示します。大きな数値ほどぼかしが強くなり、0だとぼかしがなくなります。<b>負の値は指定できません。</b></li>
+<li>色の値は一番後ろに指定できます。</li>
+</ul>
+
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+p {
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
+}
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<p style="text-shadow: 2px 2px 4px rgba(0, 0, 0, .7); font-size: 16px; font-weight: bold; text-align: center;">text-shadowを使ってみた</p>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<p>影は複数表示させることができるので、影を追加する場合は空白文字区切りの値のセットをカンマで区切って指定してください。</p>
+
+
+<h3 class="hdg-lv3-a">text-<em>decoration</em>関連のプロパティ</h3>
+<p>CSS3からは<em>下線・上線・取消線の色や線種が指定できる</em>ようになっています。それに伴い、text-decorationプロパティはそれらの値を<b>まとめて指定できるプロパティへと変更になりました</b>。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-40">
+<col class="w-40">
+</colgroup>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>主な機能</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>text-decoration-line</th>
+<td>テキストに下線・上線・取消線・点滅の装飾を加えます。</td>
+<td>underline（下線）／overline（上線）／line-through（取消線）／blink（点滅）／none（装飾なし）<br>
+blinkは廃止予定です</td>
+</tr>
+<tr>
+<th>text-decoration-color</th>
+<td>下線・上線・取消線の色を指定します。</td>
+<td>色</td>
+</tr>
+<tr>
+<th>text-decoration-style</th>
+<td>下線・上線・取消線の線の種類を指定します。</td>
+<td>solid（実践）／double（二重線）／dotted（点線）／dashed（破線）／wavy（波線）</td>
+</tr>
+<tr>
+<th>text-decoration</th>
+<td colspan="2">text-decoration関連プロパティの値を空白文字で区切ってまとめて指定します。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">word-breakプロパティ</h3>
+<p><em>行の折り返しに関する設定をする</em>プロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>break-all</th>
+<td>すべての文字の間で折り返す</td>
+</tr>
+<tr>
+<th>keep-all</th>
+<td>空白文字以外の文字が連続しているところでは折り返しが一切行なわれなくなります（日本語のような言語では折り返されなくなります）</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>通常ルールに従って折り返します</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">hyphensプロパティ</h3>
+<p><em>ハイフネーションの設定</em>を行なうプロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>manual</th>
+<td>ハイフネーションは、<b>&amp;shy;</b>が入力されている箇所のみで行なわれます</td>
+</tr>
+<tr>
+<th>keep-all</th>
+<td>空白文字以外の文字が連続しているところでは折り返しが一切行なわれなくなります（日本語のような言語では折り返されなくなります）</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>通常ルールに従って折り返します</td>
+</tr>
+</tbody>
+</table>
+
+<aside>
+<h1 class="hdg-lv1-a">用語解説</h1>
+
+<h2 class="hdg-lv2-a">ハイフネーション（Hyphenation）</h2>
+<p>行末に収まりきらない英単語などの音節の区切りの位置にハイフン（-）をつけて改行し、単語の残りを次の行に送って表示させること。</p>
+</aside>
+
+
+<h3 class="hdg-lv3-a">white-spaceプロパティ</h3>
+<p><em>「連続する空白文字を1つの半角スペースに変換するかどうか」と「自動的な行の折り返しを行うかどうか」を制御する</em>プロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>normal</th>
+<td>表示方法を指定しません</td>
+</tr>
+<tr>
+<th>pre</th>
+<td>スペース、タブ、改行は<em>そのまま</em>表示されます。<b>ウィンドウ端で自動改行されません</b>。</td>
+</tr>
+<tr>
+<th>nowrap</th>
+<td>スペース、タブ、改行は<em>半角スペース</em>として表示されます。ウィンドウ端で<b>自動改行されません</b>。</td>
+</tr>
+<tr>
+<th>pre-wrap</th>
+<td>スペース、タブ、改行は<em>そのまま</em>表示されます。<b>ウィンドウ端で自動改行されます</b>。</td>
+</tr>
+<tr>
+<th>pre-line</th>
+<td><em>改行はそのまま表示され、スペースとタブは半角スペースとして表示されます</em>。<b>ウィンドウ端で自動改行されます</b>。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">vertical-alignプロパティ</h3>
+<p><em>インライン要素の縦方向の位置を設定する</em>プロパティです。初期値はbaselineです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>baseline</th>
+<td>親要素の行のベースラインに揃えます。画像のようにベースラインがない場合は、その下をベースラインに揃えます。</td>
+</tr>
+<tr>
+<th>top</th>
+<td>上を揃えます</td>
+</tr>
+<tr>
+<th>middle</th>
+<td>中央を揃えます</td>
+</tr>
+<tr>
+<th>bottom</th>
+<td>下を揃えます</td>
+</tr>
+<tr>
+<th>super</th>
+<td>上付き文字の表示位置の表示します</td>
+</tr>
+<tr>
+<th>sub</th>
+<td>下付き文字の表示位置に表示します</td>
+</tr>
+<tr>
+<th>単位つきの数値</th>
+<td>親要素のベースラインからの距離を数値に単位をつけて指定します。正の値は上方向、負の値は下方向への距離となります。</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td>親要素のベースラインからの距離を、行の高さに対するパーセンテージで指定します。正の値は上方向、負の値は下方向への距離になります。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">line-heightプロパティ</h3>
+<p><em>行の高さを設定する</em>プロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>数値</th>
+<td>行間を単位をつけないで数値で指定します。行間は、ここで指定した数値とフォントサイズを掛けた高さとなります</td>
+</tr>
+<tr>
+<th>単位つきの数値</th>
+<td>行間を単位つきの数値で指定します</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td>行間をフォントサイズに対するパーセンテージで指定します</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>ブラウザ側で妥当だと判断する行間に設定します</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">text-<em>indent</em>プロパティ</h3>
+<p><em>ブロックレベル要素の1行目のインデント（字下げ）を設定する</em>プロパティです。初期値は0です。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>インデントの量を数値に単位をつけて指定します</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td>インデントの量を幅に対するパーセンテージで指定します。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">letter-spacingプロパティ</h3>
+<p><em>文字間隔を設定する</em>プロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>文字間隔を数値に単位をつけて指定します</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>文字間隔を標準の状態にします</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">word-spacingプロパティ</h3>
+<p><em>単語と単語の間隔を設定する</em>プロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>単語間隔を数値に単位をつけて指定します</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>単語間隔を標準の状態にします</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">text-<em>transform</em>プロパティ</h3>
+<p><em>アルファベットの大文字・小文字を変換して表示させる</em>プロパティです。初期値はnoneです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>uppercase</th>
+<td>半角のアルファベットをすべて大文字で表示させます</td>
+</tr>
+<tr>
+<th>lowercase</th>
+<td>半角のアルファベットをすべて小文字で表示させます</td>
+</tr>
+<tr>
+<th>capitalize</th>
+<td>半角のアルファベットのうち、各単語の先頭の文字だけを大文字で表示させます</td>
+</tr>
+<tr>
+<th>none</th>
+<td>テキストを元の状態のまま表示させます</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">directionプロパティ</h3>
+<p><em>文字表記の方向を指定</em>するプロパティです。次の2つの値を指定できます。<br>
+「ltr」は文字方向を「左から右」に設定します。これが初期値です。<br>
+「rtl」は文字方向を「右から左」に設定します。</p>
+
+
+<h3 class="hdg-lv3-a">unicode-bidiプロパティ</h3>
+<p><em>文字表記の方向に関する指示を組み込んだり上書き</em>することのできるプロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>normal</th>
+<td>Unicodeによる文字表記の方向設定がそのまま適用されます。</td>
+</tr>
+<tr>
+<th>embed</th>
+<td>Unicodeによる文字表記の方向設定の中に、新たにdirectionプロパティで指定された値が組み込まれます。</td>
+</tr>
+<tr>
+<th>bidi-override</th>
+<td>Unicodeによる文字表記の方向設定を無効にします。この場合、文字表記の方向はdirectionプロパティで指定された値が適用されます。</td>
+</tr>
+</tbody>
+</table>
 
 </section>
 
 
 <section id="anc-font">
 <h2 class="hdg-lv2-a">フォント</h2>
-<p></p>
 
+<h3 class="hdg-lv3-a">Webフォント</h3>
+<p>CSSでフォントの種類が指定されていても、ユーザの使用環境にそのフォントがインストールされていなければそのフォントで表示させることはできません。しかし、	<strong>@font-face</strong>という書式を使用してWeb上にあるフォントを指定することで、<b>そのフォントがインストールされていない環境でもそのフォントが表示できる</b>ようになります。<br>
+下記は書式の一例になります。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+@font-face {
+	font-family: mynaviFont;
+	src: url(http://example.com/fonts/mynaviRegular.woff);
+}
+p {
+	font-family: mynaviFont, serif;
+}
+</code>
+</pre>
+
+
+<h3 class="hdg-lv3-a">font-<em>family</em>プロパティ</h3>
+<p><em>フォントの種類を設定する</em>プロパティです。値にはフォント名をカンマで区切って複数指定できるほか、下記の表に示した大まかな分類を表すキーワードも指定できます。フォントは前に指定されているものが優先して適用されます。キーワードは最後に指定するようにしてください。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>キーワード</th>
+<th>フォントの種類</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>serif</th>
+<td>明朝系フォント</td>
+</tr>
+<tr>
+<th>sans-serif</th>
+<td>ゴシック系フォント</td>
+</tr>
+<tr>
+<th>cursive</th>
+<td>草書体・筆記体系フォント</td>
+</tr>
+<tr>
+<th>fantasy</th>
+<td>ポップ系フォント</td>
+</tr>
+<tr>
+<th>monospace</th>
+<td>等幅フォント</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+p {
+	font-family: "MS ゴシック", sans-serif;
+}
+</code>
+</pre>
+
+<p class="txt-note"><span class="ast">※</span>フォントの名前に空白文字を含む場合はダブルクォーテーションまたはシングルクォーテーションで囲うことができますが、キーワードにはつけられません。</p>
+
+
+<h3 class="hdg-lv3-a">font-<em>size</em>プロパティ</h3>
+<p><em>フォントサイズを設定する</em>プロパティです。初期値はmediumです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>数値に単位をつけて指定します</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td><em>親要素のフォントサイズに対する</em>パーセンテージで指定します</td>
+</tr>
+<tr>
+<th>xx-small、x-small、small、medium、<br>
+large、x-large、xx-large</th>
+<td>7種類のキーワードで指定できます。</td>
+</tr>
+<tr>
+<th>smaller、larger</th>
+<td><em>親要素のフォントサイズに対して</em>一段小さくまたは大きくします</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">font-<em>weight</em>プロパティ</h3>
+<p>同じフォントファミリーの中の<em>太さの異なる書体を選択</em>するためのプロパティです。単純に太字にしたい場合にも使用できます。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>bold</th>
+<td>太字にします（700を指定した場合と同じ）</td>
+</tr>
+<tr>
+<th>100,200,300,<br>400,500,600,<br>700,800,900</th>
+<td>9種類の数値で指定できます。100が最も細く、400が標準、900が最も太くなります</td>
+</tr>
+<tr>
+<th>border,lighter</th>
+<td>現在の太さよりも一段太くまたは細くします</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>標準の太さにします</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">font-<em>style</em>プロパティ</h3>
+<p>同じフォントファミリーの中の<em>イタリックまたは斜体の書体を選択</em>するためのプロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>italic</th>
+<td>イタリック体専用にデザインされたフォントで表示します。イタリック体がない場合、「oblique」と同様の表示になります。</td>
+</tr>
+<tr>
+<th>oblique</th>
+<td>斜体で表示します。斜体がない場合は、標準のフォントを斜めに変換して表示します。</td>
+</tr>
+<tr>
+<th>normal</th>
+<td>標準のフォント</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">font-<em>variant</em>プロパティ</h3>
+<p>同じフォントファミリーの中の<em>スモール・キャピタルの書体を選択する</em>要素です。値に「<em>small-caps</em>」を指定するとスモール・キャピタルのになります。初期値はnormalです。</p>
+
+
+<h3 class="hdg-lv3-a">fontプロパティ</h3>
+<p><em>フォント関連のプロパティの値をまとめて指定</em>できるプロパティです。必要な値を空白文字で区切って、次の順序で指定できます。</p>
+
+<ol class="list-num-a">
+<li><em>font-weight・font-style・font-variant</em>のうち必要な値を任意の順序で空白文字で区切って指定します。</li>
+<li><em>font-size</em>の値を指定します。<b>省略できません。</b></li>
+<li><em>line-height</em>の値を指定する場合は<em>font-sizeとの間にスラッシュを入れて指定</em>します。</li>
+<li><em>font-family</em>を指定します。<b>省略できません。</b></li>
+</ol>
 
 </section>
 
 
 <section id="anc-box">
 <h2 class="hdg-lv2-a">ボックス</h2>
-<p></p>
 
+<h3 class="hdg-lv3-a">border関連プロパティ</h3>
+
+<div class="tbl-scroll">
+<table class="tbl-a">
+<caption>ボーダーを設定するプロパティ</caption>
+<colgroup>
+<col class="w-35">
+<col class="w-35">
+<col class="w-30">
+</colgroup>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>設定対象</th>
+<th>指定できる値の数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border-top-style<br>
+border-bottom-style<br>
+border-left-style<br>
+border-right-style</td>
+<td>上、下、左、右のボーダーの線種</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>上下左右のボーダーの線種</td>
+<td>1～4</td>
+</tr>
+<tr>
+<td>border-top-width<br>
+border-bottom-width<br>
+border-left-width<br>
+border-right-width</td>
+<td>上、下、左、右のボーダーの太さ</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-width</td>
+<td>上下左右のボーダーの太さ</td>
+<td>1～4</td>
+</tr>
+<tr>
+<td>border-top-color<br>
+border-bottom-color<br>
+border-left-color<br>
+border-right-color</td>
+<td>上、下、左、右のボーダーの色</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>上下左右のボーダーの色</td>
+<td>1～4</td>
+</tr>
+<tr>
+<td>border-top<br>
+border-bottom<br>
+border-left<br>
+border-right</td>
+<td>上、下、左、右のボーダーの線種と太さと色</td>
+<td>線種／太さ／色</td>
+</tr>
+<tr>
+<td>border</td>
+<td>上下左右のボーダーの線種と太さと色</td>
+<td>線種／太さ／色</td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+
+
+<table class="tbl-a">
+<caption>border-style関連のプロパティに指定できる値</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>none</th>
+<td>ボーダーを表示しません。太さも0になります。<br>table要素のボーダーの線種が競合した場合は<b>ほかの値が優先</b>されます。</td>
+</tr>
+<tr>
+<th>hidden</th>
+<td>ボーダーを表示しません。太さも0になります。<br>table要素のボーダーの線種が競合した場合は<b>このの値が最優先</b>されます。</td>
+</tr>
+<tr>
+<th>solid</th>
+<td>実線</td>
+</tr>
+<tr>
+<th>double</th>
+<td>二重線</td>
+</tr>
+<tr>
+<th>dotted</th>
+<td>点線</td>
+</tr>
+<tr>
+<th>dashed</th>
+<td>破線</td>
+</tr>
+<tr>
+<th>groove</th>
+<td>線自体が<b>溝</b>になっているようなボーダーにします。</td>
+</tr>
+<tr>
+<th>ridge</th>
+<td>線自体が<b>盛り上がっている</b>ようなボーダーにします。</td>
+</tr>
+<tr>
+<th>inset</th>
+<td>ボーダーの<b>内側の領域全体が低く見える</b>ようなボーダーにします。</td>
+</tr>
+<tr>
+<th>outset</th>
+<td>ボーダーの<b>内側の領域全体が高く見える</b>ようなボーダーにします。</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="tbl-a">
+<caption>border-width関連のプロパティに指定できる値</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>数値に単位をつけて指定</td>
+</tr>
+<tr>
+<th>thin,medium,thick</th>
+<td>「細い」「中くらい」「太い」という意味のキーワードで指定できます。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">border-radiusプロパティ</h3>
+<p><em>ボックスの角を丸くする</em>プロパティです。値には、角を1/4の円にみたてたときの半径を、単位つきの数値またはパーセンテージで指定します。初期値は0です。</p>
+
+<div class="tbl-scroll">
+<table class="tbl-a">
+<caption>ボックスの角を丸くするプロパティ</caption>
+<colgroup>
+<col class="w-35">
+<col class="w-35">
+<col class="w-30">
+</colgroup>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>設定対象</th>
+<th>指定できる値の数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border-top-left-radius<br>
+border-top-right-radius<br>
+border-bottom-right-radius<br>
+border-bottom-left-radius</td>
+<td>左上、右上、右下、左下の角丸</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-radius</td>
+<td>上下左右の角丸</td>
+<td>1～4</td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+p {
+	border-radius: 10px; /*4つの角すべて10px*/
+	border-radius: 10px 20px; /*左上と右下10px、右上と左下20px*/
+	border-radius: 10px 20px 30px; /*左上10px、右上と左下20px、右下30px*/
+	border-radius: 10px 20px 30px 40px; /*左上10px、右上20px、右下30px、左下40px*/
+}
+</code>
+</pre>
+
+
+<h3 class="hdg-lv3-a">box-shadowプロパティ</h3>
+<p><em>ボックスに影を表示させる</em>プロパティです。値には単位つきの数値、色、inset（影をボックスの内側に表示させる）、none（初期値）があります。<br>
+単位つきの数値は何番目に指定されたかによって何を示す値かが決定されます。</p>
+
+<ol class="list-num-a">
+<li>1番目の数値は、影をボックスからどれだけ<em>右</em>にずらして表示させるかを示します。負の値をしていすると、影は<em>左</em>にずれます。</li>
+<li>2番目の数値は、影をボックスからどれだけ<em>下</em>にずらして表示させるかを示します。負の値をしていすると、影は<em>上</em>にずれます。</li>
+<li>3番目の数値は、影を<em>ぼかす範囲</em>を示します。大きな値を指定するほどぼかしが強くなり、0だとぼかしがなくなります。<b>負の値は指定できません。</b></li>
+<li>4番目の数値は、影を<em>外側の四方に拡張させて大きくする距離</em>を示します。負の値を指定すると影は<em>縮小</em>します。</li>
+<li>色の値とキーワードのinsetは、数値のグループ全体の前または後ろに<em>順不同</em>で指定できます。</li>
+</ol>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+p {
+	border-shadow: 0 10px 20px rgba(0, 0, 0,.5);
+	border-shadow: inset 5px 5px 10px rgba(0, 0, 0,.5);
+}
+</code>
+</pre>
+
+
+<h3 class="hdg-lv3-a">displayプロパティ</h3>
+<p><em>要素の表示形式を設定する</em>プロパティです。初期値はinlineです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>inline</th>
+<td>インライン要素と同様の表示にします</td>
+</tr>
+<tr>
+<th>block</th>
+<td>ブロックレベル要素と同様の表示にします</td>
+</tr>
+<tr>
+<th>inline-block</th>
+<td>ボックス自体はインライン要素と同様に配置されますが、その内部はブロックレベル要素のように複数行を表示できるボックスにします</td>
+</tr>
+<tr>
+<th>list-item</th>
+<td>li要素と同様の表示にします</td>
+</tr>
+<tr>
+<th>table,inline-table,table-row-group,table-header-group,table-footer-group,table-row,table-column-group,table-column,table-cell,table-caption</th>
+<td>それぞれがテーブル関連要素と同様の表示にする値です</td>
+</tr>
+<tr>
+<th>ruby,ruby-base,ruby-text,ruby-base-group,ruby-text-group</th>
+<td>それぞれがルビ関連の要素と同様の表示にする値です</td>
+</tr>
+<tr>
+<th>none</th>
+<td>ボックスを消します（ボックスがない状態になります）</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">visibilityプロパティ</h3>
+<p><em>ボックスが透明になったかのように見えなくする</em>ことのできるプロパティです。初期値はvisibleです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>visible</th>
+<td>ボックスを見える状態にします</td>
+</tr>
+<tr>
+<th>hidden</th>
+<td>ボックスを見えない状態にします。透明のようになるだけで、ボックス自体は存在する。</td>
+</tr>
+<tr>
+<th>collapse</th>
+<td>この値に指定されたテーブルの横列・縦列およびそれらのグループは、テーブルから取り除かれた状態になります。</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">overflowプロパティ</h3>
+<p><em>要素内容がボックス内に収まりきらなくなったときにどうするかを設定する</em>プロパティです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>visible</th>
+<td>ボックスからはみ出た部分も<em>表示する</em></td>
+</tr>
+<tr>
+<th>hidden</th>
+<td>ボックスからはみ出た部分は<em>表示しない</em></td>
+</tr>
+<tr>
+<th>scroll</th>
+<td>ボックスからはみ出た部分は表示しないが、スクロールによってすべての内容が見れる</td>
+</tr>
+<tr>
+<th>auto</th>
+<td>必要に応じてスクロールを可能にする</td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">clipプロパティ</h3>
+<p><em>ボックスをクリッピングして表示させる</em>プロパティです。初期値はautoです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>auto</th>
+<td>クリッピングされずに表示されます</td>
+</tr>
+<tr>
+<th>rect(上、右、下、左)</th>
+<td>rect()の関数でボーダー領域の左上からの距離をそれぞれ指定して見える範囲を設定します。</td>
+</tr>
+</tbody>
+</table>
 
 </section>
 
