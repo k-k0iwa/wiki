@@ -17,7 +17,43 @@
 <body>
 
 <!-- ================ ▼ Header Navigation ▼ ================ -->
-<!--#include virtual="/wiki/ssi/header.html"-->
+<header>
+<div class="str-inner">
+<p class="site-title"><a href="/wiki/">Web Wiki</a></p>
+<!-- /.str-inner --></div>
+
+<!-- ================ ▼ Navigation ▼ ================ -->
+<nav id="js-nav" class="nav is-close">
+<ul class="list-nav">
+<li>
+<a href="/wiki/web/" class="scroll">Web</a>
+<div class="nav-inner-menu">
+<ul class="list-nav-inner">
+<li><a href="dummy">仮装</a></li>
+<li><a href="dummy">仮装</a></li>
+<li><a href="dummy">仮装</a></li>
+<li><a href="dummy">ハッピーハロウィン</a></li>
+</ul>
+<!-- nav-inner-menu --></div>
+</li>
+<li>
+<a href="/wiki/web_html/" class="scroll">HTML</a>
+</li>
+<li>
+<a href="/wiki/web_css/" class="scroll">CSS</a>
+</li>
+<li>
+<a href="/wiki/web_js/" class="scroll">JS/jQuery</a>
+</li>
+<li>
+<a href="/wiki/web_tool/" class="scroll">TOOL</a>
+</li>
+</ul>
+
+<p class="js-btn-close btn-close"><button class="btn-inner" type="button"><span>OPEN</span></button></p>
+</nav>
+<!-- ================ ▲ Navigation ▲ ================ -->
+</header>
 <!-- ================ ▲ Header Navigation ▲ ================ -->
 
 
@@ -334,7 +370,7 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 </table>
 
 <h3 class="hdg-lv3-a">HTTP cookie</h3>
-<p>HTTPはシステムの現在の状態を保存しない（ステートレス）プロトコルです。Webブラウザにクッキーと呼ばれる状態管理情報を保存すること、HTTPでの状態管理を実現します。<br>
+<p>HTTPはシステムの現在の状態を<em>保存しない</em>（ステートレス）プロトコルです。Webブラウザにクッキーと呼ばれる状態管理情報を保存すること、HTTPでの状態管理を実現します。<br>
 Cookieには4096バイトのASCII文字列を保存できます(ブラウザによってはより大きな容量を保存できます)。Cookieが保存されるディレクトリやファイルは、OSやブラウザのバージョンによって異なります。</p>
 
 <p>クッキーの代表的な用途としては次が挙げられます。</p>
@@ -345,7 +381,7 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 <li>広告配信業者によるアクセス履歴の記録</li>
 </ul>
 
-<p>クッキーは、JavaScriptなどのクライアント側スクリプトで操作することができます。またWebブラウザから、クッキーの送受信に関する設定や内容確認および消去することも可能です。</p>
+<p>クッキーは、JavaScriptなどの<em>クライアント側スクリプトで操作することができます</em>。またWebブラウザから、クッキーの送受信に関する設定や内容確認および消去することも可能です。</p>
 
 <h3 class="hdg-lv3-a">HTTP/HTTPSのポート番号</h3>
 <p>ポート番号とは、TCP/IPにおける通信の窓口となる番号です。「0-1023」は<em>ウェルノウンポート番号</em>と呼ばれ、特定のサービスのために予約されています。HTTPのウェルノウンポート番号は<em>80番</em>、HTTPSのウェルノウンポート番号は<em>443番</em>です。</p>
@@ -922,7 +958,9 @@ Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境で
 
 
 <!-- ================ ▼ Footer ▼ ================ -->
-<!--#include virtual="/wiki/ssi/footer.html"-->
+<footer>
+<p class="txt-footer"><small>copyright &copy; 2018 WEB WIKI. All rights reserved.</small></p>
+</footer>
 <!-- ================ ▲ Footer ▲ ================ -->
 
 <script src="/wiki/js/jquery-3.3.1.min.js"></script>

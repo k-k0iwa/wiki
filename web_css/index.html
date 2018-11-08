@@ -17,7 +17,43 @@
 <body>
 
 <!-- ================ ▼ Header Navigation ▼ ================ -->
-<!--#include virtual="/wiki/ssi/header.html"-->
+<header>
+<div class="str-inner">
+<p class="site-title"><a href="/wiki/">Web Wiki</a></p>
+<!-- /.str-inner --></div>
+
+<!-- ================ ▼ Navigation ▼ ================ -->
+<nav id="js-nav" class="nav is-close">
+<ul class="list-nav">
+<li>
+<a href="/wiki/web/" class="scroll">Web</a>
+<div class="nav-inner-menu">
+<ul class="list-nav-inner">
+<li><a href="dummy">仮装</a></li>
+<li><a href="dummy">仮装</a></li>
+<li><a href="dummy">仮装</a></li>
+<li><a href="dummy">ハッピーハロウィン</a></li>
+</ul>
+<!-- nav-inner-menu --></div>
+</li>
+<li>
+<a href="/wiki/web_html/" class="scroll">HTML</a>
+</li>
+<li>
+<a href="/wiki/web_css/" class="scroll">CSS</a>
+</li>
+<li>
+<a href="/wiki/web_js/" class="scroll">JS/jQuery</a>
+</li>
+<li>
+<a href="/wiki/web_tool/" class="scroll">TOOL</a>
+</li>
+</ul>
+
+<p class="js-btn-close btn-close"><button class="btn-inner" type="button"><span>OPEN</span></button></p>
+</nav>
+<!-- ================ ▲ Navigation ▲ ================ -->
+</header>
 <!-- ================ ▲ Header Navigation ▲ ================ -->
 
 
@@ -1731,7 +1767,7 @@ large、x-large、xx-large</th>
 <h3 class="hdg-lv3-a">border関連プロパティ</h3>
 
 <div class="tbl-scroll">
-<table class="tbl-a">
+<table class="tbl-a tbl-color-a">
 <caption>ボーダーを設定するプロパティ</caption>
 <colgroup>
 <col class="w-35">
@@ -1878,7 +1914,7 @@ border-right</td>
 <td>数値に単位をつけて指定</td>
 </tr>
 <tr>
-<th>thin,medium,thick</th>
+<th>thin、medium、thick</th>
 <td>「細い」「中くらい」「太い」という意味のキーワードで指定できます。</td>
 </tr>
 </tbody>
@@ -1889,7 +1925,7 @@ border-right</td>
 <p><em>ボックスの角を丸くする</em>プロパティです。値には、角を1/4の円にみたてたときの半径を、単位つきの数値またはパーセンテージで指定します。初期値は0です。</p>
 
 <div class="tbl-scroll">
-<table class="tbl-a">
+<table class="tbl-a tbl-color-a">
 <caption>ボックスの角を丸くするプロパティ</caption>
 <colgroup>
 <col class="w-35">
@@ -1960,8 +1996,8 @@ p {
 
 <table class="tbl-a">
 <colgroup>
-<col class="w-20">
-<col class="w-80">
+<col class="w-40">
+<col class="w-60">
 </colgroup>
 <thead>
 <tr>
@@ -1987,7 +2023,7 @@ p {
 <td>li要素と同様の表示にします</td>
 </tr>
 <tr>
-<th>table,inline-table,table-row-group,table-header-group,table-footer-group,table-row,table-column-group,table-column,table-cell,table-caption</th>
+<th>table、inline-table、table-row-group、table-header-group、table-footer-group、table-row、table-column-group、table-column、table-cell、table-caption</th>
 <td>それぞれがテーブル関連要素と同様の表示にする値です</td>
 </tr>
 <tr>
@@ -2098,36 +2134,821 @@ p {
 
 <section id="anc-maruchi">
 <h2 class="hdg-lv2-a">マルチカラムとフレキシブルボックス</h2>
-<p></p>
+
+<h3 class="hdg-lv3-a">マルチカラムレイアウト</h3>
+<p><em>1つのボックスの内部を複数の段に分割する</em>タイプのレイアウトです。1段目に入りきらないテキストは2段目に流し込まれ、2段目に入りきらなければ3段目に･･･というように要素内容が移動する段組レイアウトになります。</p>
+
+<h4 class="hdg-lv4-a">column-countプロパティ</h4>
+<p><em>何段組するのかを設定</em>するプロパティです。値には段数を1以上の整数で指定します。初期値はautoです。<br>
+column-widthプロパティで段の幅も指定すると、ボックスの幅によっては指定した段数よりも少ない段数で表示される場合があります。</p>
+
+<p class="txt-note"><span class="ast">※</span>このプロパティは、table要素以外のブロックレベル要素に指定できます。</p>
 
 
+<h4 class="hdg-lv4-a">column-widthプロパティ</h4>
+<p><em>段の幅を設定する</em>プロパティです。値は単位つきの数値で指定します。何段で表示されるかはボックスの幅に依存し、状況に応じて段の幅は長めになったり短めになったりします。初期値はautoです。</p>
+
+<p class="txt-note"><span class="ast">※</span>このプロパティは、table要素以外のブロックレベル要素に指定できます。</p>
+
+
+<h4 class="hdg-lv4-a">columnプロパティ</h4>
+<p><em>column-countプロパティとcolumn-widthプロパティの値をまとめて指定できる</em>プロパティです。空白文字で区切って両方の値を<b>順不同</b>で指定できますが、一方だけ指定することも可能です。</p>
+
+<p class="txt-note"><span class="ast">※</span>このプロパティは、table要素以外のブロックレベル要素に指定できます。</p>
+
+
+<h4 class="hdg-lv4-a">column-gapプロパティ</h4>
+<p><em>段と段の間隔を設定する</em>プロパティです。値は単位つきの数値で指定します。初期値はnormalです。</p>
+
+
+<h4 class="hdg-lv4-a">column-ruleプロパティ</h4>
+<p>段と段の間隔の中央にはボックスのボーダーと同様に線を表示させることができます。その<em>線種・色・太さを個別に設定する</em>のが、次の3つのプロパティです。<b>順不同</b>で指定できます。</p>
+
+<ul class="list-num-a">
+<li>column-rule-styleプロパティ</li>
+<li>column-rule-colorプロパティ</li>
+<li>column-rule-widthプロパティ</li>
+</ul>
+
+<p>これらの値を<em>まとめて設定できるのがcolumn-ruleプロパティ</em>です。必要な値を<b>順不同</b>で設定できます。</p>
+
+
+<h4 class="hdg-lv4-a">column-spanプロパティ</h4>
+<p><em>段組が設定されているボックスの幅いっぱいに（すべての段をまたいで）表示させる</em>プロパティです。値にはallとnone（初期値）が指定できます。</p>
+
+
+<h3 class="hdg-lv3-a">フレキシブルボックスレイアウト</h3>
+<p><em>「display:flex;」を指定された要素は、その内部の子要素を横にも縦にも逆順にも自由に配置することが可能</em>になります。関連するプロパティも多くあり、子要素の配置順序や均等に配置することも可能です。</p>
+
+<p><em>内部の子要素の並び方は「flex-direction」プロパティで設定</em>します。初期値がrow（横方向）となっているので、display:flex;を指定するだけで子要素は左から右へと順に横並びになります。</p>
 
 </section>
 
 
 <section id="anc-anime">
 <h2 class="hdg-lv2-a">アニメーション</h2>
-<p></p>
+
+<h3 class="hdg-lv3-a">回転・拡大縮小・移動</h3>
+<p>CSS3のtransformプロパティを使うと、要素のボックスを<em>回転</em>させたり、<em>拡大縮小</em>させたり、<em>移動</em>させることができます。それらは三次元空間でも行なえるようになっているため、立体的な3D表現も可能です。ただし、transformプロパティを使用しただけでは、動きを伴わない最終的な表示結果しか見ることができません。変化の過程をアニメーションのように見せるためには、トランジションまたはアニメーションの機能と組み合わせる必要があります。</p>
+
+<h4 class="hdg-lv4-a">transformプロパティ</h4>
+<p>要素の<em>ボックスを回転・拡大縮小・移動・変形させる</em>プロパティです。値は関数形式になっており、空白文字で区切って必要なだけ指定できます。ただし、それらの関数は先頭から順に実行されますので、指定順序によって表示結果が変わることもある点に注意してください。初期値はnoneです。</p>
+
+<table class="tbl-a">
+<caption>transformプロパティに指定できる値（2Dのみ）</caption>
+<colgroup>
+<col class="w-30">
+<col class="w-70">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>none</th>
+<td>変形しない</td>
+</tr>
+<tr>
+<th>rotate(角度)</th>
+<td>時計回りに<em>回転</em>する角度を数値（<em>deg、rad</em>など）で指定</td>
+</tr>
+<tr>
+<th>scale(x方向, y方向)</th>
+<td>x方向、y方向に<em>拡大・縮小</em>する倍率を数値（<em>単位なし</em>）で指定</td>
+</tr>
+<tr>
+<th>scaleX(x方向)</th>
+<td>x方向に<em>拡大・縮小</em>する倍率を指定</td>
+</tr>
+<tr>
+<th>scaleY(y方向)</th>
+<td>y方向に<em>拡大・縮小</em>する倍率を指定</td>
+</tr>
+<tr>
+<th>translate(x方向, y方向)</th>
+<td>x方向、y方向に<em>移動する距離</em>を数値（<em>px</em>など）で指定</td>
+</tr>
+<tr>
+<th>translateX(x方向)</th>
+<td>x方向<em>移動する距離</em>を数値で指定</td>
+</tr>
+<tr>
+<th>translateY(y方向)</th>
+<td>y方向<em>移動する距離</em>を数値で指定</td>
+</tr>
+<tr>
+<th>skew(x方向, y方向)</th>
+<td>x軸、y軸に沿って<em>傾斜する角度</em>を数値（<em>deg、rad</em>など）で指定</td>
+</tr>
+<tr>
+<th>skewX(x方向)</th>
+<td>x軸に沿って<em>傾斜する角度</em>を指定</td>
+</tr>
+<tr>
+<th>skewY(y方向)</th>
+<td>y軸に沿って<em>傾斜する角度</em>を指定</td>
+</tr>
+<tr>
+<th>matrix(数値･･･)</th>
+<td>6つの値からなる行列により二次元の変形を行なう</td>
+</tr>
+</tbody>
+</table>
+
+<table class="tbl-a">
+<caption>CSS3で利用可能な角度の単位</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>単位</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>deg</th>
+<td>度（円周の1/360を1とする単位）</td>
+</tr>
+<tr>
+<th>grad</th>
+<td>グラード（円周の1/400を1とする単位）</td>
+</tr>
+<tr>
+<th>rad</th>
+<td>ラジアン（弧度法）</td>
+</tr>
+<tr>
+<th>turn</th>
+<td>ターン（円周の1/1を1とする単位）※1turnで1回転</td>
+</tr>
+</tbody>
+</table>
+
+<p>transformには以下のような<em>3D（3次元）</em>用の関数も用意されています。x軸（水平方向）とy軸（垂直方向）に、z軸（奥行き）が加わります。</p>
+<ul class="list-normal-a">
+<li><em>rotate3d</em>（xベクトル, yベクトル, zベクトル, 角度）、<em>rotateX</em>（x軸を軸とする角度）、<em>rotateY</em>（y軸を軸とする角度）、<em>rotateZ</em>（z軸を軸とする角度）</li>
+<li><em>translate3d</em>（x方向, y方向, z方向）、<em>translateZ</em>（z方向）</li>
+<li><em>scale3d</em>（x方向, y方向, z方向）、<em>scaleZ</em>（z方向）</li>
+</ul>
 
 
+<h4 class="hdg-lv4-a">transform-<em>origin</em>プロパティ</h4>
+<p>transformプロパティで回転・拡大縮小・移動・変形を行なう際の<em>原点を設定する</em>ためのプロパティです。<strong>初期値は50% 50%で、ボックスの中心が原点</strong>となっています。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>単位つきの数値</th>
+<td>ボックスの左上からの距離に単位をつけて指定</td>
+</tr>
+<tr>
+<th>パーセンテージ</th>
+<td>ボックスの大きさに対するパーセンテージで指定</td>
+</tr>
+<tr>
+<th>top</th>
+<td>縦方向の0%と同様</td>
+</tr>
+<tr>
+<th>bottom</th>
+<td>縦方向の100%と同様</td>
+</tr>
+<tr>
+<th>center</th>
+<td>縦方向の50%、横方向の50%と同様</td>
+</tr>
+<tr>
+<th>left</th>
+<td>横方向の0%と同様</td>
+</tr>
+<tr>
+<th>right</th>
+<td>横方向の100%と同様</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">CSS3のトランジション</h3>
+<p><em>連続した動きでなめらかに変化させる</em>ために使用するのがトランジションです。</p>
+<p>トランジションは、<em>ある状態から別の状態へという二点間の変化</em>しか表現することができません。それを連続して次々と別の状態へと変化させられるようにしたのがCSS3のアニメーションです。</p>
+
+
+<h4 class="hdg-lv4-a">transition-<em>property</em>プロパティ</h4>
+<p><b><em>「どのプロパティ」の値が変化されたとき</em>にトランジションを実行させるのかを設定</b>するプロパティです。初期値はallです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>プロパティ名</th>
+<td>値が変更されたときにトランジションを適用するプロパティ名を指定。カンマで区切って複数指定できます。</td>
+</tr>
+<tr>
+<th>all</th>
+<td>トランジションの適用が可能なすべてのプロパティに適用します</td>
+</tr>
+<tr>
+<th>none</th>
+<td>トランジションを適用しません</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+div {
+	transition-property: transform, opacity;
+}
+</code>
+</pre>
+
+
+<h4 class="hdg-lv4-a">transition-<em>duration</em>プロパティ</h4>
+<p>トランジションを実行する際に<em>どれだけの時間をかけて変化させるのかを設定</em>するプロパティです。値にはs（秒）もしくはms（ミリ秒）を指定できます。初期値は0sです。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+div {
+	/* transformには2秒かけ、opacityには5秒かけます */
+	transition-property: transform, opacity;
+	transition-duration: 2s, 5s;
+}
+</code>
+</pre>
+
+
+<h4 class="hdg-lv4-a">transition-<em>timing-function</em>プロパティ</h4>
+<p><em>加速したり減速したりして変化のタイミングを調整</em>します。主に次のような値を指定できます。初期値はeaseです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>ease</th>
+<td>ゆっくり始まり、加速し、ゆっくり終わる</td>
+</tr>
+<tr>
+<th>ease-in</th>
+<td>ゆっくり始まり、一定速度で終わる</td>
+</tr>
+<tr>
+<th>ease-out</th>
+<td>一定速度で始まり、ゆっくり終わる</td>
+</tr>
+<tr>
+<th>ease-in-out</th>
+<td>ゆっくり始まり、ゆっくり終わる</td>
+</tr>
+<tr>
+<th>liner</th>
+<td>一定速度で変化する</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">transition-<em>delay</em>プロパティ</h4>
+<p><em>トランジションの開始を遅らせる</em>プロパティです。値には、時間を表す数値に単位をつけて指定します。初期値は0sです。</p>
+
+
+<h4 class="hdg-lv4-a">transitionプロパティ</h4>
+<p><em>トランジション関連のプロパティの値をまとめて指定</em>できるプロパティです。空白文字で区切って<b>順不同</b>で指定できます。ただし、時間を表す値については<strong>1つ目がtransition-duration</strong>の値で、<strong>2つ目がtransition-delay</strong>の値だと認識されます。</p>
+
+
+<h3 class="hdg-lv3-a">CSS3のアニメーション</h3>
+<p>CSS3のアニメーションは<b>トランジションを連続して実行させる</b>ようなものです。<br>
+それを実現させるために、どの段階でどの値が変化するのかを記した<em>キーフレーム</em>という特別な書式を使用します。</p>
+
+
+<h4 class="hdg-lv4-a">@keyframes</h4>
+<p>決められた時間の中で、どのタイミングでどの値がどう変化するかをキーフレームと呼ばれる書式で記入します。<br>
+■%{プロパティ:値;}の書式で、プロパティと値はいくつでも指定可能です。<em>0%{}と100%{}またはfrom{}とto{}の指定は必須</em>ですが、その間の%は自由に指定できます。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+/* 「hoge」は任意の名前。「animation-name」の値に使用する */
+@keyframes hoge {
+	0% {
+		プロパティ: 値;
+		プロパティ: 値;
+	}
+	50% {
+		プロパティ: 値;
+	}
+	100% {
+		プロパティ: 値;
+	}
+}
+</code>
+</pre>
+
+
+<h4 class="hdg-lv4-a">animation-<em>name</em>プロパティ</h4>
+<p><em>キーフレームを名前で指定して実行させる</em>ためのプロパティです。指定できる値はキーフレームの名前またはnone（初期値）です。キーフレームの名前は<b>カンマで区切って複数指定</b>できます。</p>
+
+
+<h4 class="hdg-lv4-a">animation-<em>duration</em>プロパティ</h4>
+<p>アニメーションの<em>再生時間を設定</em>するプロパティです。値には時間を指定します。初期値は0sです。</p>
+
+
+<h4 class="hdg-lv4-a">animation-<em>timing-function</em>プロパティ</h4>
+<p>アニメーションの<em>再生速度の変化パターンを設定する</em>プロパティです。指定できる値は次の通りで初期値はeaseです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>ease</th>
+<td>ゆっくり始まり、加速し、ゆっくり終わる</td>
+</tr>
+<tr>
+<th>ease-in</th>
+<td>ゆっくり始まり、一定速度で終わる</td>
+</tr>
+<tr>
+<th>ease-out</th>
+<td>一定速度で始まり、ゆっくり終わる</td>
+</tr>
+<tr>
+<th>ease-in-out</th>
+<td>ゆっくり始まり、ゆっくり終わる</td>
+</tr>
+<tr>
+<th>liner</th>
+<td>一定速度で変化する</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">animation-<em>delay</em>プロパティ</h4>
+<p>アニメーション再生の<em>開始を遅らせる</em>プロパティです。値には時間を表す数値に単位をつけて指定します。初期値は0sです。</p>
+
+
+<h4 class="hdg-lv4-a">animation-<em>iteration-count</em>プロパティ</h4>
+<p>アニメーションを<em>何回繰り返して再生させるのかを設定する</em>プロパティです。初期値は1です。infinitを指定すると、停めるかウィンドウを閉じるまで再生を繰り返します。</p>
+
+
+<h4 class="hdg-lv4-a">animation-<em>direction</em>プロパティ</h4>
+<p><em>逆再生させるか、または繰り返し再生する中でどのタイミングで逆再生させるかを設定する</em>プロパティです。初期値はnormalです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>normal</th>
+<td>キーフレーム通りに再生します</td>
+</tr>
+<tr>
+<th>reverse</th>
+<td>逆再生します</td>
+</tr>
+<tr>
+<th>alternate</th>
+<td>繰り返しの際、キーフレーム通りの再生と逆再生を順に繰り返します</td>
+</tr>
+<tr>
+<th>alternate-reverse</th>
+<td>繰り返しの際、逆再生とキーフレーム通りの再生を順に繰り返します</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">animation-<em>play-state</em>プロパティ</h4>
+<p>アニメーションの再生を<em>一時停止させる</em>際に使用するプロパティです。pausedを指定すると一時停止し、runningを指定すると再生が始まります。初期値はrunningです。</p>
+
+
+<h4 class="hdg-lv4-a">animation-<em>fill-mode</em>プロパティ</h4>
+<p><em>animation-delayによって再生の開始が遅延されている間の表示、および再生終了後の表示を設定</em>するプロパティです。次の値が指定でき、初期値はnoneです。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>forwards</th>
+<td>再生後は@keyframesの100%の表示のままにします</td>
+</tr>
+<tr>
+<th>backwards</th>
+<td>animation-delayの間は@keyframesの0%の表示になります</td>
+</tr>
+<tr>
+<th>both</th>
+<td>animation-delayの間は@keyframesの0%の表示、再生後は100%の表示にします</td>
+</tr>
+<tr>
+<th>none</th>
+<td>@keyframes{}内の指定とは無関係に表示します</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">animationプロパティ</h4>
+<p><em>アニメーション関連のプロパティの値をまとめて指定</em>できるプロパティです。空白文字で区切って<b>順不同</b>で指定できます。時間を表す値については<strong>1つ目がanimation-duration</strong>の値で、2つ目が<strong>animation-delay</strong>の値となります。</p>
 
 </section>
-
 
 
 <section id="anc-other">
 <h2 class="hdg-lv2-a">その他</h2>
-<p></p>
 
+<h3 class="hdg-lv3-a">直線状のグラデーション</h3>
+<p>CSSの書式で<em>画像が指定可能なところであれば、url()の代わりに<strong>linear-gradient()</strong>または<strong>radial-gradient()</strong>という関数を使用してグラデーションを表示させることができます</em>。</p>
+<p>linear-gradient()は、上から下、右から左といった<em>直線的</em>なグラデーションを表示させる際に使用します。<br>
+radial-gradient()は、<em>まるく放射状</em>のグラデーションを表示する際に使用します。</p>
+<p>linear-gradient()関数の基本的な指定方法は次のようになっています。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+linear-gradient(方向, 開始色, 終了色)
+</code>
+</pre>
+
+<ul class="list-normal-a">
+<li>方向は、「単位をつけた角度」または「to」に続く「left」「right」「top」「bottom」のキーワードで指定します。「0deg」だと下から上、「90deg」だと左から右方向へのグラデーションになります。キーワードは「to top」が下から上、「to right」だと左から右方向へのグラデーションになります。「to top right」のようにして、左下から右上方向へのグラデーションを指定することも可能です。<b>方向は省略が可能で初期値は「to bottom」（上から下方向）</b>です。</li>
+<li>開始色と終了色の後ろには、その色になる位置も指定できます。位置は、空白文字で区切って「単位をつけた実数」または「パーセンテージ」で指定できます。</li>
+</ul>
+
+<div class="box-a">
+<p>次に示す例はどれも同じ結果になります。</p>
+
+<div class="col-2">
+<div class="part">
+<pre class="pre-skin">
+<code class="prettyprint">
+div {
+	background: linear-gradient(#ddd, #333);
+	background: linear-gradient(to bottom, #ddd, #333);
+	background: linear-gradient(180deg, #ddd, #333);
+	background: linear-gradient(180deg, #ddd 0%, #333 100%);
+}
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<div style="background: linear-gradient(#ddd, #333); width: 70%; height: 150px;"></div>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+<!-- /.box-a --></div>
+
+
+<h3 class="hdg-lv3-a">放射状のグラデーション</h3>
+<p>radial-gradient()関数の基本的な指定方法は次のようになっています。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+radial-gradient(中心の位置, 中心の色, 外側の色);
+</code>
+</pre>
+
+<p>中心の位置は、「at」に続けてbackground-positionプロパティと同じ値が指定できます。初期値はcenterです。<br>
+中心位置の前に円の種類「circle（正円）」「ellipse（楕円）」、円の大きさも指定できます。また、linear-gradient()と同様に途中の色も追加可能で、色の後ろには位置も指定できます。</p>
+
+<div class="box-a">
+<p>次に示す例はどれも同じ結果になります。</p>
+
+<div class="col-2">
+<div class="part">
+<pre class="pre-skin">
+<code class="prettyprint">
+div {
+	background: radial-gradient(#ddd, #333);
+	background: radial-gradient(at center, #ddd, #333);
+	background: radial-gradient(at 50% 50%, #ddd, #333);
+}
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<div style="background: radial-gradient(#ddd, #333); width: 70%; height: 130px;"></div>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+<!-- /.box-a --></div>
+
+
+<h3 class="hdg-lv3-a">リスト関連のプロパティ</h3>
+
+<table class="tbl-a">
+<caption>リスト関連のプロパティ</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>機能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>list-style-type</th>
+<td>行頭記号の種類を設定</td>
+</tr>
+<tr>
+<th>list-style-image</th>
+<td>行頭記号として表示させる画像を設定</td>
+</tr>
+<tr>
+<th>list-style-position</th>
+<td>行頭記号の表示位置を、項目の1文字目の位置に変更する</td>
+</tr>
+<tr>
+<th>list-style</th>
+<td>リスト関連プロパティの値をまとめて指定できる</td>
+</tr>
+</tbody>
+</table>
+
+<div class="tbl-scroll">
+<table class="tbl-a">
+<caption>list-styleプロパティに指定できる値</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-30">
+<col class="w-20">
+<col class="w-30">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>none</th>
+<td>行頭番号を消します</td>
+<th>disc</th>
+<td>塗りつぶした丸</td>
+</tr>
+<tr>
+<th>circle</th>
+<td>白抜きの丸</td>
+<th>square</th>
+<td>四角</td>
+</tr>
+<tr>
+<th>decimal</th>
+<td>数字</td>
+<th>decimal-leading-zero</th>
+<td>01.02.03.のように先頭に0をつけた数字にする</td>
+</tr>
+<tr>
+<th>lower-roman</th>
+<td>小文字のローマ字</td>
+<th>upper-roman</th>
+<td>大文字のローマ字</td>
+</tr>
+<tr>
+<th>lower-latin</th>
+<td>小文字のアルファベット</td>
+<th>upper-latin</th>
+<td>大文字のアルファベット</td>
+</tr>
+<tr>
+<th>lower-alpha</th>
+<td>小文字のアルファベット</td>
+<th>upper-alpha</th>
+<td>大文字のアルファベット</td>
+</tr>
+<tr>
+<th>lower-greek</th>
+<td>小文字のギリシャ文字</td>
+<th></th>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+
+
+<h3 class="hdg-lv3-a">テーブル関連のプロパティ</h3>
+<table class="tbl-a">
+<caption>テーブル関連のプロパティ</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>caption-side</th>
+<td>「bottom」を指定すると、キャプションを表の下に表示させる。初期値は「top」</td>
+</tr>
+<tr>
+<th>border-collpse</th>
+<td>「collpse」を指定すると、ボーダーのセルを区切る線だけが表示される。初期値は「separate」</td>
+</tr>
+<tr>
+<th>border-spacing</th>
+<td>隣接するセルのボーダー同士の感覚を設定。初期値は「0」</td>
+</tr>
+<tr>
+<th>empty-cells</th>
+<td>内容が空のセルの背景とボーダーを表示させるかどうかどうかを設定する<br>
+「hide」を指定すると、背景とボーダーが表示されない。初期値は「show」</td>
+</tr>
+<tr>
+<th>table-layout</th>
+<td>テーブルのすべてのデータを読み込む前にレンダリングを開始させます<br>
+「fixed」を指定すると、最初の横一列分のデータを読み込んだ段階で幅を決定し、すぐにレンダリングを開始します。初期値は「auto」</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 class="hdg-lv3-a">内容を追加するプロパティ</h3>
+<table class="tbl-a">
+<caption>contentプロパティとその関連のプロパティ</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>content</th>
+<td>内容（テキスト・画像・引用符・カウンタなど）を追加します</td>
+</tr>
+<tr>
+<th>quotes</th>
+<td>q要素の前後につける引用符の種類を設定します</td>
+</tr>
+<tr>
+<th>counter-reset</th>
+<td>カウンタの値をリセットします</td>
+</tr>
+<tr>
+<th>counter-increment</th>
+<td>カウンタの値を進めます</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">contentプロパティ</h4>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>テキスト</th>
+<td>コンテンツとして追加するテキストをダブルクォーテーションまたはシングルクォーテーションで囲って指定します</td>
+</tr>
+<tr>
+<th>url()</th>
+<td>コンテンツとして追加するデータのパスを指定</td>
+</tr>
+<tr>
+<th>attr()</th>
+<td>このプロパティが指定された要素に、属性名で指定した属性が指定されている場合、その値をテキストとして追加します</td>
+</tr>
+<tr>
+<th>counter()</th>
+<td>コンテンツとして追加するカウンタの名前を指定</td>
+</tr>
+<tr>
+<th>open-quote、close-quote</th>
+<td>quotesプロパティで設定されている引用符を追加します</td>
+</tr>
+<tr>
+<th>none</th>
+<td>コンテンツを追加しません</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">quotesプロパティ</h4>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-80">
+</colgroup>
+<thead>
+<tr>
+<th>値</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>文字列</th>
+<td>引用符として使用する記号を半角スペースで区切ってペアで指定します。さらに半角スペースで区切ってペアを指定しておくと、引用が入れ子になった場合の引用符として使用されます。</td>
+</tr>
+<tr>
+<th>none</th>
+<td>引用符を表示しません</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 class="hdg-lv4-a">counter-resetプロパティ</h4>
+<p>counter-resetプロパティには、値をリセットしたいカウンタの名前を指定します。counter-incrementプロパティでカウンタの値を進める場合にも、カウンタの名前を指定するだけでOK</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+body {
+	counter-reset: hoge;
+}
+h1::before {
+	counter-increment: hoge;
+	content: "counter(hoge)";
+}
+</code>
+</pre>
 
 </section>
-
-
-
-
-
-
-
 
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
@@ -2138,7 +2959,9 @@ p {
 
 
 <!-- ================ ▼ Footer ▼ ================ -->
-<!--#include virtual="/wiki/ssi/footer.html"-->
+<footer>
+<p class="txt-footer"><small>copyright &copy; 2018 WEB WIKI. All rights reserved.</small></p>
+</footer>
 <!-- ================ ▲ Footer ▲ ================ -->
 
 <script src="/wiki/js/jquery-3.3.1.min.js"></script>

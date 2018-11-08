@@ -801,9 +801,12 @@ aside .hdg-lv2-a {
   counter-reset: num;
 }
 .list-num-a > li {
-  text-indent: .4em;
+  padding-left: 2em;
+  position: relative;
 }
 .list-num-a > li::before {
+  position: absolute;
+  left: 0;
   counter-increment: num;
   content: counter(num);
   color: #fff;
@@ -812,7 +815,7 @@ aside .hdg-lv2-a {
   width: 20px;
   height: 20px;
   display: inline-block;
-  margin-right: .5em;
+  text-align: center;
 }
 .list-num-a > li + li {
   margin-top: 10px;
@@ -1064,6 +1067,11 @@ aside .hdg-lv2-a {
   .tbl-a tbody tr {
     border: 1px solid #696969;
   }
+}
+
+/*交互に色変更*/
+.tbl-a.tbl-color-a tr:nth-child(even){
+  background-color: #ade8b4;
 }
 
 /*スクロール*/
