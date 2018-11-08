@@ -64,72 +64,29 @@
 <h1 class="hdg-lv1-a">Webの知識</h1>
 
 <ul class="list-col _anc">
-<li><a class="scroll" href="#anc-brake">ブレイクポイント</a></li>
 <li><a class="scroll" href="#anc-protocol">HTTP・HTTPSプロトコル</a></li>
 <li><a class="scroll" href="#anc-technical">Web関連技術の概要</a></li>
 <li><a class="scroll" href="#anc-api">API</a></li>
+<li><a class="scroll" href="#anc-brake">ブレイクポイント</a></li>
 </ul>
 
-<section id="anc-brake">
-<h2 class="hdg-lv2-a">ブレイクポイント</h2>
-<p>レスポンシブデザインでは基本的に画面の横幅を基準にCSSを切り替えます。切替地点のことをブレイクポイントといいます。<br>
-このブレイクポイントを何pxにするか、というのは時代によって主流の端末が変化するため明確な値はありません。想定されるターゲットによって決めたり、一般的に多く使われている数値に設定することが多いです。</p>
-
-<p>従来では768pxを基準にPC表示とスマホ表示を切り替えるのが一般的でした。これは、iPadの縦向きの表示解像度が768pxというところに起因しています。ですが特定の製品を基準にブレイクポイントを設定すると日々進化するデバイスに対応できなくなる日が来るでしょう。ですので特定の端末に依存しないブレイクポイントの参考に以下の表を参照してください。</p>
-
-<div class="tbl-scroll">
-<table class="tbl-a">
-<caption>ブレイクポイントの参考</caption>
-<colgroup>
-<col class="w-20">
-<col class="w-20">
-<col class="w-60">
-</colgroup>
-<thead>
-<tr>
-<th>デバイス</th>
-<th>ブレイクポイント</th>
-<th>範囲</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>スマホ・縦</th>
-<td></td>
-<td>320px～479px</td>
-</tr>
-<tr>
-<th>スマホ・横</th>
-<td>480px</td>
-<td>480px～599px</td>
-</tr>
-<tr>
-<th>タブレット</th>
-<td>600px</td>
-<td>600px～959px</td>
-</tr>
-<tr>
-<th>PC・小画面</th>
-<td>960px</td>
-<td>960px～1279px</td>
-</tr>
-<tr>
-<th>PC・大画面</th>
-<td>1280px</td>
-<td>1280px～</td>
-</tr>
-</tbody>
-</table>
-<!-- /.tbl-scroll --></div>
-
-<p>以下のサイトで国内のパソコン、タブレット、スマホのブラウザシェアやデバイスシェアなど様々な統計を確認することができます。Web上の様々なシェア分析に特化したサービスです。</p>
-<p class="txt-link"><a href="http://gs.statcounter.com/browser-market-share/all/japan" target="_blank">StatCounter Global Stats</a></p>
-
-</section>
 
 <section id="anc-protocol">
 <h2 class="hdg-lv2-a">HTTP・HTTPSプロトコル</h2>
 
+<ul class="list-col _anc">
+<li><a class="scroll" href="#anc-httpProtocol">HTTPプロトコル</a></li>
+<li><a class="scroll" href="#anc-httpsProtocol">HTTPSプロトコル</a></li>
+<li><a class="scroll" href="#anc-httpMesse">HTTPのメッセージ構造</a></li>
+<li><a class="scroll" href="#anc-httpRecuest">HTTPのリクエストメッセージ</a></li>
+<li><a class="scroll" href="#anc-httpResponce">HTTPのレスポンスメッセージ</a></li>
+<li><a class="scroll" href="#anc-httpHeader">HTTPのヘッダフィールド</a></li>
+<li><a class="scroll" href="#anc-httpAuthen">HTTPでの認証</a></li>
+<li><a class="scroll" href="#anc-httpCookie">HTTP cookie</a></li>
+<li><a class="scroll" href="#anc-httpHttps">HTTP/HTTPSのポート番号</a></li>
+</ul>
+
+<section id="anc-httpProtocol">
 <h3 class="hdg-lv3-a">HTTPプロトコル</h3>
 <p>HTMLや画像などの表示を提供するサーバ（Webサーバ）とWebブラウザに代表されるクライアント間でHTML文書などのテキストメッセージを受け渡すためのプロトコルです。</p>
 
@@ -144,12 +101,16 @@
 <h2 class="hdg-lv2-a">URI (Uniform Resource Identifier)</h2>
 <p>インターネットに限らないより大きな概念でのリソースの位置を示す文字列です。URLはURIの1つの形式です。</p>
 </aside>
+<!-- /#anc-httpProtocol --></section>
 
+<section id="anc-httpsProtocol">
 <h3 class="hdg-lv3-a">HTTPSプロトコル</h3>
 <p>セキュリティを確保した通信路上でHTTP通信をすることをHTTPSと呼びます。セキュリティの確保にはデータを暗号化して送受信するプロトコルである<em>TLSプロトコル</em>または<em>SSLプロトコル</em>を使用します。</p>
 
 <p>HTTPS通信ではまずSSL/TLSセッションを確立し、その後に前述のHTTPセッションを行ないます。</p>
+</section>
 
+<section id="anc-httpMesse">
 <h3 class="hdg-lv3-a">HTTPのメッセージ構造</h3>
 <p>メッセージは、開始行、0行以上のヘッダフィールド、CRLFの改行、メッセージボディからなります。さらに、開始行とヘッダーフィールドにおける各ヘッダの最後には、区切りのためにCRLF改行が入ります。</p>
 
@@ -168,7 +129,9 @@
 <b>メッセージボディ</b>
 </pre>
 <!-- /.box-a --></div>
+<!-- /#anc-httpMesse --></section>
 
+<section id="anc-httpRecuest">
 <h3 class="hdg-lv3-a">HTTPのリクエストメッセージ</h3>
 <p>リクエストメッセージとして指定可能なメソッドは次の表の8種類です。<br>
 HTTPリクエストの中の「メソッド」は、指定したURIに対して、クライアントからサーバに要求するアクションです。</p>
@@ -208,7 +171,9 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 </tr>
 </tbody>
 </table>
+<!-- /#anc-httpRecuest --></section>
 
+<section id="anc-httpResponce">
 <h3 class="hdg-lv3-a">HTTPのレスポンスメッセージ</h3>
 <p>メッセージ構造はHTTPのメッセージ構造と同じです。<br>
 開始行にはレスポンスの状態を3桁の数字で表すステータスコードが含まれます。ステータスコードは次の表のように分類されます。</p>
@@ -267,7 +232,9 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /#anc-httpResponce --></section>
 
+<section id="anc-httpHeader">
 <h3 class="hdg-lv3-a">HTTPのヘッダフィールド</h3>
 <p>ヘッダフィールドにはメッセージの外部情報（メタ情報）を扱うためのHTTPヘッダが含まれます。代表的なHTTPヘッダは次の通りです。</p>
 
@@ -341,7 +308,9 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 <!-- /.tbl-scroll --></div>
 
 <p>ヘッダの種類であるRequest-headerはリクエストに追加できるヘッダで、Response-headerはレスポンスに追加できるヘッダです。General-headerはリクエスト/レスポンスの両方に追加できるヘッダで、Entity-headerはメッセージボディについての情報を記載するヘッダです。</p>
+<!-- /#anc-httpHeader --></section>
 
+<section id="anc-httpAuthen">
 <h3 class="hdg-lv3-a">HTTPでの認証</h3>
 <p>特定のファイルへのアクセス制限をするために認証をすることが可能です。</p>
 
@@ -368,7 +337,9 @@ HTTPリクエストの中の「メソッド」は、指定したURIに対して�
 </tr>
 </tbody>
 </table>
+<!-- /#anc-httpAuthen --></section>
 
+<section id="anc-httpCookie">
 <h3 class="hdg-lv3-a">HTTP cookie</h3>
 <p>HTTPはシステムの現在の状態を<em>保存しない</em>（ステートレス）プロトコルです。Webブラウザにクッキーと呼ばれる状態管理情報を保存すること、HTTPでの状態管理を実現します。<br>
 Cookieには4096バイトのASCII文字列を保存できます(ブラウザによってはより大きな容量を保存できます)。Cookieが保存されるディレクトリやファイルは、OSやブラウザのバージョンによって異なります。</p>
@@ -382,16 +353,31 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 </ul>
 
 <p>クッキーは、JavaScriptなどの<em>クライアント側スクリプトで操作することができます</em>。またWebブラウザから、クッキーの送受信に関する設定や内容確認および消去することも可能です。</p>
+<!-- /#anc-httpCookie --></section>
 
+<section id="anc-httpHttps">
 <h3 class="hdg-lv3-a">HTTP/HTTPSのポート番号</h3>
 <p>ポート番号とは、TCP/IPにおける通信の窓口となる番号です。「0-1023」は<em>ウェルノウンポート番号</em>と呼ばれ、特定のサービスのために予約されています。HTTPのウェルノウンポート番号は<em>80番</em>、HTTPSのウェルノウンポート番号は<em>443番</em>です。</p>
 <p class="txt-note"><span class="ast">※</span>ウェルノウンポートを使用してる場合、URLからポート番号を省略できます。</p>
-
-</section>
+<!-- /#anc-httpHttps --></section>
+<!-- /#anc-protocol --></section>
 
 <section id="anc-technical">
 <h2 class="hdg-lv2-a">Web関連技術の概要</h2>
 
+<ul class="list-col _anc">
+<li><a class="scroll" href="#anc-document">文書の構造</a></li>
+<li><a class="scroll" href="#anc-data">データの操作</a></li>
+<li><a class="scroll" href="#anc-communication">通信</a></li>
+<li><a class="scroll" href="#anc-attack">Webサイトに対する主な攻撃手法</a></li>
+<li><a class="scroll" href="#anc-network">ネットワーク上の脅威対策</a></li>
+<li><a class="scroll" href="#anc-webAppli">Webサイトやアプリケーションの制作</a></li>
+<li><a class="scroll" href="#anc-aboutImg">画像について</a></li>
+<li><a class="scroll" href="#anc-acquisition">Webサイトの集客・収益</a></li>
+<li><a class="scroll" href="#anc-soap">SOAP</a></li>
+</ul>
+
+<section id="anc-document">
 <h3 class="hdg-lv3-a">文書の構造</h3>
 <h4 class="hdg-lv4-a">XHTML</h4>
 <p>HTMLをXMLの文法で定義し直したものがXHTMLです。HTMLとの主な相違点は次の通りです。</p>
@@ -438,8 +424,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 <p>あるWebページがどのような内容かという情報を、<em>プログラムから読める形でWebページに付加するための仕様</em>です。<br>仕様の詳細は下記リンクより確認できます。</p>
 
 <p class="txt-link"><a href="http://ogp.me/" target="_blank">The Open Graph protocol</a></p>
+<!-- /#anc-document --></section>
 
-
+<section id="anc-data">
 <h3 class="hdg-lv3-a">データの操作</h3>
 <h4 class="hdg-lv4-a">JavaScript</h4>
 <p>JavaScriptとはプロトタイプスペースのオブジェクト指向プログラミング言語です。</p>
@@ -452,8 +439,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 <p>Ajaxとは<em>Asynchronous JavaScript + XML</em>の略で、Webブラウザ内で<strong>XML HttpRequest</strong>を利用して<strong>非同期通信</strong>を行い、通信結果をJavsScriptやCSSで<strong>動的</strong>にWebページに反映します。</p>
 
 <p>Ajaxで転送されるデータには<strong>JSON</strong>がよく用いられます。JSONには、サーバから取得したデータをそのままJavaScriptのオブジェクトに展開できるなどの利点があります。</p>
+<!-- /#anc-data --></section>
 
-
+<section id="anc-communication">
 <h3 class="hdg-lv3-a">通信</h3>
 <h4 class="hdg-lv4-a">セッション</h4>
 <p>ネットワーク通信で<em>ログイン（接続）からログオフ（切断）するまでの一連の通信</em>のことを指します。セッションを実現するための仕組みとして、クッキーやURL rewritingがあります。</p>
@@ -463,8 +451,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 
 <h4 class="hdg-lv4-a">Base64</h4>
 <p>64種類の文字とパディング用の=記号により、マルチバイト文字やバイナリデータを扱うためのエンコード方式です。エンコードによりファイルサイズが元データの約1.3倍となるため、<em>大きなファイルの転送には不向きです</em>。</p>
+<!-- /#anc-communication --></section>
 
-
+<section id="anc-attack">
 <h3 class="hdg-lv3-a">Webサイトに対する主な攻撃手法</h3>
 <h4 class="hdg-lv4-a">クロスサイト・リクエスト・フォージェリ(CSRF: Cross Site Request Forgeries)</h4>
 <p>攻撃用サイトにアクセスしたユーザーの環境から<em>攻撃者が用意したHTTPリクエストを送信させる</em>ことによって、不正な操作を実行します。</p>
@@ -489,8 +478,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 <h4 class="hdg-lv4-a">HTTPヘッダ・インジェクション</h4>
 <p>動的にHTTPヘッダを生成するサイトにおいて、任意のヘッダ行を挿入して不正な操作を行います。</p>
 <p>対策は、<strong>改行として認識される特殊文字をエスケープ処理</strong>したり、<strong>改行が含まれていたら入力エラーとする</strong>ことです。</p>
+<!-- /#anc-attack --></section>
 
-
+<section id="anc-network">
 <h3 class="hdg-lv3-a">ネットワーク上の脅威対策</h3>
 
 <h4 class="hdg-lv4-a">統合脅威管理 (Unified Threat Management: UTM)</h4>
@@ -507,8 +497,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 
 <h4 class="hdg-lv4-a">侵入検知システム (Intrusion Detection System: IDS)</h4>
 <p>ネットワークからの不正アクセスを検知するシステムです。ネットワークの通信内容を検査するネットワーク型IDSと、サーバに異常がないかを監視するホスト型IDSがあります。</p>
+<!-- /#anc-network --></section>
 
-
+<section id="anc-webAppli">
 <h3 class="hdg-lv3-a">Webサイトやアプリケーションの制作</h3>
 
 <h4 class="hdg-lv4-a">MVCアーキテクチャ</h4>
@@ -550,8 +541,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 
 <h4 class="hdg-lv4-a">CMS</h4>
 <p>コンテンツマネジメントシステムのことで、コンテンツ（テキストや画像）を一元的に管理し、Webページの作成や更新が可能なソフトウェアを指します。代表的なCMSとして、BlogやWikiソフトウェアがあります。</p>
+<!-- /#anc-webAppli --></section>
 
-
+<section id="anc-aboutImg">
 <h3 class="hdg-lv3-a">画像について</h3>
 <h4 class="hdg-lv4-a">画像ファイルフォーマット</h4>
 <dl class="list-dl-a">
@@ -570,8 +562,9 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 <h4 class="hdg-lv4-a">インターレース</h4>
 <p>画像の表示形式の一部です。データ受信途中に荒い解像度の画像を表示し、徐々に高解像度の画像を表示します。画像サイズに対して回線が低速な場合でも、早くから画像の全体像をつかめる利点があります。<br>
 インターレースはGIF、PNGで使えます。JPEGにはインターレースに似た「プログレッシブJPEG」を設定することができます。</p>
+<!-- /#anc-aboutImg --></section>
 
-
+<section id="anc-acquisition">
 <h3 class="hdg-lv3-a">Webサイトの集客・収益</h3>
 <h4 class="hdg-lv4-a">SEO (Search Engine Optimization)</h4>
 <p>検索エンジン最適化のこと。検索エンジン最適化とは、<em>検索エンジンの上位に自らのWebサイトが表示されるようにする適切な工夫</em>をいいます。</p>
@@ -611,17 +604,26 @@ Cookieには4096バイトのASCII文字列を保存できます(ブラウザに�
 
 <h4 class="hdg-lv4-a">ROI</h4>
 <p>投資利益率（Return On Investment）の略で、<em>投資した資本に対して得られる利益の割合</em>。</p>
+<!-- /#anc-acquisition --></section>
 
-
+<section id="anc-soap">
 <h3 class="hdg-lv3-a">SOAP(Simple Object Access Protocol)</h3>
 <p>異なるコンピュータ上で動作するWebサービス(プログラム)間でメッセージを交換し、連携するための通信プロトコルです。やり取りされるメッセージはXML形式で、主にHTTPを使用して通信が行われます。</p>
-
-</section>
+<!-- /#anc-soap --></section>
+<!-- /#anc-technical --></section>
 
 <section id="anc-api">
 <h2 class="hdg-lv2-a">API</h2>
 
+<ul class="list-col _anc">
+<li><a class="scroll" href="#anc-multimedia">マルチメディアグラフィックスAPI</a></li>
+<li><a class="scroll" href="#anc-device">デバイスアクセスAPI</a></li>
+<li><a class="scroll" href="#anc-offline">オフラインストレージAPI</a></li>
+<li><a class="scroll" href="#anc-communicationSystem">通信系API</a></li>
+<li><a class="scroll" href="#anc-offlineWeb">オフラインWebアプリケーション</a></li>
+</ul>
 
+<section id="anc-multimedia">
 <h3 class="hdg-lv3-a">マルチメディアグラフィックスAPI</h3>
 <h4 class="hdg-lv4-a">マルチメディア</h4>
 <p>audio要素とvideo要素により、簡単にマルチメディアコンテンツを埋め込むことが可能になりました。この埋め込んだマルチメディアコンテンツを<em>JavaScriptを使って制御</em>することができます。JavaScriptで以下の操作が実行可能になります。</p>
@@ -714,8 +716,9 @@ Adaptive Streaming技術にも対応しているので、再生途中で動画�
 <!-- /.col-2 --></div>
 
 <!-- /.box-a --></div>
+<!-- /#anc-multimedia --></section>
 
-
+<section id="anc-device">
 <h3 class="hdg-lv3-a">デバイスアクセスAPI</h3>
 <h4 class="hdg-lv4-a">Geolocation API</h4>
 <p><em>ユーザの位置情報</em>を扱うためのAPIです。たとえば地図で現在地を取得したり、その場所に行ったことを知らせる<em>チェックイン</em>のような機能で使われます。</p>
@@ -822,7 +825,9 @@ Adaptive Streaming技術にも対応しているので、再生途中で動画�
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /#anc-device --></section>
 
+<section id="anc-offline">
 <h3 class="hdg-lv3-a">オフラインストレージAPI</h3>
 <h4 class="hdg-lv4-a">Web Storage</h4>
 <p>Webアクセスでのータを<em>ローカルのブラウザに保存する</em>APIです。<br>
@@ -867,7 +872,9 @@ Web Storageと異なるのは、<b>インデックス(索引)を使用しての�
 <p><em>指定したリソースを取得する</em>際に使用します。<strong>Service Workers上では、fetchを使う必要があります。</strong></p>
 
 <p>fetchは、Service Workers以外でもXHLHttpRequestの代わりに使うことができます。</p>
+<!-- /#anc-offline --></section>
 
+<section id="anc-communicationSystem">
 <h3 class="hdg-lv3-a">通信系API</h3>
 <h4 class="hdg-lv4-a">XHLHttpRequest</h4>
 <p>XHLHttpRequestは<em>JavaScriptでのHTTP通信</em>を実現するAPIです。現在表示しているページから画面遷移を伴わずHTTP通信を行ない、各種データを取得することができます。<br>
@@ -890,8 +897,9 @@ Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境で
 <li>取り込んだカメラやマイクのデータをP2P通信で送受信する</li>
 <li>テキストやバイナリなどのデータをP2P通信で送受信する</li>
 </ul>
+<!-- /#anc-communicationSystem --></section>
 
-
+<section id="anc-offlineWeb">
 <h3 class="hdg-lv3-a">オフラインWebアプリケーション</h3>
 <p>ネットワークに接続していないオフラインの状態でも利用できるWebアプリケーションのことです。HTMLやCSSなどWebアプリケーションの実行に必要なファイルをデバイス側にキャッシュ(保存)することで、オフラインでの利用を可能にします。</p>
 
@@ -943,11 +951,65 @@ Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境で
 &lt;html manifest="test.appcache"&gt;
 </code>
 </pre>
+<!-- /#anc-offlineWeb --></section>
+<!-- /#anc-api --></section>
 
 
-</section>
+<section id="anc-brake">
+<h2 class="hdg-lv2-a">ブレイクポイント</h2>
+<p>レスポンシブデザインでは基本的に画面の横幅を基準にCSSを切り替えます。切替地点のことをブレイクポイントといいます。<br>
+このブレイクポイントを何pxにするか、というのは時代によって主流の端末が変化するため明確な値はありません。想定されるターゲットによって決めたり、一般的に多く使われている数値に設定することが多いです。</p>
 
+<p>従来では768pxを基準にPC表示とスマホ表示を切り替えるのが一般的でした。これは、iPadの縦向きの表示解像度が768pxというところに起因しています。ですが特定の製品を基準にブレイクポイントを設定すると日々進化するデバイスに対応できなくなる日が来るでしょう。ですので特定の端末に依存しないブレイクポイントの参考に以下の表を参照してください。</p>
 
+<div class="tbl-scroll">
+<table class="tbl-a">
+<caption>ブレイクポイントの参考</caption>
+<colgroup>
+<col class="w-20">
+<col class="w-20">
+<col class="w-60">
+</colgroup>
+<thead>
+<tr>
+<th>デバイス</th>
+<th>ブレイクポイント</th>
+<th>範囲</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>スマホ・縦</th>
+<td></td>
+<td>320px～479px</td>
+</tr>
+<tr>
+<th>スマホ・横</th>
+<td>480px</td>
+<td>480px～599px</td>
+</tr>
+<tr>
+<th>タブレット</th>
+<td>600px</td>
+<td>600px～959px</td>
+</tr>
+<tr>
+<th>PC・小画面</th>
+<td>960px</td>
+<td>960px～1279px</td>
+</tr>
+<tr>
+<th>PC・大画面</th>
+<td>1280px</td>
+<td>1280px～</td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+
+<p>以下のサイトで国内のパソコン、タブレット、スマホのブラウザシェアやデバイスシェアなど様々な統計を確認することができます。Web上の様々なシェア分析に特化したサービスです。</p>
+<p class="txt-link"><a href="http://gs.statcounter.com/browser-market-share/all/japan" target="_blank">StatCounter Global Stats</a></p>
+<!-- /#anc-brake --></section>
 
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
