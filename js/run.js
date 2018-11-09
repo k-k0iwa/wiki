@@ -160,11 +160,12 @@ $(function() {
 	var href;
 	var $scrollTarget;
 	var position;
+	var headerHight = 70;
 
 	$('[href^="#"].scroll').click(function (){
 		href = $(this).attr('href');
 		$scrollTarget = $(href === '#top' ? 'html' : href);
-		position = $scrollTarget.offset().top;
+		position = $scrollTarget.offset().top - headerHight;
 
 		$('html, body').animate({
 			'scrollTop':position

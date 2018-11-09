@@ -21,6 +21,8 @@
 <div class="str-inner">
 <p class="site-title"><a href="/wiki/index.html">Web Wiki</a></p>
 <!-- /.str-inner --></div>
+</header>
+<!-- ================ ▲ Header Navigation ▲ ================ -->
 
 <!-- ================ ▼ Navigation ▼ ================ -->
 <nav id="js-nav" class="nav is-close">
@@ -53,9 +55,6 @@
 <p class="js-btn-close btn-close"><button class="btn-inner" type="button"><span>OPEN</span></button></p>
 </nav>
 <!-- ================ ▲ Navigation ▲ ================ -->
-</header>
-<!-- ================ ▲ Header Navigation ▲ ================ -->
-
 
 <!-- ================ ▼ Main ▼ ================ -->
 <main>
@@ -63,11 +62,12 @@
 <div class="str-inner">
 <h1 class="hdg-lv1-a">Webの知識</h1>
 
-<ul class="list-col _anc">
-<li><a class="scroll" href="#anc-protocol">HTTP・HTTPSプロトコル</a></li>
-<li><a class="scroll" href="#anc-technical">Web関連技術の概要</a></li>
+<ul class="link-page">
+<li><a class="scroll" href="#anc-protocol">HTTP・HTTPS</a></li>
+<li><a class="scroll" href="#anc-technical">Web関連技術</a></li>
 <li><a class="scroll" href="#anc-api">API</a></li>
 <li><a class="scroll" href="#anc-brake">ブレイクポイント</a></li>
+<li><a class="scroll" href="#anc-fs">フォントサイズ指定</a></li>
 </ul>
 
 
@@ -1010,6 +1010,32 @@ Server-Sent EventsはHTTPを利用するため、HTTPしか使えない環境で
 <p>以下のサイトで国内のパソコン、タブレット、スマホのブラウザシェアやデバイスシェアなど様々な統計を確認することができます。Web上の様々なシェア分析に特化したサービスです。</p>
 <p class="txt-link"><a href="http://gs.statcounter.com/browser-market-share/all/japan" target="_blank">StatCounter Global Stats</a></p>
 <!-- /#anc-brake --></section>
+
+
+<section id="anc-fs">
+<h2 class="hdg-lv2-a">フォントサイズ指定</h2>
+<p>レスポンシブウェブデザインのサイトで画面幅によってフォントサイズを変えたいときに、calc()関数とvwという単位を使う方法を紹介します。</p>
+
+<h3 class="hdg-lv3-a">calc()関数</h3>
+<p>CSSのプロパティ値を指定するときに計算を行なうことができるものです。()内に記述した<em>式の結果が値として使用されます</em>。<br>
+式は演算子（+-*/）を組み合わせたもので、一般的な演算子の優先順位の規則を使用して計算されます。+演算子と-演算子は前後に空白文字をつける必要があります。*演算子と/演算子には前後の空白文字は必要ありませんが、ルールに一貫性を持たせるため、こちらにも前後に空白文字を用いることが推奨されています。</p>
+
+<h3 class="hdg-lv3-a">vw</h3>
+<p>viewport widthの略でビューポートの幅に対する割合を表します。1vwは画面の横幅を100%としたときの1%分の幅です。<br>（<b>100% = 100vw、1% = 1vw</b>）</p>
+
+<p>calc()関数とvwについてわかったところで本題です。この2つを使ってフォントサイズを指定する方法は下記のようになります。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+/* 幅980pxのデザイン上で30pxのフォントサイズを指定する */
+font-size: calc(100vw / (980 / 30));
+</code>
+</pre>
+
+<p>このようにすると、幅980pxのデザイン上で30pxの文字は何vwになるのかを自分で計算する必要はありません。さらに、感覚的にどのようなルールでこの式が組み立てられているかがわかるので指定しやすいです。</p>
+
+
+<!-- /#anc-fs --></section>
 
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
