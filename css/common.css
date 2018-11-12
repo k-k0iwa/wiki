@@ -397,6 +397,11 @@ button {
 html {
   font-size: calc(100vw / (1120 / 16)); /*16px*/
 }
+@media screen and (max-width: 599px) {
+  html {
+    font-size: 14px;
+  }
+}
 
 body {
   font-family: Meiryo, sans-serif;
@@ -428,20 +433,6 @@ input, select, textarea, button {
   font-size: inherit;
 }
 
-h2 {
-  margin: 50px 0 0;
-}
-h3, h4 {
-  margin: 30px 0 0;
-}
-@media screen and (max-width: 599px) {
-  h2 {
-    margin: 30px 0 0;
-  }
-  h3, h4 {
-    margin: 20px 0 0;
-  }
-}
 h5, h6, aside h1, aside h2, aside h3, aside h4 {
   margin: 20px 0 0;
 }
@@ -507,12 +498,12 @@ strong {
 --------------------------------*/
 .str-inner {
   max-width: 90vw;
-  margin: 60px auto;
+  margin: 3.75em auto; /*60px*/
   padding: 0 20px;
 }
 @media screen and (max-width: 599px) {
   .str-inner {
-    margin: 20px auto;
+    margin: 1.429em auto; /*20px*/
   }
 }
 .str-inner > *:first-child {
@@ -628,6 +619,11 @@ aside > *:first-child {
   font-size: calc(100vw / (1120 / 30)); /*30px*/
   transition: .3s;
 }
+@media screen and (max-width: 599px) {
+  .lyt-top > li > a > .title {
+    font-size: 20px;
+  }
+}
 .lyt-top > li > a:hover > .title {
   top: 0;
 }
@@ -642,16 +638,27 @@ aside > *:first-child {
   background-color: #00a85a;
   border-radius: 0 0 5px 5px;
 }
+@media screen and (max-width: 599px) {
+  .lyt-top > li > a .txt-dis {
+    font-size: 14px;
+  }
+}
 
 /*-------------------------------
   h1
 --------------------------------*/
 .hdg-lv1-a {
   font-size: calc(100vw / (1120 / 40)); /*40px*/
-  padding: 30px 10px 26px;
+  padding: .75em .25em .65em; /*30px 10px 26px*/
   text-align: center;
   position: relative;
 }
+@media screen and (max-width: 599px) {
+  .hdg-lv1-a {
+    font-size: 24px;
+  }
+}
+
 .hdg-lv1-a::before,
 .hdg-lv1-a::after {
   content: "";
@@ -675,6 +682,11 @@ aside .hdg-lv1-a {
   text-align: left;
   padding: 0 0 0 1.2em;
 }
+@media screen and (max-width: 599px) {
+  aside .hdg-lv1-a {
+    font-size: 18px;
+  }
+}
 aside .hdg-lv1-a::after {
   top: 50%;
   margin-top: calc(100vw / (1120 / -12)); /*-12px*/
@@ -692,12 +704,19 @@ aside .hdg-lv1-a::before {
   h2
 --------------------------------*/
 .hdg-lv2-a {
+  margin: 1.786em 0 0; /*50px*/
   padding: .4em 1em .2em;
   color: #fff;
   background-color: #00a85a;
   border-radius: 10px;
   font-size: calc(100vw / (1120 / 28)); /*28px*/
   position: relative;
+}
+@media screen and (max-width: 599px) {
+  .hdg-lv2-a {
+    margin: 1.5em 0 0; /*30px*/
+    font-size: 20px;
+  }
 }
 .hdg-lv2-a::before {
   position: absolute;
@@ -710,6 +729,14 @@ aside .hdg-lv1-a::before {
   background-color: #fff;
   border-radius: 10px;
 }
+@media screen and (max-width: 599px) {
+  .hdg-lv2-a::before {
+    top: 10px;
+    left: 8px;
+    width: 4px;
+    height: 22px;
+  }
+}
 
 /*捕捉*/
 aside .hdg-lv2-a {
@@ -721,15 +748,27 @@ aside .hdg-lv2-a {
   padding: 0 0 .2em;
   border-bottom: 2px solid #ffd100;
 }
+@media screen and (max-width: 599px) {
+  aside .hdg-lv2-a {
+    font-size: 16px;
+  }
+}
 
 /*-------------------------------
   h3
 --------------------------------*/
 .hdg-lv3-a {
+  margin: 1.364em 0 0; /*30px*/
   padding: .3em 1em .2em;
   font-size: calc(100vw / (1120 / 22)); /*22px*/
   border-bottom: 2px solid #00a85a;
   position: relative;
+}
+@media screen and (max-width: 599px) {
+  .hdg-lv3-a {
+    margin: 1.111em 0 0; /*20px*/
+    font-size: 18px;
+  }
 }
 .hdg-lv3-a::before {
   position: absolute;
@@ -742,14 +781,29 @@ aside .hdg-lv2-a {
   background-color: #00a85a;
   border-radius: 10px;
 }
+@media screen and (max-width: 599px) {
+  .hdg-lv3-a::before {
+    top: 9px;
+    left: 6px;
+    width: 4px;
+    height: 18px;
+  }
+}
 
 /*-------------------------------
   h4
 --------------------------------*/
 .hdg-lv4-a {
+  margin: 1.667em 0 0; /*30px*/
   font-size: calc(100vw / (1120 / 18)); /*18px*/
   padding: .3em .5em;
   border-left: double #00a85a;
+}
+@media screen and (max-width: 599px) {
+  .hdg-lv4-a {
+    margin: .8em 0 0; /*20px*/
+    font-size: 16px;
+  }
 }
 
 /*-------------------------------
@@ -761,6 +815,11 @@ aside .hdg-lv2-a {
   font-size: calc(100vw / (1120 / 13)); /*13px*/
   padding-left: 1.2em;
   position: relative;
+}
+@media screen and (max-width: 599px) {
+  .txt-note {
+    font-size: 12px;
+  }
 }
 .txt-note > .ast {
   position: absolute;
@@ -785,6 +844,13 @@ aside .hdg-lv2-a {
   display: inline-block;
   background-color: #333;
   border-radius: 50%;
+}
+@media screen and (max-width: 599px) {
+  .list-normal-a > li::before {
+    margin-top: 6px;
+    width: 8px;
+    height: 8px;
+  }
 }
 .list-normal-a > li + li {
   margin-top: 5px;
@@ -820,6 +886,15 @@ aside .hdg-lv2-a {
 .list-num-a > li + li {
   margin-top: calc(100vw / (1120 / 10)); /*10px*/
 }
+@media screen and (max-width: 599px) {
+  .list-num-a > li::before {
+    width: 20px;
+    height: 20px;
+  }
+  .list-num-a > li + li {
+    margin-top: 10px;
+  }
+}
 
 /*-------------------------------
   List（横並び）
@@ -848,6 +923,11 @@ aside .hdg-lv2-a {
   position: relative;
   margin-left: 2.5em;
 }
+@media screen and (max-width: 599px) {
+  .list-col._anc > li > a {
+    margin-left: 30px;
+  }
+}
 .list-col._anc > li > a::before,
 .list-col._anc > li > a::after {
   position: absolute;
@@ -857,6 +937,13 @@ aside .hdg-lv2-a {
   margin-top: 5px;
   background-color: #969696;
 }
+@media screen and (max-width: 599px) {
+  .list-col._anc > li > a::before,
+  .list-col._anc > li > a::after {
+    height: 8px;
+    margin-top: 6px;
+  }
+}
 .list-col._anc > li > a::before {
   transform: rotate(-45deg);
   left: -1.4em;
@@ -865,18 +952,19 @@ aside .hdg-lv2-a {
   transform: rotate(45deg);
   left: -1em;
 }
+@media screen and (max-width: 599px) {
+  .list-col._anc > li > a::before {
+    left: -16px;
+  }
+  .list-col._anc > li > a::after {
+    left: -12px;
+  }
+}
 
 /*追従・ページ内リンク*/
 .link-page {
   display: flex;
   flex-wrap: wrap;
-  /*margin: 0 -20px;
-  padding: 0 20px;
-  border-top: 3px solid #fff;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 67px;
-  z-index: 999;*/
 }
 .link-page > li {
   width: calc(100% / 4);
@@ -910,9 +998,9 @@ aside .hdg-lv2-a {
   position: absolute;
   content: "";
   top: 50%;
-  margin-top: calc(100vw / (1120 / -5)); /*-5px*/
-  width: calc(100vw / (1120 / 2)); /*2px*/
-  height: calc(100vw / (1120 / 10)); /*10px*/
+  margin-top: -3px;
+  width: 2px;
+  height: 8px;
   background-color: #fff;
 }
 @media screen and (max-width: 599px) {
@@ -925,11 +1013,19 @@ aside .hdg-lv2-a {
 }
 .link-page > li > a::before {
   transform: rotate(-45deg);
-  left: .8em;
+  left: 9px;
 }
 .link-page > li > a::after {
   transform: rotate(45deg);
-  left: 1.2em;
+  left: 14px;
+}
+@media screen and (max-width: 599px) {
+  .link-page > li > a::before {
+    left: 8px;
+  }
+  .link-page > li > a::after {
+    left: 12px;
+  }
 }
 
 /*-------------------------------
@@ -940,9 +1036,19 @@ aside .hdg-lv2-a {
   font-size: calc(100vw / (1120 / 18)); /*18px*/
   font-weight: bold;
 }
+@media screen and (max-width: 599px) {
+  .list-dl-a > dt {
+    font-size: 16px;
+  }
+}
 .list-dl-a > dt:first-letter {
   font-size: calc(100vw / (1120 / 30)); /*30px*/
   color: #00a85a;
+}
+@media screen and (max-width: 599px) {
+  .list-dl-a > dt:first-letter {
+    font-size: 18px;
+  }
 }
 .list-dl-a > dt:first-child {
   margin-top: 0;
@@ -952,6 +1058,11 @@ aside .hdg-lv2-a {
 }
 .list-dl-a > dd .txt-dl-lead {
   font-size: calc(100vw / (1120 / 16)); /*16px*/
+}
+@media screen and (max-width: 599px) {
+  .list-dl-a > dd .txt-dl-lead {
+    font-size: 14px;
+  }
 }
 .txt-dl-lead + .list-normal-a {
   margin-top: 5px;
@@ -985,6 +1096,19 @@ aside .hdg-lv2-a {
   transform: rotate(-45deg);
   top: calc(100vw / (1120 / 2)); /*2px*/
 }
+@media screen and (max-width: 599px) {
+  .txt-link > a::before,
+  .txt-link > a::after {
+    height: 7px;
+    left: -9px;
+  }
+  .txt-link > a::before {
+    top: 8px;
+  }
+  .txt-link > a::after {
+    top: 4px;
+  }
+}
 
 /*-------------------------------
   Box
@@ -1004,6 +1128,11 @@ aside .hdg-lv2-a {
   font-size: calc(100vw / (1120 / 16)); /*16px*/
   font-weight: bold;
   position: relative;
+}
+@media screen and (max-width: 599px) {
+  .box-a .txt-title {
+    font-size: 14px;
+  }
 }
 .box-a .txt-title::before {
   position: absolute;
@@ -1088,6 +1217,11 @@ aside .hdg-lv2-a {
   font-weight: bold;
   font-size: calc(100vw / (1120 / 18)); /*18px*/
 }
+@media screen and (max-width: 599px) {
+  .tbl-a caption {
+    font-size: 15px;
+  }
+}
 .tbl-a caption em {
   color: #fc4a1a;
 }
@@ -1132,6 +1266,9 @@ aside .hdg-lv2-a {
   }
   .tbl-a tbody tr {
     border: 1px solid #696969;
+  }
+  .tbl-a tbody th .note {
+    font-size: 12px;
   }
 }
 
@@ -1189,6 +1326,11 @@ aside .hdg-lv2-a {
   border: 4px solid #a50000;
   transition: .1s ease;
 }
+@media screen and (max-width: 599px) {
+  .btn-a > .btn-inner {
+    font-size: 14px;
+  }
+}
 .btn-a > .btn-inner:hover {
   outline: 3px solid #fff;
     outline-offset: -5px;
@@ -1241,6 +1383,12 @@ aside .hdg-lv2-a {
     width: 100%;
     margin-right: 0;
   }
+  .col-2 .part:nth-child(n + 2),
+  .col-2 li:nth-child(n + 2),
+  .col-3 .part:nth-child(n + 2),
+  .col-3 li:nth-child(n + 2) {
+    margin-top: 14px;
+  }
 }
 
 /*-------------------------------
@@ -1283,6 +1431,11 @@ nav {
   background-color: #00a85a;
   transition: opacity .3s ease;
 }
+@media screen and (max-width: 599px) {
+  .list-nav > li > a {
+    font-size: 15px;
+  }
+}
 .list-nav > li:hover > a,
 .list-nav > li:focus > a {
   opacity: .7;
@@ -1311,6 +1464,11 @@ nav {
   padding: 20px 20px 20px 30px;
   position: relative;
   transition: opacity .3s ease;
+}
+@media screen and (max-width: 599px) {
+  .list-nav-inner > li > a {
+    font-size: 14px;
+  }
 }
 .list-nav-inner > li > a::before {
   position: absolute;
@@ -1355,7 +1513,7 @@ nav {
   }
   .list-nav {
     margin: 0;
-    padding: 40px 0 0;
+    padding: 60px 0 0;
     display: block;
   }
   .list-nav > li {
@@ -1377,8 +1535,8 @@ nav {
   .nav .btn-close {
     cursor: pointer;
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     width: 40px;
     height: 40px;
     transition: opacity .5s;
@@ -1455,6 +1613,11 @@ nav {
   border-radius: 10px;
   position: relative;
 }
+@media screen and (max-width: 599px) {
+  .accordion-wrap .title {
+    font-size: 15px;
+  }
+}
 .accordion-wrap .title::before,
 .accordion-wrap .title::after {
   position: absolute;
@@ -1505,6 +1668,11 @@ nav {
   width: calc((100% - 8px) * 3 / 4);
   margin-right: 8px;
   font-size: calc(100vw / (1120 / 16)); /*16px*/
+}
+@media screen and (max-width: 599px) {
+  .tab-group > li {
+    font-size: 14px;
+  }
 }
 .tab-group > li:last-child {
   margin-right: 0;
@@ -1563,7 +1731,7 @@ nav {
   background-color: #ffd100;
   position: relative;
   transition: .3s ease;
-  border-radius: 50%;
+  border-radius: 36px 20px 31px 40px / 22px 30px 38px 30px;
 }
 .page-top a:hover {
   opacity: .9;
@@ -1605,6 +1773,11 @@ footer {
   text-align: center;
   padding: 1em;
   line-height: 1;
+}
+@media screen and (max-width: 599px) {
+  .txt-footer {
+    font-size: 14px;
+  }
 }
 
 /*-------------------------------
