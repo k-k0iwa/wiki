@@ -587,6 +587,7 @@ aside > *:first-child {
 }
 
 .lyt-top > li > a {
+  width: 100%;
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -1310,7 +1311,7 @@ aside .hdg-lv2-a {
 }
 
 /*-------------------------------
-  button
+  Button
 --------------------------------*/
 .btn-a {
   display: inline-block;
@@ -1334,6 +1335,45 @@ aside .hdg-lv2-a {
 .btn-a > .btn-inner:hover {
   outline: 3px solid #fff;
     outline-offset: -5px;
+}
+
+/*-------------------------------
+  Btn-list-a
+--------------------------------*/
+.btn-list-a {
+
+}
+.btn-list-a > li + li {
+  margin-top: 1em;
+}
+.btn-list-a > li .btn-inner {
+  font-size: calc(100vw / (1120 / 18)); /*18px*/
+  padding: 1em 1em .8em 2em;
+  display: inline-block;
+  color: #00a85a;
+  background-color: #ddd;
+  text-decoration: none;
+  position: relative;
+  transition: .3s ease;
+}
+.btn-list-a > li .btn-inner:hover {
+  color: #ddd;
+  background-color: #00a85a;
+}
+.btn-list-a > li .btn-inner::before {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 6px;
+  border-color: transparent transparent transparent #00a85a;
+  margin-top: -4px;
+}
+.btn-list-a > li .btn-inner:hover::before {
+  border-color: transparent transparent transparent #ddd;
 }
 
 /*-------------------------------
