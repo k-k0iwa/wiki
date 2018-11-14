@@ -681,7 +681,7 @@ aside > *:first-child {
 aside .hdg-lv1-a {
   font-size: calc(100vw / (1120 / 20)); /*20px*/
   text-align: left;
-  padding: 0 0 0 1.2em;
+  padding: 0 0 0 1.5em;
 }
 @media screen and (max-width: 599px) {
   aside .hdg-lv1-a {
@@ -808,6 +808,39 @@ aside .hdg-lv2-a {
 }
 
 /*-------------------------------
+  .txt-st
+--------------------------------*/
+.txt-st {
+  margin: 1em 0 0;
+  padding: .6em 1.2em .5em;
+  display: inline-block;
+  font-size: calc(100vw / (1120 / 18)); /*18px*/
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: #da291c;
+}
+table th .txt-st,
+table td .txt-st {
+  margin-top: 0;
+  padding: .4em 1em .3em;
+  font-size: calc(100vw / (1120 / 16)); /*16px*/
+}
+@media screen and (max-width: 599px) {
+  .txt-st {
+    font-size: 16px;
+  }
+}
+.txt-st._51 {
+  background-color: #074882;
+}
+.txt-st._52 {
+  background-color: #ea1e4f;
+}
+.txt-st > strong {
+  color: #fff;
+}
+
+/*-------------------------------
   注釈
 --------------------------------*/
 /*単体*/ 
@@ -838,7 +871,7 @@ aside .hdg-lv2-a {
 .list-normal-a > li::before {
   position: absolute;
   left: 0;
-  margin-top: calc(100vw / (1120 / 5)); /*5px*/
+  margin-top: calc(100vw / (1120 / 6)); /*6px*/
   content: "";
   width: calc(100vw / (1120 / 10)); /*10px*/
   height: calc(100vw / (1120 / 10)); /*10px*/

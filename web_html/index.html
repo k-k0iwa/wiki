@@ -626,7 +626,7 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tr>
 <tr>
 <th>contextmenu</th>
-<td>menu要素のid属性の値</td>
+<td>menu要素のid属性の値<br>（<strong>menu要素はHTML5.2で廃止</strong>）</td>
 <td><pre class="pre-skin">
 <code class="prettyprint">&lt;p contextmenu="hoge"&gt;この要素が使用するコンテキストメニュー&lt;/p&gt;
 &lt;menu type="context" id="hoge"&gt;
@@ -771,6 +771,8 @@ html要素には、グローバル属性であるlang属性を指定してその
 <div class="part">
 <h3 class="hdg-lv3-a">body要素</h3>
 <p>HTML文書のコンテンツを入れるための要素です。</p>
+<p class="txt-st _52"><strong>HTML5.2で追加</strong></p>
+<p>body要素内にstyle要素を記述できる（ただしパフォーマンス面の問題から従来どおりhead要素内に記述することを推奨）</p>
 <!-- /.part --></div>
 <div class="part">
 <h3 class="hdg-lv3-a">title要素</h3>
@@ -860,7 +862,10 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <tr>
 <th>rel</th>
 <td>元文書との関係</td>
-<td><a class="scroll" href="#anc-relKey">キーワード</a>（空白文字区切り）</td>
+<td><a class="scroll" href="#anc-relKey">キーワード</a>（空白文字区切り）<br>
+<p class="txt-st _52"><strong>HTML5.2で追加</strong></p>
+<p>「canonical」、「noreferrer」、「apple-touch-icon」</p>
+</td>
 <td><pre class="pre-skin"><code class="prettyprint">&lt;link href="main.css" rel="stylesheet"&gt;</code></pre></td>
 </tr>
 <tr>
@@ -1014,6 +1019,9 @@ footer要素の内容としては、著作権情報・お問い合わせ先（ad
 <h3 class="hdg-lv3-a">main要素</h3>
 <p>その範囲がページ全体におけるメインコンテンツであることを示す要素です。<br>
 そのページに特有のコンテンツのみを入れ、サイト内の複数のページで共通しているナビゲーションやロゴ、検索フォーム、著作権情報などのコンテンツは含めないようにしてください。</p>
+
+<p class="txt-st _52"><strong>HTML5.2で追加</strong></p>
+<p>複数のmain要素を記述できる（ただし最初にユーザに見せるのは1つだけで、他はhidden属性で隠す）</p>
 <!-- /.part --></div>
 <div class="part">
 <h3 class="hdg-lv3-a">section要素</h3>
@@ -1472,6 +1480,10 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <p>HTML5のdl要素は、内容が空でもOKになっている。<br>
 また、必要に応じてscript要素とtemplate要素も入れられることになっている。</p>
 
+<p class="txt-st _52"><strong>HTML5.2で追加</strong></p>
+<p>直下にdiv要素を記述できるようになった</p>
+
+
 <aside>
 <h4 class="hdg-lv1-a">補足説明</h4>
 <p>HTML5ではdl要素を「用語の定義」に使用する際には、<strong>dt要素の要素内容をさらにdfn要素でマークアップする必要がある</strong>。</p>
@@ -1566,15 +1578,15 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <h2 class="hdg-lv2-a">画像・動画・音声</h2>
 
 <h3 class="hdg-lv3-a">img要素</h3>
-<p>表示させたい画像とそれが利用できない場合、代わりに使用するテキストを指定する要素。src属性は必須、alt属性の値は必須ではないが一般的なサイトにおいて基本的に省略できないものである。</p>
+<p>表示させたい画像とそれが利用できない場合、代わりに使用するテキストを指定する要素。src属性は必須、<em>alt属性の値は必須ではないが一般的なサイトにおいて基本的に省略できない</em>ものである。</p>
 
 <div class="tbl-scroll">
 <table class="tbl-a">
 <caption>img要素に指定できる属性</caption>
 <colgroup>
-<col class="w-15">
+<col class="w-25">
+<col class="w-35">
 <col class="w-40">
-<col class="w-45">
 </colgroup>
 <thead>
 <tr>
@@ -1595,12 +1607,14 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <td>テキスト</td>
 </tr>
 <tr>
-<th>srcset</th>
+<th><p class="txt-st _51"><strong>HTML5.1で追加</strong></p><br>
+srcset</th>
 <td>候補画像</td>
 <td>URLと記述子</td>
 </tr>
 <tr>
-<th>sizes</th>
+<th><p class="txt-st _51"><strong>HTML5.1で追加</strong></p><br>
+sizes</th>
 <td>条件と画像の表示幅</td>
 <td>メディアクエリと表示幅</td>
 </tr>
@@ -1634,6 +1648,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <!-- /.tbl-scroll --></div>
 
 <h4 class="hdg-lv4-a">srcset属性</h4>
+<p class="txt-st _51"><strong>HTML5.1で追加</strong></p>
 <p>ブラウザのスクリーン要件（幅、高さ、ピクセル密度）に応じて、異なる画像を読み込むことができる。これにより、複数用意された画像の中から状況に応じて最適なものだけをロードして表示させることができる。</p>
 
 <p>たとえば次のように指定すると、ピクセル密度が2倍（2x）のデバイスには「logo200.png」の画像、3倍（3x）のデバイスには「logo300.png」を表示させることができます。ピクセル密度が1倍のデバイスやsrcset属性に未対応の環境では、これまで通りsrc属性で指定した画像が表示されます。</p>
@@ -1652,6 +1667,7 @@ datatime属性に機械読み取りが可能な形式で入力する。この属
 <p class="txt-note"><span class="ast">※</span>1つのsrcset属性内でピクセル密度記述子と幅記述子を混ぜて使うことはできません。</p>
 
 <h3 class="hdg-lv3-a">picture要素</h3>
+<p class="txt-st _51"><strong>HTML5.1で追加</strong></p>
 <p>候補画像を示すsource要素とimg要素をとりまとめるための要素です。source要素を任意の数だけ入れ、最後にimg要素を1つ配置することでpicture要素とsource要素に未対応のブラウザでもimg要素の画像だけは表示できる仕組みになっています。これらの要素に対応した環境では、示された条件に最初に合致した画像だけがロードされ表示されます。</p>
 
 <div class="box-a">
@@ -2836,7 +2852,7 @@ label要素にはフォーム部品とラベルを関連づけるfor属性を指
 <li>textarea要素</li>
 <li>button要素</li>
 <li>select要素</li>
-<li>keygen要素</li>
+<li>keygen要素（<strong>HTML5.2で廃止</strong>）</li>
 <li>meter要素</li>
 <li>progress要素</li>
 <li>output要素</li>
@@ -2855,6 +2871,9 @@ disabled属性、name属性、form属性を指定できます。</p>
 <h3 class="hdg-lv3-a">legend要素</h3>
 <p>fieldset要素によってグループ化されたフォーム関連要素の<em>グループ名（キャプション）を表示察せる</em>ための要素。この要素を使用する場合は、必ず<strong>fieldset要素の内容の先頭に入れる必要があります</strong>。</p>
 
+<p class="txt-st _52"><strong>HTML5.2で追加</strong></p>
+<p>legend要素の中に見出し要素を記述できる</p>
+
 </section>
 
 <section id="anc-other">
@@ -2864,9 +2883,10 @@ disabled属性、name属性、form属性を指定できます。</p>
 <p>メインコンテンツの本文から参照される図版のようなコンテンツであることを示す要素。具体的な要素内容としては、図表・写真・イラスト・ソースコードの一部のような、<em>それ自身がまとまったひとつの完結した内容となっているフローコンテンツ</em>を入れます。</p>
 
 <h3 class="hdg-lv3-a">figcaption要素</h3>
-<p>figure要素で示す図版のキャプションや説明文部分をマークアップするための専用要素。figure要素内であればどこにでも配置可能。</p>
+<p>figure要素で示す図版のキャプションや説明文部分をマークアップするための専用要素。<strong>figure要素内であればどこにでも配置可能（HTML5.1で仕様変更）</strong>。</p>
 
 <h3 class="hdg-lv3-a">details要素</h3>
+<p class="txt-st _51"><strong>HTML5.1で追加</strong></p>
 <p>詳細情報を表示させる領域の開く・閉じるを切り替えられるディスクロジャーウィジェットになる要素。要素内容の先頭にsummary要素を入れておくと、開く・閉じるの状態に関わらず常に表示される見出しとなります。</p>
 
 <p>この要素にopen属性を指定すると、最初から開かれている状態で表示されます。ユーザが開く・閉じるを切り替えると、ブラウザが自動的にこの属性の追加と削除を行ないます。</p>
@@ -2885,6 +2905,7 @@ disabled属性、name属性、form属性を指定できます。</p>
 <!-- /.box-a --></div>
 
 <h3 class="hdg-lv3-a">summary要素</h3>
+<p class="txt-st _51"><strong>HTML5.1で追加</strong></p>
 <p>ディスクロジャーウィジェットにおいて、開く・閉じるの状態に関わらず常に表示されている見出し（キャプション）となる要素。要素内容にはフレージングコンテンツまたはh1～h6要素のうちの1つを入れることができます。</p>
 
 <p class="txt-note"><span class="ast">※</span>details要素内の先頭にしか配置できない点に注意してください。</p>
@@ -2957,6 +2978,9 @@ HTML5ではどう表示させるか規定されているわけではなく、特
 <h3 class="hdg-lv3-a">script要素</h3>
 <p>HTML文書内にスクリプトまたはデータブロックを組み込むための要素。<br>
 <em>type属性を省略した場合のデフォルト値は「text/javascript」</em>です。それ以外のものを組み込む場合は、type属性は必須となります。</p>
+
+<p class="txt-st _51"><strong>HTML5.1で追加</strong></p>
+<p>「<strong>nonce属性</strong>」が指定できるようになりました。</p>
 
 <h3 class="hdg-lv3-a">noscript要素</h3>
 <p>スクリプトが無効の場合に利用されるコンテンツを要素内容として持つ要素。したがって、スクリプトが有効の状態では、この要素は使用されません。</p>
