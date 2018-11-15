@@ -541,9 +541,11 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <h2 class="hdg-lv2-a">グローバル属性</h2>
 <p><em>すべての要素に共通して指定できる属性</em>のことを指す。</p>
 
+<div class="js-accordion accordion-wrap">
+<p class="title">グローバル属性一覧</p>
+<div class="contents">
 <div class="tbl-scroll">
 <table class="tbl-a">
-<caption>グローバル属性一覧</caption>
 <colgroup>
 <col class="w-20">
 <col class="w-40">
@@ -648,6 +650,8 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 
 <div class="col-2">
 <div class="part">
@@ -661,6 +665,9 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 <div class="part">
 <h3 class="hdg-lv3-a">lang属性</h3>
 <p>言語の種類を示す属性。値には、BCP47という仕様で定義されている言語タグを使用する。</p>
+<div class="js-accordion accordion-wrap">
+<p class="title">指定可能な値</p>
+<div class="contents">
 <table class="tbl-a">
 <colgroup>
 <col class="w-20">
@@ -695,6 +702,9 @@ HTML5では文書を作成する際には、このコンテンツ･モデルを
 </tr>
 </tbody>
 </table>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
 <!-- /.part --></div>
 <div class="part">
 <h3 class="hdg-lv3-a">title属性</h3>
@@ -835,9 +845,11 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 <h3 class="hdg-lv3-a">link要素</h3>
 <p>関連する別の文書やファイルなどを示すための空要素です。href属性とrel属性は必ず指定する必要があります。</p>
 
+<div class="js-accordion accordion-wrap">
+<p class="title">link要素に指定できる属性</p>
+<div class="contents">
 <div class="tbl-scroll">
 <table class="tbl-a">
-<caption>link要素に指定できる属性</caption>
 <colgroup>
 <col class="w-15">
 <col class="w-25">
@@ -908,10 +920,14 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
 
+<div class="js-accordion accordion-wrap">
+<p class="title">rel属性に指定できるキーワード</p>
+<div class="contents">
 <div class="tbl-scroll">
 <table class="tbl-a" id="anc-relKey">
-<caption>rel属性に指定できるキーワード</caption>
 <colgroup>
 <col class="w-15">
 <col class="w-35">
@@ -972,6 +988,9 @@ UTF-8、Shift_JIS、EUC-JPなど</td>
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
 
 <h3 class="hdg-lv3-a">base要素</h3>
 <p>HTML文書内で指定されている相対URLの基準にするURLを設定するための空要素です。必ずhead要素内で指定します。target要素を使用することでデフォルトの表示先（ブラウジングコンテキスト）を設定しておくこともできます。指定できる属性はhref属性とtarget属性のみ。</p>
@@ -2290,12 +2309,307 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 <h3 class="hdg-lv3-a">input要素</h3>
 <p>type属性で指定したキーワードによって様々な種類の入力・選択用部品となる要素。</p>
 
+<div class="js-accordion accordion-wrap" id="anc-tblInputKey">
+<p class="title">type属性に指定できるキーワード</p>
+<div class="contents">
+<table class="tbl-a">
+<colgroup>
+<col class="w-30">
+<col class="w-70">
+</colgroup>
+<thead>
+<tr>
+<th>キーワード</th>
+<th>フォーム部品の種類</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>text</th>
+<td>1行のテキスト入力フィールド（デフォルト）</td>
+</tr>
+<tr>
+<th>password</th>
+<td>パスワード用入力フィールド</td>
+</tr>
+<tr>
+<th>search</th>
+<td>検索用入力フィールド</td>
+</tr>
+<tr>
+<th>email</th>
+<td>メールアドレス用入力フィールド</td>
+</tr>
+<tr>
+<th>url</th>
+<td>URL用入力フィールド</td>
+</tr>
+<tr>
+<th>tel</th>
+<td>電話番号用入力フィールド</td>
+</tr>
+<tr>
+<th>number</th>
+<td>数値の入力</td>
+</tr>
+<tr>
+<th>range</th>
+<td>スライダー</td>
+</tr>
+<tr>
+<th>checkbox</th>
+<td>チェックボックス</td>
+</tr>
+<tr>
+<th>radio</th>
+<td>ラジオボタン</td>
+</tr>
+<tr>
+<th>submit</th>
+<td>送信ボタン</td>
+</tr>
+<tr>
+<th>reset</th>
+<td>リセットボタン</td>
+</tr>
+<tr>
+<th>button</th>
+<td>汎用ボタン</td>
+</tr>
+<tr>
+<th>image</th>
+<td>画像の送信ボタン</td>
+</tr>
+<tr>
+<th>file</th>
+<td>送信するファイルの選択</td>
+</tr>
+<tr>
+<th>color</th>
+<td>色の入力</td>
+</tr>
+<tr>
+<th>date</th>
+<td>日付の入力</td>
+</tr>
+<tr>
+<th><p class="txt-st _51"><strong>HTML5.1で追加</strong></p><br>month</th>
+<td>年と月の入力</td>
+</tr>
+<tr>
+<th><p class="txt-st _51"><strong>HTML5.1で追加</strong></p><br>week</th>
+<td>年と週番号の入力</td>
+</tr>
+<tr>
+<th>time</th>
+<td>時刻の入力</td>
+</tr>
+<tr>
+<th><p class="txt-st _51"><strong>HTML5.1で追加</strong></p><br>datetime-local</th>
+<td>タイムゾーンなしのローカルな日付と時刻の入力</td>
+</tr>
+<tr>
+<th>hidden</th>
+<td>表示させずに送信するテキスト</td>
+</tr>
+</tbody>
+</table>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
+<div class="js-accordion accordion-wrap">
+<p class="title">input要素に指定できる属性</p>
+<div class="contents">
+<div class="tbl-scroll">
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-40">
+<col class="w-40">
+</colgroup>
+<thead>
+<tr>
+<th>属性名</th>
+<th>値の示すもの</th>
+<th>指定可能な値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>type</th>
+<td>フォーム部品の種類</td>
+<td><a href="#anc-tblInputKey" class="scroll">type属性に指定できるキーワード</a>参照</td>
+</tr>
+<tr>
+<th>accept</th>
+<td>type="file"のときに受付可能なファイルの種類</td>
+<td>MIMEタイプ（カンマ区切り）</td>
+</tr>
+<tr>
+<th>alt</th>
+<td>画像が利用できない場合に変わりに使用されるテキスト</td>
+<td>代替テキスト</td>
+</tr>
+<tr>
+<th>autocomplete</th>
+<td>要素のオートコンプリート機能のオン／オフまたは自動入力すべき値を示すキーワード</td>
+<td>autocomplete="on" autocomplete="off" 自動入力詳細トークン</td>
+</tr>
+<tr>
+<th>inputmode</th>
+<td>入力モード</td>
+<td>キーワード</td>
+</tr>
+<tr>
+<th>autofocus</th>
+<td>ページが読み込まれたら自動的にこの要素にフォーカスする</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>checked</th>
+<td>チェックボックスまたはラジオボタンが選択済みの状態になっていることを示す</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>dirname</th>
+<td>文字表記の方向を示す値を送信するフィールドの名前</td>
+<td>テキスト（空文字は不可）</td>
+</tr>
+<tr>
+<th>disabled</th>
+<td>フォームの部品を無効にする</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>form</th>
+<td>フォームの部品を特定のform要素と関連づける</td>
+<td>id属性の値</td>
+</tr>
+<tr>
+<th>formaction</th>
+<td>フォームの送信先のURL</td>
+<td>URL</td>
+</tr>
+<tr>
+<th>formenctype</th>
+<td>フォームのデータを送信する際のデータ形式をMIMEタイプで指定</td>
+<td>formenctype="application/x-www-form-urlencoded" formenctype="multipart/form-data" formenctype="text/plain"</td>
+</tr>
+<tr>
+<th>formmethod</th>
+<td>フォームのデータを送信する際のHTTPメソッドを指定</td>
+<td>formmethod="GET" formmethod="POST"</td>
+</tr>
+<tr>
+<th>formnovalidate</th>
+<td>入力内容のチェックを行なわない</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>formtarget</th>
+<td>送信結果を表示させるブラウジングコンテキストを指定</td>
+<td>ブラウジングコンテキスト名またはキーワード</td>
+</tr>
+<tr>
+<th>width</th>
+<td>幅</td>
+<td>整数</td>
+</tr>
+<tr>
+<th>height</th>
+<td>高さ</td>
+<td>整数</td>
+</tr>
+<tr>
+<th>list</th>
+<td>サジェスト機能で使用する選択肢を持ったdatalist要素</td>
+<td>datalist要素のid属性の値</td>
+</tr>
+<tr>
+<th>max</th>
+<td>最大値</td>
+<td>type属性の値によって異なる</td>
+</tr>
+<tr>
+<th>maxlength</th>
+<td>最大文字数</td>
+<td>整数</td>
+</tr>
+<tr>
+<th>min</th>
+<td>最小値</td>
+<td>type属性の値によって異なる</td>
+</tr>
+<tr>
+<th>minlength</th>
+<td>最小文字数</td>
+<td>整数</td>
+</tr>
+<tr>
+<th>multiple</th>
+<td>複数の入力・選択を許可する</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>name</th>
+<td>フォーム部品の名前</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>pattern</th>
+<td>フォーム部品の値にマッチする正規表現</td>
+<td>JavaScriptの正規表現</td>
+</tr>
+<tr>
+<th>placeholder</th>
+<td>入力すべき値がわかるように表示される入力例や簡単な説明</td>
+<td>テキスト</td>
+</tr>
+<tr>
+<th>readonly</th>
+<td>値の編集ができないようにする</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>required</th>
+<td>入力･選択されていることが必須であることを示す</td>
+<td>論理属性（属性名だけで指定可）</td>
+</tr>
+<tr>
+<th>size</th>
+<td>幅を文字数で指定</td>
+<td>整数</td>
+</tr>
+<tr>
+<th>src</th>
+<td>データのアドレス</td>
+<td>URL</td>
+</tr>
+<tr>
+<th>step</th>
+<td>この属性で指定した数値の間隔でしか入力できなくする</td>
+<td>0より大きい浮動小数点またはstep="any"</td>
+</tr>
+<tr>
+<th>value</th>
+<td>フォーム部品の値</td>
+<td>type属性の値によって異なる</td>
+</tr>
+</tbody>
+</table>
+<!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
+
 <h3 class="hdg-lv3-a">textarea要素</h3>
 <p>複数行のテキスト入力フィールドとなる要素。要素内容として入れたテキストは、入力フィールドにあらかじめ入力された状態で表示されます。</p>
 
+<div class="js-accordion accordion-wrap">
+<p class="title">textarea要素に指定できる属性</p>
+<div class="contents">
 <div class="tbl-scroll">
 <table class="tbl-a">
-<caption>textarea要素に指定できる属性</caption>
 <colgroup>
 <col class="w-15">
 <col class="w-40">
@@ -2382,13 +2696,18 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
 
 <h3 class="hdg-lv3-a">button要素</h3>
 <p>要素内容がそのままラベルとして表示されるボタンになる要素。</p>
 
+<div class="js-accordion accordion-wrap">
+<p class="title">button要素に指定できる属性</p>
+<div class="contents">
 <div class="tbl-scroll">
 <table class="tbl-a">
-<caption>button要素に指定できる属性</caption>
 <colgroup>
 <col class="w-15">
 <col class="w-40">
@@ -2465,13 +2784,18 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
 
 <h3 class="hdg-lv3-a">select要素</h3>
 <p>選択肢の中から選ぶ形式のフォーム部品になる要素。</p>
 
+<div class="js-accordion accordion-wrap">
+<p class="title">select要素に指定できる属性</p>
+<div class="contents">
 <div class="tbl-scroll">
 <table class="tbl-a">
-<caption>select要素に指定できる属性</caption>
 <colgroup>
 <col class="w-15">
 <col class="w-40">
@@ -2528,6 +2852,9 @@ colgroup要素にspan属性を指定している場合は、colgroup要素の要
 </tbody>
 </table>
 <!-- /.tbl-scroll --></div>
+<!-- /.contents --></div>
+<!-- /.js-accordion --></div>
+
 
 <h3 class="hdg-lv3-a">option要素</h3>
 <p>select要素またはdatalist要素の選択肢となる要素。label属性が指定されているとその値が選択肢となりますが、label属性が指定されていない場合は要素内容が選択肢になります。また、value属性が指定されているとその値がサーバに送信されますが、value属性が指定されていない場合は要素内容が送信されます。</p>

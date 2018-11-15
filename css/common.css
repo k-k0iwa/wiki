@@ -1065,56 +1065,59 @@ table td .txt-st {
 /*-------------------------------
   List（定義）
 --------------------------------*/
-.list-dl-a > dt {
+.list-dl-a dt {
   margin-top: 2em;
   font-size: calc(100vw / (1120 / 18)); /*18px*/
   font-weight: bold;
 }
 @media screen and (max-width: 599px) {
-  .list-dl-a > dt {
+  .list-dl-a dt {
     font-size: 16px;
   }
 }
-.list-dl-a > dt:first-letter {
+.list-dl-a dt:first-letter {
   font-size: calc(100vw / (1120 / 30)); /*30px*/
   color: #00a85a;
 }
 @media screen and (max-width: 599px) {
-  .list-dl-a > dt:first-letter {
+  .list-dl-a dt:first-letter {
     font-size: 18px;
   }
 }
-.list-dl-a > dt:first-child {
+.list-dl-a dt:first-child {
   margin-top: 0;
 }
-.list-dl-a > dd {
+.list-dl-a dd {
   margin-top: 1em;
 }
-.list-dl-a > dd .txt-dl-lead {
+.list-dl-a dd .txt-dl-lead {
   font-size: calc(100vw / (1120 / 16)); /*16px*/
 }
 @media screen and (max-width: 599px) {
-  .list-dl-a > dd .txt-dl-lead {
+  .list-dl-a dd .txt-dl-lead {
     font-size: 14px;
   }
 }
 .txt-dl-lead + .list-normal-a {
   margin-top: 5px;
 }
-.list-dl-a > dt > *:first-child,
-.list-dl-a > dd > *:first-child {
+.list-dl-a dt > *:first-child,
+.list-dl-a dd > *:first-child {
   margin-top: 0;
 }
 
 /*-------------------------------
   Link
 --------------------------------*/
-.txt-link > a {
+.txt-link > a,
+.link-list > li > a {
   position: relative;
   margin-left: 1em;
 }
 .txt-link > a::before,
-.txt-link > a::after {
+.txt-link > a::after,
+.link-list > li > a::before,
+.link-list > li > a::after {
   position: absolute;
   content: "";
   width: 2px;
@@ -1122,24 +1125,30 @@ table td .txt-st {
   left: calc(100vw / (1120 / -10)); /*-10px*/
   background-color: #00a85a;
 }
-.txt-link > a::before {
+.txt-link > a::before,
+.link-list > li > a::before {
   transform: rotate(45deg);
   top: calc(100vw / (1120 / 8)); /*8px*/
 }
-.txt-link > a::after {
+.txt-link > a::after,
+.link-list > li > a::after {
   transform: rotate(-45deg);
   top: calc(100vw / (1120 / 2)); /*2px*/
 }
 @media screen and (max-width: 599px) {
   .txt-link > a::before,
-  .txt-link > a::after {
+  .txt-link > a::after,
+  .link-list > li > a::before,
+  .link-list > li > a::after {
     height: 7px;
     left: -9px;
   }
-  .txt-link > a::before {
+  .txt-link > a::before,
+  .link-list > li > a::before {
     top: 8px;
   }
-  .txt-link > a::after {
+  .txt-link > a::after,
+  .link-list > li > a::after {
     top: 4px;
   }
 }
@@ -1313,7 +1322,11 @@ table td .txt-st {
 
 /*スクロール*/
 .tbl-scroll {
+  margin: 30px 0 0;
   overflow: auto;
+}
+.tbl-scroll .tbl-a {
+  margin-top: 0;
 }
 @media screen and (max-width: 599px) {
   .tbl-scroll colgroup {

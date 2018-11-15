@@ -134,8 +134,10 @@
 
 <h3 class="hdg-lv3-a">hr要素</h3>
 <p><strong>「段落レベル」</strong>での主題の区切りをあらわします。</p>
-</section>
 
+<h3 class="hdg-lv3-a">dl要素</h3>
+<p>dl要素内は、<strong>空、もしくは1つ以上のdt要素と1つ以上のdd要素</strong>を記述できます。</p>
+</section>
 
 <section>
 <h2 class="hdg-lv2-a">CSS</h2>
@@ -167,14 +169,104 @@
 
 <h3 class="hdg-lv3-a">hyphensプロパティに指定できる値</h3>
 <p>指定できる値は<strong>「manual」「none」「auto」</strong>の3つのみ。<br>
-「manual」を指定すると、ハイフネーションは<em>&shy;が入力されている箇所でのみ行なわれます</em>。<br>
+「manual」を指定すると、ハイフネーションは<em>&amp;shy;が入力されている箇所でのみ行なわれます</em>。<br>
 「auto」を指定すると、ブラウザが適切な箇所でハイフネーションを行ないます。（lang属性による言語の指定が必要となります。）</p>
 
 <h3 class="hdg-lv3-a">box-shadowプロパティの値の順番</h3>
 <p>1番目から、「左右にずらす」「上下にずらす」「ぼかす範囲」「拡張させて大きくする距離」となる。<br>色の値とキーワードのinsetは、数値のグループの前後どちらかに順不同で指定できます。</p>
 
+<h3 class="hdg-lv3-a">マルチカラムレイアウト</h3>
+<p>1つのボックスの内部を複数の段に分割するタイプのレイアウト</p>
+
+<dl class="list-dl-a col-2">
+<div class="part">
+<dt><dfn>column-<em>count</em></dfn></dt>
+<dd><strong>何段組にするのか</strong>を設定。初期値：auto</dd>
+<!-- /.part --></div>
+<div class="part">
+<dt><dfn>column-<em>width</em></dfn></dt>
+<dd><strong>段の幅</strong>を設定。初期値：auto</dd>
+<!-- /.part --></div>
+<div class="part">
+<dt><dfn><em>columns</em></dfn></dt>
+<dd><strong>column-countとcolumn-widthの値をまとめて</strong>指定できる</dd>
+<!-- /.part --></div>
+<div class="part">
+<dt><dfn>column-<em>gap</em></dfn></dt>
+<dd><strong>段と段の間隔</strong>を設定。初期値：normal</dd>
+<!-- /.part --></div>
+<div class="part">
+<dt><dfn>column-<em>rule</em></dfn></dt>
+<dd><strong>線種(column-rule-style)・色(column-rule-color)・太さ(column-rule-width)</strong>を個別に順不同で設定。</dd>
+<!-- /.part --></div>
+<div class="part">
+<dt><dfn>column-<em>span</em></dfn></dt>
+<dd>段組が設定されている<strong>ボックスの幅いっぱいに（すべての段をまたいで）</strong>表示させる。初期値：none</dd>
+<!-- /.part --></div>
+</dl>
 </section>
 
+
+<section>
+<h2 class="hdg-lv2-a">レスポンシブWebデザイン</h2>
+
+<h3 class="hdg-lv3-a">メリット・デメリット</h3>
+<h4 class="hdg-lv4-a">メリット</h4>
+<ul class="list-normal-a">
+<li>画面サイズさえあえば、現在存在しないデバイスにも対応可能</li>
+<li>URLが同じとなるためSEOに有利</li>
+<li>サイトの読み込み時間を短縮できる</li>
+<li>HTMLが1つですむのでコストの削減につながる可能性がある</li>
+</ul>
+<h4 class="hdg-lv4-a">デメリット</h4>
+<ul class="list-normal-a">
+<li>設計の難易度が高く、逆にコストが高くなることも</li>
+<li>モバイル向けには画像や動画を切り替える必要があり難しい</li>
+<li>画面フローの変更には対応できない</li>
+<li>HTML/CSSのサイズが増加し、下手をするとページ表示や動作が遅くなる</li>
+</ul>
+
+<h3 class="hdg-lv3-a">resolution（デバイスの解像度）</h3>
+<p>メディアクエリで解像度を指定する場合の指定できる単位については以下の3つがあります。</p>
+<ul class="list-normal-a">
+<li><em>dpi</em>1インチあたりドット数</li>
+<li><em>dpcm</em>1センチあたりドット数</li>
+<li><em>dppx</em>1ピクセルあたりドット数</li>
+</ul>
+
+<h3 class="hdg-lv3-a">高解像度向け対応</h3>
+<p>「<em>デバイスピクセル</em>」はデバイスとして<strong>物理的</strong>にもっている。「<em>CSSピクセル</em>」はCSSの中で<strong>理論的</strong>に解釈される。</p>
+
+<p><em>Retinaディスプレイ</em>では、<strong>4デバイスピクセルが1CSSピクセル</strong>として扱われます。Retina対応の方法は大きく下記の4点あります。</p>
+<ul class="list-num-a">
+<li><strong>大きなサイズの画像を使用</strong><br>実際に表示させたいサイズの倍の大きさの画像を用意し、表示サイズをimg要素で指定すれば、高解像度の画像を表示させることが可能です。</li>
+<li><strong>メディアクエリを使用</strong><br><em>background-image</em>で表示するCSSを用意し、それらをメディアクエリで切り替えることで、表示先が高解像度の場合は高解像度の画像を表示させることが可能です。<br>
+「2デバイスピクセル：1CSSピクセルの比率以上のデバイスに対しては、倍サイズの画像であるimg-2x.pngを使用する」という場合には以下のように指定します。（<strong>-webkit-min-device-pixel-ratio</strong>と<strong>min-resolution</strong>を使用します）<br>
+<pre class="pre-skin">
+<code class="prettyprint">
+.img {
+	background-image: url(img.png);
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+	.img {
+		background-image: url(img-2x.png);
+	}
+}
+</code>
+</pre>
+</li>
+<li><strong>SVGやWebフォントの使用</strong><br>拡大によりぼやける問題が発生しないため</li>
+<li><strong>JavaScriptライブラリの使用</strong><br>解像度の比率に応じて画像を入れ替えるJavaScriptライブラリがあるため、それを利用する。</li>
+</ul>
+</section>
+
+
+<section>
+<h2 class="hdg-lv2-a">API</h2>
+
+
+
+</section>
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
 
