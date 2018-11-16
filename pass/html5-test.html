@@ -62,9 +62,134 @@
 <div class="str-inner">
 <h1 class="hdg-lv1-a">HTML5-PNSlv1対策メモ</h1>
 
+<ul class="link-page">
+<li><a class="scroll" href="#anc-web">Webの基礎</a></li>
+<li><a class="scroll" href="#anc-html">HTML</a></li>
+<li><a class="scroll" href="#anc-css">CSS</a></li>
+<li><a class="scroll" href="#anc-rwd">RWD</a></li>
+<li><a class="scroll" href="#anc-api">API</a></li>
+</ul>
 
-<section>
+<section id="anc-web">
+<h2 class="hdg-lv2-a">Webの基礎</h2>
+
+<h3 class="hdg-lv3-a">HTTPのリクエストメッセージ</h3>
+<p><em>GET</em>メソッドでリクエストパラメータが指定された場合、リクエストパラメータは<em>リクエストURLに付加されます</em>。「?」以降の文字列がクエリ文字列と呼ばれ、リクエストパラメータの内容を表します。</p>
+<p><em>POST</em>メソッドでリクエストパラメータが指定された場合は、<em>メッセージボディに付加されます</em>。</p>
+
+<h3 class="hdg-lv3-a">HTTP cookie</h3>
+<ul class="list-normal-a">
+<li>元来HTTPは<strong>ステートレス</strong>なプロトコルですが、クッキーを利用することでショッピングサイトなどのように<strong>ステートフル</strong>なサービスを可能にします。</li>
+<li>クッキーの情報は<strong>HTTPヘッダに含んで</strong>通信を行うので基本的にJavascriptでアクセスできますが、設定によりアクセス出来ない場合があります。</li>
+<li>クッキーは<strong>クライアント（ブラウザ）に保存</strong>され、ユーザはブラウザの機能を利用することで履歴の削除などと同時に削除することができます。</li>
+<li>クッキーは<strong>1つ4KB</strong>、1サーバーに20個、トータル300個まで保存できますが、制限があるためHTML5では、Web Storageなど大容量を扱えるAPIも用意されています。</li>
+<li>クッキーには<strong>有効期限を設定することができ、有効期限を超えると保存されていたクッキーは無効になります</strong>。有効期限が指定されていると、<strong>有効期限内はブラウザを終了しても保存されています</strong>が、<strong>指定されていない場合ブラウザの終了とともに削除されます</strong>。</li>
+</ul>
+
+<h3 class="hdg-lv3-a">HTTPヘッダフィールド</h3>
+<p>HTTPヘッダフィールドの内、Webアクセスの高速化を目的に設定できるもの</p>
+<ul class="list-normal-a">
+<li>Cache-Control（Cache を制御）</li>
+<li>Expires（ページの有効期限以前であれば、キャッシュを利用させる）</li>
+<li>Last-Modified（コンテンツが前回アクセス時から更新されていない場合、キャッシュを利用する）</li>
+</ul>
+
+<h3 class="hdg-lv3-a">BASIC認証、Digest認証</h3>
+<p><em>BASIC認証</em>では、ユーザが入力したユーザ名とパスワードは<strong>一切暗号化されることなく</strong>送信されます。</p>
+<p><em>Digest認証</em>ユーザ名とパスワードは、<strong>MD5というハッシュ関数</strong>を使用して、<strong>ユーザ名とパスワードをダイジェスト(ハッシュ)化</strong>して送信します。</p>
+
+<h3 class="hdg-lv3-a">HTML5の文書型宣言</h3>
+<p>HTML5の文書型宣言の基本形は、「<strong>&lt;!DOCTYPE」＋1個以上のスペース＋「HTML」＋0個以上のスペース＋「&gt;</strong>」です。アルファベットは大文字でも小文字でもかまいません。</p>
+
+<h3 class="hdg-lv3-a">title要素</h3>
+<p>title要素自体は条件によっては省略可能ですが、開始タグ・終了タグともにタグの省略は一切できません。</p>
+
+<h3 class="hdg-lv3-a">文字（実体）参照</h3>
+<p>名称を指定する以外にも、文字コード(番号)を指定する方法もあります。<br>
+文字コードを指定する場合には2種類の書き方があり、<strong>&amp;#</strong>10進数; と、<strong>&amp;#x</strong>16進数; です。</p>
+
+<h3 class="hdg-lv3-a">HTTPS</h3>
+<p>HTTPSを使用して、Webサーバの正当性を確認するために必要なものは2つある。</p>
+<ul class="list-normal-a">
+<li>認証局</li>
+<li>サーバ証明書</li>
+</ul>
+
+<h3 class="hdg-lv3-a">Base64</h3>
+<ul class="list-normal-a">
+<li>バイナリデータを印字可能文字に置き換える仕組みである</li>
+<li>英数字と記号を使用する</li>
+<li>端数に当たる部分には'='を使用する</li>
+<li>変換後は1行64文字で改行される</li>
+</ul>
+
+<h3 class="hdg-lv3-a">XHTML書式の特徴</h3>
+<ul class="list-normal-a">
+<li>html要素の開始タグにXHTML用の名前空間を指定する</li>
+<li>要素名や属性名は全て小文字で記述する必要があります</li>
+<li>属性の値は「"」や「'」で囲む必要があります</li>
+<li>空要素には終了タグを付加するか、開始タグの閉じかっこを「/>」としなければならない</li>
+</ul>
+</section>
+
+
+<section id="anc-html">
 <h2 class="hdg-lv2-a">HTML</h2>
+
+<h3 class="hdg-lv3-a">空要素のNG記述</h3>
+<ul class="list-normal-a">
+<li>「/」と「&gt;」の間には空白文字は入れられない</li>
+<li>終了タグを指定できない</li>
+<li>&lt;br&gt;&lt;br /&gt;のように記述されていた場合、空要素が2つ連続して配置されていると認識され、文法エラーにはならない</li>
+</ul>
+
+<h3 class="hdg-lv3-a">source要素</h3>
+<ul class="list-normal-a">
+<li>picture要素内のsource要素には、<strong>media属性またはtype属性のいずれかの指定が必要</strong></li>
+<li>picture要素内のsource要素には、<strong>srcset属性が必須</strong></li>
+<li>video要素とaudio要素には<strong>src属性が必須</strong></li>
+</ul>
+
+<h3 class="hdg-lv3-a">script要素とnoscript要素</h3>
+<ul class="list-normal-a">
+<li>HTML5.1からは、script要素に<strong>nonce属性</strong>が指定できるようになりました。</li>
+<li>script要素にデータブロックを指定する場合、<strong>type属性の指定は必須</strong>となり、<strong>src属性は使用できなくなります</strong>。</li>
+<li>noscript要素は、head要素内にも配置できますが、<strong>XHTML構文では使用できません</strong>。</li>
+</ul>
+
+<h3 class="hdg-lv3-a">textarea要素</h3>
+<ul class="list-normal-a">
+<li>textarea要素のサイズはデフォルトで<strong>20文字×2行</strong>で、rows,colsにより変更が可能である</li>
+<li><em>resizeプロパティ</em>の値には、「<b>none</b>：リサイズを許可しない」、「<b>horizontal</b>：水平方向のみリサイズを許可する」、「<b>vertical</b>：垂直方向のみリサイズを許可する」、「<b>both</b>：水平・垂直方向ともリサイズを許可する。（デフォルト）」、「<b>inherit</b>：親要素の値を継承する」がある。<br>
+無効な値を指定した場合、<em>デフォルトと同じ動き</em>となります。</li>
+</ul>
+
+<h3 class="hdg-lv3-a">main要素</h3>
+<ul class="list-normal-a">
+<li><strong>role属性を併用することが推奨</strong>されている</li>
+<li><b>WHATWGとW3Cで仕様に違いがある</b></li>
+</ul>
+
+<h3 class="hdg-lv3-a">object要素</h3>
+<p>画像、音声、HTML文書など様々な外部リソースを文書内に取り込む際に使用します。ファイルの指定は<strong>data属性</strong>を使用します。下記はサンプルです。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+&lt;object data="sample.mpg" …&gt;
+</code>
+</pre>
+
+<h3 class="hdg-lv3-a">details要素</h3>
+<p>&lt;details&gt;タグで囲われた部分を<em>非表示</em>にし、必要に応じて利用者がクリックすることで参照できるようにできます。summary要素は、details要素の子要素で、<strong>省略時に表示される「詳細」（ブラウザにより異なる）を別の文字列に置き換える</strong>。</p>
+
+<h3 class="hdg-lv3-a">videoタグ</h3>
+<p>動画圧縮規格が<em>h.264</em>の映像を表示する場合、sourceタグに設定する適切なtype属性は<strong>video/mp4</strong>になります。</p>
+
+<h3 class="hdg-lv3-a">role属性</h3>
+<p><strong>既存の要素の役割・意味を上書きして変更する</strong></p>
+
+<h3 class="hdg-lv3-a">mark要素</h3>
+<p>一般的なブラウザでは蛍光ペンでマークしたような表示となります。オリジナルでは通常のテキストである部分を、そのWebページの読者に<strong>注目してもらう</strong>ためにハイライト表示させるのがmark要素の役割です。<br>
+また、<strong>検索結果の表示における検索語</strong>もmark要素を使用します。</p>
 
 <h3 class="hdg-lv3-a">開始タグと終了タグの両方を省略できる要素</h3>
 <p>条件によって、開始タグと終了タグを省略できる要素は以下の<strong>5つ</strong>！！！</p>
@@ -130,7 +255,11 @@
 <p>em要素は<strong>タグをつける位置を変えると文章の意味も変わる</strong>が、strong要素はタグをつける位置が変わっても文章の意味に影響を与えない。</p>
 
 <h3 class="hdg-lv3-a">img要素の属性について</h3>
-<p>src属性は必須だがalt属性は条件によって省略可能。width属性、height属性には<strong>「CSSピクセル数（単位の無い0以上の整数）」</strong>しか指定できません。</p>
+<ul class="list-normal-a">
+<li><strong>src属性は必須</strong></li>
+<li><strong>alt属性は条件によって省略可能</strong></li>
+<li>width属性、height属性には<strong>「CSSピクセル数（単位の無い0以上の整数）」</strong>しか指定できません</li>
+</ul>
 
 <h3 class="hdg-lv3-a">hr要素</h3>
 <p><strong>「段落レベル」</strong>での主題の区切りをあらわします。</p>
@@ -139,8 +268,26 @@
 <p>dl要素内は、<strong>空、もしくは1つ以上のdt要素と1つ以上のdd要素</strong>を記述できます。</p>
 </section>
 
-<section>
+
+<section id="anc-css">
 <h2 class="hdg-lv2-a">CSS</h2>
+
+<h3 class="hdg-lv3-a">背景画像の指定</h3>
+<ul class="list-normal-a">
+<li>CSS3からは、1つのボックスに<strong>複数の背景画像を指定できる</strong>ようになりました</li>
+<li>背景画像をカンマ区切りで指定すると、<strong>先（左側）に指定した背景画像ほど上（画面上で手前）に重なって表示されます</strong>。</li>
+<li>背景色はすべての背景レイヤーのうち、一番下のレイヤーにのみ表示されます。そのため、背景色は一番下の背景レイヤーとなる<strong>一番右側の値</strong>の1つとして指定することになっています。結果として<strong>背景色は値を1つしか指定できません</strong>。</li>
+</ul>
+
+<h3 class="hdg-lv3-a">text-transform</h3>
+<ul class="list-normal-a">
+<li><strong>lowercase</strong>：テキストを全て小文字に変換します。</li>
+<li><strong>uppercase</strong>：テキストを全て大文字に変換します。</li>
+<li><strong>capitalize</strong>：単語の1文字目を大文字にします。</li>
+</ul>
+
+<h3 class="hdg-lv3-a">white-space</h3>
+<p><em>pre-wrap</em>はブラウザで表示させる際にもソースコード上の改行位置で改行させ、連続する半角スペース・タブ・改行コードを1つの半角スペースにまとめず、テキストがウィンドウの右端まで来たときには自動的に行を折り返すようにしたい場合に指定する値</p>
 
 <h3 class="hdg-lv3-a">@importの書式</h3>
 <ul class="list-num-a">
@@ -207,8 +354,16 @@
 </section>
 
 
-<section>
+<section id="anc-rwd">
 <h2 class="hdg-lv2-a">レスポンシブWebデザイン</h2>
+
+<h3 class="hdg-lv3-a">スマホの機能</h3>
+<p>数字列を自動的に電話番号として検出しリンクに変換する機能を無効にするときに指定するのは<strong>format-detection</strong></p>
+<pre class="pre-skin">
+<code class="prettyprint">
+&lt;meta name="format-detection" content=“telephone=no” /&gt;
+</code>
+</pre>
 
 <h3 class="hdg-lv3-a">メリット・デメリット</h3>
 <h4 class="hdg-lv4-a">メリット</h4>
@@ -261,11 +416,37 @@
 </section>
 
 
-<section>
+<section id="anc-api">
 <h2 class="hdg-lv2-a">API</h2>
 
+<h3 class="hdg-lv3-a">JavaScriptを使って描画するグラフィックスの特徴</h3>
+<ul class="list-normal-a">
+<li>動くグラフィックスを描画できる</li>
+<li>HTMLのcanvas要素を利用できる</li>
+<li>2Dグラフィックスを利用できる</li>
+<li>SVGを利用すると、拡大・縮小しても粗くならない画像が描画できる</li>
+</ul>
 
+<h3 class="hdg-lv3-a">ブラウザにデータを保存するAPI</h3>
+<h4 class="hdg-lv4-a">Web Storage</h4>
+<ul class="list-normal-a">
+<li>キーと値の組み合わせでブラウザにデータを蓄積する</li>
+<li>アプリケーションのオフライン利用や高速化が期待できる</li>
+<li>セッションストレージ（ウィンドウを閉じるとデータが消失）とローカルストレージ（ウィンドウを閉じてもデータが消えない）の2種類ある</li>
+</ul>
 
+<h4 class="hdg-lv4-a">Indexed Database API</h4>
+<ul class="list-normal-a">
+<li>キーと値の組み合わせでJavaScriptのオブジェクトを蓄積し利用する</li>
+<li>インデックスやトランザクション（データベースの一連の処理）を利用できる</li>
+<li>大量のデータを扱うオフライン利用可能なアプリケーションのデータベース</li>
+</ul>
+
+<h3 class="hdg-lv3-a">Web Workers</h3>
+<ul class="list-normal-a">
+<li>ブラウザでスクリプト処理を<strong>バックグラウンドで実行する</strong></li>
+<li>JavaScriptで複数のスレッドを走らせ、<strong>並列処理</strong>を行なうことができる</li>
+</ul>
 </section>
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
