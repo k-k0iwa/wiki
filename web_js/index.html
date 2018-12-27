@@ -62,11 +62,453 @@
 <div class="str-inner">
 <h1 class="hdg-lv1-a">JS/jQueryの知識</h1>
 
+<ul class="link-page">
+<li><a class="scroll" href="#anc-rule">基本ルール</a></li>
+<li><a class="scroll" href="#anc-var">変数</a></li>
+<li><a class="scroll" href="#anc-operator-symbol">演算</a></li>
+<li><a class="scroll" href="#anc-func">関数</a></li>
+<li><a class="scroll" href="#anc-scope">スコープ</a></li>
+<li><a class="scroll" href="#anc-conditional-branch">条件分岐</a></li>
+<li><a class="scroll" href="#anc-"></a></li>
+<li><a class="scroll" href="#anc-"></a></li>
+</ul>
 
-<section id="anc-doctype">
+<section id="anc-rule">
+<h2 class="hdg-lv2-a">基本ルール</h2>
+
+<h3 class="hdg-lv3-a">外部ファイルの読み込み</h3>
+<p>cssファイルであれば、headタグ内で読み込むことが一般的です。しかし、JavaScriptファイルは<b>bodyタグ内の最後</b>がいいとされています。<br>
+bodyタグ内の最後でJavaScriptを読み込ませることによって、HTML内に書かれたページの内容をWebブラウザが解釈する処理を、JavaScriptが阻害することを防ぎます。逆に、headタグ内でJavaScriptを読み込んでしまうと、HTMLの内容の解釈を阻害してしまう場合があります。<br>
+状況によってはheadタグ内で読み込むほうがいい場合もありますが、基本的にはbodyタグ内の最後に記載するものと考えていよい。</p>
+
+<h3 class="hdg-lv3-a">コード記述</h3>
+<ul class="list-normal-a">
+<li>基本的に半角英数で書く</li>
+<li>意味の区切りには半角スペースを設ける</li>
+<li>1つの処理の区切りとして「;」を用いる</li>
+<li>文字列を扱う場合は、基本的に<em>「'」（シングルクォーテーション）</em>で囲う</li>
+<li>文字列内にHTMLが含まれる場合などは、適宜<em>「"」ダブルクォーテーション</em>で囲う</li>
+</ul>
+</section>
+
+<section id="anc-var">
+<h2 class="hdg-lv2-a">変数</h2>
+
+<h3 class="hdg-lv3-a">変数を宣言する</h3>
+<p><em>変数</em>（Variable）は、「値を入れておくための箱」によく例えられます。変数は利用する前に<em>宣言</em>しておく必要があります。</p>
+
+<div class="box-a">
+<p class="txt-title">変数の宣言</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var test;
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<p>「test」の部分は<strong>1文字以上のアルファベット、数字、アンダースコア</strong>で成り立つ任意の変数名をつけることができます。しかし、以下の2点には注意が必要です。</p>
+
+<ul class="list-num-a">
+<li>予約後は使えない
+<ul class="list-normal-a">
+<li>ifやvarなど、JavaScriptを書く上で他に意味を持つ単語は使えません。これらの単語を<em>予約後</em>といいます。</li>
+</ul>
+</li>
+<li>意味のある変数名にする
+<ul class="list-normal-a">
+<li>変数名は完結でわかりやすいものにしてください。</li>
+<li>大文字と小文字、アンダースコアなどは自分なりのルールを作った上で統一感のある使用をしてください。</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section id="anc-operator-symbol">
+<h2 class="hdg-lv2-a">演算</h2>
+
+<h3 class="hdg-lv3-a">四則演算</h3>
+<p>掛け算は「×」ではなく「*」、割り算は「÷」ではなく「/」を使う点に注意しましょう。余りの計算は、例えば「2で割った余りが1の時に何かをする（＝奇数のときの処理）」などで活用できます。</p>
+
+<table class="tbl-a">
+<colgroup>
+<col class="w-20">
+<col class="w-40">
+<col class="w-20">
+<col class="w-40">
+</colgroup>
+<thead>
+<tr>
+<th>メソッド名</th>
+<th>説明</th>
+<th>メソッド名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>+</th>
+<td>足し算</td>
+<th>-</th>
+<td>引き算</td>
+</tr>
+<tr>
+<th>/</th>
+<td>割り算</td>
+<th>*</th>
+<td>掛け算</td>
+</tr>
+<tr>
+<th>%</th>
+<td>余りの計算</td>
+<th></th>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="hdg-lv3-a">短縮記法</h3>
+<p>コードを簡潔にするために、下記のような短縮した書き方が使われる場合があります。他の人が書いたコードで出てきたときに読めるようにしておきましょう。</p>
+
+<div class="col-2">
+<div class="part">
+<div class="box-a">
+<p class="txt-title">例（++）</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var num1 = 0;
+num1++; //num1 + 1;と同じ意味
+console.log(num1); //結果は1となる
+</code>
+</pre>
+<!-- /.box-a --></div>
+<!-- /.part --></div>
+<div class="part">
+<div class="box-a">
+<p class="txt-title">例（--）</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var num2 = 0;
+num2--; //num2 - 1;と同じ意味
+console.log(num2); //結果は-1となる
+</code>
+</pre>
+<!-- /.box-a --></div>
+<!-- /.part --></div>
+<div class="part">
+<div class="box-a">
+<p class="txt-title">例（+=）</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var num3 = 0;
+num3 += 4; //num3 + 4;と同じ意味
+console.log(num3); //結果は4となる
+</code>
+</pre>
+<!-- /.box-a --></div>
+<!-- /.part --></div>
+<div class="part">
+<div class="box-a">
+<p class="txt-title">例（-=）</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var num4 = 12;
+num4 -= 5; //num4 - 5;と同じ意味
+console.log(num4); //結果は7となる
+</code>
+</pre>
+<!-- /.box-a --></div>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+</section>
+
+<section id="anc-func">
+<h2 class="hdg-lv2-a">関数</h2>
+
+<h3 class="hdg-lv3-a">関数の基本</h3>
+<p><em>関数</em>は複数の処理をまとめて、再利用することができます。</p>
+
+<div class="box-a">
+<p class="txt-title">関数の書き方</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+function test() {
+  //関数内の処理
+};
+test(); //上記で作った関数を呼び出して処理を実行する記述
+test();
+test();
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<p>関数は<strong>作られた時点では実行されません</strong>。また、一度作った関数は何度も再利用することができます。<br>
+上記の場合、test関数が3回実行されます。</p>
+
+<h3 class="hdg-lv3-a">引数（ひきすう）の基本</h3>
+<p>下記の1行目、test関数のカッコの中に「name」という文字が入っています。このnameが引数です。<br>
+引数を使うことで<em>関数を呼び出す際に任意の値を関数に渡し、関数の中で自由にその値を利用することが可能になります</em>。</p>
+<p>引数は「,」（カンマ）で区切って複数指定することも可能です。</p>
+
+<div class="box-a">
+<p class="txt-title">引数の書き方</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+function test(name) {
+  console.log('Hello, ' + name + '!');
+};
+test('Joan'); //結果：Hello, Joan!
+test('Micky'); //結果：Hello, Micky!
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">戻り値</h3>
+<p>関数は「return」を使わないと処理を行ったらそのまま終了となります。しかし、「return」を使うと処理を行った結果の値を返せます。この値を<em>戻り値</em>といいます。戻り値を使えばさらに別の処理を続けることができます。</p>
+
+<div class="box-a">
+<p class="txt-title">戻り値の書き方</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+function test(x, y) {
+  var result = x + y;
+  return result; //「result」を戻す。戻した結果は変数numに格納される。
+};
+var num = test(3, 5);
+console.log(num);
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">無名関数</h3>
+<p>無名関数はvarで変数を宣言し、そこに関数を代入する形になります。この形で作られた関数も「<em>変数名();</em>」という形で呼び出すことができます。</p>
+<p><b>近年では関数を作る際に無名関数を使う方法が一般的です。</b></p>
+
+<div class="box-a">
+<p class="txt-title">無名関数の書き方</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var test = function (name) {
+  //関数内の処理
+};
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h3 class="hdg-lv3-a">2つの関数の違い</h3>
+<p>「functio 関数名～」で始まる関数の書き方を<strong>関数宣言</strong>と呼び、「var 関数名 = function～」で始まる無名関数のことを<strong>関数式（関数リテラル）</strong>といいます。</p>
+<p>関数宣言の場合は、<em>宣言前でも実行できる</em>という仕様があります。これを<strong>関数の巻き上げ</strong>と呼びます。</p>
+
+</section>
+
+<section id="anc-scope">
+<h2 class="hdg-lv2-a">スコープ</h2>
+<p><strong>ある関数の中で宣言された変数は、その関数の外では参照でいない</strong>ルールがある。これを<em>スコープ</em>と呼ぶ。</p>
+<p>反対にある関数の外で宣言された変数は、その関数の中では参照できます。（関数は入れ子にできます。）</p>
+
+<h3 class="hdg-lv3-a">グローバル変数とローカル変数</h3>
+<p>JavaScriptのスコープには「グローバル変数」と「ローカル変数」の2種類があります。<br>
+グローバル変数は<b>プログラム全体から参照でき</b>、ローカル変数は<b>その関数の中からのみ参照できる</b>ものです。</p>
+<aside>
+<h4 class="hdg-lv1-a">用語解説</h4>
+<h5 class="hdg-lv2-a">グローバル変数</h5>
+<p><em>関数の一番外側（トップレベルと呼ばれる）で宣言された変数</em>です。</p>
+<h5 class="hdg-lv2-a">ローカル変数</h5>
+<p><em>関数の中で宣言された変数</em>のことです。</p>
+</aside>
+
+<h3 class="hdg-lv3-a">グローバル変数について</h3>
+<p>グローバル変数はプログラム全体から参照できるという特徴を持ちますが、これは大きな問題をはらんでいます。つまり、<strong>プログラムのあらゆるところからいつでも変更できてしまう</strong>ということにつながるので<strong>バグの温床</strong>になるリスクが高くなります。</p>
+<p>したがってJavaScriptでは、<em>グローバル変数をできるだけ使わない</em>ようにすることが重要になります。</p>
+
+<p>この問題を解決するための一般的な記述方法は下記になります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+(function () {
+  //書きたい処理を書く
+})();
+</code>
+</pre>
+
+<p>無名関数を()で囲み、その後に();を付ける方法で記述すると、その関数がすぐに実行されるようになります。<br>
+トップレベルにおいて即時実行される無名関数を作り、その中に処理をまとめて書いていくことで、<em>すべてローカル変数としてしまう</em>というテクニックなのです。</p>
+<p>実際の開発で複数人でコードを書くといった状況でも、この書き方を用いることで、既存のコードに影響を与えずに処理を加えることが可能になります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+//Aさんのコード
+(function () {
+  //書きたい処理を書く
+})();
+
+//Bさんのコード
+(function () {
+  //書きたい処理を書く
+})();
+</code>
+</pre>
+
+
+</section>
+
+<section id="anc-conditional-branch">
+<h2 class="hdg-lv2-a">条件分岐</h2>
+
+<h3 class="hdg-lv3-a">比較演算子</h3>
+<p>比較演算子は「等しい」か「等しくない」かを表すものです。</p>
+<ul class="list-normal-a">
+<li><em class="continue">===</em>等しいことを表す</li>
+<li><em class="continue">!==</em>等しくないことを表す</li>
+</ul>
+<p class="txt-note"><span class="ast">※</span>「=」の数が変わると意味が変わったりバグの元になります。</p>
+
+<h3 class="hdg-lv3-a">論理演算子</h3>
+<p>「●●であり、かつ▲▲である」といった<strong>AND条件（論理積）</strong>や「●●であるか、あるいは▲▲である」といった<strong>OR条件（論理和）</strong>を表すものです。</p>
+<ul class="list-normal-a">
+<li><em class="continue">&&</em>AND条件</li>
+<li><em class="continue">||</em>OR条件</li>
+<li><em class="continue">!</em>否定を表す</li>
+</ul>
+
+<h3 class="hdg-lv3-a">条件演算子（三項演算子）</h3>
+<p>条件演算子を使うと、条件分岐を簡潔に書けることがあります。この演算子はif文のショートカットとして使われることがよく用いられます。</p>
+
+<div class="box-a">
+<p class="txt-title">使用例</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+//if文を用いて書く場合
+var check = function (num) {
+  var str;
+  if (num % 2 === 0) {
+    str = '偶数';
+  } else {
+    str = '奇数';
+  }
+  console.log(num + 'は' + str + 'です。');
+};
+check(5);
+
+
+//条件演算子で書く場合
+var check = function (num) {
+  var str = num % 2 === 0 ? '偶数' : '奇数';
+  console.log(num + 'は' + str + 'です。');
+};
+check(5);
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<p><b>「num % 2 === 0 ? '偶数' : '奇数';」</b>の部分が条件演算子です。<br>
+<b>「条件文 ? 条件がtrueの場合 : 条件がfalseの場合」</b>という解釈になります。</p>
+
+<h3 class="hdg-lv3-a">switch文</h3>
+<p>条件分岐が複雑な場合、switch文を使うことでわかりやすくなります。</p>
+
+<div class="box-a">
+<p class="txt-title">switch文の書き方</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+switch (式) {
+  case 値1:
+    //式が1だった場合に処理する文
+    break;
+  case 値2:
+    //式が2だった場合に処理する文
+    break;
+  default;
+    //どのcaseにも当てはまらなかった場合に処理する文
+}
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p class="txt-note"><span class="ast">※</span>「break;」を忘れると、式が値に当てはまったところ以降の文がすべて実行され、多くの場合はバグの元となるので注意が必要です。</p>
+
+<h3 class="hdg-lv3-a">様々な真偽判定</h3>
+<p>以下のようなクセのある真偽判定に注意しましょう。</p>
+
+<div class="box-a">
+<p class="txt-title">値が数値の0の場合、falseとみなされる</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var val = 0;
+if (val) {
+  console.log('trueです');
+} else {
+  console.log('falseです'); //こちらが表示される
+}
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<div class="box-a">
+<p class="txt-title">値が0以外の数値の場合（負の数も含む）、trueとみなされる</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var val = 5;
+if (val) {
+  console.log('trueです'); //こちらが表示される
+} else {
+  console.log('falseです');
+}
+</code>
+</pre>
+
+<div class="box-a">
+<p class="txt-title">値が文字列の'0'の場合、trueとみなされる</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var val = '0';
+if (val) {
+  console.log('trueです'); //こちらが表示される
+} else {
+  console.log('falseです');
+}
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<div class="box-a">
+<p class="txt-title">値が空の文字列の場合、falseとみなされる</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var val = '';
+if (val) {
+  console.log('trueです');
+} else {
+  console.log('falseです'); //こちらが表示される
+}
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<div class="box-a">
+<p class="txt-title">値が定義されていない場合、falseとみなされる</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var val;
+if (val) {
+  console.log('trueです');
+} else {
+  console.log('falseです'); //こちらが表示される
+}
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+</section>
+
+<section id="anc-first">
 <h2 class="hdg-lv2-a">タイトル</h2>
 
+<h3 class="hdg-lv3-a"></h3>
 
+</section>
+
+<section id="anc-first">
+<h2 class="hdg-lv2-a">タイトル</h2>
+
+<h3 class="hdg-lv3-a"></h3>
 
 </section>
 

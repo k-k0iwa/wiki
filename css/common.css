@@ -862,7 +862,7 @@ table td .txt-st {
 }
 
 /*-------------------------------
-  List（順番に意味がない）
+  List（ドットリスト）
 --------------------------------*/
 .list-normal-a > li {
   padding-left: 1em;
@@ -893,9 +893,12 @@ table td .txt-st {
 .list-normal-a > li > .continue::after {
   content: "・・・"
 }
+.list-normal-a > li > ul {
+  margin-top: 8px;
+}
 
 /*-------------------------------
-  List（順番に意味がある）
+  List（数字リスト）
 --------------------------------*/
 .list-num-a {
   counter-reset: num;
@@ -928,6 +931,10 @@ table td .txt-st {
   .list-num-a > li + li {
     margin-top: 10px;
   }
+}
+
+.list-num-a > li > ul {
+  margin-top: 8px;
 }
 
 /*-------------------------------
@@ -1152,6 +1159,7 @@ table td .txt-st {
     top: 4px;
   }
 }
+
 
 /*-------------------------------
   Box
