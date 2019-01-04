@@ -31,10 +31,10 @@
 <a href="/wiki/web/" class="scroll">Web</a>
 <div class="nav-inner-menu">
 <ul class="list-nav-inner">
-<li><a href="dummy">仮装</a></li>
-<li><a href="dummy">仮装</a></li>
-<li><a href="dummy">仮装</a></li>
-<li><a href="dummy">ハッピーハロウィン</a></li>
+<li><a href="dummy">A HAPPY NEW YEAR</a></li>
+<li><a href="dummy">2019</a></li>
+<li><a href="dummy">あけまして</a></li>
+<li><a href="dummy">おめでとうございます</a></li>
 </ul>
 <!-- nav-inner-menu --></div>
 </li>
@@ -69,8 +69,12 @@
 <li><a class="scroll" href="#anc-func">関数</a></li>
 <li><a class="scroll" href="#anc-scope">スコープ</a></li>
 <li><a class="scroll" href="#anc-conditional-branch">条件分岐</a></li>
-<li><a class="scroll" href="#anc-"></a></li>
-<li><a class="scroll" href="#anc-"></a></li>
+<li><a class="scroll" href="#anc-array">配列とオブジェクト</a></li>
+<li><a class="scroll" href="#anc-object">オブジェクト指向</a></li>
+<li><a class="scroll" href="#anc-html-dom">HTMLの操作</a></li>
+<li><a class="scroll" href="#anc-event">イベント</a></li>
+<li><a class="scroll" href="#anc-html5">HTML5</a></li>
+<!-- <li><a class="scroll" href="#anc-"></a></li> -->
 </ul>
 
 <section id="anc-rule">
@@ -453,6 +457,7 @@ if (val) {
 }
 </code>
 </pre>
+<!-- /.box-a --></div>
 
 <div class="box-a">
 <p class="txt-title">値が文字列の'0'の場合、trueとみなされる</p>
@@ -498,19 +503,574 @@ if (val) {
 
 </section>
 
-<section id="anc-first">
+<section id="anc-array">
+<h2 class="hdg-lv2-a">配列とオブジェクト</h2>
+
+<h3 class="hdg-lv3-a">配列</h3>
+<p>配列とは、グループ化された値を取り扱うための概念です。</p>
+
+<div class="box-a">
+<p class="txt-title">配列の作成</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>上記はarrayという変数の中に、配列の形でcat、dog、birdという文字列を格納している状態です。[]で囲み、それぞれの値を,で区切ることで配列として値を格納することができます。</p>
+
+<div class="box-a">
+<p class="txt-title">配列の利用</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+
+console.log(array[0]);
+console.log(array[1]);
+console.log(array[2]);
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>次に配列を利用する方法ですが、上記のコードをConsoleで確認してみると、そこには1行ごとに'cat'、'dog'、'bird'と表示されます。<br>
+array[0]という記述には、<em>arrayという名前の配列の0番目の要素を参照する</em>という意味があります。</p>
+<p>配列の最初の値を参照する場合は<strong>1ではなく0を指定する</strong>必要があることに注意してください。<br>
+どのプラグラミング言語でも、順番を数える時には0から始まり0、1、2と数えていくのが一般的です。</p>
+
+<h3 class="hdg-lv3-a">配列を操作する</h3>
+<h4 class="hdg-lv4-a">値の書き換え</h4>
+<p>配列内の要素に対して、新しい値を代入して書き換えることが可能です。</p>
+<div class="box-a">
+<p class="txt-title">先頭の要素を書き換え</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+console.log(array[0]); //結果…cat
+
+array[0] = 'ネコ';
+console.log(array[0]); //結果…ネコ
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<h4 class="hdg-lv4-a">値の追加</h4>
+<p><strong>配列.push('追加したい値')</strong>で<em>配列の最後に値を追加する</em>ことが可能です。</p>
+<div class="box-a">
+<p class="txt-title">最後に値を追加</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+console.log(array); //結果…['cat', 'dog', 'bird']
+
+array.push('monkey');
+console.log(array); //結果…['cat', 'dog', 'bird', 'monkey']
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+<p>pushに比べて使う頻度はそれほど高くないですが、<strong>配列.unshift('追加したい値')</strong>を使うことで<em>配列の最初に値を追加する</em>ことも可能です。</p>
+<div class="box-a">
+<p class="txt-title">最初に値を追加</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+console.log(array); //結果…['cat', 'dog', 'bird']
+
+array.unshift('monkey');
+console.log(array); //結果…['monkey', 'cat', 'dog', 'bird']
+</code>
+</pre>
+<!-- /.box-a --></div>
+
+
+<h4 class="hdg-lv4-a">配列の要素の数を取得</h4>
+<p><strong>配列.length</strong>という文法で、配列に含まれる要素の数を取得できます。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+console.log(array.length); //結果…3
+
+array.push('monkey');
+console.log(array.length); //結果…4
+</code>
+</pre>
+
+<h4 class="hdg-lv4-a">値の削除と切り出し</h4>
+<p><strong>配列.splice(削除開始地点, 削除する個数)</strong>という文法で配列の中の好きな地点から好きな個数の値を削除できます。</p>
+<div class="box-a">
+<p class="txt-title">値の削除</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+array.splice(0, 1);
+console.log(array); //結果…['dog', 'bird']
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>array.splice(0, 1);は「arrayの<em>0番目から1個分</em>の値を削除する」ことを示します。</p>
+
+<div class="box-a">
+<p class="txt-title">値の切り出し</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+var newArray = array.slice(0, 1);
+
+console.log(array); //結果…['cat', 'dog', 'bird']
+console.log(newArray); //結果…['cat']
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>切り出す部分は<em>0番目から1個分</em>を指定しています。しかし、こちらの文法の場合はもともとの配列であるarrayの値に変化はありません。<em>もともとの配列の中身はそのままに、好きな地点から好きな個数の値を切り出して新しい値を作り出す</em>のがsliceの働きです。</p>
+
+<h3 class="hdg-lv3-a">多次元配列</h3>
+<p>配列の中に含まれる配列のことを多次元配列と呼びます。</p>
+<div class="box-a">
+<p class="txt-title">多次元配列の作成</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8, 9]
+];
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>上記のように配列は入れ子にすることが可能です。これは2次元ですが、さらに入れ子にしていくこともできます。<br>
+配列内の要素を参照する方法ですが、例えばarrayの中の5に当たる部分を参照したい場合は次のように記述します。</p>
+<div class="box-a">
+<p class="txt-title">多次元配列の参照</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+console.log(array[1][2]); //結果…5
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>array[1]は配列[3, 4, 5]を示し、その中の0から数えて2番めの値として5が表示されます。</p>
+
+<h3 class="hdg-lv3-a">繰り返しの操作</h3>
+<pre class="pre-skin">
+<code class="prettyprint">
+var array = ['cat', 'dog', 'bird'];
+
+for(var i = 0, l = array.length; i < l; i++;) {
+    console.log(array[i]);
+}
+</code>
+</pre>
+<p>まずvar i = 0の部分で初期化と呼ばれる処理が行われます。特に難しいことはなく、iという変数に0という値を入れているだけです。l = array.lengthの部分で変数arrayの配列の数をlという変数に入れています。</p>
+<p>i < lは、この後の{}で囲まれた処理が行われる前に実行され、もしこれが正しければ{}で囲まれた処理が行われるという条件になっています。</p>
+<p>最後のi++は、{}で囲まれた処理が行われた後に実行される部分です。ここでは、処理が行われた後にiの値が1だけ加算されるようになっています。</p>
+<p>つまりこのコードの中では</p>
+<ol class="list-num-a">
+<li>console.log(array[0])</li>
+<li>console.log(array[1])</li>
+<li>console.log(array[2])</li>
+</ol>
+<p>が実行され、その後はiの値が3となり条件に合わないために処理がストップするという流れになっています。</p>
+
+<h3 class="hdg-lv3-a">オブジェクト</h3>
+<p>オブジェクトは配列と同じくグループ化された値を扱う概念です。配列と違うのは、配列が順番でしか中身の値を指し示せないのと違い、オブジェクトはそれぞれの値を名前とセットで扱うことが可能です。その値と名前のセットを<strong>プロパティ</strong>と呼びます。</p>
+<div class="box-a">
+<p class="txt-title">オブジェクトの作成</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var person = {
+    name: 'Tom',
+    sex: 'man',
+    age: 32
+};
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>各プロパティのnameやsexなどの名前を<strong>key</strong>と呼び、'Tom'や'man'などの値を<strong>value</strong>と呼びます。</p>
+
+<div class="box-a">
+<p class="txt-title">オブジェクトの値（value）の参照</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+console.log(person['name']);　結果…'Tom'
+console.log(person.sex);　結果…'man'
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>valueの参照方法としては、上記2つの方法があります。どちらを使用しても大丈夫です。</p>
+
+<div class="box-a">
+<p class="txt-title">プロパティの書き換え</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var person = {
+    name: 'Tom',
+    sex: 'man',
+    age: 32
+};
+
+person.name = 'Tanaka';
+console.log(person.name); //結果…'Tanaka'
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>配列の場合と同じく、上記のように参照した値に新しい値を代入することも可能です。</p>
+
+<div class="box-a">
+<p class="txt-title">プロパティの追加</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var person = {}; //空のオブジェクト
+person.name = 'Tom';
+console.log(person.name); //結果…Object {'Tom'}
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>既存のオブジェクトに新しいkeyとvalueを追加することもできます。</p>
+
+<div class="box-a">
+<p class="txt-title">プロパティの列挙</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var person = {
+    name: 'Tom',
+    sex: 'man',
+    age: 32
+};
+
+for (key in person) {
+    console.log(key);
+    console.log(person[key]);
+}
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>上記のように<em>for/in文</em>を使うことでプロパティを列挙することが可能です。</p>
+
+</section>
+
+<section id="anc-object">
+<h2 class="hdg-lv2-a">オブジェクト指向</h2>
+
+<h3 class="hdg-lv3-a">メソッド</h3>
+<pre class="pre-skin">
+<code class="prettyprint">
+var person = {
+    name: 'Tom',
+    sex: 'man',
+    age: 32,
+    sayHello: function() {
+        console.log('Hello');
+    }
+};
+
+person.sayHello();
+</code>
+</pre>
+<p>上記のようにオブジェクトのプロパティには関数を設定することができ、そのプロパティは<em>メソッド</em>と呼ばれます。<br>
+この例では「personというオブジェクトはsayHelloというメソッドを持つ」といえます。</p>
+
+<h3 class="hdg-lv3-a">thisについて</h3>
+<p>thisは<strong>メソッドとして使われたときのみ</strong>そのメソッドを持つオブジェクト自体を指します。これをthisの<em>メソッド呼び出しといいます。
+</em></p>
+
+<div class="box-a">
+<p class="txt-title">関数内のthis</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var fn = function() {
+  console.log(this);
+};
+fn();
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>上記の時にConsoleを確認すると、そこにはwindowという得体の知れないオブジェクトが表示されます。これはconsole.log(window);で表示されるものと同じで、ブラウザがデフォルトで用意しているグローバル変数です。このwindowは<em>グローバルオブジェクト</em>と呼ばれこのような使い方をthisの<em>関数呼び出し</em>といいます。関数呼び出しの場合のthisはグローバルオブジェクトを指すため、メソッド呼び出しのthisとは指しているものが違う点を注意してください。</p>
+
+<h3 class="hdg-lv3-a">コントラクスタとインスタンス</h3>
+<div class="box-a">
+<p class="txt-title">コンストラクタの例</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+//コンストラクタ
+var Person = function(name) {
+  this.name = name;
+  this.sayHello = function() {
+    console.log('Hello, ' + this.name + '!');
+  };
+};
+//コンストラクタの呼び出し
+var tom = new Person('Tom');
+console.log(tom.name);
+tom.sayHello();
+</code>
+</pre>
+<!-- /.box-a --></div>
+<p>コンストラクタとは、オブジェクト生成のために使う関数です。<br>
+コンストラクタの呼び出し時には「new」を使ってインスタンスオブジェクトを生成します。</p>
+<p>通常の関数とコンストラクタの違いは呼び出し方による違いだけなので、どんな関数でも「new」で呼び出せればそれはコンストラクタになります。</p>
+<p>プログラミングにおいて、ここでいうPersonのことを<em>コンストラクタ</em>と呼び、tomのことを<em>インスタンス</em>と呼びます。<br>
+<em>コンストラクタは慣習的に先頭を大文字として表現します</em>。</p>
+
+<h4 class="hdg-lv4-a">複数のインスタンスの生成</h4>
+<p>sayHelloはほぼ同じ処理として持っていて、共通じゃないnameの値だけ後から設定できる、ということがコンストラクタとインスタンスの便利なところになります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var Person = function(name) {
+  this.name = name;
+  this.sayHello = function() {
+    console.log('Hello, ' + name + '!');
+  };
+};
+
+var tom = new Person('Tom');
+var tom = mike Person('Mike');
+var tom = ken Person('Ken');
+</code>
+</pre>
+<p>このように「ほぼ共通のものだけど、一部は違うもの」を複数作る時に<em>その雛形さえ作っておけば後から自由に使える楽さ</em>というのがオブジェクト指向のメリットです。</p>
+
+<h3 class="hdg-lv3-a">プロトタイプ継承</h3>
+<p>もともと作ってあるPersonというコンストラクタと共通する部分があるのであれば、その機能を継承して新しいコンストラクタを作ることを<em>継承</em>という。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var Person = function(name) {
+  this.name = name;
+  this.sayHello = function() {
+    console.log('Hello, ' + this.name + '!');
+  };
+};
+
+var tom = new Person('Tom');
+console.log(tom.name);
+tom.sayHello();
+
+var Hero = function(name, level, job) {
+  this.name = name;
+  this.level = level;
+  this.job = job;
+};
+
+Hero.prototype = new Person();
+
+var cusinart = new Hero('Cusinart', 5, 'fighter');
+console.log(cusinart.name);
+cusinart.sayHello();
+console.log(cusinart.level);
+console.log(cusinart.job);
+</code>
+</pre>
+
+</section>
+
+<section id="anc-html-dom">
+<h2 class="hdg-lv2-a">HTMLの操作</h2>
+
+<h3 class="hdg-lv3-a">DOMとは</h3>
+<p>DOMとはDocument Object Modelの略で、HTMLの各要素にアクセスするための仕組みです。DOMツリーはHTMLの内容をツリー上に表現したものです。DOMツリー内の各要素はノードと呼びます。</p>
+
+<h3 class="hdg-lv3-a">要素の取得</h3>
+<h4 class="hdg-lv4-a">ID名で取得</h4>
+<pre class="pre-skin">
+<code class="prettyprint">
+var main = document.getElementById('main');
+</code>
+</pre>
+<p><strong>document.getElementById('ID名')</strong>で<em>特定のID名を持つノード</em>を取得します。</p>
+<p>documentはWebブラウザが標準で用意しているオブジェクトの1つで、HTMLを操作するためのものです。JavaScriptでのHTML操作は、主にこのdocumentオブジェクトを使った操作として実行していくことになります。</p>
+
+<h4 class="hdg-lv4-a">タグ名やクラス名で取得</h4>
+<p><strong>document.getElementsByTagName()</strong>を使ったタグ名での取得や<strong>document.getElementsByClassName()</strong>を使ったクラス名での取得も可能です。</p>
+<p>IDの取得時とは違い、getElementsが複数形になっていることに注意してください。また、Consoleでは配列の形として値が返ってきます。</p>
+
+<h4 class="hdg-lv4-a">親子兄弟の要素の取得</h4>
+<p>要素名だけでなく、ノードの親子や兄弟に当たる要素を指定して取得することも可能です。</p>
+<p>ある要素の親要素を取得するためには<em>parentNode</em>を用います。</p>
+<p>ある要素子小要素を取得するためには<em>firstChild</em>や<em>lastChild</em>あるいは<em>childNodes</em>を用います。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var main = document.getElementById('main');
+
+var parent = main.parentNode; //親要素の取得
+var firstChild = main.firstChild; //子要素の最初のものを取得
+var lastChild = main.lastChild; //子要素の最後のものを取得
+var childNodes = main.childNodes; //子要素を配列として取得
+</code>
+</pre>
+
+<p>上記で子要素を取得しようとすると意図しない形になってしまいます。<em>改行や半角スペースもノードとして認識されてしまう</em>ことが原因です。</p>
+<p>子要素の取得について期待通りに取得するには以下の方法を用います。ただし、IE8以前のバージョンではchildrenでも改行や半角スペースを取得してしまう点に注意してください。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var main = document.getElementById('main');
+
+var firstChild = main.firstElementChild; //子要素の最初のものを取得
+var lastChild = main.lastElementChild; //子要素の最後のものを取得
+var children = main.children; //子要素を配列として取得
+</code>
+</pre>
+
+<p>兄弟要素を取得するには<b>nextSibling</b>や<b>previousSibling</b>を用いますが、これも子要素と同じ問題を持っています。<br>
+それぞれ<em>nextElementSibling</em>、<em>previousElementSibling</em>を使うことで期待通り取得できるようになります。</p>
+
+<h4 class="hdg-lv4-a">フォームの取得</h4>
+<p>フォームに関しては専用にフォームの情報を取得するための方法が用意されています。<em>document.forms</em>によってDOMツリー内のフォーム要素を配列で取得することができます。</p>
+
+<h3 class="hdg-lv3-a">DOMの操作</h3>
+
+<h4 class="hdg-lv4-a">要素の取得と変更</h4>
+<pre class="pre-skin">
+<code class="prettyprint">
+var target = document.getElementById('main').firstElementChild;
+var text = target.innerText;
+console.log(text);
+</code>
+</pre>
+<p>要素の取得は「document」「.getElementById()」「.firstElementChild」という具合に続けて記述することができます。これを<em>メソッドチェーン
+</em>と呼びます。</p>
+<p>次に、target.innerTextでその要素内部のテキストの値を取得しています。</p>
+
+<pre class="pre-skin">
+<code class="prettyprint">
+var target = document.getElementById('main').firstElementChild;
+target.innerText = 'テキストが変更されました';
+</code>
+</pre>
+<p>取得だけでなく、その値を変更することも可能です。</p>
+
+<h4 class="hdg-lv4-a">要素の削除</h4>
+<p>取得した要素は、その値を変更するだけでなく、ノードをまるごと削除することも可能です。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var target = document.getElementById('main').firstElementChild;
+target.parentNode.removeChild(target);
+</code>
+</pre>
+<p>これを実現しているのはコード内の<em>removeChild()</em>ですが、これはもともと「ノード.removeChild(そのノードの子の中の対象)」という形で使われることを想定して作られています。ですから、ある要素そのものを削除したい場合、「削除したい要素」の「親要素」の「子の中」の「削除したい要素」を削除するという若干回りくどい形になります。</p>
+
+<h4 class="hdg-lv4-a">要素の追加</h4>
+<p>要素を追加したい場合、<em>「要素の作成」「要素の挿入」</em>と2つのステップが必要になります。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var element = document.createElement('p');
+element.innerText = 'これは追加された要素です';
+
+var main = document.getElementById('main');
+main.appendChild(element);
+</code>
+</pre>
+<p>「要素の作成」が<em>document.createElement('p')</em>に当たります。これは「pタグの要素を作成する」という意味になります。ここでは作成した要素を変数elementに格納し、そのinnerTextを「これは追加された要素です」としています。<br>
+その後の<em>main.appendChild(element)</em>が「要素の挿入」に当たる部分です。ID名で取得した要素の子として、作成したelementを挿入しています。</p>
+
+<p>ここでは<em>appendChild()</em>を使って子の<em>最後</em>の要素として挿入していますが、<em>親要素.insertBefore(挿入する要素)</em>を使うことで、任意の要素の<em>手前</em>の要素として挿入することも可能です。</p>
+
+<h3 class="hdg-lv3-a">セレクタAPI</h3>
+<p>セレクタAPIという方法で要素を取得する機能も用意されています。</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var targets = document.querySelectorAll('p.hoge');
+
+for (var i = 0, l = targets.length; i < l; i++) {
+  targets[i].style.color = 'red';
+}
+</code>
+</pre>
+<p>「document.querySelectorAll('p.hoge')」は「hogeというクラス名のpタグの要素」を示しています。つまり、この<em>querySelectorAll(セレクタ)</em>を使うことでcssで指定するようにタグ名とクラス名を指定して要素を取得することができます。取得された要素は配列の形で参照されます。</p>
+<p>指定したセレクタの<em>最初の要素だけ</em>を取得する場合は<em>querySelector(セレクタ)</em>を使用します。</p>
+
+</section>
+
+<section id="anc-event">
+<h2 class="hdg-lv2-a">イベント</h2>
+<pre class="pre-skin">
+<code class="prettyprint">
+var target = document.getElementById('target');
+
+target.addEventListener('click', function() {
+  this.innerText = 'クリックされました';
+})
+</code>
+</pre>
+<p>targetのメソッドで使用している<em>addEventListener</em>は第1引数に「どんなイベントなのか」を表す文字列を渡します。第2引数には、イベントによって実行される処理を書いた無名関数を渡します。<br>
+ここでのthisはクリックされた要素自体を指しており、その中のテキストを書き換える処理を行っています。</p>
+<p>addEventListenerはIE8以前には対応していないので「attachEvent」を用いる必要があります。</p>
+
+<h3 class="hdg-lv3-a">イベントの発火と伝播</h3>
+<p>ユーザが該当の箇所をクリックした場合、ブラウザはDOMツリーの上の方からそのターゲットを探しに行きます。次に対象の要素を発見したとき、イベントが<em>発火</em>し、設定された処理が走ります。<br>
+実はイベントはここで終わらず、今度はその該当の箇所から親に向けてイベントは<em>伝播</em>していきます。その際に、設定されているイベントが有る場合、このタイミングで処理が走ってしまうことになります。</p>
+
+<p>親にイベントを伝播させたくない場合は、addEventListenerの第2引数に指定する無名関数の引数にeventを取り、関数内で<strong>event.stopPropagation()</strong>という処理を行うことで伝播をストップさせます。</p>
+
+</section>
+
+<section id="anc-html5">
+<h2 class="hdg-lv2-a">HTML5</h2>
+
+<h3 class="hdg-lv3-a">グラフィックス</h3>
+<p>Webブラウザ上に画像を描画する方法としてCanvasとSVGが用意されました。</p>
+<h4 class="hdg-lv4-a">Canvas</h4>
+<p>Canvasの特徴は<em>ビットマップ形式</em>であるため、1ピクセルずつに対して「これは何色でこれは何色」と指定した結果を描画しています。</p>
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var canvas = document.getElementById('canvasSamp');
+var ctx = canvas.getContext('2d');
+
+ctx.beginPath();
+ctx.rect(10, 20, 50, 100); //x位置10px、y位置20pxから始まる、幅50px高さ100px
+ctx.strokeStyle = '#000';
+ctx.fillStyle = '#f00';
+ctx.stroke();
+ctx.fill();
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<canvas id="canvasSamp" width="300" height="150"></canvas>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<h4 class="hdg-lv4-a">SVG</h4>
+<p>SVGの特徴は<em>ベクター形式</em>であることです。要素が点と点で結ばれた集合体として数式で作られており、描画速度はやや遅いですが、変形やサイズ変更に強いといった強みもあります。</p>
+<div class="box-a">
+
+<div class="col-2">
+<div class="part">
+<p class="txt-title">使用例</p>
+<pre class="pre-skin">
+<code class="prettyprint">
+var circle = document.getElementById('svgSamp');
+
+circle.addEventListener('click', function() {
+  this.setAttribute('r', 45);
+});
+</code>
+</pre>
+<!-- /.part --></div>
+<div class="part">
+<p class="txt-title">表示例</p>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<circle id="svgSamp" cx="100" cy="100" r="30" stroke="black" stroke-width="3" fill="blue"></circle>
+</svg>
+<!-- /.part --></div>
+<!-- /.col-2 --></div>
+
+<!-- /.box-a --></div>
+
+<!-- <h3 class="hdg-lv3-a">ローカルストレージ</h3> -->
+
+</section>
+
+<!-- <section id="anc-">
 <h2 class="hdg-lv2-a">タイトル</h2>
 
 <h3 class="hdg-lv3-a"></h3>
 
-</section>
-
-<section id="anc-first">
-<h2 class="hdg-lv2-a">タイトル</h2>
-
-<h3 class="hdg-lv3-a"></h3>
-
-</section>
+</section> -->
 
 
 <p class="page-top"><a href="#top" class="scroll">ページトップへ</a></p>
@@ -528,6 +1088,22 @@ if (val) {
 
 <script src="/wiki/js/jquery-3.3.1.min.js"></script>
 <script src="/wiki/js/run.js"></script>
+<script>
+var canvas = document.getElementById('canvasSamp');
+var ctx = canvas.getContext('2d');
+
+ctx.beginPath();
+ctx.rect(10, 20, 50, 100);
+ctx.strokeStyle = '#000';
+ctx.fillStyle = '#f00';
+ctx.stroke();
+ctx.fill();
+
+var circle = document.getElementById('svgSamp');
+circle.addEventListener('click', function() {
+  this.setAttribute('r', 45);
+});
+</script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=doxy" defer></script>
 </body>
 </html>
