@@ -1,8 +1,17 @@
 'use strict';
 
+
+const $html = document.documentElement;
 const $body = document.body;
 const mqlTab = window.matchMedia('(min-width:768px)');
 const overlayClass = 'is-overlay';
+const loadingClass = 'is-loading';
+const ua = navigator.userAgent;
+let scrollPosition;
+
+if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
+    $html.classList.add('type-ios');
+}
 
 // splide(plug-in)
 (() => {
@@ -138,6 +147,7 @@ const overlayClass = 'is-overlay';
                 $body.classList.add(overlayClass);
                 imgSrc = lightboxImage.getAttribute('src');
                 lightboxImgTag.src = imgSrc.replace(/_s\.(gif|jpg|jpeg|png)/, '_l.$1');
+                bodyFixedOn();
             });
         });
     }
@@ -147,11 +157,13 @@ const overlayClass = 'is-overlay';
     lightboxWrapper.addEventListener('click', () => {
         if (lightboxWrapper.classList.contains(showClass)) {
             lightboxClose();
+            bodyFixedOff();
         }
     });
 
     lightboxCloseBtn.addEventListener('click', () => {
         lightboxClose();
+        bodyFixedOff();
     });
 
     function lightboxClose() {
@@ -214,3 +226,19 @@ const overlayClass = 'is-overlay';
         });
     });
 })();
+
+//bodyのスクロール固定(iOS)
+function bodyFixedOn() {
+    if (($html.classList.contains(overlayClass) || ($html.classList.contains(loadingClass)))) {
+        scrollPosition = $html.scrollTop;
+        $body.style.top = '-' + scrollPosition + 'px';
+    }
+}
+
+//bodyのスクロール固定を解除(iOS)
+function bodyFixedOff() {
+    if (($html.classList.contains(overlayClass) || ($html.classList.contains(loadingClass)))) {
+        $body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+    }
+}
