@@ -13,6 +13,13 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
     $html.classList.add(iosClass);
 }
 
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+window.addEventListener('unload', () => {
+    window.scrollTo(0, 0);
+});
+
 // splide(plug-in)
 (() => {
     setTimeout(() => {
