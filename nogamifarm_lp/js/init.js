@@ -42,7 +42,7 @@
         //bodyのスクロール固定(iOS)
         function bodyFixedOn() {
             if (($body.classList.contains(overlayClass) || ($body.classList.contains(loadingClass)))) {
-                scrollPosition = $html.scrollTop;
+                scrollPosition = window.pageYOffset;
                 $body.style.top = '-' + scrollPosition + 'px';
             }
         }
