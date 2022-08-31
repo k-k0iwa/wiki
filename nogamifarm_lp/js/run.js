@@ -8,7 +8,6 @@ const overlayClass = 'is-overlay';
 const loadingClass = 'is-loading';
 const ua = navigator.userAgent;
 const iosClass = 'type-ios';
-let scrollPosition;
 
 if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
     $html.classList.add(iosClass);
@@ -143,28 +142,32 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
                 lightboxImage.dataset.num = index;
             }
 
-            lightboxImage.addEventListener('click', (e) => {
+            lightboxImage.addEventListener('click', () => {
                 lightboxWrapper.classList.add(showClass);
                 $body.classList.add(overlayClass);
                 imgSrc = lightboxImage.getAttribute('src');
                 lightboxImgTag.src = imgSrc.replace(/_s\.(gif|jpg|jpeg|png)/, '_l.$1');
-                bodyFixedOn();
+                baclLocked.open();
             });
         });
     }
     mqlTab.addEventListener('change', mediaChange);
     mediaChange(mqlTab);
 
+    window.addEventListener('scroll', () => {
+        offset = window.pageYOffset;
+    });
+
     lightboxWrapper.addEventListener('click', () => {
         if (lightboxWrapper.classList.contains(showClass)) {
             lightboxClose();
-            bodyFixedOff();
+            baclLocked.close();
         }
     });
 
     lightboxCloseBtn.addEventListener('click', () => {
         lightboxClose();
-        bodyFixedOff();
+        baclLocked.close();
     });
 
     function lightboxClose() {
@@ -173,12 +176,31 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
         lightboxImgTag.src = '';
     }
 
-    const prev = document.querySelector('.control-prev');
-    const next = document.querySelector('.control-next');
+    // 背景固定
+    let scrollStock = 0;
+    let offset = 0
+    const baclLocked = {
+        open: () => {
+          scrollStock = offset;
+          $body.style.top = -scrollStock + "px";
+        },
+        close: () => {
+          $body.style.top = "";
+          window.scrollTo(0, scrollStock);
+        }
+    };
 
-    prev.addEventListener('click', () => {
-        index = lightboxImages.indexOf(lightboxImage);
-    });
+    //bodyのスクロール固定(iOS)
+    // if ($html.classList.contains(iosClass)) {}
+
+
+
+    // const prev = document.querySelector('.control-prev');
+    // const next = document.querySelector('.control-next');
+
+    // prev.addEventListener('click', () => {
+    //     index = lightboxImages.indexOf(lightboxImage);
+    // });
 })();
 
 // Scroll Animation
@@ -227,19 +249,3 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
         });
     });
 })();
-
-//bodyのスクロール固定(iOS)
-function bodyFixedOn() {
-    if ($html.classList.contains(iosClass)) {
-        scrollPosition = window.pageYOffset;
-        $body.style.top = '-' + scrollPosition + 'px';
-    }
-}
-
-//bodyのスクロール固定を解除(iOS)
-function bodyFixedOff() {
-    if ($html.classList.contains(iosClass)) {
-        $body.style.top = '';
-        window.scrollTo(0, scrollPosition);
-    }
-}
