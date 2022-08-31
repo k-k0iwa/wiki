@@ -148,7 +148,7 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
                 $body.classList.add(overlayClass);
                 imgSrc = lightboxImage.getAttribute('src');
                 lightboxImgTag.src = imgSrc.replace(/_s\.(gif|jpg|jpeg|png)/, '_l.$1');
-                bodyFixedOn(lightboxImage);
+                bodyFixedOn();
             });
         });
     }
@@ -229,9 +229,9 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
 })();
 
 //bodyのスクロール固定(iOS)
-function bodyFixedOn(e) {
+function bodyFixedOn() {
     if ($html.classList.contains(iosClass)) {
-        scrollPosition = e.getBoundingClientRect().top;
+        scrollPosition = window.pageYOffset;
         $body.style.top = '-' + scrollPosition + 'px';
     }
 }
