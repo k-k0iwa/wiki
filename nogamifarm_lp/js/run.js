@@ -7,10 +7,11 @@ const mqlTab = window.matchMedia('(min-width:768px)');
 const overlayClass = 'is-overlay';
 const loadingClass = 'is-loading';
 const ua = navigator.userAgent;
+const iosClass = 'type-ios';
 let scrollPosition;
 
 if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
-    $html.classList.add('type-ios');
+    $html.classList.add(iosClass);
 }
 
 // splide(plug-in)
@@ -142,12 +143,12 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
                 lightboxImage.dataset.num = index;
             }
 
-            lightboxImage.addEventListener('click', () => {
+            lightboxImage.addEventListener('click', (e) => {
                 lightboxWrapper.classList.add(showClass);
                 $body.classList.add(overlayClass);
                 imgSrc = lightboxImage.getAttribute('src');
                 lightboxImgTag.src = imgSrc.replace(/_s\.(gif|jpg|jpeg|png)/, '_l.$1');
-                bodyFixedOn();
+                bodyFixedOn(lightboxImage);
             });
         });
     }
@@ -228,16 +229,16 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
 })();
 
 //bodyのスクロール固定(iOS)
-function bodyFixedOn() {
-    if (($body.classList.contains(overlayClass) || ($body.classList.contains(loadingClass)))) {
-        scrollPosition = window.pageYOffset;
+function bodyFixedOn(e) {
+    if ($html.classList.contains(iosClass)) {
+        scrollPosition = e.getBoundingClientRect().top;
         $body.style.top = '-' + scrollPosition + 'px';
     }
 }
 
 //bodyのスクロール固定を解除(iOS)
 function bodyFixedOff() {
-    if (($body.classList.contains(overlayClass) || ($body.classList.contains(loadingClass)))) {
+    if ($html.classList.contains(iosClass)) {
         $body.style.top = '';
         window.scrollTo(0, scrollPosition);
     }
