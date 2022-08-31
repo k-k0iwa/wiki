@@ -190,11 +190,6 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
         }
     };
 
-    //bodyのスクロール固定(iOS)
-    // if ($html.classList.contains(iosClass)) {}
-
-
-
     // const prev = document.querySelector('.control-prev');
     // const next = document.querySelector('.control-next');
 
