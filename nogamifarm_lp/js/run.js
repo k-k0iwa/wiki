@@ -229,7 +229,7 @@ if ((ua.indexOf('iPhone') !== -1) || (ua.indexOf('iPad') > -1)) {
 
 //bodyのスクロール固定(iOS)
 function bodyFixedOn() {
-    if (($html.classList.contains(overlayClass) || ($html.classList.contains(loadingClass)))) {
+    if (($body.classList.contains(overlayClass) || ($body.classList.contains(loadingClass)))) {
         scrollPosition = $html.scrollTop;
         $body.style.top = '-' + scrollPosition + 'px';
     }
@@ -237,7 +237,7 @@ function bodyFixedOn() {
 
 //bodyのスクロール固定を解除(iOS)
 function bodyFixedOff() {
-    if (($html.classList.contains(overlayClass) || ($html.classList.contains(loadingClass)))) {
+    if (($body.classList.contains(overlayClass) || ($body.classList.contains(loadingClass)))) {
         $body.style.top = '';
         window.scrollTo(0, scrollPosition);
     }
