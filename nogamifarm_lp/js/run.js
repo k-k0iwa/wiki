@@ -28,8 +28,10 @@ window.addEventListener('unload', () => {
             speed: 4500,
             arrows: false,
             pagination: false,
-            interval: 7000,
+            drag: false,
             autoplay: 'pause',
+            interval: 7000,
+            pauseOnHover: false,
             intersection: {
                 inView: {
                     autoplay: true
