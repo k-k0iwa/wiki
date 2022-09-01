@@ -1,6 +1,5 @@
 'use strict';
 
-
 const $html = document.documentElement;
 const $body = document.body;
 const mqlTab = window.matchMedia('(min-width:768px)');
@@ -26,10 +25,10 @@ window.addEventListener('unload', () => {
         new Splide('.splide', {
             type : 'fade',
             rewind: true,
-            speed: 5000,
+            speed: 4000,
             arrows: false,
             pagination: false,
-            interval: 12000,
+            interval: 6000,
             autoplay: 'pause',
             intersection: {
                 inView: {
@@ -40,7 +39,7 @@ window.addEventListener('unload', () => {
                 }
             }
         }).mount(window.splide.Extensions);
-    }, 7000);
+    }, 5000);
 })();
 
 // Menu
@@ -196,13 +195,6 @@ window.addEventListener('unload', () => {
           window.scrollTo(0, scrollStock);
         }
     };
-
-    // const prev = document.querySelector('.control-prev');
-    // const next = document.querySelector('.control-next');
-
-    // prev.addEventListener('click', () => {
-    //     index = lightboxImages.indexOf(lightboxImage);
-    // });
 })();
 
 // Scroll Animation

@@ -28,10 +28,10 @@
         setTimeout(() => {
             $hdgFv.classList.add(activeClass);
             $body.classList.remove(loadingClass);
-        }, 8000);
+        }, 6500);
 
         setTimeout(() => {
             $loadingArea.style.display = 'none';
-        }, 8500);
+        }, 7000);
     });
 })();
