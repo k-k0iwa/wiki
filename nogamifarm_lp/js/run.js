@@ -25,10 +25,10 @@ window.addEventListener('unload', () => {
         new Splide('.splide', {
             type : 'fade',
             rewind: true,
-            speed: 4000,
+            speed: 4500,
             arrows: false,
             pagination: false,
-            interval: 6000,
+            interval: 7000,
             autoplay: 'pause',
             intersection: {
                 inView: {
