@@ -30,7 +30,7 @@ window.addEventListener('unload', () => {
             pagination: false,
             drag: false,
             autoplay: 'pause',
-            interval: 7000,
+            interval: 7500,
             pauseOnHover: false,
             intersection: {
                 inView: {
