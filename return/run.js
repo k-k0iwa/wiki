@@ -70,19 +70,6 @@
             });
         }
 
-        // 検索キーワード保持
-        const $searchKeyword = $('#js-search-keyword');
-        if ($searchKeyword.length) {
-            let storedKeyword = localStorage.getItem($searchKeyword);
-            if (storedKeyword) {
-                $searchKeyword.val(storedKeyword);
-            }
-        }
-        $('[name="genreForm"]').on('submit', function() {
-            let inputKeyword = $searchKeyword.val();
-            localStorage.setItem($searchKeyword, inputKeyword);
-        });
-
         // スマホ用モーダルコンテンツ
         const $searchContents = $('.js-sp-search-contents');
         if ($searchContents.length) {
@@ -94,7 +81,8 @@
             let keepName;
             let $thisInput;
 
-            $searchContents.find('#js-search-keyword').attr('id', 'js-search-keyword_clone');
+            $searchContents.find('#js-search-keyword').attr('id', 'js-search-keyword_sp');
+            $searchContents.find('[name="cmdArticleSearch"]').remove();
 
             $searchContents.find('.unt-features-side-keywords').removeAttr('id');
             $searchContents.find('.unt-features-side-keywords-item').each(function() {
@@ -103,10 +91,10 @@
                 keepVal = $thisInput.attr('id');
                 keepName = $thisInput.attr('name');
                 $thisInput.attr({
-                    'id': keepVal + '_clone',
-                    'name': keepName + '_clone'
+                    'id': keepVal + '_sp',
+                    'name': keepName + '_sp'
                 });
-                $this.find('label').attr('for', keepVal + '_clone');
+                $this.find('label').attr('for', keepVal + '_sp');
             });
 
             $searchContents.find('.unt-features-side-archive').removeAttr('id');
@@ -116,16 +104,21 @@
                 keepVal = $thisInput.attr('id');
                 keepName = $thisInput.attr('name');
                 $thisInput.attr({
-                    'id': keepVal + '_clone',
-                    'name': keepName + '_clone'
+                    'id': keepVal + '_sp',
+                    'name': keepName + '_sp'
                 });
-                $this.find('label').attr('for', keepVal + '_clone');
+                $this.find('label').attr('for', keepVal + '_sp');
+
+                // 「すべて」不要
+                if ($this.attr('data-uri') === '/date') {
+                    $this.remove();
+                }
             });
 
             // 特集カテゴリから探す生成
             const $spCategory = $('\<div\>').addClass('unt-features-top-side js-sp-search-clone');
             const $spCategoryHdg = $('\<h2\>').addClass('unt-features-side-hdg').html('<span class="unt-fs-l">\u7279\u96C6\u30AB\u30C6\u30B4\u30EA</span>\u304B\u3089\u63A2\u3059'); // 特集カテゴリ / から探す
-            const $spCategoryList = $('\<ul\>').addClass( 'unt-features-side-archive');
+            const $spCategoryList = $('\<ul\>').addClass( 'unt-features-side-archive js-sp-modal-cate');
             let $spCategoryListItem;
             let $spCategoryListInput;
             let $spCategoryListLabel;
@@ -139,20 +132,24 @@
                 getHref = $this.attr('href');
                 getText = $this.text();
                 setDataUri = getHref.substring(getHref.lastIndexOf('/category'));
-                $spCategoryListItem = $('\<li\>').attr({
-                    'class': 'unt-features-side-archive-item',
-                    'data-uri': setDataUri
-                });
-                $spCategoryListInput = $('\<input\>').attr({
-                    type : 'radio',
-                    'id': 'category' + i,
-                    'name': 'feature_category',
-                    'value': ''
-                }).appendTo($spCategoryListItem);
-                $spCategoryListLabel = $('\<label\>').attr({
-                    'for': 'category' + i,
-                    'class': 'unt-features-side-archive-label'
-                }).text(getText).appendTo($spCategoryListItem);
+
+                // 「すべて」不要
+                if (setDataUri !== '/category') {
+                    $spCategoryListItem = $('\<li\>').attr({
+                        'class': 'unt-features-side-archive-item',
+                        'data-uri': setDataUri
+                    });
+                    $spCategoryListInput = $('\<input\>').attr({
+                        type : 'radio',
+                        'id': 'category' + i,
+                        'name': 'feature_category',
+                        'value': ''
+                    }).appendTo($spCategoryListItem);
+                    $spCategoryListLabel = $('\<label\>').attr({
+                        'for': 'category' + i,
+                        'class': 'unt-features-side-archive-label'
+                    }).text(getText).appendTo($spCategoryListItem);
+                }
 
                 $spCategoryList.append($spCategoryListItem);
             });
@@ -161,11 +158,219 @@
             $spCategory.insertBefore('.js-sp-search-contents .js-search-clone-archive');
         }
 
-        // 絞り込みURL制御
+        // 絞り込みURL制御(PC)
         const $featuresSideKeywords = $('#js-features-side-keywords');
         if ($listCate.length || $featuresSideKeywords.length || $featuresArchive.length) {
-            //
+            let pcModalDataUri;
+            let pcModalRegex;
+            let pcCreateUrl;
+
+            // カテゴリから探す
+            $listCate.find('.unt-list-cate-link').on('click', function(e) {
+                pcModalDataUri = $(this).attr('data-uri');
+
+                if (
+                    !CURRENT_PAGE_URL.includes('/category') &&
+                    (CURRENT_PAGE_URL.includes('/hashtag') || CURRENT_PAGE_URL.includes('/date') || CURRENT_PAGE_URL.includes('?article_data_keyword_filter'))
+                ) {
+                    // /hashtag or /date or ?article_data_keyword_filterが含まれているが/categoryが含まれていない場合、URL前に追加
+                    e.preventDefault();
+                    pcModalRegex = /(\/hashtag[^\/]*|\/date[^\/]*|\?article_data_keyword_filter=[^&]*)/;
+                    const pcModalRegexMatch = CURRENT_PAGE_URL.match(pcModalRegex);
+                    pcCreateUrl = CURRENT_PAGE_URL;
+
+                    if (pcModalRegexMatch) {
+                        pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegexMatch[1], pcModalDataUri + pcModalRegexMatch[1]);
+                    } else {
+                        pcCreateUrl = CURRENT_PAGE_URL + pcModalDataUri;
+                    }
+                    window.location.href = pcCreateUrl;
+                } else if (
+                    CURRENT_PAGE_URL.includes('/category') &&
+                    (CURRENT_PAGE_URL.includes('/hashtag') || CURRENT_PAGE_URL.includes('/date') || CURRENT_PAGE_URL.includes('?article_data_keyword_filter'))
+                ) {
+                    // /categoryが含まれる 且つ /hashtag or /date or ?article_data_keyword_filterが含まれている場合、リセット
+                    $('input[name="feature_category"], input[name="feature_key_category"], input[name="feature_archive"]').prop('checked', false);
+                    $('#js-search-keyword').val('');
+                    localStorage.removeItem('searchKeyword');
+                    localStorage.removeItem('feature_key_category');
+                    localStorage.removeItem('feature_archive');
+                }
+            });
+
+            // キーワードから探す
+            const $searchKeyword = $('#js-search-keyword');
+            if ($searchKeyword.length) {
+                let storedKeyword = localStorage.getItem('searchKeyword');
+                if (storedKeyword) {
+                    $searchKeyword.val(storedKeyword);
+                }
+            }
+
+            $('[name="cmdArticleSearch"]').on('click', function(e) {
+                const keyword = $('#js-search-keyword').val();
+
+                // 保持
+                let inputKeyword = $searchKeyword.val();
+                localStorage.setItem('searchKeyword', inputKeyword);
+
+                if (CURRENT_PAGE_URL.includes('?article_data_keyword_filter')) {
+                    // ?article_data_keyword_filterがある場合、パラメータ値を書き換え
+                    e.preventDefault();
+                    pcModalRegex = /(\?article_data_keyword_filter=)[^&]*/;
+                    pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegex, '$1' + encodeURIComponent(keyword));
+                    window.location.href = pcCreateUrl;
+                } else if (CURRENT_PAGE_URL.includes('/hashtag') || CURRENT_PAGE_URL.includes('/date')) {
+                    // /hashtag or /dateがある場合、削除の上書き換え
+                    e.preventDefault();
+                    pcModalRegex = /(\/hashtag(\/[^\/]*)*|\/date(\/[^\/]*)*)/;
+                    pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegex, '' + '?article_data_keyword_filter=' + encodeURIComponent(keyword));
+                    window.location.href = pcCreateUrl;
+                    $('input[name="feature_key_category"], input[name="feature_archive"]').prop('checked', false);
+                } else {
+                    e.preventDefault();
+                    pcCreateUrl = CURRENT_PAGE_URL + '?article_data_keyword_filter=' + encodeURIComponent(keyword);
+                    window.location.href = pcCreateUrl;
+                }
+
+                localStorage.removeItem('feature_key_category');
+                localStorage.removeItem('feature_archive');
+            });
+
+            // 人気キーワードから探す
+            if ($('#js-features-side-keywords').length) {
+                let storedKeyword = localStorage.getItem('feature_key_category');
+                $('#js-features-side-keywords [type="radio"]').each(function() {
+                    if (storedKeyword && storedKeyword === $(this).attr('id')) {
+                        $(this).prop('checked', true);
+                    }
+                });
+            }
+
+            $DOC.on('change', '#js-features-side-keywords [type="radio"]', function() {
+                pcModalDataUri = $(this).closest('li').attr('data-uri');
+
+                // 保持
+                const checkedValue = $('input[name="feature_key_category"]:checked').attr('id');
+                localStorage.setItem('feature_key_category', checkedValue);
+
+                if (CURRENT_PAGE_URL.includes('/hashtag')) {
+                    // 「/hashtag」がある場合、「/hashtag」以降のURLを書き換える
+                    pcModalRegex = /(\/hashtag)(\/[^\/]*)*/;
+                    pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegex, '$1' + pcModalDataUri);
+                    window.location.href = pcCreateUrl;
+                } else if (CURRENT_PAGE_URL.includes('/date') || CURRENT_PAGE_URL.includes('?article_data_keyword_filter')) {
+                    // /categoryがある且つ/date or ?article_data_keyword_filterがある場合、削除の上書き換え、リセット
+                    pcModalRegex = /(\/date(\/[^\/]*)*|\/hashtag(\/[^\/]*)*|\?article_data_keyword_filter=[^&]*)/;
+                    pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegex, '') + '/hashtag' + pcModalDataUri;
+                    window.location.href = pcCreateUrl;
+                    $('input[name="feature_archive"]').prop('checked', false);
+                    $('#js-search-keyword').val('');
+                } else {
+                    // /categoryがある場合 or 何も無い場合
+                    pcCreateUrl = CURRENT_PAGE_URL + '/hashtag' + pcModalDataUri;
+                    window.location.href = pcCreateUrl;
+                }
+
+                localStorage.removeItem('searchKeyword');
+                localStorage.removeItem('feature_archive');
+            });
+
+            // アーカイブから探す
+            if ($('#js-features-archive').length) {
+                let storedKeyword = localStorage.getItem('feature_archive');
+                $('#js-features-archive [type="radio"]').each(function() {
+                    if (storedKeyword && storedKeyword === $(this).attr('id')) {
+                        $(this).prop('checked', true);
+                    }
+                });
+            }
+
+            $DOC.on('change', '#js-features-archive [type="radio"]', function() {
+                pcModalDataUri = $(this).closest('li').attr('data-uri');
+
+                // 保持
+                const checkedValue = $('input[name="feature_archive"]:checked').attr('id');
+                localStorage.setItem('feature_archive', checkedValue);
+
+                if (CURRENT_PAGE_URL.includes('/date')) {
+                    // 「/date」がある場合、「/date」以降のURLを書き換える
+                    pcModalRegex = /(\/date)(\/[^\/]*)*/;
+                    pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegex, '' + pcModalDataUri);
+                    window.location.href = pcCreateUrl;
+                } else if (CURRENT_PAGE_URL.includes('/hashtag') || CURRENT_PAGE_URL.includes('?article_data_keyword_filter')) {
+                    // /hashtag or ?article_data_keyword_filterがある場合、削除の上書き換え、リセット
+                    pcModalRegex = /(\/hashtag(\/[^\/]*)*|\?article_data_keyword_filter=[^&]*)/;
+                    pcCreateUrl = CURRENT_PAGE_URL.replace(pcModalRegex, '') + pcModalDataUri;
+                    window.location.href = pcCreateUrl;
+                    $('input[name="feature_key_category"]').prop('checked', false);
+                    $('#js-search-keyword').val('');
+                } else {
+                    // /categoryがある場合 or 何も無い場合
+                    pcCreateUrl = CURRENT_PAGE_URL + pcModalDataUri;
+                    window.location.href = pcCreateUrl;
+                }
+
+                localStorage.removeItem('searchKeyword');
+                localStorage.removeItem('feature_key_category');
+            });
         }
+
+        // 絞り込みURL制御(SP)
+        let selectedCategory = '';
+        // 特集カテゴリ（動的生成）のため
+        $DOC.on('change', '.js-sp-modal-cate [type="radio"]', function() {
+            selectedCategory = $(this).closest('li').data('uri');
+        });
+
+        $('#js-search-btn-submit').on('click', function() {
+            let urlParams = [];
+
+            // 特集カテゴリ値
+            if (selectedCategory) {
+                urlParams.push(selectedCategory);
+            }
+
+            // 人気キーワード値
+            let popularKeyword = $('input[name="feature_key_category_sp"]:checked').closest('li').data('uri');
+            if (popularKeyword) {
+                urlParams.push('/hashtag' + popularKeyword);
+            }
+
+            // アーカイブ値
+            let archive = $('input[name="feature_archive_sp"]:checked').closest('li').data('uri');
+            if (archive) {
+                urlParams.push(archive);
+            }
+
+            // 検索キーワード値
+            let searchKeyword = $('#js-search-keyword_sp').val();
+            if (searchKeyword) {
+                urlParams.push('?article_data_keyword_filter=' + searchKeyword);
+            }
+
+            // URLの最後のディレクトリが「/features」ならそのまま値をURLに繋げる
+            // ディレクトリに「/category」が含まれている場合、削除して値をURLに繋げる
+            let featuresIndex = CURRENT_PAGE_URL.indexOf("/features");
+            if (featuresIndex !== -1) {
+                CURRENT_PAGE_URL = CURRENT_PAGE_URL.substring(0, featuresIndex + 9);
+            }
+
+            // 最終的なURLを組み立てる
+            let finalURL = CURRENT_PAGE_URL + urlParams.join('');
+
+            // 絞り込みを実行する
+            // window.location.href = finalURL;
+            console.log(finalURL);
+
+            // 選択数
+            console.log(urlParams.length);
+        });
+
+        $('#js-search-btn-reset').on('click', function() {
+            $('#js-search-keyword_sp').val("");
+            $('.js-sp-search-contents [type="radio"]').prop('checked', false);
+        });
     }());
 
     /**
@@ -181,7 +386,7 @@
                 $relatedFeature.find('[data-related-hide]').each(function() {
                     $this = $(this);
                     if($this.data('related-hide') !== '') {
-                        $this.addClass(HIDDEN_CLASS);
+                        $this.remove();
                     }
                 });
             } else {
@@ -328,7 +533,6 @@
                     $this.focus();
                 }
             });
-            resetFocusLoop();
 
             // スクロールバーのズレ対策
             if(!MOBILE && !TABLET) {
@@ -349,198 +553,3 @@
         });
     }());
 }(window, window.document, window.jQuery));
-
-
-// 絞り込みURL制御サンプル
-$(document).ready(function() {
-    // #js-category a要素をクリックしたときの処理
-    $('#js-category a').on('click', function(e) {
-        const currentUrl = window.location.href;
-        const dataUri = $(this).attr('data-uri');
-
-        if (
-            !currentUrl.includes('/category') ||
-            currentUrl.includes('/hashtag') ||
-            currentUrl.includes('/date') ||
-            currentUrl.includes('?article_data_keyword_filter')
-        ) {
-            // 通常の遷移
-            return;
-        } else {
-            // data-uri属性を含むURLに遷移し、ラジオボタンと検索キーワードをリセット
-            e.preventDefault();
-            const newUrl = currentUrl.replace('/category', dataUri);
-            window.location.href = newUrl;
-            $('input[name="feature_category"], input[name="feature_key_category"], input[name="feature_archive"]').prop('checked', false);
-            $('#js-search-keyword').val('');
-        }
-    });
-
-    // #js-category-another ラジオボタンをチェックしたときの処理
-    $('#js-category-another input[type="radio"]').on('click', function() {
-        const currentUrl = window.location.href;
-        const dataUri = $(this).closest('li').attr('data-uri');
-
-        if (
-            !currentUrl.includes('/category') ||
-            currentUrl.includes('/hashtag') ||
-            currentUrl.includes('/date') ||
-            currentUrl.includes('?article_data_keyword_filter')
-        ) {
-            // 親要素のdata-uri属性をURLに追加して遷移
-            const newUrl = currentUrl + dataUri;
-            window.location.href = newUrl;
-            $('#js-hashtag input[type="radio"], #js-date input[type="radio"]').prop('checked', false);
-            $('#js-search-keyword').val('');
-        } else {
-            // 通常の遷移
-            return;
-        }
-    });
-
-    // #js-search-keywordの検索ボタンをクリックしたときの処理
-    $('[name="cmdArticleSearch"]').on('click', function(e) {
-        const currentUrl = window.location.href;
-        const keyword = $('#js-search-keyword').val();
-
-        if (!currentUrl.includes('/category')) {
-            // URLに?article_data_keyword_filterを追加して遷移
-            e.preventDefault();
-            const newUrl = currentUrl + '?article_data_keyword_filter=' + encodeURIComponent(keyword);
-            window.location.href = newUrl;
-            $('#js-hashtag input[type="radio"], #js-date input[type="radio"]').prop('checked', false);
-        } else if (currentUrl.includes('?article_data_keyword_filter')) {
-            // ?article_data_keyword_filterパラメータ値をkeywordに置き換えて遷移
-            e.preventDefault();
-            const regex = /(\?article_data_keyword_filter=)[^&]*/;
-            const newUrl = currentUrl.replace(regex, '$1' + encodeURIComponent(keyword));
-            window.location.href = newUrl;
-            $('#js-hashtag input[type="radio"], #js-date input[type="radio"]').prop('checked', false);
-        } else if (currentUrl.includes('/hashtag') || currentUrl.includes('/date')) {
-            // URLの?article_data_keyword_filter以降を削除して遷移
-            e.preventDefault();
-            const regex = /\?article_data_keyword_filter=[^&]*/;
-            const newUrl = currentUrl.replace(regex, '');
-            window.location.href = newUrl;
-            $('#js-hashtag input[type="radio"], #js-date input[type="radio"]').prop('checked', false);
-        } else {
-            // 通常の遷移
-            return;
-        }
-    });
-
-    // #js-hashtag ラジオボタンをクリックしたときの処理
-    $('#js-hashtag input[type="radio"]').on('click', function() {
-        const currentUrl = window.location.href;
-        const dataUri = $(this).closest('li').attr('data-uri');
-
-        if (
-            !currentUrl.includes('/category') ||
-            !currentUrl.includes('/hashtag') ||
-            !currentUrl.includes('/date') ||
-            !currentUrl.includes('?article_data_keyword_filter')
-        ) {
-            // 親要素のdata-uri属性をURLに追加して遷移
-            const newUrl = currentUrl + dataUri;
-            window.location.href = newUrl;
-            $('#js-date input[type="radio"]').prop('checked', false);
-        } else if (currentUrl.includes('/hashtag')) {
-            // URLの/hashtag以降を親要素のdata-uri属性に置き換えて遷移
-            const regex = /(\/hashtag)[^\/]*/;
-            const newUrl = currentUrl.replace(regex, '$1' + dataUri);
-            window.location.href = newUrl;
-        } else if (currentUrl.includes('?article_data_keyword_filter') || currentUrl.includes('/date')) {
-            // URLの/hashtag以降を削除して親要素のdata-uri属性を追加して遷移
-            const regex = /(\/hashtag)[^\/]*|(\?article_data_keyword_filter=[^&]*)|(\/date[^\/]*)/;
-            const newUrl = currentUrl.replace(regex, '') + dataUri;
-            window.location.href = newUrl;
-        } else {
-            // 通常の遷移
-            return;
-        }
-    });
-
-    // #js-date ラジオボタンをクリックしたときの処理
-    $('#js-date input[type="radio"]').on('click', function() {
-        const currentUrl = window.location.href;
-        const dataUri = $(this).closest('li').attr('data-uri');
-
-        if (
-            !currentUrl.includes('/category') ||
-            !currentUrl.includes('/hashtag') ||
-            !currentUrl.includes('/date') ||
-            !currentUrl.includes('?article_data_keyword_filter')
-        ) {
-            // 親要素のdata-uri属性をURLに追加して遷移
-            const newUrl = currentUrl + dataUri;
-            window.location.href = newUrl;
-            $('#js-hashtag input[type="radio"]').prop('checked', false);
-        } else if (currentUrl.includes('/date')) {
-            // URLの/date以降を親要素のdata-uri属性に置き換えて遷移
-            const regex = /\/date[^\/]*/;
-            const newUrl = currentUrl.replace(regex, dataUri);
-            window.location.href = newUrl;
-        } else if (currentUrl.includes('?article_data_keyword_filter') || currentUrl.includes('/hashtag')) {
-            // URLの/date以降を削除して親要素のdata-uri属性を追加して遷移
-            const regex = /\/date[^\/]*|(\?article_data_keyword_filter=[^&]*)|(#hashtag[^\/]*)/;
-            const newUrl = currentUrl.replace(regex, '') + dataUri;
-            window.location.href = newUrl;
-        } else {
-            // 通常の遷移
-            return;
-        }
-    });
-});
-
-
-{/* <ul id="js-category">
-  <li><a href="/features/category" data-uri="/category">すべて</a></li>
-  <li><a href="/features/category/wear" data-uri="/category/wear">衣</a></li>
-  <li><a href="/features/category/food" data-uri="/category/food">食</a></li>
-</ul>
-
-<ul id="js-category-another">
-  <li data-uri="/category">
-    <input type="radio" id="category1" name="feature_category" value="">
-    <label for="category1" class="unt-features-side-archive-label">すべて</label>
-  </li>
-  <li data-uri="/category/wear">
-    <input type="radio" id="category2" name="feature_category" value="">
-    <label for="category2" class="unt-features-side-archive-label">衣</label></li>
-  <li data-uri="/category/food">
-    <input type="radio" id="category3" name="feature_category" value="">
-    <label for="category3" class="unt-features-side-archive-label">食</label></li>
-</ul>
-
-<form action="/features" method="POST" name="genreForm">
-  <div class="unt-features-side-search">
-    <input type="text" id="js-search-keyword" maxlength="100" size="30" name="article_data_keyword_filter" value="" placeholder="検索キーワード">
-    <input type="submit" name="cmdArticleSearch" value="検索">
-  </div>
-</form>
-
-<ul id="js-hashtag">
-  <li data-uri="/cook">
-    <input type="radio" id="hashtag_cook" name="feature_key_category" value="">
-    <label for="hashtag_cook" class="unt-features-side-keywords-label">#料理</label>
-  </li>
-  <li data-uri="/outdoor">
-    <input type="radio" id="hashtag_outdoor" name="feature_key_category" value="">
-    <label for="hashtag_outdoor" class="unt-features-side-keywords-label">#アウトドア</label>
-  </li>
-</ul>
-
-<ul id="js-date">
-  <li data-uri="/date/2023/07">
-    <input type="radio" id="archive1" name="feature_archive" value="">
-    <label for="archive1" class="unt-features-side-archive-label">2023年07月（<span class="num">9</span>）</label>
-  </li>
-  <li data-uri="/date/2023/06">
-    <input type="radio" id="archive2" name="feature_archive" value="">
-    <label for="archive2" class="unt-features-side-archive-label">2023年06月（<span class="num">1</span>）</label>
-  </li>
-  <li data-uri="/date">
-    <input type="radio" id="archive0" name="feature_archive" value="">
-    <label for="archive0" class="unt-features-side-archive-label">すべて</label>
-  </li>
-</ul> */}
