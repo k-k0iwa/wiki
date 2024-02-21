@@ -598,11 +598,11 @@ jQuery(function(){
             jQuery('.block-header-search--keyword').blur();
 
 
-            setTimeout(function () {
+            requestAnimationFrame(function () {
                 jQuery('.query-search-modal').one('transitionend', function () {
                     jQuery('.query-keyword-input').focus();
                 });
-            }, 200);
+            });
     });
     // 検索モーダル閉じる
     jQuery(document).on('click','.detail-search-modal--close',function(){
