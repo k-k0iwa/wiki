@@ -591,7 +591,7 @@ jQuery(function(){
     })
 
     //検索モーダル開く
-    jQuery('.query-search-modal').attr('onClick', 'focusInput()');
+    jQuery('.footer-bottom-nav--search').attr('onClick', 'focusInput()');
     function focusInput() {
         jQuery('.query-keyword-input').focus();
     }
