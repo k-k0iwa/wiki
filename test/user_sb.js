@@ -596,7 +596,11 @@ jQuery(function(){
             jQuery('body').css('overflow', 'hidden');
             jQuery('.query-search-modal').addClass('active');
             jQuery('.block-header-search--keyword').blur();
-            jQuery('.query-keyword-input').focus();
+
+
+            jQuery('.query-search-modal').one('transitionend', function () {
+                jQuery('.query-keyword-input').focus();
+            });
     });
     // 検索モーダル閉じる
     jQuery(document).on('click','.detail-search-modal--close',function(){
