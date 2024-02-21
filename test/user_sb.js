@@ -591,6 +591,10 @@ jQuery(function(){
     })
 
     //検索モーダル開く
+    jQuery('.query-search-modal').attr('onClick', 'focusInput()');
+    function focusInput() {
+        jQuery('.query-keyword-input').focus();
+    }
     jQuery(document).on('click','.header-detail-search-modal-trigger',function(e){
         e.preventDefault();
             jQuery('body').css('overflow', 'hidden');
@@ -598,11 +602,11 @@ jQuery(function(){
             jQuery('.block-header-search--keyword').blur();
 
 
-            requestAnimationFrame(function () {
-                jQuery('.query-search-modal').one('transitionend', function () {
-                    jQuery('.query-keyword-input').focus();
-                });
-            });
+            // requestAnimationFrame(function () {
+            //     jQuery('.query-search-modal').one('transitionend', function () {
+            //         jQuery('.query-keyword-input').focus();
+            //     });
+            // });
     });
     // 検索モーダル閉じる
     jQuery(document).on('click','.detail-search-modal--close',function(){
