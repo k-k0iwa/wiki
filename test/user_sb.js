@@ -598,9 +598,11 @@ jQuery(function(){
             jQuery('.block-header-search--keyword').blur();
 
 
-            jQuery('.query-search-modal').one('transitionend', function () {
-                jQuery('.query-keyword-input').focus();
-            });
+            setTimeout(function () {
+                // jQuery('.query-search-modal').one('transitionend', function () {
+                    jQuery('.query-keyword-input').focus();
+                // });
+            }, 300);
     });
     // 検索モーダル閉じる
     jQuery(document).on('click','.detail-search-modal--close',function(){
