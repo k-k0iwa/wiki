@@ -641,57 +641,59 @@ jQuery(function(){
     });
 
     // ここから追加
+    // ターゲット要素を取得
     var targetElement = document.querySelector('.query-search-modal');
+
+    // クラスが変更された時のコールバック関数
     var callback = function (mutationsList) {
-        for (var mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                if (targetElement.classList.contains('active')) {
-                    // 0.5秒後にフォーカスを当てる
-                    // setTimeout(function () {
-                        // jQuery('.query-keyword-input').focus();
-                    // }, 500);
-                    delayWithAnimationFrame();
-                }
-            }
+    for (var mutation of mutationsList) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        // .active クラスが追加された場合
+        if (targetElement.classList.contains('active')) {
+            // 遅延実行を開始
+            delayWithAnimationFrame();
         }
+        }
+    }
     };
+
+    // MutationObserverの作成と設定
     var observer = new MutationObserver(callback);
     var config = { attributes: true, childList: false, subtree: false };
+
+    // ターゲットノードとオブザーバの設定を開始
     observer.observe(targetElement, config);
 
-    // 遅延させたい秒数
+    // 遅延させたい秒数（例: 0.5秒）
     var delayInSeconds = 0.5;
 
+    // イベントの遅延実行
     function delayedEvent() {
-        jQuery('.query-keyword-input').focus();
+    jQuery('.query-keyword-input').focus();
     }
 
     // requestAnimationFrameを使用して遅延実行
     function delayWithAnimationFrame() {
-        var startTime;
+    var startTime;
 
-        function animate(currentTime) {
-            if (!startTime) {
-            startTime = currentTime;
-            }
-
-            var elapsedSeconds = (currentTime - startTime) / 1000;
-
-            if (elapsedSeconds < delayInSeconds) {
-            // まだ遅延中
-                requestAnimationFrame(animate);
-            } else {
-            // 遅延後の処理
-                delayedEvent();
-            }
+    function animate(currentTime) {
+        if (!startTime) {
+        startTime = currentTime;
         }
 
+        var elapsedSeconds = (currentTime - startTime) / 1000;
+
+        if (elapsedSeconds < delayInSeconds) {
+        // まだ遅延中
         requestAnimationFrame(animate);
+        } else {
+        // 遅延後の処理
+        delayedEvent();
+        }
     }
 
-    // 遅延実行を開始
-    // delayWithAnimationFrame();
-
+    requestAnimationFrame(animate);
+    }
     // ここまで追加
 
 
