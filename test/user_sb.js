@@ -641,64 +641,19 @@ jQuery(function(){
     });
 
     // ここから追加
-    var targetElement = document.querySelector('.query-search-modal');
-    var footerSearchElement = document.querySelector('.footer-bottom-nav--search');
-
-    // クラスが変更された時のコールバック関数
-    var callback = function (mutationsList) {
-    for (var mutation of mutationsList) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        // .active クラスが追加された場合
-        if (targetElement.classList.contains('active')) {
-            // 遅延実行を開始
-            delayWithAnimationFrame();
-        }
-        }
-    }
+    var focusTextField = function(){
+        console.log("focusElement");
     };
-
-    // MutationObserverの作成と設定
-    var observer = new MutationObserver(callback);
-    var config = { attributes: true, childList: false, subtree: false };
-
-    // ターゲットノードとオブザーバの設定を開始
-    observer.observe(targetElement, config);
-
-    // .footer-bottom-nav--search要素にクリックイベントリスナーを追加
-    footerSearchElement.addEventListener('click', function () {
-    delayedEvent();
-    });
-
-    // 遅延させたい秒数（例: 0.5秒）
-    var delayInSeconds = 0.5;
-
-    // イベントの遅延実行
-    function delayedEvent() {
-    jQuery('.query-keyword-input').focus();
-    }
-
-    // requestAnimationFrameを使用して遅延実行
-    function delayWithAnimationFrame() {
-    var startTime;
-
-    function animate(currentTime) {
-        if (!startTime) {
-        startTime = currentTime;
+    var onClickHandler = function(){
+        var nowTime = (new Date()).getTime();
+        var endTime = (new Date()).getTime() + 1000; //1000ms
+        while(nowTime < endTime) {
+            nowTime = (new Date()).getTime();
         }
-
-        var elapsedSeconds = (currentTime - startTime) / 1000;
-
-        if (elapsedSeconds < delayInSeconds) {
-        // まだ遅延中
-        requestAnimationFrame(animate);
-        } else {
-        // 遅延後の処理
-        delayedEvent();
-        }
-    }
-
-    requestAnimationFrame(animate);
-    }
+        jQuery('.query-keyword-input').focus();
+    };
+    jQuery('.query-keyword-input').bind('focus', focusTextField);
+    jQuery('.footer-bottom-nav--search').bind('click', onClickHandler);
     // ここまで追加
 
 
