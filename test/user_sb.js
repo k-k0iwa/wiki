@@ -623,9 +623,9 @@ jQuery(function(){
       }
       
       // Usage example
-      var myElement = document.querySelector('.query-keyword-input');
-      var modalFadeInDuration = 300;
-      focusAndOpenKeyboard(myElement, modalFadeInDuration);
+    //   var myElement = document.querySelector('.query-keyword-input');
+    //   var modalFadeInDuration = 300;
+    //   focusAndOpenKeyboard(myElement, modalFadeInDuration);
     jQuery(document).on('click','.header-detail-search-modal-trigger',function(e){
         e.preventDefault();
             jQuery('body').css('overflow', 'hidden');
@@ -642,6 +642,12 @@ jQuery(function(){
             jQuery('.query-keyword-input').focus();
             jQuery('.query-search-modal').addClass('active');
             // jQuery('.block-header-search--keyword').blur();
+            // キーボードを除いた高さを取得
+            var keyboardExcludedHeight = window.visualViewport.height;
+            jQuery('.query-search-modal').css('top', 'calc(100vh - ' + keyboardExcludedHeight + 'px)');
+            setTimeout(function() {
+                jQuery('.query-search-modal').css('top', '0');
+            }, 1000);
     });
 
     // ここから追加
