@@ -644,16 +644,15 @@ jQuery(function(){
     var focusTextField = function(){
         console.log("focusElement");
     };
-    var onClickHandler = function(){
-        var nowTime = (new Date()).getTime();
-        var endTime = (new Date()).getTime() + 1000; //1000ms
-        while(nowTime < endTime) {
-            nowTime = (new Date()).getTime();
-        }
+    var onKeypressHandler = function(){
         jQuery('.query-keyword-input').focus();
     };
-    jQuery('.query-keyword-input').bind('focus', focusTextField);
-    jQuery('.footer-bottom-nav--search').bind('click', onClickHandler);
+    var onClickHandler = function(){
+        jQuery(document).trigger('keypress','.header-detail-search-modal-trigger');
+    };
+    jQuery(document).on('focus','.query-keyword-input', focusTextField);
+    jQuery(document).on('click','.header-detail-search-modal-trigger', onClickHandler);
+    jQuery(document).on('keypress','.header-detail-search-modal-trigger', onKeypressHandler);
     // ここまで追加
 
 
