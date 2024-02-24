@@ -644,7 +644,8 @@ jQuery(function(){
             // jQuery('.block-header-search--keyword').blur();
             // キーボードを除いた高さを取得
             var keyboardExcludedHeight = window.visualViewport.height;
-            var keyboardExcludedHeight2 = 'calc(100vh - ' + keyboardExcludedHeight + 'px)';
+            var numericKeyboardExcludedHeight = parseFloat(keyboardExcludedHeight);
+            var keyboardExcludedHeight2 = 'calc(100vh - ' + numericKeyboardExcludedHeight + 'px)';
             jQuery('.query-search-modal').css('transform', 'translate3d(0, ' + keyboardExcludedHeight2 + ', 0)');
             // setTimeout(function() {
             //     jQuery('.query-search-modal').css('top', '0');
