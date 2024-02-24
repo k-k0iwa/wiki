@@ -638,10 +638,10 @@ jQuery(function(){
             //         jQuery('.query-keyword-input').focus();
             //     });
             // });
-            jQuery('.query-search-modal').css('position', 'sticky');
-            jQuery('.query-search-modal').addClass('active');
-            jQuery('.block-header-search--keyword').blur();
+
             jQuery('.query-keyword-input').focus();
+            jQuery('.query-search-modal').addClass('active');
+            // jQuery('.block-header-search--keyword').blur();
     });
 
     // ここから追加
