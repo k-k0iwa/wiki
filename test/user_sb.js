@@ -641,8 +641,8 @@ jQuery(function(){
     });
 
     // ここから追加
-    // ターゲット要素を取得
     var targetElement = document.querySelector('.query-search-modal');
+    var footerSearchElement = document.querySelector('.footer-bottom-nav--search');
 
     // クラスが変更された時のコールバック関数
     var callback = function (mutationsList) {
@@ -663,6 +663,11 @@ jQuery(function(){
 
     // ターゲットノードとオブザーバの設定を開始
     observer.observe(targetElement, config);
+
+    // .footer-bottom-nav--search要素にクリックイベントリスナーを追加
+    footerSearchElement.addEventListener('click', function () {
+    delayedEvent();
+    });
 
     // 遅延させたい秒数（例: 0.5秒）
     var delayInSeconds = 0.5;
