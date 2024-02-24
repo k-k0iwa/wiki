@@ -646,7 +646,7 @@ jQuery(function(){
             var keyboardExcludedHeight = window.visualViewport.height;
             var numericKeyboardExcludedHeight = parseFloat(keyboardExcludedHeight);
             var keyboardExcludedHeight2 = 'calc(100vh - ' + numericKeyboardExcludedHeight + 'px)';
-            jQuery('.query-search-modal').css('transform', 'translate3d(0, ' + keyboardExcludedHeight2 + ', 0)');
+            jQuery('.query-search-modal').css('transform', 'translate3d(0px, ' + (-numericKeyboardExcludedHeight) + 'px, 0px)');
             // setTimeout(function() {
             //     jQuery('.query-search-modal').css('top', '0');
             // }, 1000);
