@@ -629,8 +629,8 @@ jQuery(function(){
     jQuery(document).on('click','.header-detail-search-modal-trigger',function(e){
         e.preventDefault();
             jQuery('body').css('overflow', 'hidden');
-            jQuery('.query-search-modal').addClass('active');
-            jQuery('.block-header-search--keyword').blur();
+            // jQuery('.query-search-modal').addClass('active');
+            // jQuery('.block-header-search--keyword').blur();
 
 
             // requestAnimationFrame(function () {
@@ -638,21 +638,14 @@ jQuery(function(){
             //         jQuery('.query-keyword-input').focus();
             //     });
             // });
+            jQuery('.query-search-modal').css('position', 'sticky');
+            jQuery('.query-search-modal').addClass('active');
+            jQuery('.block-header-search--keyword').blur();
+            jQuery('.query-keyword-input').focus();
     });
 
     // ここから追加
-    var focusTextField = function(){
-        console.log("focusElement");
-    };
-    var onKeypressHandler = function(){
-        jQuery('.query-keyword-input').focus();
-    };
-    var onClickHandler = function(){
-        jQuery(document).trigger('keypress','.header-detail-search-modal-trigger');
-    };
-    jQuery(document).on('focus','.query-keyword-input', focusTextField);
-    jQuery(document).on('click','.header-detail-search-modal-trigger', onClickHandler);
-    jQuery(document).on('keypress','.header-detail-search-modal-trigger', onKeypressHandler);
+
     // ここまで追加
 
 
