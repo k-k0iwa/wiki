@@ -638,6 +638,10 @@ jQuery(function(){
             //         jQuery('.query-keyword-input').focus();
             //     });
             // });
+
+            setTimeout(function () {
+                jQuery('.query-keyword-input').click();
+            }, 500);
     });
     // 検索モーダル閉じる
     jQuery(document).on('click','.detail-search-modal--close',function(){
