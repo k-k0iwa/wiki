@@ -648,8 +648,9 @@ jQuery(function(){
                 if (targetElement.classList.contains('active')) {
                     // 0.5秒後にフォーカスを当てる
                     // setTimeout(function () {
-                        jQuery('.query-keyword-input').focus();
+                        // jQuery('.query-keyword-input').focus();
                     // }, 500);
+                    delayWithAnimationFrame();
                 }
             }
         }
@@ -657,6 +658,40 @@ jQuery(function(){
     var observer = new MutationObserver(callback);
     var config = { attributes: true, childList: false, subtree: false };
     observer.observe(targetElement, config);
+
+    // 遅延させたい秒数
+    var delayInSeconds = 0.5;
+
+    function delayedEvent() {
+        jQuery('.query-keyword-input').focus();
+    }
+
+    // requestAnimationFrameを使用して遅延実行
+    function delayWithAnimationFrame() {
+        var startTime;
+
+        function animate(currentTime) {
+            if (!startTime) {
+            startTime = currentTime;
+            }
+
+            var elapsedSeconds = (currentTime - startTime) / 1000;
+
+            if (elapsedSeconds < delayInSeconds) {
+            // まだ遅延中
+                requestAnimationFrame(animate);
+            } else {
+            // 遅延後の処理
+                delayedEvent();
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    // 遅延実行を開始
+    // delayWithAnimationFrame();
+
     // ここまで追加
 
 
