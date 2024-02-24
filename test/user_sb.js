@@ -638,11 +638,38 @@ jQuery(function(){
             //         jQuery('.query-keyword-input').focus();
             //     });
             // });
-
-            setTimeout(function () {
-                jQuery('.query-keyword-input').click();
-            }, 500);
     });
+
+    // ここから追加
+    var targetElement = document.querySelector('.query-search-modal');
+    var callback = function (mutationsList) {
+        for (var mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                if (targetElement.classList.contains('active')) {
+                    // 0.5秒後にフォーカスを当てる
+                    // setTimeout(function () {
+                        jQuery('.query-keyword-input').focus();
+                    // }, 500);
+                }
+            }
+        }
+    };
+    var observer = new MutationObserver(callback);
+    var config = { attributes: true, childList: false, subtree: false };
+    observer.observe(targetElement, config);
+    // ここまで追加
+
+
+
+
+
+
+
+
+
+
+
+
     // 検索モーダル閉じる
     jQuery(document).on('click','.detail-search-modal--close',function(){
         jQuery('body').css('overflow', '');
