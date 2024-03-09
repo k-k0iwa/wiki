@@ -590,80 +590,43 @@ jQuery(function(){
         jQuery('.query-search-modal').css('display','block');
     })
 
+
+
     //検索モーダル開く
-    // jQuery('.footer-bottom-nav--search').attr('onClick', 'focusInput()');
-    // function focusInput() {
-    //     jQuery('.query-keyword-input').focus();
-    // }
-    function focusAndOpenKeyboard(el, timeout) {
-        if(!timeout) {
-          timeout = 100;
-        }
-        if(el) {
-          // Align temp input element approximately where the input element is
-          // so the cursor doesn't jump around
-          var __tempEl__ = document.createElement('input');
-          __tempEl__.style.position = 'absolute';
-          __tempEl__.style.top = (el.offsetTop + 7) + 'px';
-          __tempEl__.style.left = el.offsetLeft + 'px';
-          __tempEl__.style.height = 0;
-          __tempEl__.style.opacity = 0;
-          // Put this temp element as a child of the page <body> and focus on it
-          document.body.appendChild(__tempEl__);
-          __tempEl__.focus();
-      
-          // The keyboard is open. Now do a delayed focus on the target element
-          setTimeout(function() {
-            el.focus();
-            el.click();
-            // Remove the temp element
-            document.body.removeChild(__tempEl__);
-          }, timeout);
-        }
-      }
-      
-      // Usage example
-    //   var myElement = document.querySelector('.query-keyword-input');
-    //   var modalFadeInDuration = 300;
-    //   focusAndOpenKeyboard(myElement, modalFadeInDuration);
-    jQuery(document).on('click','.header-detail-search-modal-trigger',function(e){
+    // jQuery(document).on('click','.header-detail-search-modal-trigger',function(e){
+    //     e.preventDefault();
+    //         jQuery('body').css('overflow', 'hidden');
+    //         jQuery('.query-search-modal').addClass('active');
+    //         jQuery('.block-header-search--keyword').blur();
+    // });
+
+
+    // ここから追記
+    var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
+    jQuery(document).on('click', '.header-detail-search-modal-trigger', function (e) {
         e.preventDefault();
-            jQuery('body').css('overflow', 'hidden');
-            // jQuery('.query-search-modal').addClass('active');
-            // jQuery('.block-header-search--keyword').blur();
 
+        // iPhoneの場合のみ対応
+        if (isiPhone) {
+        // バーチャルキーボードが開く前にモーダルの高さを固定
+            var modalHeight = jQuery('.query-search-modal').outerHeight();
+            jQuery('.query-search-modal').css('height', modalHeight);
+        }
 
-            // requestAnimationFrame(function () {
-            //     jQuery('.query-search-modal').one('transitionend', function () {
-            //         jQuery('.query-keyword-input').focus();
-            //     });
-            // });
+        jQuery('.query-search-modal').addClass('active');
+        jQuery('.block-header-search--keyword').blur();
 
-            jQuery('.query-keyword-input').focus();
-            jQuery('.query-search-modal').addClass('active');
-            // jQuery('.block-header-search--keyword').blur();
-            // キーボードを除いた高さを取得
-            var keyboardExcludedHeight = window.visualViewport.height;
-            var numericKeyboardExcludedHeight = parseFloat(keyboardExcludedHeight);
-            var keyboardExcludedHeight2 = 'calc(100vh - ' + numericKeyboardExcludedHeight + 'px)';
-            jQuery('.query-search-modal').css('transform', 'translate3d(0px, ' + (-keyboardExcludedHeight2) + 'px, 0px)');
-            // setTimeout(function() {
-            //     jQuery('.query-search-modal').css('top', '0');
-            // }, 1000);
+        // バーチャルキーボードが開く前にフォーカスを当てる
+        jQuery('.query-keyword-input').focus();
     });
 
-    // ここから追加
-
-    // ここまで追加
-
-
-
-
-
-
-
-
-
+    // バーチャルキーボードが閉じられたときにモーダルの高さを戻す
+    if (isiPhone) {
+        window.addEventListener('blur', function () {
+            jQuery('.query-search-modal').css('height', 'auto');
+        });
+    }
+    //ここまで追記
 
 
 
