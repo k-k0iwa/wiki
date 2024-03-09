@@ -612,18 +612,16 @@ jQuery(function(){
 
         jQuery('.query-keyword-input').focus();
 
-        // .header-detail-search-modal-trigger をクリックしたときのみ registerPushupEvent() を実行
-        if (!pushupEventRegistered) {
-            registerPushupEvent();
-            pushupEventRegistered = true; // フラグを立てる
-        }
+
+        pushupEventRegistered = true;
+        registerPushupEvent();
     });
 
     function registerPushupEvent() {
         if (!/iPhone|iPad|iPod/.test(navigator.userAgent)) return;
 
         visualViewport.addEventListener("resize", function () {
-            if (jQuery('.query-search-modal').hasClass('active')) {
+            if (jQuery('.query-search-modal').hasClass('active') && pushupEventRegistered) {
                 const keyboardHeight = window.innerHeight - visualViewport.height;
                 const topValue = keyboardHeight === 0 ? "" : `${keyboardHeight}px`;
 
@@ -639,6 +637,7 @@ jQuery(function(){
         if (currentTopValue !== 0) {
             querySearchModal.css('top', '0');
         }
+        pushupEventRegistered = false;
     });
     //ここまで追記
 
