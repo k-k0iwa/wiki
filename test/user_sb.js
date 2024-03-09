@@ -603,27 +603,39 @@ jQuery(function(){
 
     // ここから追記
     var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
+    var scrollPosition = 0;
+
     jQuery(document).on('click', '.header-detail-search-modal-trigger', function (e) {
         e.preventDefault();
 
-        // iPhoneの場合のみ対応
         if (isiPhone) {
-        // バーチャルキーボードが開く前にモーダルの高さを固定
-            var modalHeight = jQuery('.query-search-modal').outerHeight();
-            jQuery('.query-search-modal').css('height', modalHeight);
+            // バーチャルキーボードが開く前にスクロール位置を保存
+            scrollPosition = window.scrollY;
         }
 
         jQuery('.query-search-modal').addClass('active');
-        jQuery('.block-header-search--keyword').blur();
 
         // バーチャルキーボードが開く前にフォーカスを当てる
         jQuery('.query-keyword-input').focus();
+
+        if (isiPhone) {
+            // iPhoneの場合、モーダルをスクロール位置に固定
+            jQuery('.query-search-modal').css({
+                'position': 'absolute',
+                'top': scrollPosition + 'px',
+                'width': '100%', // 画面全体を覆うために横幅を100%に設定
+                'height': '100%' // 画面全体を覆うために高さを100%に設定
+            });
+        }
     });
 
-    // バーチャルキーボードが閉じられたときにモーダルの高さを戻す
+    // iPhoneの場合のみ、バーチャルキーボードが閉じられたときにモーダルの位置を戻す
     if (isiPhone) {
         window.addEventListener('blur', function () {
-            jQuery('.query-search-modal').css('height', 'auto');
+            jQuery('.query-search-modal').css({
+                'position': 'fixed',
+                'top': '0'
+            });
         });
     }
     //ここまで追記
