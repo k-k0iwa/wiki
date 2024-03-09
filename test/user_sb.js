@@ -612,9 +612,11 @@ jQuery(function(){
 
         jQuery('.query-keyword-input').focus();
 
-
         pushupEventRegistered = true;
-        registerPushupEvent();
+        if (!window.pushupEventListenerAdded) {
+            window.pushupEventListenerAdded = true;
+            registerPushupEvent();
+        }
     });
 
     function registerPushupEvent() {
