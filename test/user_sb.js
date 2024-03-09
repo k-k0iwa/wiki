@@ -603,39 +603,31 @@ jQuery(function(){
 
     // ここから追記
     var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
-    var scrollPosition = 0;
+    var keyboardHeight = 0; // キーボードの高さを保存する変数
 
     jQuery(document).on('click', '.header-detail-search-modal-trigger', function (e) {
         e.preventDefault();
-
-        if (isiPhone) {
-            // バーチャルキーボードが開く前にスクロール位置を保存
-            scrollPosition = window.scrollY;
-        }
-
+        jQuery('body').css('overflow', 'hidden');
         jQuery('.query-search-modal').addClass('active');
+        jQuery('.block-header-search--keyword').blur();
 
         // バーチャルキーボードが開く前にフォーカスを当てる
         jQuery('.query-keyword-input').focus();
 
         if (isiPhone) {
-            // iPhoneの場合、モーダルをスクロール位置に固定
-            jQuery('.query-search-modal').css({
-                'position': 'absolute',
-                'top': scrollPosition + 'px',
-                'width': '100%', // 画面全体を覆うために横幅を100%に設定
-                'height': '100%' // 画面全体を覆うために高さを100%に設定
-            });
+            keyboardHeight = window.innerHeight - visualViewport.height;
+            var scrollPosition = window.scrollY + keyboardHeight;
+            jQuery('.query-search-modal').css('top', -scrollPosition + 'px');
+console.log('keyboardHeight', keyboardHeight);
+console.log('scrollPosition', scrollPosition);
+console.log('window.scrollY', window.scrollY);
         }
     });
 
     // iPhoneの場合のみ、バーチャルキーボードが閉じられたときにモーダルの位置を戻す
     if (isiPhone) {
         window.addEventListener('blur', function () {
-            jQuery('.query-search-modal').css({
-                'position': 'fixed',
-                'top': '0'
-            });
+            jQuery('.query-search-modal').css('top', '0');
         });
     }
     //ここまで追記
