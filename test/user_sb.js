@@ -602,9 +602,6 @@ jQuery(function(){
 
 
     // ここから追記
-    var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
-    var keyboardHeight = 0; // キーボードの高さを保存する変数
-
     jQuery(document).on('click', '.header-detail-search-modal-trigger', function (e) {
         e.preventDefault();
         jQuery('body').css('overflow', 'hidden');
@@ -612,38 +609,32 @@ jQuery(function(){
         jQuery('.block-header-search--keyword').blur();
 
         jQuery('.query-keyword-input').focus();
-
-        if (isiPhone) {
-            // モーダル表示時にキーボードの高さを取得
-            keyboardHeight = window.innerHeight - visualViewport.height;
-            // キーボードが開いたときの処理
-            keyboardOpenHandler();
-        }
     });
 
-    // iPhoneの場合のみ、バーチャルキーボードが閉じられたときにモーダルの位置を戻す
-    if (isiPhone) {
-        window.addEventListener('focusout', function (event) {
-            // フォーカスが外れたときにキーボードが閉じられたとみなす
-            keyboardCloseHandler();
-        });
+    var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
 
-        window.addEventListener('focusin', function (event) {
-            // フォーカスが戻ってきたときにキーボードが開かれたとみなす
-            keyboardOpenHandler();
-        });
+    // キーボードを除いたウィンドウの高さを更新する関数
+    function updateWindowHeight() {
+        var keyboardHeight = window.innerHeight - visualViewport.height;
+
+        // .query-search-modal に .active が付与されており、iPhoneの場合のみ top の値を設定
+        if (isiPhone && jQuery('.query-search-modal').hasClass('active')) {
+            jQuery('.query-search-modal').css('top', -keyboardHeight + 'px');
+        }
+
+console.log('window.innerHeight', window.innerHeight);
+console.log('visualViewport.height', visualViewport.height);
+console.log('Keyboard height:', keyboardHeight);
     }
 
-    // キーボードが開かれたときの処理
-    function keyboardOpenHandler() {
-        var scrollPosition = window.scrollY + keyboardHeight;
-        jQuery('.query-search-modal').css('top', -scrollPosition + 'px');
-    }
+    // 初回の取得
+    updateWindowHeight();
 
-    // キーボードが閉じられたときの処理
-    function keyboardCloseHandler() {
-        jQuery('.query-search-modal').css('top', '0');
-    }
+    // resizeイベントにリスナーを追加
+    window.addEventListener('resize', function () {
+        // ウィンドウのリサイズが発生したときに再度高さを取得
+        updateWindowHeight();
+    });
     //ここまで追記
 
 
