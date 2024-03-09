@@ -611,16 +611,14 @@ jQuery(function(){
         jQuery('.query-search-modal').addClass('active');
         jQuery('.block-header-search--keyword').blur();
 
-        // バーチャルキーボードが開く前にフォーカスを当てる
         jQuery('.query-keyword-input').focus();
 
         if (isiPhone) {
             keyboardHeight = window.innerHeight - visualViewport.height;
             var scrollPosition = window.scrollY + keyboardHeight;
             jQuery('.query-search-modal').css('top', -scrollPosition + 'px');
-console.log('keyboardHeight', keyboardHeight);
-console.log('scrollPosition', scrollPosition);
-console.log('window.scrollY', window.scrollY);
+console.log('window.innerHeight', window.innerHeight);
+console.log('visualViewport.height', visualViewport.height);
         }
     });
 
