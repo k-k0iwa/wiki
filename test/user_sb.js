@@ -633,10 +633,12 @@ jQuery(function(){
         visualViewport.addEventListener("resize", function () {
 console.log('window.innerHeight', window.innerHeight);
 console.log('visualViewport.height', visualViewport.height);
-console.log('keyboardHeight', keyboardHeight);
             if (jQuery('.query-search-modal').hasClass('active')) {
                 const keyboardHeight = window.innerHeight - visualViewport.height;
+console.log('keyboardHeight', keyboardHeight);
                 const topValue = keyboardHeight === 0 ? "" : `${keyboardHeight}px`;
+console.log('topValue', topValue);
+console.log('EL', jQuery('.query-search-modal'));
                 jQuery('.query-search-modal').css('top', topValue);
             }
         });
