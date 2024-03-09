@@ -609,42 +609,21 @@ jQuery(function(){
         jQuery('.block-header-search--keyword').blur();
 
         jQuery('.query-keyword-input').focus();
+        registerPushupEvent();
     });
-
-//     var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
-//     // visualViewportのresizeイベントをリッスン
-//     visualViewport.addEventListener("resize", function () {
-//         // キーボードの高さを計算
-//         const keyboardHeight = window.innerHeight - visualViewport.height;
-
-//         // .query-search-modal に .active が付与されており、iPhoneの場合のみ top の値を設定
-//         if (isiPhone && jQuery('.query-search-modal').hasClass('active')) {
-//             jQuery('.query-search-modal').css('top', -keyboardHeight + 'px');
-//         }
-
-// console.log('window.innerHeight:', window.innerHeight);
-// console.log('visualViewport.height:', visualViewport.height);
-// console.log('keyboardHeight:', keyboardHeight);
-//     });
 
     function registerPushupEvent() {
         if (!/iPhone|iPad|iPod/.test(navigator.userAgent)) return;
 
         visualViewport.addEventListener("resize", function () {
-console.log('window.innerHeight', window.innerHeight);
-console.log('visualViewport.height', visualViewport.height);
             if (jQuery('.query-search-modal').hasClass('active')) {
                 const keyboardHeight = window.innerHeight - visualViewport.height;
-console.log('keyboardHeight', keyboardHeight);
                 const topValue = keyboardHeight === 0 ? "" : `${keyboardHeight}px`;
-console.log('topValue', topValue);
-console.log('EL', jQuery('.query-search-modal'));
+console.log('visualViewport.height', visualViewport.height);
                 jQuery('.query-search-modal').css('top', topValue);
             }
         });
     }
-
-    registerPushupEvent();
     //ここまで追記
 
 
