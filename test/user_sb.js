@@ -611,21 +611,38 @@ jQuery(function(){
         jQuery('.query-keyword-input').focus();
     });
 
-    var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
-    // visualViewportのresizeイベントをリッスン
-    visualViewport.addEventListener("resize", function () {
-        // キーボードの高さを計算
-        const keyboardHeight = window.innerHeight - visualViewport.height;
+//     var isiPhone = /(iPhone|iPod)/.test(navigator.userAgent);
+//     // visualViewportのresizeイベントをリッスン
+//     visualViewport.addEventListener("resize", function () {
+//         // キーボードの高さを計算
+//         const keyboardHeight = window.innerHeight - visualViewport.height;
 
-        // .query-search-modal に .active が付与されており、iPhoneの場合のみ top の値を設定
-        if (isiPhone && jQuery('.query-search-modal').hasClass('active')) {
-            jQuery('.query-search-modal').css('top', -keyboardHeight + 'px');
-        }
+//         // .query-search-modal に .active が付与されており、iPhoneの場合のみ top の値を設定
+//         if (isiPhone && jQuery('.query-search-modal').hasClass('active')) {
+//             jQuery('.query-search-modal').css('top', -keyboardHeight + 'px');
+//         }
 
-console.log('window.innerHeight:', window.innerHeight);
-console.log('visualViewport.height:', visualViewport.height);
-console.log('keyboardHeight:', keyboardHeight);
-    });
+// console.log('window.innerHeight:', window.innerHeight);
+// console.log('visualViewport.height:', visualViewport.height);
+// console.log('keyboardHeight:', keyboardHeight);
+//     });
+
+    function registerPushupEvent() {
+        if (!/iPhone|iPad|iPod/.test(navigator.userAgent)) return;
+
+        visualViewport.addEventListener("resize", function () {
+console.log('window.innerHeight', window.innerHeight);
+console.log('visualViewport.height', visualViewport.height);
+console.log('keyboardHeight', keyboardHeight);
+            if (jQuery('.query-search-modal').hasClass('active')) {
+                const keyboardHeight = window.innerHeight - visualViewport.height;
+                const topValue = keyboardHeight === 0 ? "" : `${keyboardHeight}px`;
+                jQuery('.query-search-modal').css('top', topValue);
+            }
+        });
+    }
+
+    registerPushupEvent();
     //ここまで追記
 
 
